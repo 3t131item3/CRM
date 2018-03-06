@@ -1,0 +1,51 @@
+
+----------------- sales 销售管理---------                                               ---------------------------client 客户管理-----------------------------------
+
+achievement.jsp        销售绩效								resource.jsp                   客户资源管理
+
+analysis.jsp           销售分析								develop.jsp			客户发展计划
+
+chance.jsp             机会管理								value.jsp			客户价值管理
+
+compete.jsp	       竞争管理								satisfaction.jsp		客户满意度管理
+
+contacts.jsp           联系人管理							credit.jsp			客户信誉度管理				
+
+forecast.jsp           销售预测								concern.jsp			客户关怀
+
+plan.jsp               销售计划
+
+
+-------------system 系统设置 ---------------						----------------------------- service 服务管理-------------------------------
+
+base.jsp               基础信息								create.jsp			服务创建
+
+data.jsp   	       数据字典								dispose.jsp			服务处理
+
+employee.jsp  		员工管理							feedback.jsp			服务反馈
+
+organization.jsp        组织结构							pigeonhole.jsp			服务归档
+
+rolelist.jsp            角色管理							problems.jsp			常见问题管理
+
+rolemodify.jsp          角色修改							
+
+notice.jsp 		公告管理
+
+-------------- order 订单管理 ---------------						-------------------------------contract 合同管理 -----------------------------	
+wait.jsp     		代下订单							create.jsp              	合同创建
+query.jsp               查询订单							check.jsp			合同审核
+statistics.jsp		统计订单							manage.jsp			合同管理
+
+
+
+
+
+
+
+
+----------statistics 统计分析----------------------
+constitute.jsp   		客户构成统计
+flee.jsp			客户流失统计
+devote.jsp 			客户贡献统计
+serve.jsp 			客户服务统计						

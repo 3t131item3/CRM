@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="szxs.accp.dao.NoticeDao">
+
+    <select id="listNoticeAll" resultType="Notice">
+        SELECT title,issueTime,issueBy,content FROM Notice
+        <where>
+            <if test="title!=null and title!=''">
+                title LIKE concat('%',#{title},'%')
+            </if>
+        </where>
+    </select>
+    <select id="selecttype" resultType="Notice">
+        SELECT * from Notice
+    </select>
+    <insert id="addNotice">
+        INSERT  into Notice VALUE (DEFAULT,#{noticeCode},#{title},#{type},#{issueTime},#{issueBy},#{content})
+    </insert>
+</mapper>

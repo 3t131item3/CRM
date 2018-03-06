@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+       default-autowire="byName">
+    <!--引入database.properties文件-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:database.properties"/>
+    </bean>
+    <!--配置数据源-->
+    <bean class="com.alibaba.druid.pool.DruidDataSource" name="dataSource">
+        <property name="driverClassName" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${user}"/>
+        <property name="password" value="${pwd}"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="100"/>
+        <property name="maxOpenPreparedStatements" value="50"/>
+    </bean>
+    <!--配置会话工厂-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" name="sessionFactory">
+        <!--配置sql映射文件-->
+        <property name="mapperLocations" value="classpath:mybatis/mapping/xml/*.xml"/>
+        <!--实体类别名-->
+        <property name="typeAliasesPackage" value="szxs.accp.entity"/>
+    </bean>
+    <!--扫描dao接口-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="szxs.accp.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sessionFactory"/>
+    </bean>
+    <!--声明式事务-->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" name="transactionManager"/>
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <tx:method name="add*"/>
+            <tx:method name="modify*"/>
+            <tx:method name="list*" read-only="true" propagation="NOT_SUPPORTED"/>
+            <tx:method name="query*" read-only="true" propagation="NOT_SUPPORTED"/>
+            <tx:method name="remove*"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* szxs.accp.biz.Impl.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+    </aop:config>
+</beans>
