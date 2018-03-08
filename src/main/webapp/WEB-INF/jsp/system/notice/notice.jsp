@@ -6,9 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>公告管理</title>
-    <style>
 
-    </style>
 </head>
 <body>
 <div class="right_col" role="main">
@@ -56,9 +54,9 @@
                                     <td>${notice.issueBy}</td>
                                     <td>${notice.content}</td>
                                     <td>
-                                        <a href="/addNotice" class="btn btn-primary btn-xs">添加</a>
-                                        <a href="#" class="btn btn-info btn-xs">修改</a>
-                                        <a href="#" class="btn btn-danger btn-xs">删除</a>
+                                        <a href="/crm/addNotice" class="btn btn-primary btn-xs">添加</a>
+                                        <a href="/crm/modifyNotice/${notice.id}" class="btn btn-info btn-xs">修改</a>
+                                        <a href="/crm/deletenotice/${notice.id}" class="btn btn-danger btn-xs" >删除</a>
                                         <a href="#" class="btn btn-primary btn-xs">查看</a>
                                     </td>
                                 </tr>

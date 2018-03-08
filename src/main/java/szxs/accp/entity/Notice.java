@@ -13,6 +13,11 @@ public class Notice {
     private String issueBy;//发布人
     private String content;//内容
 
+    public Notice(){}
+
+    public Notice(Integer id) {
+        this.id = id;
+    }
 
     public Integer getId() {
         return id;

@@ -65,21 +65,22 @@
 <div class="pace"></div>
 <div class="right_col" role="main">
     <div class="main">
-        <form action="/crm/addNoticeSave" method="post">
+        <form action="/crm/modifynotice" method="post">
+            <input type="hidden" name="id" value="${notice.id}"/>
             <div class="mydiv" style="position:relative;top: 25px;">
                 <div class="input-group input-group-lg roles">
                     <span class="input-group-addon">公告编码<font> *</font></span>
-                    <input type="text" class="form-control" name="noticeCode" id="userCode" placeholder="请输入编码" required=""/>
+                    <input type="text" class="form-control" name="noticeCode" id="userCode" required="" value="${notice.noticeCode}"/>
                     <span id="msg"></span>
                 </div>
                 <div class="input-group input-group-lg roles">
                     <span class="input-group-addon">公告标题<font> *</font></span>
-                    <input type="text" class="form-control" name="title"  placeholder="请输入标题" required=""/>
+                    <input type="text" class="form-control" name="title" required="" value="${notice.title}"/>
                 </div>
                 <div class="input-group input-group-lg roles">
                         <span class="radio">公告类型:</span>
-                    <select name="type" class="form-control" >
-                        <c:forEach items="${list}" var="notice">
+                    <select name="type" class="form-control">
+                        <c:forEach items="${list1}" var="notice">
                             <option value="${notice.id}">${notice.type}</option>
                         </c:forEach>
                     </select>
@@ -87,19 +88,19 @@
                 <div class="input-group input-group-lg roles">
 
                         <span class="radio">发布人:</span>
-                    <input type="text" class="form-control" name="issueBy"  placeholder="请输入发布人姓名" required=""/>
+                    <input type="text" class="form-control" name="issueBy" required="" value="${notice.issueBy}"/>
                 </div>
                 <div class="input-group input-group-lg roles">
                     <span class="input-group-addon">发布内容<font> *</font></span>
-                    <input type="text" class="form-control" name="content"  placeholder="请输入发布内容" required=""/>
+                    <input type="text" class="form-control" name="content" required="" value="${notice.content}"/>
                 </div>
                 <%--<div class="input-group input-group-lg roles">--%>
                     <%--<span class="input-group-addon">备注信息<font> *</font></span>--%>
                     <%--<textarea class="form-control" style="height: 100px" required=""></textarea>--%>
                 <%--</div>--%>
                 <div class="roles">
-                    <input type="submit" value="新增" id="save" class="btn btn-primary btn-lg">
-                    <a href="#" id="back" class="btn btn-primary btn-lg">返回</a>
+                    <input type="submit" value="修改" id="save" class="btn btn-primary btn-lg">
+                    <a href="#" onclick="history.back(-1)" id="back" class="btn btn-primary btn-lg">返回</a>
                 </div>
             </div>
         </form>

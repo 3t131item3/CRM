@@ -19,6 +19,8 @@ public class User {
     private int roleId;
     private int deptId;
 
+
+
     public int getRoleId() {
         return roleId;
     }

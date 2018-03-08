@@ -5,17 +5,48 @@
 <mapper namespace="szxs.accp.dao.NoticeDao">
 
     <select id="listNoticeAll" resultType="Notice">
-        SELECT title,issueTime,issueBy,content FROM Notice
+        SELECT * FROM Notice
         <where>
             <if test="title!=null and title!=''">
                 title LIKE concat('%',#{title},'%')
             </if>
         </where>
     </select>
+
     <select id="selecttype" resultType="Notice">
         SELECT * from Notice
+        <where>
+            <if test="id!=null and id>0">
+                id=#{id}
+            </if>
+        </where>
     </select>
+
     <insert id="addNotice">
         INSERT  into Notice VALUE (DEFAULT,#{noticeCode},#{title},#{type},#{issueTime},#{issueBy},#{content})
     </insert>
+    <update id="modifyNotice">
+        UPDATE Notice
+        <set>
+            <if test="noticeCode!=null and noticeCode!=''">
+                noticeCode=#{noticeCode},
+            </if>
+            <if test="title!=null and title!=''">
+                title=#{title},
+            </if>
+            <if test="type!=null and type!=null">
+                type=#{type},
+            </if>
+            <if test="issueBy!=null and issueBy!=''">
+                issueBy=#{issueBy},
+            </if>
+            <if test="content!=null and content!=''">
+                content=#{content},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    <delete id="removeNotice">
+        DELETE FROM Notice where id=#{id}
+    </delete>
 </mapper>

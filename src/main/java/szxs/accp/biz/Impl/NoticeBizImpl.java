@@ -16,11 +16,24 @@ public class NoticeBizImpl implements NoticeBiz{
         return noticeDao.listNoticeAll(title);
     }
 
+    public List<Notice> listNotice(Notice notice) {
+        return noticeDao.listNotice(notice);
+    }
+
     public boolean addNotice(Notice notice) {
         return noticeDao.addNotice(notice)>0;
     }
 
     public List<Notice> selecttype(Notice notice) {
         return noticeDao.selecttype(notice);
+    }
+
+
+    public int modifyNotice(Notice notice) {
+        return noticeDao.modifyNotice(notice);
+    }
+
+    public boolean removeNotice(int id) {
+        return noticeDao.removeNotice(id)>0;
     }
 }

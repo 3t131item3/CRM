@@ -13,6 +13,12 @@ public interface NoticeBiz {
      */
     List<Notice> listNoticAll(@Param("title")String title);
     /**
+     * 查询公告全部
+     * @param notice
+     * @return
+     */
+    List<Notice>listNotice(Notice notice);
+    /**
      * 新增公告
      * @param notice
      * @return
@@ -25,4 +31,16 @@ public interface NoticeBiz {
      * @return
      */
     List<Notice> selecttype(Notice notice);
+    /**
+     * 修改公告
+     * @param notice
+     * @return
+     */
+    int modifyNotice(Notice notice);
+    /**
+     *根据ID删除公告信息
+     * @param id
+     * @return
+     */
+    boolean removeNotice(@Param("id")int id);
 }

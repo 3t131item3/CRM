@@ -9,7 +9,6 @@
         .main{
             width:50%;
             margin:0 auto;
-
         }
         font{
             color:red;
