@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/common/head.jsp"%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -65,8 +66,8 @@
                                     <td>
                                         <a href="/crm/update/${emp.id}" class="btn btn-info btn-xs">修改</a>
                                         <a href="/modifyRole" class="btn btn-success btn-xs">启用/禁用</a>
-                                        <a href="#" class="btn btn-danger btn-xs">删除</a>
-                                        <a href="#" class="btn btn-success btn-xs">查看</a>
+                                        <a href="javascript:;" userid=${emp.id} username=${emp.userName} class="btn btn-success btn-xs deleteUser">删除</a>
+                                        <a href="/crm/userview/${emp.id}" class="btn btn-success btn-xs">查看</a>
                                         <a href="#" class="btn btn-primary btn-xs">授权</a>
                                     </td>
                                 </tr>
@@ -74,16 +75,25 @@
                             </tbody>
                         </table>
 
-
-
                     </div>
                 </div>
             </div>
-
-
+        </div>
+    </div>
+</div>
+<!--点击删除按钮后弹出的页面-->
+<div class="zhezhao"></div>
+<div class="remove" id="removeUse">
+    <div class="removerChid">
+        <h2>提示</h2>
+        <div class="removeMain">
+            <p>你确定要删除该用户吗？</p>
+            <a href="#" id="yes">确定</a>
+            <a href="#" id="no">取消</a>
         </div>
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
+<script src="${pageContext.request.contextPath}/js/userlist.js"></script>
 </body>
 </html>

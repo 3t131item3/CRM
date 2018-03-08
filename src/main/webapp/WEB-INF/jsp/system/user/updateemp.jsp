@@ -19,7 +19,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Form Validation</h3>
+                <h4>系统管理&gt;&gt;员工管理&gt;&gt;修改员工信息</h4>
             </div>
 
             <div class="title_right">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="x_content">
 
-                        <form class="form-horizontal form-label-left" novalidate>
+                        <form action="/crm/modifyemp" class="form-horizontal form-label-left" method="post" novalidate>
 
                             <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
                             </p>
@@ -68,6 +68,7 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="userCode" class="form-control col-md-7 col-xs-12" value="${user.userCode}" name="userCode" readonly required="required" type="text">
+                                    <input  class="form-control col-md-7 col-xs-12" value="${user.id}" name="id"  required="required" type="hidden">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -96,8 +97,8 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isStartz">是否禁用 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="radio" id="isStartz" name="isStart" class="flat" value="0" <c:if test="${user.isStart==0}">checked</c:if> > 正常
-                                    <input type="radio" id="isStartj" name="isStart" class="flat" value="1" <c:if test="${user.isStart==1}">checked</c:if> > 禁用
+                                    <input type="radio" id="isStartz" name="isStart" class="flat" value="1" <c:if test="${user.isStart==1}">checked</c:if> > 正常
+                                    <input type="radio" id="isStartj" name="isStart" class="flat" value="0" <c:if test="${user.isStart==0}">checked</c:if> > 禁用
                                 </div>
                             </div>
                             <div class="form-group">

@@ -108,6 +108,7 @@ public class UserController {
         if(userBiz.add(user)){
             return "redirect:/crm/listEmpAll";
         }else{
+            model.addAttribute("error","添加失败,请联系管理员");
             return addemp(dept,role,model);
         }
     }
@@ -125,6 +126,50 @@ public class UserController {
         model.addAttribute("rolelist",roleBiz.roleList(null));
         model.addAttribute("deptlist",deptBiz.list(null));
         return "system/user/updateemp";
+    }
+
+    /**
+     * 修改
+     * @param user
+     * @return
+     */
+    @RequestMapping("/crm/modifyemp")
+    public String modifyemp(User user){
+        if(userBiz.modify(user)){
+            return "redirect:/crm/listEmpAll";
+        }
+        return "redirect:/crm/update"+user.getId();
+
+    }
+
+    /**
+     * 删除用户信息
+     * @param id
+     * @return
+     */
+    @RequestMapping("/crm/removeuser/{id}")
+    @ResponseBody
+    public String remove(@PathVariable int id){
+        Map<String,String> map = new HashMap<String, String>();
+        if( userBiz.remove(id)){
+            map.put("delResult","true");
+        }else{
+            map.put("delResult","false");
+        }
+        return JSON.toJSONString(map);
+    }
+
+    /**
+     * 查看信息
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping("/crm/userview/{id}")
+    public String view(@PathVariable int id,Model model){
+        User user = userBiz.queryId(id);
+        model.addAttribute("user",user);
+        return "system/user/userview";
     }
 
     /**

@@ -88,7 +88,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userPassword">密码 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="password" id="userPassword" name="userPassword" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="password" id="userPassword" name="userPassword"  required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机号 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="phone" name="phone"  required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -100,7 +107,7 @@
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isStartz">性别 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isStartz">状态 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="radio" id="isStartz" name="isStart" class="flat" value="1"  checked > 正常

@@ -65,7 +65,7 @@
     </select>
     <!--添加-->
     <insert id="add">
-        insert into `user`(userCode,userName,userPassword,gender,createdBy,isStart,lastLoginTime,deptId,roleId) VALUES (#{userCode},#{userName},#{userPassword},#{gender},#{createdBy},#{isStart},NOW(),#{deptId},#{roleId})
+        insert into `user`(userCode,userName,userPassword,gender,phone,createdBy,isStart,lastLoginTime,deptId,roleId) VALUES (#{userCode},#{userName},#{userPassword},#{gender},#{phone},#{createdBy},#{isStart},NOW(),#{deptId},#{roleId})
     </insert>
     <!--修改-->
     <update id="modify">
