@@ -55,13 +55,15 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-cogs"></i> 系统设置 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/crm/rolelist">角色管理</a></li>
-                                    <li><a href="/crm/listDeptAll">组织结构</a></li>
-                                    <li><a href="/crm/listEmpAll">员工管理</a></li>
+                                    <c:if test="${userSession.id==1}">
+                                        <li><a href="/crm/rolelist">角色管理</a></li>
+                                        <li><a href="/crm/listDeptAll">组织结构</a></li>
+                                        <li><a href="/crm/listEmpAll">员工管理</a></li>
+                                        <li><a href="/data">数据字典</a></li>
+                                    </c:if>
                                     <li><a href="/crm/listNoticeAll">公告管理</a></li>
                                     <li><a href="/crm/myInfo/${userSession.id}">个人信息</a></li>
-                                    <li><a href="/base">基础信息</a></li>
-                                    <li><a href="/data">数据字典</a></li>
+                                   <%-- <li><a href="/base">基础信息</a></li>--%>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> 销售管理 <span class="fa fa-chevron-down"></span></a>

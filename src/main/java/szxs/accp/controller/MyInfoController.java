@@ -1,6 +1,5 @@
 package szxs.accp.controller;
 
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,16 +29,14 @@ public class MyInfoController {
 
     /**
      * 修改手机号
-     * @param id
-     * @param phone
      * @param model
      * @return
      */
-    @RequestMapping("/modifyMyInfoPhone/{id}/{phone}")
-    public String modifyMyInfoPhone(@PathVariable int id,@PathVariable String phone,Model model){
-        userBiz.modify(new User(id, phone));
-        User user = userBiz.queryId(id);
-        model.addAttribute("user",user);
+    @RequestMapping("/modifyMyInfoPhone")
+    public String modifyMyInfoPhone(User user,Model model){
+        boolean modify = userBiz.modify(new User(user.getId(), user.getPhone()));
+        User u = userBiz.queryId(user.getId());
+        model.addAttribute("user",u );
         return "system/myinfo/myinfo";
     }
     /**

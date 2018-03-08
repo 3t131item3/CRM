@@ -41,8 +41,12 @@
                 <li>员工编号:<span>${user.userCode}</span></li>
                 <li>当前状态:<span>${user.isStart}</span></li>
                 <li>创建时间:<span>${user.creationTime}</span></li>
-                <li>联系电话: <input class="telephone" name="phone" value="${user.phone}" type="text">
-                    <a href="/crm/modifyMyInfoPhone/${user.id}/${user.phone}"><button class="modify" onclick="alert('修改成功！')">修改</button></a>
+                <li>
+                    <form action="/crm/modifyMyInfoPhone" method="post">
+                        <input type="hidden" name="id" value="${user.id}"/>
+                        联系电话: <input class="telephone" name="phone" value="${user.phone}" type="text">
+                        <button type="submit" class="modify" onclick="alert('修改成功！')">修改</button>
+                    </form>
                 </li>
 
             </ul>

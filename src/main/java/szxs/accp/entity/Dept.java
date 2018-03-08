@@ -1,14 +1,13 @@
 package szxs.accp.entity;
 
 public class Dept {
-    /**
-     * 部门（组织）结构实体类
-     * @author 小小亮
-     *
-     */
+        /**
+         * 部门（组织）结构实体类
+         * @author 小小亮
+         *
+         */
         private Integer id;//部门编号
         private  String  deptCode;// 部门编码
-        private  String  belongTo ;//所属部门
         private  String  name;// 部门名称
         private  String  lastUpdateTime;// 最后修改时间
         private  String  operator;//操作人
@@ -26,12 +25,6 @@ public class Dept {
         }
         public void setDeptCode(String deptCode) {
             this.deptCode = deptCode;
-        }
-        public String getBelongTo() {
-            return belongTo;
-        }
-        public void setBelongTo(String belongTo) {
-            this.belongTo = belongTo;
         }
         public String getName() {
             return name;
