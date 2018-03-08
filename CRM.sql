@@ -27,8 +27,8 @@ CREATE TABLE Role(
 ALTER TABLE Role ADD CONSTRAINT `role_deptId` FOREIGN KEY(`deptId`) REFERENCES Dept(`id`);
 INSERT INTO Role(`id`,`roleCode`,`roleName`,`createTime`,`lastUpdateTime`,`createdBy`,`remark`,`deptId`)
 VALUES(DEFAULT,'1001','系统管理员',DEFAULT,'2018-2-25','系统管理员',NULL,1),
-(DEFAULT,'1002','销售经理',DEFAULT,'2018-2-25','系统管理员',NULL,2),
 (DEFAULT,'1003','销售总监',DEFAULT,'2018-2-25','系统管理员',NULL,2),
+(DEFAULT,'1002','销售经理',DEFAULT,'2018-2-25','系统管理员',NULL,2),
 (DEFAULT,'1004','销售代表',DEFAULT,'2018-2-25','系统管理员',NULL,2),
 (DEFAULT,'1005','财务管理',DEFAULT,'2018-2-25','系统管理员',NULL,3);
 #员工管理（用户表）
@@ -50,10 +50,13 @@ ALTER TABLE `User` ADD CONSTRAINT `user_roleId` FOREIGN KEY(`roleId`) REFERENCES
 ALTER TABLE `User` ADD CONSTRAINT `user_deptId` FOREIGN KEY(`deptId`) REFERENCES Dept(`id`);
 INSERT INTO `User`(`id`,`userCode`,`userName`,`userPassword`,`gender`,`phone`,`creationTime`,`lastLoginTime`,`createdBy`,`isStart`,`roleId`,`deptId`)
 VALUES(DEFAULT,'zhangsan','张三','202cb962ac59075b964b07152d234b70',0,'13455667788',NOW(),NOW(),'系统管理员',1,1,1),
-(DEFAULT,'lisi','李四','202cb962ac59075b964b07152d234b70',1,'15455667788',NOW(),NOW(),'销售经理',1,1,2),
-(DEFAULT,'wangwu','王五','202cb962ac59075b964b07152d234b70',0,'18455667788',NOW(),NOW(),'销售总监',1,1,2),
-(DEFAULT,'xiaomao','小毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'销售代表',1,1,2),
-(DEFAULT,'xiaoli','小丽','202cb962ac59075b964b07152d234b70',1,'16455667788',NOW(),NOW(),'财务管理',1,1,3);
+(DEFAULT,'lisi','李四','202cb962ac59075b964b07152d234b70',1,'15455667788',NOW(),NOW(),'系统管理员',1,2,2),
+(DEFAULT,'wangwu','王五','202cb962ac59075b964b07152d234b70',0,'18455667788',NOW(),NOW(),'系统管理员',1,3,2),
+(DEFAULT,'ermao','王二毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,3,2),
+(DEFAULT,'sanmao','王三毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,4,2),
+(DEFAULT,'simao','王四毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,4,2),
+(DEFAULT,'laowu','王老五','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,4,2),
+(DEFAULT,'xiaoli','小丽','202cb962ac59075b964b07152d234b70',1,'16455667788',NOW(),NOW(),'系统管理员',1,4,3);
 #公告管理,
 CREATE TABLE Notice(
 	id INT PRIMARY KEY AUTO_INCREMENT,
