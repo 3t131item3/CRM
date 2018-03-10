@@ -59,10 +59,10 @@
                                 <td>2011/01/25</td>
                                 <td>$112,000</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-xs">添加</a>
-                                    <a href="#" class="btn btn-warning btn-xs">修改</a>
+                                    <a href="/crm/addresult" class="btn btn-primary btn-xs">添加</a>
+                                    <a href="/crm/updateresult" class="btn btn-warning btn-xs">修改</a>
                                     <a href="#" class="btn btn-danger btn-xs">删除</a>
-                                    <a href="#" class="btn btn-success btn-xs">查看</a>
+                                    <a href="/crm/viewresult" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
                             </tbody>
