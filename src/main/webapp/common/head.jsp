@@ -68,7 +68,7 @@
                             </li>
                             <li><a><i class="fa fa-edit"></i> 销售管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/plan">销售计划</a></li>
+                                    <li><a href="/crm/plan">销售计划</a></li>
                                     <li><a href="/forecast">销售预测</a></li>
                                     <li><a href="/achievement">销售绩效</a></li>
                                     <li><a href="/chance">机会管理</a></li>
