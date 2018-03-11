@@ -61,9 +61,9 @@
                                 <td>$112,000</td>
                                 <td>
 
-                                    <a href="/crm/updateContacts" class="btn btn-warning">修改</a>
-                                    <a href="/crm/viewContacts" class="btn btn-success">查看</a>
-                                    <a href="#" class="btn btn-danger">删除</a>
+                                    <a href="/crm/updateContacts" class="btn btn-warning btn-xs">修改</a>
+                                    <a href="#" class="btn btn-danger btn-xs">删除</a>
+                                    <a href="/crm/viewContacts" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
                             </tbody>
