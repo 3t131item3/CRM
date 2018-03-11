@@ -52,7 +52,7 @@ INSERT INTO `User`(`id`,`userCode`,`userName`,`userPassword`,`gender`,`phone`,`c
 VALUES(DEFAULT,'zhangsan','张三','202cb962ac59075b964b07152d234b70',0,'13455667788',NOW(),NOW(),'系统管理员',1,1,1),
 (DEFAULT,'lisi','李四','202cb962ac59075b964b07152d234b70',1,'15455667788',NOW(),NOW(),'系统管理员',1,2,2),
 (DEFAULT,'wangwu','王五','202cb962ac59075b964b07152d234b70',0,'18455667788',NOW(),NOW(),'系统管理员',1,3,2),
-(DEFAULT,'ermao','王二毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,3,2),
+(DEFAULT,'ermao','王二毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,4,2),
 (DEFAULT,'sanmao','王三毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,4,2),
 (DEFAULT,'simao','王四毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,4,2),
 (DEFAULT,'laowu','王老五','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,4,2),
@@ -77,20 +77,24 @@ VALUES(DEFAULT,'1001','2014年公司年会安排','部门公告',NOW(),'张三',
 CREATE TABLE Plan(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	`code` VARCHAR(50) NOT NULL,
-	`name` VARCHAR(50) NOT NULL,
+	`userName` VARCHAR(50) NOT NULL,
 	`month` VARCHAR(50) NOT NULL,#月份
 	`status` VARCHAR(50) DEFAULT '新创建' NOT NULL,#状态
 	planContent VARCHAR(500) NOT NULL,#计划内容
 	lastUpdateTime TIMESTAMP DEFAULT NOW()NOT NULL,#最后修改时间
 	createdBy VARCHAR(50) NOT NULL,#操作人
-	nextHanlder VARCHAR(50) #待处理人，关联部门 找和他相同部门的销售经理
+	nextHanlder VARCHAR(50), #待处理人，关联部门 找和他相同部门的销售经理
+	userId INT NOT NULL,
+	deptId INT NOT NULL
 )CHARSET=utf8;
-INSERT INTO Plan(`id`,`code`,`name`,`month`,`status`,`planContent`,`lastUpdateTime`,createdBy,nextHanlder)
-VALUES(DEFAULT,'LY201311','张三','2013-10',DEFAULT,'公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作。',DEFAULT,'张三',''),
-(DEFAULT,'LY201312','李四','2013-09',DEFAULT,'公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作2。',DEFAULT,'张三',''),
-(DEFAULT,'LY201313','李四2','2013-04','已提交','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作3。',DEFAULT,'张三','王五'),
-(DEFAULT,'LY201314','李四3','2013-05','已通过','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作4。',DEFAULT,'张三',''),
-(DEFAULT,'LY201313','李四4','2013-06','已提交','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作5。',DEFAULT,'张三','王五');
+ALTER TABLE Plan ADD CONSTRAINT `Plan_userId` FOREIGN KEY(`userId`) REFERENCES `User`(`id`);
+INSERT INTO Plan(`id`,`code`,`userName`,`month`,`status`,`planContent`,`lastUpdateTime`,createdBy,nextHanlder,userId,deptId)
+VALUES(DEFAULT,'LY201311','王四毛','2013-10',DEFAULT,'公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作。',DEFAULT,'张三','',6,2),
+(DEFAULT,'LY201311','王四毛','2013-09',DEFAULT,'公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作2。',DEFAULT,'张三','',6,2),
+(DEFAULT,'LY201311','王四毛','2013-04','已提交','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作3。',DEFAULT,'张三','王五',6,2),
+(DEFAULT,'LY201311','王四毛','2013-05','已通过','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作4。',DEFAULT,'张三','',6,2),
+(DEFAULT,'LY201311','王四毛','2013-06','已提交','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作5。',DEFAULT,'张三','王五',6,2);
+
 #销售预策
 CREATE TABLE Forecast(
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -103,19 +107,18 @@ CREATE TABLE Forecast(
 	`type` VARCHAR(50) NOT NULL,#类型 在预测那里加一个
 	createdBy VARCHAR(50) NOT NULL #操作人
 )CHARSET=utf8;
+ALTER TABLE Forecast ADD CONSTRAINT `Forecast_deptId` FOREIGN KEY(`deptId`) REFERENCES Dept(`id`);
 INSERT INTO Forecast(`id`,`title`,`month`,`date`,`deptId`,`scale`,`customerNum`,`type`,createdBy)
 VALUES(DEFAULT,'2013-10公司整体预测结果','2013-10',DEFAULT,1,56,567,'整体预测','王二毛'),
 (DEFAULT,'2013-10公司整体预测结果','2013-10',DEFAULT,2,56,568,'部门预测','王二毛'),
 (DEFAULT,'2013-09公司整体预测结果','2013-09',DEFAULT,1,50,56,'整体预测','王二毛'),
 (DEFAULT,'2013-09公司整体预测结果','2013-09',DEFAULT,3,56,800,'部门预测','王二毛');
-ALTER TABLE Forecast ADD CONSTRAINT `Forecast_deptId` FOREIGN KEY(`deptId`) REFERENCES Dept(`id`);
-
 #销售绩效
 CREATE TABLE Achievement(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	userId INT NOT NULL,
 	deptId INT NOT NULL,#部门id
-	grade INT NOT NULL,#等级  系统自动根据转账什么的来判断等级的
+	grade INT NOT NULL DEFAULT 0,#等级  系统自动根据转账什么的来判断等级的
 	lastUpdateTime TIMESTAMP DEFAULT NOW()NOT NULL,#最后修改时间
 	createdBy VARCHAR(50) NOT NULL,#操作人
 	remark VARCHAR(50)
@@ -126,7 +129,7 @@ INSERT INTO Achievement(`id`,`userId`,`deptId`,`grade`,`lastUpdateTime`,`created
 VALUES(DEFAULT,1,1,2,DEFAULT,'张三',''),
 (DEFAULT,2,1,0,DEFAULT,'张三',''),
 (DEFAULT,3,1,1,DEFAULT,'张三',''),
-(DEFAULT,4,1,2,DEFAULT,'张三',''),
+(DEFAULT,4,1,DEFAULT,DEFAULT,'张三',''),
 (DEFAULT,5,2,3,DEFAULT,'张三',''),
 (DEFAULT,6,2,-1,DEFAULT,'张三','');
 
@@ -150,3 +153,4 @@ VALUES(DEFAULT,'2013112901','安和平','2013-12-12','男','13028803277','0660-6
 (DEFAULT,'2013112904','陈女士','2010-12-12','女','13028803272','0660-6763114','xxxx',''),
 (DEFAULT,'2013112905','仇鹏涛','2009-12-12','男','13028803271','0660-6763114','xxxx',''),
 (DEFAULT,'2013112906','安和平','2018-12-12','男','13028803276','0660-6763114','xxxx','');
+

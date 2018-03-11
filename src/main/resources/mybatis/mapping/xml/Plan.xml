@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="szxs.accp.dao.PlanDao">
+    <!--根据条件查询-->
+    <select id="planList" resultType="Plan">
+        select * from Plan where 1=1
+        <if test="id!=null and id>0">id=#{id}</if>
+        <if test="month!=null and month!=''">month LIKE concat('%',#{month},'%')</if>
+    </select>
+
+    <!--新增-->
+    <insert id="addPlan" >
+        INSERT INTO Plan(`id`,`code`,`name`,`month`,`status`,`planContent`,`lastUpdateTime`,createdBy,nextHanlder)
+        VALUES(DEFAULT,#{code},#{name},#{month},DEFAULT,#{planContent},DEFAULT,#{createdBy},#{nextHanlder})
+    </insert>
+    <!--修改-->
+    <update id="updatePlan">
+        update Plan
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="code!=null and code!=''">code=#{code},</if>
+            <if test="name !=null and name!=''">name=#{name},</if>
+            <if test="month !=null and month!=''">month=#{month},</if>
+            <if test="planContent !=null and planContent!=''">planContent=#{planContent},</if>
+        </trim>
+    </update>
+    <!--删除-->
+    <delete id="deletePlan">
+        delete from plan where id=#{id}
+    </delete>
+</mapper>

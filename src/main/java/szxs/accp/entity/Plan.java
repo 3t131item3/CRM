@@ -13,6 +13,34 @@ public class Plan {
     private String lastUpdateTime;//最后修改时间
     private String createdBy;//操作人
     private String nextHanlder; //待处理人，关联部门 找和他相同部门的销售经理
+    private Dept dept;
+    private User user;
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Plan() { }
+
+    public Plan(Integer id) {
+        this.id = id;
+    }
+
+    public Plan(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;
