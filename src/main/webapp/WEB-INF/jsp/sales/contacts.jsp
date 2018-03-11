@@ -12,7 +12,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;联系人管理</small></h3>
+                <h4>销售管理&gt;&gt;联系人管理</h4>
             </div>
 
 
@@ -38,7 +38,7 @@
                     <div class="x_content">
 
                         <strong class="h3">角色信息列表</strong>
-
+                        <a href="/crm/addContacts" class="btn btn-success" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -60,9 +60,9 @@
                                 <td>2011/01/25</td>
                                 <td>$112,000</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">添加</a>
-                                    <a href="#" class="btn btn-warning">修改</a>
-                                    <a href="#" class="btn btn-success">查看</a>
+
+                                    <a href="/crm/updateContacts" class="btn btn-warning">修改</a>
+                                    <a href="/crm/viewContacts" class="btn btn-success">查看</a>
                                     <a href="#" class="btn btn-danger">删除</a>
                                 </td>
                             </tr>
