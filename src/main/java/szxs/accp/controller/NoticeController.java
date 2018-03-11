@@ -1,15 +1,19 @@
 package szxs.accp.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import szxs.accp.biz.NoticeBiz;
 import szxs.accp.entity.Notice;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/crm")
@@ -77,12 +81,34 @@ public class NoticeController {
         }
     }
 
+    /**
+     * 根据id删除公告信息
+     * @param id
+     * @return
+     */
     @RequestMapping("/deletenotice/{id}")
-    public String deletenoticeto(Model model,Notice notice,@PathVariable int id){
+    @ResponseBody
+    public String deletenoticeto(@PathVariable int id){
+        Map<String,String> map = new HashMap<String, String>();
         if (noticeBiz.removeNotice(id)){
-            return "redirect:/crm/listNoticeAll";
+            map.put("delResult","true");
         }else {
-            return "redirect:/crm/listNoticeAll";
+            map.put("delResult","false");
         }
+        return JSON.toJSONString(map);
     }
+
+    /**
+     * 查看公告单条信息
+     * @param model
+     * @param id
+     * @return
+     */
+    @RequestMapping("/noticeview/{id}")
+    public String noticeview(Model model,@PathVariable int id){
+        Notice notice = noticeBiz.selecttype(new Notice(id)).get(0);
+        model.addAttribute("view",notice);
+        return "system/notice/noticeview";
+    }
+
 }
