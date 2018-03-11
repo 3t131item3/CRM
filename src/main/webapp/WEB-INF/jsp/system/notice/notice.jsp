@@ -20,21 +20,17 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                    <div class="x_title">
-                        <form action="/listNoticeAll" method="post" class="navbar-form navbar text-center" >
-                            <div class="form-group">
-                                <strong class="h4">公告名称:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName" name="title">
-                            </div>
-                            <input type="submit" value="查询" class="btn btn-success">
-
-                        </form>
-
-                    </div>
-
                     <div class="x_content">
 
                         <strong class="h3">公告信息列表</strong>
+                        <div class="x_title">
+
+                        </div>
+
+                            <a href="/crm/addNotice" class="btn btn-success" style="float:right">添加</a>
+
+
+
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -54,7 +50,7 @@
                                     <td>${notice.issueBy}</td>
                                     <td>${notice.content}</td>
                                     <td>
-                                        <a href="/crm/addNotice" class="btn btn-primary btn-xs">添加</a>
+
                                         <a href="/crm/modifyNotice/${notice.id}" class="btn btn-info btn-xs">修改</a>
                                         <a href="/crm/deletenotice/${notice.id}" class="btn btn-danger btn-xs" >删除</a>
                                         <a href="#" class="btn btn-primary btn-xs">查看</a>

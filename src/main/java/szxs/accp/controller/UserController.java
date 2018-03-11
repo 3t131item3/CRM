@@ -12,9 +12,9 @@ import szxs.accp.biz.UserBiz;
 import szxs.accp.entity.Dept;
 import szxs.accp.entity.Role;
 import szxs.accp.entity.User;
+import szxs.accp.util.Md5;
 
 import javax.annotation.Resource;
-import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -43,7 +43,8 @@ public class UserController {
      * 登录功能
      */
     @RequestMapping("/loginsave")
-    public String login(User u,Model model,HttpSession session, HttpServletRequest request){
+    public String login(User u,Model model,HttpSession session){
+        u.setUserPassword(Md5.md5Password(u.getUserPassword()));
         User user = userBiz.login(u);
         if (user!=null){
             session.setAttribute("userSession",user);

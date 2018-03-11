@@ -35,7 +35,7 @@
                     </div>
                     <div class="x_content">
                         <strong class="h3">员工信息列表</strong>
-                        <a href="/crm/addemp" class="btn btn-success btn-lg" id="add" style="float:right">添加</a>
+                        <a href="/crm/addemp" class="btn btn-success" id="add" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>

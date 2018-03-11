@@ -22,7 +22,6 @@ public class UserBizImpl implements UserBiz{
      */
     public User login(User user)
     {
-        user.setUserPassword(string2MD5(user.getUserPassword()));
         return userDao.login(user);
     }
 

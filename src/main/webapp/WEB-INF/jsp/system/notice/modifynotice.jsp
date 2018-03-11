@@ -6,107 +6,85 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>添加公告信息</title>
-    <style>
-        .main{
-            width:50%;
-            margin:0 auto;
+    <title>修改公告信息</title>
 
-        }
-        font{
-            color:red;
-        }
-
-        #back{
-            float:right;
-            margin-right:40px;
-            margin-top:10px;
-        }
-        #save{
-            margin-left:40px;
-            margin-top:10px;
-        }
-        .roles:nth-child(3){
-            width:50%;
-        }
-        .roles:nth-child(1){
-            position:relative;
-        }
-
-        #msg{
-            position: absolute;
-            display: inherit;
-            left: 102%;
-            bottom: 12px;
-            font-size: 16px;
-        }
-        .radio{
-            width: 120px;
-            border: 1px solid #ccc;
-            height: 42px;
-            display: inline-block;
-            text-align: center;
-            line-height: 42px;
-            font-size: 20px;
-            color: #000;
-            font-weight: 100;
-            border-top-left-radius: 6px;
-            border-bottom-left-radius: 6px;
-            background: #eee;
-        }
-        .aaa{
-            position: absolute;
-            left: 140px;
-            bottom: 20px;
-        }
-    </style>
 </head>
 <body>
-<div class="pace"></div>
 <div class="right_col" role="main">
-    <div class="main">
-        <form action="/crm/modifynotice" method="post">
-            <input type="hidden" name="id" value="${notice.id}"/>
-            <div class="mydiv" style="position:relative;top: 25px;">
-                <div class="input-group input-group-lg roles">
-                    <span class="input-group-addon">公告编码<font> *</font></span>
-                    <input type="text" class="form-control" name="noticeCode" id="userCode" required="" value="${notice.noticeCode}"/>
-                    <span id="msg"></span>
-                </div>
-                <div class="input-group input-group-lg roles">
-                    <span class="input-group-addon">公告标题<font> *</font></span>
-                    <input type="text" class="form-control" name="title" required="" value="${notice.title}"/>
-                </div>
-                <div class="input-group input-group-lg roles">
-                        <span class="radio">公告类型:</span>
-                    <select name="type" class="form-control">
-                        <c:forEach items="${list1}" var="notice">
-                            <option value="${notice.id}">${notice.type}</option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <div class="input-group input-group-lg roles">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h4>系统管理&gt;&gt;员工管理&gt;&gt;修改公告信息</h4>
+            </div>
 
-                        <span class="radio">发布人:</span>
-                    <input type="text" class="form-control" name="issueBy" required="" value="${notice.issueBy}"/>
-                </div>
-                <div class="input-group input-group-lg roles">
-                    <span class="input-group-addon">发布内容<font> *</font></span>
-                    <input type="text" class="form-control" name="content" required="" value="${notice.content}"/>
-                </div>
-                <%--<div class="input-group input-group-lg roles">--%>
-                    <%--<span class="input-group-addon">备注信息<font> *</font></span>--%>
-                    <%--<textarea class="form-control" style="height: 100px" required=""></textarea>--%>
-                <%--</div>--%>
-                <div class="roles">
-                    <input type="submit" value="修改" id="save" class="btn btn-primary btn-lg">
-                    <a href="#" onclick="history.back(-1)" id="back" class="btn btn-primary btn-lg">返回</a>
+
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+
+                        <form class="form-horizontal form-label-left" action="/crm/modifynotice"  method="post" novalidate>
+                            <input type="hidden" name="id" value="${notice.id}"/>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="noticeCode">公告编码 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="noticeCode" class="form-control col-md-7 col-xs-12"  name="noticeCode" value="${notice.noticeCode} placeholder="请输入编码" required="required" type="text">
+                                    <span id="msg" class=" col-md-5 col-xs-12"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">公告标题 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="userName" name="title" required="required" value="${notice.title}" placeholder="请输入标题" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">公告类型</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select name="type" class="form-control" >
+                                        <c:forEach items="${list1}" var="notice">
+                                            <option value="${notice.id}">${notice.type}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="issueBy">发布人 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="issueBy" class="form-control col-md-7 col-xs-12" value="${notice.issueBy}"  name="issueBy" placeholder="请输入发布人姓名" required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="content">发布内容 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="content" class="form-control col-md-7 col-xs-12" value="${notice.content}"  name="content" placeholder="请输入发布内容" required="required" type="text">
+                                </div>
+                            </div>
+
+
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <button id="send" type="submit" class="btn btn-success">保存</button>
+                                    <a herf="#" class="btn btn-primary" onclick="history.back(-1)">返回</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-
 </div>
+
 <%@ include file="/common/foot.jsp"%>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/addemp.js"></script>

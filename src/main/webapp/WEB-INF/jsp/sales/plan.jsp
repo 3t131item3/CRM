@@ -12,24 +12,20 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;销售计划</small></h3>
+                <h4>销售管理&gt;&gt;销售计划</h4>
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                    <div class="x_title">
-                        <form action="" method="post" class="navbar-form navbar" >
-                            <div class="form-group f-group">
-                                <strong class="h4">月份:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName">
-                            </div>
-                            <input type="submit" value="查询" class="btn btn-success">
-                        </form>
-                    </div>
+
                     <div class="x_content">
                         <strong class="h3">销售计划信息列表</strong>
+                        <div class="x_title">
+
+                        </div>
+                        <a href="/crm/addplan" class="btn btn-success" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -53,7 +49,7 @@
                                 <td>$112,000</td>
                                 <td>$112,000</td>
                                 <td>
-                                    <a href="/crm/addplan" class="btn btn-primary btn-xs">添加</a>
+
                                     <a href="/crm/updateplan" class="btn btn-warning btn-xs">修改</a>
                                     <a href="#" class="btn btn-danger btn-xs">删除</a>
                                     <a href="#" class="btn btn-info btn-xs">提交</a>

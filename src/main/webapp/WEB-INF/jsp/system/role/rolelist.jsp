@@ -28,6 +28,7 @@
                     </div>
                     <div class="x_content">
                         <strong class="h3">角色信息列表</strong>
+                        <a href="/crm/addRole" class="btn btn-success" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -46,7 +47,6 @@
                                 <td>${role.lastUpdateTime}</td>
                                 <td>${role.createdBy}</td>
                                 <td>
-                                    <a href="/crm/addRole" class="btn btn-primary btn-xs">添加</a>
                                     <a href="/crm/modify/${role.id}" class="btn btn-info btn-xs">修改</a>
                                     <a href="/crm/delete/${role.id}" class="btn btn-danger btn-xs remove">删除</a>
                                     <a href="#" class="btn btn-primary btn-xs">授权</a>
