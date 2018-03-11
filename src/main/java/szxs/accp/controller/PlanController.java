@@ -18,7 +18,7 @@ public class PlanController {
     private PlanBiz planBiz;
 
     /**
-     * 查询所有
+     * 查询所有 x
      * @return
      */
     @RequestMapping("/planList")
