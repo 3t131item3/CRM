@@ -32,7 +32,7 @@ public class UserController {
     @Resource
     private RoleBiz roleBiz;
     /**
-     * 跳转到登录页面
+     * 跳转到登录页面 x
      * @return
      */
     @RequestMapping("/login")
