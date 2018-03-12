@@ -1,14 +1,29 @@
 package szxs.accp.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import szxs.accp.biz.ContactsBiz;
+
+import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/crm")
 public class ContactsController {
-    @RequestMapping("/contacts")
-    public String contacts(){
-        return "sales/contacts";
+    @Resource
+    private ContactsBiz contactsBiz;
+
+    /**
+     * 跳转至联系人界面
+     * @param model
+     * @param name
+     * @return
+     */
+
+    @RequestMapping("/contactslist")
+    public String contactslist(Model model,String name){
+        model.addAttribute("contacts",contactsBiz.ContactsList(name));
+        return "/sales/contacts/contacts";
     }
     @RequestMapping("/addContacts")
     public String addContacts(){

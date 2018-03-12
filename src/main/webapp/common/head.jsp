@@ -60,7 +60,7 @@
                                       <li><a href="/crm/forecastList">销售预测</a></li>
                                       <li><a href="/crm/achievement">销售绩效</a></li>
                                     </c:if>
-                                    <li><a href="/crm/contacts">联系人管理</a></li>
+                                    <li><a href="/crm/contactslist">联系人管理</a></li>
                                   <%--  <li><a href="/chance">机会管理</a></li>
                                     <li><a href="/compete">竞争管理</a></li>
                                     <li><a href="/analysis">销售分析</a></li>--%>
