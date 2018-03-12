@@ -1,4 +1,6 @@
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/common/head.jsp"%>
@@ -25,10 +27,10 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <form action="/listDeptAll" method="post" class="navbar-form navbar" >
+                        <form action="/crm/listDeptAll"  method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">名称:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName" name="name">
+                                <input type="text" placeholder="Search" class="form-control input-md roleName" name="deptName" >
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
 
@@ -43,17 +45,16 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th></th>
-                                <th></th>
                                 <th>名称</th>
                                 <th>最后修改时间</th>
                                 <th>操作人</th>
                                 <th>备注说明</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
 
                             <tbody>
-                            <c:forEach items="${dept}" var="dept">
+                            <c:forEach items="${deptList}" var="dept">
 
                             <tr>
                                 <td>${dept.name}</td>
@@ -61,9 +62,9 @@
                                 <td>${dept.operator}</td>
                                 <td>${dept.remark}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-xs">添加</a>
-                                    <a href="#" class="btn btn-info btn-xs">修改</a>
-                                    <a href="#" class="btn btn-danger btn-xs">删除</a>
+                                    <a href="/crm/addorganization" class="btn btn-primary btn-xs">添加</a>
+                                    <a href="/crm/modifyDept/${dept.id}" class="btn btn-info btn-xs">修改</a>
+                                    <a href= "/crm/removeDept/${dept.id}" onclick="return confirm('确定要删除吗？')" class="btn btn-danger btn-xs remove">删除</a>
                                 </td>
                             </tr>
                             </c:forEach>
