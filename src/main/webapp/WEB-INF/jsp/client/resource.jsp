@@ -15,9 +15,7 @@
                 <h3>销售管理<small>&gt;&gt;客户资源管理</small></h3>
             </div>
 
-
         </div>
-
         <div class="clearfix"></div>
 
         <div class="row">
@@ -36,9 +34,7 @@
                                 </select>
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
-
                         </form>
-
                     </div>
 
                     <div class="x_content">
