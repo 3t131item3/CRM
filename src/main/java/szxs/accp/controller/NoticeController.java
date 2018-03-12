@@ -110,5 +110,4 @@ public class NoticeController {
         model.addAttribute("view",notice);
         return "system/notice/noticeview";
     }
-
 }
