@@ -62,7 +62,7 @@
                     </div>
                     <div class="x_content">
 
-                        <form class="form-horizontal form-label-left" action="/crm/addemployee" method="post" novalidate>
+                        <form class="form-horizontal form-label-left" action="/crm/addachievement" method="post" novalidate>
 
                             <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
                             </p>
@@ -72,29 +72,34 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">绩效编码 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="hidden" name="createdBy" value="${userSession.userName}"/>
                                     <input id="" class="form-control col-md-7 col-xs-12"  name="" placeholder="" required="required" type="text">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">员工姓名 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userId">员工姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="userName" class="form-control col-md-7 col-xs-12"  name="userName" placeholder="" required="required" type="text">
+                                    <select id="userId" name="user.id" class="form-control">
+                                        <c:forEach items="${userList}" var="user">
+                                            <option value="${user.id}">${user.userName}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">绩效等级 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="number" id="number" name="number" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
+                                    <input type="number" id="number" name="grade" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">所属部门</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select name="deptId" class="form-control">
+                                    <select name="dept.id" class="form-control">
                                         <c:forEach items="${deptList}" var="dept">
                                             <option value="${dept.id}">${dept.name}</option>
                                         </c:forEach>

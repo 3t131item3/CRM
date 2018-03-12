@@ -27,7 +27,7 @@
                         <form action="" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">姓名:</strong>
-                                <input type="text" placeholder="Search" name="userName" class="form-control input-md roleName">
+                                <input type="text" placeholder="Search"  class="form-control input-md roleName">
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
 
@@ -56,15 +56,15 @@
                             <c:forEach items="${achievementList}" var="achievement" varStatus="varStatus">
                             <tr>
                                 <td>${varStatus.index+1}</td>
-                                <td>${achievement.userName}</td>
+                                <td>${achievement.user.userName}</td>
                                 <td>${achievement.dept.name}</td>
                                 <td>${achievement.grade}</td>
                                 <td>${achievement.lastUpdateTime}</td>
                                 <td>${achievement.createdBy}</td>
                                 <td>
-                                    <a href="/crm/updateresult" class="btn btn-warning btn-xs">修改</a>
+                                    <a href="/crm/updateresult/${achievement.id}" class="btn btn-warning btn-xs">修改</a>
                                     <a href="#" class="btn btn-danger btn-xs">删除</a>
-                                    <a href="/crm/viewresult" class="btn btn-success btn-xs">查看</a>
+                                    <a href="/crm/viewresult/${achievement.id}" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
                             </c:forEach>

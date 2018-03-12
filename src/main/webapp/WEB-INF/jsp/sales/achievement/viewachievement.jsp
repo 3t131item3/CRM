@@ -49,12 +49,12 @@
                     </div>
                     <div class="x_content" style="font-size: 20px;">
 
-                        <p><strong>计划编码:</strong><span></span></p>
-                        <p><strong>计划人姓名:</strong><span></span></p>
-                        <p><strong>计划状态:</strong><span></span></p>
-                        <p><strong>计划月份:</strong><span></span></p>
-                        <p><strong>所属部门:</strong><span></span></p>
-                        <p><strong>计划内容:</strong><span></span></p>
+                        <p><strong>绩效编码:</strong><span></span></p>
+                        <p><strong>员工姓名:</strong><span>${achievement.user.userName}</span></p>
+                        <p><strong>所属部门:</strong><span>${achievement.dept.name}</span></p>
+                        <p><strong>绩效等级:</strong><span>${achievement.grade}</span></p>
+                        <p><strong>备注信息:</strong><span>${achievement.remark}</span></p>
+
 
                     </div>
                     <div>

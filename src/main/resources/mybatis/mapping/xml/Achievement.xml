@@ -4,34 +4,35 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="szxs.accp.dao.AchievementDao">
     <select id="queryAchievement" resultMap="AchievementMap">
-        select a.*,d.id d_id,d.name from achievement a,dept d
-        <where>
-            <if test="userName!=null and userName!=''">
-                userName like concat('%',#{userName},'%')
-            </if>
-        </where>
+        select a.*,u.id u_id,u.userName,d.id d_id,d.name from achievement a,`user`u,dept d
+        WHERE  a.userId=u.id and u.deptId=d.id
+    </select>
+    <select id="queryById" resultMap="AchievementMap">
+        select a.*,u.id u_id,u.userName,d.id d_id,d.name from achievement a,`user` u,dept d
+        WHERE a.id=#{id} AND a.userId=u.id and a.deptId=d.id
     </select>
     <resultMap id="AchievementMap" type="Achievement">
         <result property="id" column="id"/>
-        <result property="userName" column="userName"/>
         <result property="grade" column="grade"/>
         <result property="lastUpdateTime" column="lastUpdateTime"/>
         <result property="createdBy" column="createdBy"/>
         <result property="remark" column="remark"/>
+        <association property="user" javaType="User">
+            <result property="id" column="u_id"/>
+            <result property="userName" column="userName"/>
+        </association>
         <association property="dept" javaType="Dept">
             <result property="id" column="d_id"/>
             <result property="name" column="name"/>
         </association>
     </resultMap>
     <insert id="addAchievement">
-        insert into achievemet VALUES (DEFAULT ,#{userId},#{deptId},#{grade},#{lastUpdateTime},#{createdBy},#{remark})
+        insert into achievement VALUES (DEFAULT ,#{user.id},#{dept.id},#{grade},#{lastUpdateTime},#{createdBy},NULL )
     </insert>
     <update id="modifyAchievement">
         UPDATE achievement
         <set>
-            <if test="userName!=null and userName!=''">
-                userName=#{userName},
-            </if>
+
             <if test="user.id>0">
                 userId=#{user.id},
             </if>

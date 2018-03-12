@@ -5,7 +5,6 @@ package szxs.accp.entity;
  */
 public class Achievement {
     private Integer id;//主键id
-    private String userName;
     private Dept dept;
     private User user;
     private Integer grade; //等级  系统自动根据转账什么的来判断等级的
@@ -27,14 +26,6 @@ public class Achievement {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public Dept getDept() {
