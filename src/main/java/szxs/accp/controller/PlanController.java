@@ -10,6 +10,7 @@ import szxs.accp.entity.Plan;
 import szxs.accp.entity.User;
 
 import javax.annotation.Resource;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @Controller
@@ -109,11 +110,12 @@ public class PlanController {
      * 点击提交
      * @return
      */
-    @RequestMapping("/commitPlan")
-    public String commitPlan(int id, String userName, Model model){
+    @RequestMapping("/commitPlan/{id}/{userName}")
+    public String commitPlan(@PathVariable int id, @PathVariable String userName, Model model) throws UnsupportedEncodingException {
+        String name = new String(userName.getBytes("iso8859-1"),"utf-8");
         Plan p = planBiz.planList(new Plan(id)).get(0);
         p.setStatus("已提交");
-        User userByUserName = userBiz.getUserByUserName(userName);
+        User userByUserName = userBiz.getUserByUserName(name);
         if(userByUserName!=null){
             p.setNextHanlder(userByUserName.getUserName());
         }

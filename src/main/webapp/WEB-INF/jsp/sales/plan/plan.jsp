@@ -53,17 +53,17 @@
                                 <td>${plan.createdBy}</td>
                                 <td>${plan.nextHanlder}</td>
                                 <td>
-                                    <form action="/crm/commitPlan" method="post" class="navbar-form navbar" >
-                                        <a href="/crm/updatePlan/${plan.id}" class="btn btn-warning btn-xs">修改</a>
-                                        <a href="/crm/deletePlan/${plan.id}" class="btn btn-danger btn-xs remove">删除</a>
-                                        <c:if test="${plan.status=='新创建'}">
-                                            <input type="hidden" name="id" value="${plan.id}"/>
-                                            <input type="hidden" name="userName" value="${plan.userName}"/>
-                                            <input type="submit" value="提交"class="btn btn-info btn-xs">
-                                          <%--<a href="/crm/commitPlan/${plan.id}?userName=${plan.userName}"  class="btn btn-info btn-xs">提交</a>--%>
-                                        </c:if>
-                                        <a href="/crm/viewPlan/${plan.id}" class="btn btn-success btn-xs">查看</a>
-                                    </form>
+                                        <%-- <form action="/crm/commitPlan" method="post" class="navbar-form navbar" >--%>
+                                    <a href="/crm/updatePlan/${plan.id}" class="btn btn-warning btn-xs">修改</a>
+                                    <a href="/crm/deletePlan/${plan.id}" class="btn btn-danger btn-xs remove">删除</a>
+                                    <c:if test="${plan.status=='新创建'}">
+                                        <%-- <input type="hidden" name="id" value="${plan.id}"/>
+                                         <input type="hidden" name="userName" value="${plan.userName}"/>
+                                         <input type="submit" value="提交"class="btn btn-info btn-xs">--%>
+                                        <a href="/crm/commitPlan/${plan.id}/${plan.userName}" class="btn btn-info btn-xs">提交</a>
+                                    </c:if>
+                                    <a href="/crm/viewPlan/${plan.id}" class="btn btn-success btn-xs">查看</a>
+                                        <%--</form>--%>
                                 </td>
                             </tr>
                            </c:forEach>

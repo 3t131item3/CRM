@@ -18,7 +18,7 @@ public interface CustomerResourceDao {
      */
     int addCustomerResource(CustomerResource customerResource);
     /**
-     * 修改或提交
+     * 修改
      * @return
      */
     int updateCustomerResource(CustomerResource customerResource);

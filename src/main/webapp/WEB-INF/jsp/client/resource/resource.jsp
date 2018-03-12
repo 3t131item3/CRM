@@ -46,9 +46,8 @@
                             </form>
                         </div>
                     <div class="x_content">
-
-                        <strong class="h3">角色信息列表</strong>
-
+                        <strong class="h3">客户资源列表</strong>
+                        <a href="/crm/addCustomerResource" class="btn btn-primary" style="margin-left: 900px">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -71,7 +70,6 @@
                                 <td>${customerResource.creationTime}</td>
                                 <td>${customerResource.createdBy}</td>
                                 <td>
-                                    <a href="/crm/addCustomerResource" class="btn btn-primary btn-xs">添加</a>
                                     <a href="/crm/updateCustomerResource/${customerResource.id}" class="btn btn-warning btn-xs">修改</a>
                                     <a href="/crm/viewCustomerResource/${customerResource.id}" class="btn btn-success btn-xs">查看</a>
                                   <%--  <a href="#" class="btn btn-success btn-xs">分配</a>--%>

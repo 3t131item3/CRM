@@ -47,7 +47,7 @@
                                         <li><a href="/crm/rolelist">角色管理</a></li>
                                         <li><a href="/crm/listDeptAll">组织结构</a></li>
                                         <li><a href="/crm/listEmpAll">员工管理</a></li>
-                                        <li><a href="/data">数据字典</a></li>
+                                        <%--<li><a href="/data">数据字典</a></li>--%>
                                     </c:if>
                                     <li><a href="/crm/listNoticeAll">公告管理</a></li>
                                     <li><a href="/crm/myInfo/${userSession.id}">个人信息</a></li>
@@ -69,12 +69,12 @@
                             </li>
                             <li><a><i class="fa fa-user"></i> 客户管理<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/crm/resource">客户资源管理</a></li>
-                                    <li><a href="/crm/develop">客户发展计划</a></li>
-                                    <li><a href="/crm/value">客户价值管理</a></li>
+                                    <li><a href="/crm/customerResourceList">客户资源管理</a></li>
+                                    <li><a href="/crm/customerVauleList">客户价值管理</a></li>
                                     <li><a href="/crm/satisfaction">客户满意度管理</a></li>
-                                    <li><a href="/crm/credit">客户信誉管理</a></li>
-                                    <li><a href="/crm/concern">客户关怀</a></li>
+                                    <li><a href="/crm/customerReputationList">客户信誉管理</a></li>
+                                   <%-- <li><a href="/crm/develop">客户发展计划</a></li>
+                                    <li><a href="/crm/concern">客户关怀</a></li>--%>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-table"></i> 服务管理 <span class="fa fa-chevron-down"></span></a>

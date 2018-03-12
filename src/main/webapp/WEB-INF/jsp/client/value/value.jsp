@@ -24,17 +24,20 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <form action="" method="post" class="navbar-form navbar" >
+                        <form action="/crm/searchValueByNameAndType" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">客户姓名:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName">
-                                <strong class="h4">类型</strong>
-                                <select name="" id="">
-                                    <option value="">1111</option>
+                                <input type="text" name="customerName"value="${customerName}" placeholder="Search" class="form-control input-md roleName">
+                                <strong class="h4">类型:</strong>
+                                <select id="type" name="type">
+                                    <option value="">请选择</option>
+                                    <option value="普通客户">普通客户</option>
+                                    <option value="银卡客户">银卡客户</option>
+                                    <option value="金卡客户">金卡客户</option>
+                                    <option value="VIP客户">VIP客户</option>
                                 </select>
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
-
                         </form>
 
                     </div>
@@ -46,27 +49,29 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th></th>
                                 <th>客户姓名</th>
                                 <th>性别</th>
                                 <th>客户类型</th>
                                 <th>已消费次数</th>
                                 <th>消费总额(单位:万元)</th>
                                 <th>服务代表</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
-
                             <tbody>
-
+                         <c:forEach var="customerVaule" items="${customerVauleList}" varStatus="status">
                             <tr>
-                                <td>Donna Snider</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
-                                <td>$112,000</td>
-                                <td><a href="#" class="btn btn-success btn-xs">查看</a></td>
+                                <td>${customerVaule.customerName}</td>
+                                <td>${customerVaule.sex}</td>
+                                <td>${customerVaule.type}</td>
+                                <td>${customerVaule.number}</td>
+                                <td>${customerVaule.money}</td>
+                                <td>${customerVaule.createdBy}</td>
+                                <td>
+                                    <a href="/crm/viewValue/${customerVaule.id}" class="btn btn-success btn-xs">查看</a>
+                                </td>
                             </tr>
+                             </c:forEach>
                             </tbody>
                         </table>
                     </div>

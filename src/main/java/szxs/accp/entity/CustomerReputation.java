@@ -11,6 +11,15 @@ public class CustomerReputation {
     private int number ;//消费次数
     private String grade ;
 
+    public CustomerReputation() { }
+
+    public CustomerReputation(int id) {
+        this.id = id;
+    }
+    public CustomerReputation(String customerName) {
+        this.customerName = customerName;
+    }
+
     public int getId() {
         return id;
     }

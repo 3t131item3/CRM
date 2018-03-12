@@ -48,14 +48,11 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content" style="font-size: 20px;">
-
                         <p><strong>计划编码:</strong><span>${plan.code}</span></p>
                         <p><strong>计划人姓名:</strong><span>${plan.userName}</span></p>
                         <p><strong>计划状态:</strong><span>${plan.status}</span></p>
                         <p><strong>计划月份:</strong><span>${plan.month}</span></p>
-                        <%--<p><strong>所属部门:</strong><span></span></p>--%>
                         <p><strong>计划内容:</strong><span>${plan.planContent}</span></p>
-
                     </div>
                     <div>
                         <a href="javascript:history.back(-1)" class="btn btn-primary btn-lg">返回</a>

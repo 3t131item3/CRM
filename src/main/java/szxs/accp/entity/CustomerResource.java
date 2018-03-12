@@ -1,5 +1,8 @@
 package szxs.accp.entity;
 
+/**
+ * 客户资源管理
+ */
 public class CustomerResource {
     private int id ;
     private String customerCode ;

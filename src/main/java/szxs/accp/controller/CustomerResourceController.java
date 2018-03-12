@@ -8,6 +8,7 @@ import szxs.accp.biz.CustomerResourceBiz;
 import szxs.accp.entity.CustomerResource;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Controller
 @RequestMapping("/crm")

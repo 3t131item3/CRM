@@ -5,20 +5,18 @@
 <mapper namespace="szxs.accp.dao.CustomerResourceDao">
     <!--根据条件查询-->
     <select id="customerResourceList" resultType="CustomerResource">
-        select * from CustomerResource
-        <where>
-            <if test="id!=null and id>0"> id=#{id}</if>
-            <if test="customerName!=null and customerName!=''"> `customerName` LIKE concat('%',#{customerName},'%')</if>
-        </where>
+        select * from CustomerResource where 1=1
+            <if test="id!=null and id>0"> and id=#{id}</if>
+            <if test="customerName!=null and customerName!=''"> and `customerName` LIKE concat('%',#{customerName},'%')</if>
     </select>
     <!--新增-->
     <insert id="addCustomerResource" >
-        INSERT INTO Resource(`id`,`customerCode`,`customerName`,`sex`,`email`,`address`,`type`,`status`,`creationTime`,createdBy,phone,officePhone,addressPhone,remark)
+        INSERT INTO CustomerResource(`id`,`customerCode`,`customerName`,`sex`,`email`,`address`,`type`,`status`,`creationTime`,createdBy,phone,officePhone,addressPhone,remark)
          VALUES(DEFAULT,#{customerCode},#{customerName},#{sex},#{email},#{address},#{type},#{status},DEFAULT,#{createdBy},#{phone},#{officePhone},#{addressPhone},#{remark})
     </insert>
     <!--修改-->
-    <update id="updatePlan">
-        update Resource
+    <update id="updateCustomerResource">
+        update CustomerResource
         <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
             <if test="customerCode!=null and customerCode!=''">customerCode=#{customerCode},</if>
             <if test="customerName !=null and customerName!=''">customerName=#{customerName},</if>

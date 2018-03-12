@@ -3,13 +3,24 @@ package szxs.accp.entity;
  *客户价值管理
  */
 public class CustomerVaule {
-    private int  id ;
+    private int id ;
     private String customerName;
     private String sex ;
     private String type ;
     private int number ;//消费次数
     private Float money ;
     private String createdBy ;//操作人
+
+    public CustomerVaule() { }
+
+    public CustomerVaule(int id) {
+        this.id = id;
+    }
+
+    public CustomerVaule(String customerName, String type) {
+        this.customerName = customerName;
+        this.type = type;
+    }
 
     public int getId() {
         return id;
