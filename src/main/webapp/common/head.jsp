@@ -56,9 +56,11 @@
                             <li><a><i class="fa fa-edit"></i> 销售管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="/crm/planList">销售计划</a></li>
-                                    <li><a href="/crm/forecastList">销售预测</a></li>
-                                    <li><a href="/crm/achievement">销售绩效</a></li>
-                                    <li><a href="/crm/contacts">联系人管理</a></li>
+                                    <c:if test="${userSession.roleId!=4 and userSession.roleId!=5}">
+                                      <li><a href="/crm/forecastList">销售预测</a></li>
+                                      <li><a href="/crm/achievement">销售绩效</a></li>
+                                    </c:if>
+                                    <li><a href="/crm/contactslist">联系人管理</a></li>
                                   <%--  <li><a href="/chance">机会管理</a></li>
                                     <li><a href="/compete">竞争管理</a></li>
                                     <li><a href="/analysis">销售分析</a></li>--%>
@@ -66,12 +68,12 @@
                             </li>
                             <li><a><i class="fa fa-user"></i> 客户管理<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/resource">客户资源管理</a></li>
-                                    <li><a href="/develop">客户发展计划</a></li>
-                                    <li><a href="/value">客户价值管理</a></li>
-                                    <li><a href="/satisfaction">客户满意度管理</a></li>
-                                    <li><a href="/credit">客户信誉管理</a></li>
-                                    <li><a href="/concern">客户关怀</a></li>
+                                    <li><a href="/crm/resource">客户资源管理</a></li>
+                                    <li><a href="/crm/develop">客户发展计划</a></li>
+                                    <li><a href="/crm/value">客户价值管理</a></li>
+                                    <li><a href="/crm/satisfaction">客户满意度管理</a></li>
+                                    <li><a href="/crm/credit">客户信誉管理</a></li>
+                                    <li><a href="/crm/concern">客户关怀</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-table"></i> 服务管理 <span class="fa fa-chevron-down"></span></a>

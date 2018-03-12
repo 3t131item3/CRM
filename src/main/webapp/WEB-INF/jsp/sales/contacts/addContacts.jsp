@@ -37,14 +37,14 @@
 
                     <div class="x_content">
 
-                        <form class="form-horizontal form-label-left" action="" method="post" novalidate>
+                        <form class="form-horizontal form-label-left" action="/crm/contactsadd" method="post" novalidate>
 
 
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">联系人编码 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="" class="form-control col-md-7 col-xs-12"  name="" placeholder="请输入联系人编码" required="required" type="text">
+                                    <input id="code" class="form-control col-md-7 col-xs-12"  name="code" placeholder="请输入联系人编码" required="required" type="text">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
@@ -52,50 +52,50 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">联系人姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name="" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="genderM">性别 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="radio" id="genderM" name="gender" class="flat" value="0"  checked > 男
-                                    <input type="radio" id="genderF" name="gender" class="flat" value="1"  > 女
+                                    <input type="radio" id="genderM" name="sex" class="flat" value="0"  checked > 男
+                                    <input type="radio" id="genderF" name="sex" class="flat" value="1"  > 女
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">生日 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name=""  required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="birthday" name="birthday"  required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">手机 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name="" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="phone" name="phone" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">家庭电话 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name="" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="addressPhone" name="addressPhone" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">联系地址 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name=""  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="address" name="address"  required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">备注信息 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name=""  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="remark" name="remark"  required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 

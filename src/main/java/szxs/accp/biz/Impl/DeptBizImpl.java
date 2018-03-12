@@ -9,10 +9,22 @@ import javax.annotation.Resource;
 import java.util.List;
 @Service("deptBiz")
 public class DeptBizImpl implements DeptBiz {
-@Resource(name = "deptDao")
-private DeptDao deptDao;
+    @Resource(name = "deptDao")
+    private DeptDao deptDao;
 
     public List<Dept> list(Dept dept) {
         return deptDao.list(dept);
+    }
+
+    public boolean remove(int id) {
+        return deptDao.remove(id)>0;
+    }
+
+    public boolean add(Dept dept) {
+        return deptDao.add(dept)>0;
+    }
+
+    public boolean modify(Dept dept) {
+        return deptDao.modify(dept)>0;
     }
 }

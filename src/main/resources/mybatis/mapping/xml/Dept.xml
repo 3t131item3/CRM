@@ -4,11 +4,40 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="szxs.accp.dao.DeptDao">
     <select id="list" resultType="dept">
-      SELECT * FROM dept
-      <where>
-          <if test="name!=null and name!=''">
-              name=#{name}
-          </if>
-      </where>
+        SELECT * FROM dept
+        <where>
+            <if test="name!=null and name!=''"> name LIKE concat('%',#{name},'%') </if>
+            <if test="id>0">and id=#{id}</if>
+        </where>
     </select>
+    <insert id="add">
+        INSERT INTO dept VALUE (DEFAULT ,#{deptCode},#{name},#{lastUpdateTime},#{operator},#{intro},#{remark})
+    </insert>
+    <delete id="remove">
+        DELETE FROM dept
+        WHERE id=#{id}
+    </delete>
+    <update id="modify">
+        UPDATE dept
+        <set>
+            remark=#{remark},
+            <if test="deptCode!=null and deptCode!=''">
+                deptCode=#{deptCode},
+            </if>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="lastUpdateTime!=null and lastUpdateTime!=''">
+                lastUpdateTime=#{lastUpdateTime},
+            </if>
+            <if test="operator!=null and operator!=''">
+                operator=#{operator},
+            </if>
+            <if test="intro!=null and intro!=''">
+                intro=#{intro},
+            </if>
+
+        </set>
+        where id=#{id}
+    </update>
 </mapper>

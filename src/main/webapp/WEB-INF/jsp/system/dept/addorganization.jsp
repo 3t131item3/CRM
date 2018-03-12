@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>修改组织结构</title>
+    <title>添加组织结构</title>
 
 
 
@@ -30,14 +30,12 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-
-                        <form action="/crm/modifyDeptSave" method="post" class="form-horizontal form-label-left" novalidate>
+                            <form action="/crm/addDept" method="post" class="form-horizontal form-label-left" novalidate>
                             <div class="item form-group">
-                                <input type="hidden" name="id"value="${dept.id}"/>
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >组织编码 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >组织编码  <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="userCode" class="form-control col-md-7 col-xs-12" value="${dept.deptCode}"  name="deptCode"  required="required" type="text">
+                                    <input id="userCode" class="form-control col-md-7 col-xs-12"  name="deptCode"  required="required" type="text">
                                 </div>
                             </div>
 
@@ -45,7 +43,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >组织全称 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="name" value="${dept.name}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="name"  required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 
@@ -53,22 +51,23 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >操作人 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="operator" class="form-control col-md-7 col-xs-12">${dept.operator}</textarea>
+                                    <textarea name="operator" class="form-control col-md-7 col-xs-12" ></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" placeholder="总经理办公室负责公司重要政策和文件的制定和发布......">部门简介 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="intro" class="form-control col-md-7 col-xs-12" required>${dept.intro}</textarea>
+                                    <textarea name="intro" class="form-control col-md-7 col-xs-12" required></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark"  class="form-control col-md-7 col-xs-12" required>${dept.remark}</textarea>
+                                    <textarea name="remark" class="form-control col-md-7 col-xs-12" required></textarea>
                                 </div>
+                                <form/>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="form-group">
@@ -79,7 +78,6 @@
                             </div>
                         </form>
                     </div>
-                </div>
                 </div>
             </div>
         </div>

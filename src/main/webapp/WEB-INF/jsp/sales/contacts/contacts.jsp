@@ -24,10 +24,10 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <form action="" method="post" class="navbar-form navbar" >
+                        <form action="/contactslist" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">联系人:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" placeholder="Search" class="form-control input-md roleName" name="name">
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
 
@@ -41,6 +41,7 @@
 
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
+
                             <tr>
                                 <th></th>
                                 <th>联系人</th>
@@ -52,20 +53,22 @@
                             </thead>
 
                             <tbody>
-
+                           <c:forEach items="${contacts}" var="contacts">
                             <tr>
-                                <td>Donna Snider</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
+
+                                <td>${contacts.name}</td>
+                                <td>${contacts.sex}</td>
+                                <td>${contacts.phone}</td>
+                                <td>${contacts.address}</td>
+                                <td>${contacts.remark}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">添加</a>
+                                    <a href="/crm/addContacts" class="btn btn-primary">添加</a>
                                     <a href="#" class="btn btn-warning">修改</a>
                                     <a href="#" class="btn btn-success">查看</a>
                                     <a href="#" class="btn btn-danger">删除</a>
                                 </td>
                             </tr>
+                           </c:forEach>
                             </tbody>
                         </table>
                     </div>
