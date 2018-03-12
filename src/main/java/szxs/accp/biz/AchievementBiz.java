@@ -1,16 +1,23 @@
 package szxs.accp.biz;
 
+import org.apache.ibatis.annotations.Param;
 import szxs.accp.entity.Achievement;
 
 import java.util.List;
 
 public interface AchievementBiz {
     /**
-     * 查询所有
-     * @param achievement
+     * 根据id查询
+     * @param id
      * @return
      */
-    List<Achievement> queryAchievement(Achievement achievement);
+    Achievement queryById(int id);
+    /**
+     * 查询所有
+     * @param
+     * @return
+     */
+    List<Achievement> queryAchievement();
 
     /**
      * 添加

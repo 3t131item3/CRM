@@ -7,11 +7,17 @@ import java.util.List;
 
 public interface AchievementDao {
     /**
-     * 查询所有
-     * @param achievement
+     * 根据id查询
+     * @param id
      * @return
      */
-    List<Achievement> queryAchievement(Achievement achievement);
+    Achievement queryById(@Param("id") int id);
+    /**
+     * 查询所有
+     * @param
+     * @return
+     */
+    List<Achievement> queryAchievement();
 
     /**
      * 添加

@@ -11,8 +11,13 @@ import java.util.List;
 public class AchievementBizImpl implements AchievementBiz {
     @Resource(name="achievementDao")
     private AchievementDao achievementDao;
-    public List<Achievement> queryAchievement(Achievement achievement) {
-        return achievementDao.queryAchievement(achievement);
+
+    public Achievement queryById(int id) {
+        return achievementDao.queryById(id);
+    }
+
+    public List<Achievement> queryAchievement() {
+        return achievementDao.queryAchievement();
     }
 
     public boolean addAchievement(Achievement achievement) {
