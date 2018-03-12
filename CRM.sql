@@ -114,6 +114,7 @@ VALUES(DEFAULT,'2013-10公司整体预测结果','xxxxxxxxxxxxxxxxxxxx','2013-10
 #销售绩效
 CREATE TABLE Achievement(
 	id INT PRIMARY KEY AUTO_INCREMENT,
+	userName VARCHAR(50) NOT NULL,
 	userId INT NOT NULL,
 	deptId INT NOT NULL,#部门id
 	grade INT NOT NULL DEFAULT 0,#等级  系统自动根据转账什么的来判断等级的
@@ -123,13 +124,13 @@ CREATE TABLE Achievement(
 )CHARSET=utf8;
 ALTER TABLE Achievement ADD CONSTRAINT `Achievement_deptId` FOREIGN KEY(`deptId`) REFERENCES Dept(`id`);
 ALTER TABLE Achievement ADD CONSTRAINT `Achievement_userId` FOREIGN KEY(`userId`) REFERENCES `User`(`id`);
-INSERT INTO Achievement(`id`,`userId`,`deptId`,`grade`,`lastUpdateTime`,`createdBy`,`remark`)
-VALUES(DEFAULT,1,1,2,DEFAULT,'张三',''),
-(DEFAULT,2,1,0,DEFAULT,'张三',''),
-(DEFAULT,3,1,1,DEFAULT,'张三',''),
-(DEFAULT,4,1,DEFAULT,DEFAULT,'张三',''),
-(DEFAULT,5,2,3,DEFAULT,'张三',''),
-(DEFAULT,6,2,-1,DEFAULT,'张三','');
+INSERT INTO Achievement(`id`,userName,`userId`,`deptId`,`grade`,`lastUpdateTime`,`createdBy`,`remark`)
+VALUES(DEFAULT,'李四',1,1,2,DEFAULT,'张三',''),
+(DEFAULT,'李四',2,1,0,DEFAULT,'张三',''),
+(DEFAULT,'李四',3,1,1,DEFAULT,'张三',''),
+(DEFAULT,'李四',4,1,DEFAULT,DEFAULT,'张三',''),
+(DEFAULT,'李四',5,2,3,DEFAULT,'张三',''),
+(DEFAULT,'李四',6,2,-1,DEFAULT,'张三','');
 
 
 #联系人管理
