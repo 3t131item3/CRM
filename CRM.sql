@@ -83,22 +83,20 @@ CREATE TABLE Plan(
 	planContent VARCHAR(500) NOT NULL,#计划内容
 	lastUpdateTime TIMESTAMP DEFAULT NOW()NOT NULL,#最后修改时间
 	createdBy VARCHAR(50) NOT NULL,#操作人
-	nextHanlder VARCHAR(50), #待处理人，关联部门 找和他相同部门的销售经理
-	userId INT NOT NULL,
-	deptId INT NOT NULL
+	nextHanlder VARCHAR(50)#待处理人，关联部门 找和他相同部门的销售经理
 )CHARSET=utf8;
 ALTER TABLE Plan ADD CONSTRAINT `Plan_userId` FOREIGN KEY(`userId`) REFERENCES `User`(`id`);
-INSERT INTO Plan(`id`,`code`,`userName`,`month`,`status`,`planContent`,`lastUpdateTime`,createdBy,nextHanlder,userId,deptId)
-VALUES(DEFAULT,'LY201311','王四毛','2013-10',DEFAULT,'公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作。',DEFAULT,'张三','',6,2),
-(DEFAULT,'LY201311','王四毛','2013-09',DEFAULT,'公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作2。',DEFAULT,'张三','',6,2),
-(DEFAULT,'LY201311','王四毛','2013-04','已提交','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作3。',DEFAULT,'张三','王五',6,2),
-(DEFAULT,'LY201311','王四毛','2013-05','已通过','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作4。',DEFAULT,'张三','',6,2),
-(DEFAULT,'LY201311','王四毛','2013-06','已提交','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作5。',DEFAULT,'张三','王五',6,2);
-
+INSERT INTO Plan(`id`,`code`,`userName`,`month`,`status`,`planContent`,`lastUpdateTime`,createdBy,nextHanlder)
+VALUES(DEFAULT,'LY201311','王四毛','2013-10',DEFAULT,'公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作。',DEFAULT,'张三',''),
+(DEFAULT,'LY201311','王四毛','2013-09',DEFAULT,'公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作2。',DEFAULT,'张三',''),
+(DEFAULT,'LY201311','王四毛','2013-04','已提交','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作3。',DEFAULT,'张三','王五'),
+(DEFAULT,'LY201311','王四毛','2013-05','已通过','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作4。',DEFAULT,'张三',''),
+(DEFAULT,'LY201311','王四毛','2013-06','已提交','公司定于2013年12月20日举行公司年会，请各部门提前做好相关准备工作5。',DEFAULT,'张三','王五');
 #销售预策
 CREATE TABLE Forecast(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	title VARCHAR(50) NOT NULL,
+	result VARCHAR(500) NOT NULL, #预测结果
 	`month` VARCHAR(50) NOT NULL,#月份
 	`date` TIMESTAMP DEFAULT NOW()NOT NULL,#创建时间
 	deptId INT NOT NULL,#部门id
@@ -108,11 +106,11 @@ CREATE TABLE Forecast(
 	createdBy VARCHAR(50) NOT NULL #操作人
 )CHARSET=utf8;
 ALTER TABLE Forecast ADD CONSTRAINT `Forecast_deptId` FOREIGN KEY(`deptId`) REFERENCES Dept(`id`);
-INSERT INTO Forecast(`id`,`title`,`month`,`date`,`deptId`,`scale`,`customerNum`,`type`,createdBy)
-VALUES(DEFAULT,'2013-10公司整体预测结果','2013-10',DEFAULT,1,56,567,'整体预测','王二毛'),
-(DEFAULT,'2013-10公司整体预测结果','2013-10',DEFAULT,2,56,568,'部门预测','王二毛'),
-(DEFAULT,'2013-09公司整体预测结果','2013-09',DEFAULT,1,50,56,'整体预测','王二毛'),
-(DEFAULT,'2013-09公司整体预测结果','2013-09',DEFAULT,3,56,800,'部门预测','王二毛');
+INSERT INTO Forecast(`id`,`title`,result,`month`,`date`,`deptId`,`scale`,`customerNum`,`type`,createdBy)
+VALUES(DEFAULT,'2013-10公司整体预测结果','xxxxxxxxxxxxxxxxxxxx','2013-10',DEFAULT,1,56,567,'整体预测','王二毛'),
+(DEFAULT,'2013-10公司整体预测结果','xxxxxxxxxxxxxxxxxxxx','2013-10',DEFAULT,2,56,568,'部门预测','王二毛'),
+(DEFAULT,'2013-09公司整体预测结果','xxxxxxxxxxxxxxxxxxxx','2013-09',DEFAULT,1,50,56,'整体预测','王二毛'),
+(DEFAULT,'2013-09公司整体预测结果','xxxxxxxxxxxxxxxxxxxx','2013-09',DEFAULT,3,56,800,'部门预测','王二毛');
 #销售绩效
 CREATE TABLE Achievement(
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -153,4 +151,3 @@ VALUES(DEFAULT,'2013112901','安和平','2013-12-12','男','13028803277','0660-6
 (DEFAULT,'2013112904','陈女士','2010-12-12','女','13028803272','0660-6763114','xxxx',''),
 (DEFAULT,'2013112905','仇鹏涛','2009-12-12','男','13028803271','0660-6763114','xxxx',''),
 (DEFAULT,'2013112906','安和平','2018-12-12','男','13028803276','0660-6763114','xxxx','');
-
