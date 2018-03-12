@@ -3,16 +3,33 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="szxs.accp.dao.ContactsDao">
-    <select id="ContactsList" resultType="Contacts">
+    <select id="contactsList" resultType="Contacts">
         SELECT * from Contacts
         <where>
             <if test="name!=null and name!=''">
-                name like concat('%',#{name},'%')
+                `name` like concat('%',#{name},'%')
             </if>
         </where>
     </select>
-    <insert id="ContactsAdd">
+    <insert id="addContacts">
         INSERT INTO Contacts VALUE (DEFAULT,#{code},#{name},#{birthday},#{sex},#{phone},#{addressPhone},#{address},#{remark})
     </insert>
-
+    <!--修改-->
+    <update id="updateContacts">
+        update Contacts
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="code!=null and code!=''">code=#{code},</if>
+            <if test="name !=null and name!=''">name=#{name},</if>
+            <if test="birthday !=null and birthday!=''">birthday=#{birthday},</if>
+            <if test="sex !=null and sex!=''">sex=#{sex},</if>
+            <if test="phone !=null and phone!=''">phone=#{phone},</if>
+            <if test="addressPhone !=null and addressPhone!=''">addressPhone=#{addressPhone},</if>
+            <if test="address !=null and address!=''">address=#{address},</if>
+            <if test="remark !=null and remark!=''">remark=#{remark},</if>
+        </trim>
+    </update>
+    <!--删除-->
+    <delete id="deleteContacts">
+        delete from Contacts where id=#{id}
+    </delete>
 </mapper>

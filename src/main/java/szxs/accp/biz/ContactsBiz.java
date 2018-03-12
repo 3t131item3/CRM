@@ -8,14 +8,25 @@ import java.util.List;
 public interface ContactsBiz {
     /**
      * 查询联系人全部信息或根据联系人名称模糊查询
-     * @param name
      * @return
      */
-    List<Contacts>ContactsList(@Param("name")String name);
+    List<Contacts>contactsList(Contacts contacts);
+
     /**
      * 添加联系人
      * @param contacts
      * @return
      */
-   boolean ContactsAdd(Contacts contacts);
+    boolean addContacts(Contacts contacts);
+    /**
+     * 修改
+     * @return
+     */
+    boolean updateContacts(Contacts contacts);
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    boolean deleteContacts(@Param("id") int id);
 }

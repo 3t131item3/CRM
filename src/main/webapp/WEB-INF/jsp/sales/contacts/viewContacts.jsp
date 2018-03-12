@@ -21,18 +21,15 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-
                     <div class="x_content" style="font-size: 20px;">
-
-                        <p><strong>联系人编码:</strong><span></span></p>
-                        <p><strong>联系人姓名:</strong><span></span></p>
-                        <p><strong>性别:</strong><span></span></p>
-                        <p><strong>生日:</strong><span></span></p>
-                        <p><strong>手机:</strong><span></span></p>
-                        <p><strong>家庭电话:</strong><span></span></p>
-                        <p><strong>联系地址:</strong><span></span></p>
-                        <p><strong>备注信息:</strong><span></span></p>
-
+                        <p><strong>联系人编码:</strong><span>${contacts.code}</span></p>
+                        <p><strong>联系人姓名:</strong><span>${contacts.name}</span></p>
+                        <p><strong>性别:</strong><span>${contacts.sex}</span></p>
+                        <p><strong>生日:</strong><span>${contacts.birthday}</span></p>
+                        <p><strong>手机:</strong><span>${contacts.phone}</span></p>
+                        <p><strong>家庭电话:</strong><span>${contacts.addressPhone}</span></p>
+                        <p><strong>联系地址:</strong><span>${contacts.address}</span></p>
+                        <p><strong>备注信息:</strong><span>${contacts.remark}</span></p>
                     </div>
                     <div>
                         <a href="javascript:history.back(-1)" class="btn btn-primary btn-lg">返回</a>

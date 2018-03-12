@@ -24,10 +24,10 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <form action="/contactslist" method="post" class="navbar-form navbar" >
+                        <form action="/crm/contactslist" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">联系人:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName" name="name">
+                                <input type="text" placeholder="Search" class="form-control input-md" name="name">
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
 
@@ -36,36 +36,31 @@
                     </div>
 
                     <div class="x_content">
-
-                        <strong class="h3">角色信息列表</strong>
-
+                        <strong class="h3">联系人列表</strong>
+                        <a href="/crm/addContacts" class="btn btn-primary" style="margin-left: 900px">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
-
                             <tr>
-                                <th></th>
                                 <th>联系人</th>
                                 <th>性别</th>
                                 <th>联系电话</th>
                                 <th>住址</th>
                                 <th>备注</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
-
                             <tbody>
-                           <c:forEach items="${contacts}" var="contacts">
+                           <c:forEach items="${contactslist}" var="contacts">
                             <tr>
-
                                 <td>${contacts.name}</td>
                                 <td>${contacts.sex}</td>
                                 <td>${contacts.phone}</td>
                                 <td>${contacts.address}</td>
                                 <td>${contacts.remark}</td>
                                 <td>
-                                    <a href="/crm/addContacts" class="btn btn-primary">添加</a>
-                                    <a href="#" class="btn btn-warning">修改</a>
-                                    <a href="#" class="btn btn-success">查看</a>
-                                    <a href="#" class="btn btn-danger">删除</a>
+                                    <a href="/crm/updateContacts/${contacts.id}" class="btn btn-warning">修改</a>
+                                    <a href="/crm/viewContacts/${contacts.id}" class="btn btn-success">查看</a>
+                                    <a href="/crm/deleteContacts/${contacts.id}" class="btn btn-danger remove">删除</a>
                                 </td>
                             </tr>
                            </c:forEach>
@@ -83,5 +78,12 @@
 <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
-</body>
-</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".remove").click(function () {
+            if(!confirm("確定要刪除嗎？")){
+                $(this).attr("href","/crm/contactslist");
+            }
+        })
+    });
+</script>

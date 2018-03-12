@@ -13,6 +13,14 @@ public class Contacts {
     private String address; //地址
     private String remark;//备注
 
+    public Contacts() { }
+    public Contacts(String name) {
+        this.name = name;
+    }
+    public Contacts(Integer id) {
+        this.id = id;
+    }
+
     public String getAddressPhone() {
         return addressPhone;
     }

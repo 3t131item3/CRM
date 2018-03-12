@@ -34,68 +34,65 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-
                     <div class="x_content">
-
-                        <form class="form-horizontal form-label-left" action="" method="post" novalidate>
-
-
+                        <form class="form-horizontal form-label-left" action="/crm/updateContactsSave" method="post" novalidate>
+                            <input class="form-control col-md-7 col-xs-12"  name="id" value="${contacts.id}"  type="hidden">
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">联系人编码 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">联系人编码 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="" class="form-control col-md-7 col-xs-12"  name="" placeholder="请输入联系人编码" required="required" type="text">
+                                    <input id="code" class="form-control col-md-7 col-xs-12"  name="code"value="${contacts.code}" placeholder="请输入联系人编码" required="required" type="text">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">联系人姓名 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">联系人姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name="" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="name" name="name" value="${contacts.name}" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="genderM">性别 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="radio" id="genderM" name="gender" class="flat" value="0"  checked > 男
-                                    <input type="radio" id="genderF" name="gender" class="flat" value="1"  > 女
+                                    <input type="radio" id="genderM" name="sex" class="flat" value="男" <c:if test="${contacts.sex=='男'}">checked</c:if>> 男
+                                    <input type="radio" id="genderF" name="sex" class="flat" value="女"  <c:if test="${contacts.sex=='女'}">checked</c:if>> 女
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">生日 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthday">生日 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name=""  required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="birthday" name="birthday"  value="${contacts.birthday}" required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">手机 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name="" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="phone" name="phone"value="${contacts.phone}" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">家庭电话 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="addressPhone">家庭电话 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name="" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="addressPhone" name="addressPhone"value="${contacts.addressPhone}" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">联系地址 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">联系地址 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name=""  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="address" name="address" value="${contacts.address}" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">备注信息 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="remark">备注信息 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name=""  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="remark" name="remark" value="${contacts.remark}" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 

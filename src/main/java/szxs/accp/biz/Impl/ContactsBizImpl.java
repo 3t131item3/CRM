@@ -11,11 +11,20 @@ import java.util.List;
 public class ContactsBizImpl implements ContactsBiz {
     @Resource(name ="contactsDao" )
     private ContactsDao contactsDao;
-    public List<Contacts> ContactsList(String name) {
-        return contactsDao.ContactsList(name);
+
+    public List<Contacts> contactsList(Contacts contacts) {
+        return contactsDao.contactsList(contacts);
     }
 
-    public boolean ContactsAdd(Contacts contacts) {
-        return contactsDao.ContactsAdd(contacts)>0;
+    public boolean addContacts(Contacts contacts) {
+        return contactsDao.addContacts(contacts)>0;
+    }
+
+    public boolean updateContacts(Contacts contacts) {
+        return contactsDao.updateContacts(contacts)>0;
+    }
+
+    public boolean deleteContacts(int id) {
+        return contactsDao.deleteContacts(id)>0;
     }
 }

@@ -2,9 +2,11 @@ package szxs.accp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import szxs.accp.biz.ContactsBiz;
 import szxs.accp.entity.Contacts;
+import szxs.accp.entity.Plan;
 
 import javax.annotation.Resource;
 
@@ -23,7 +25,8 @@ public class ContactsController {
 
     @RequestMapping("/contactslist")
     public String contactslist(Model model,String name){
-        model.addAttribute("contacts",contactsBiz.ContactsList(name));
+        model.addAttribute("contactslist",contactsBiz.contactsList(new Contacts(name)));
+        model.addAttribute("name",name);
         return "/sales/contacts/contacts";
     }
 
@@ -35,27 +38,58 @@ public class ContactsController {
     public String addContacts(){
         return "sales/contacts/addContacts";
     }
-
     /**
      * 增加信息
      * @param model
      * @param contacts
      * @return
      */
-    @RequestMapping("/contactsadd")
-    public String contactsadd(Model model, Contacts contacts){
-        if (contactsBiz.ContactsAdd(contacts)){
-            return "redirect:/crm/contactslist";
-        }else {
-            return "redirect:/crm/addContacts";
-        }
+    @RequestMapping("/addContactsSave")
+    public String addContactsSave(Model model, Contacts contacts){
+        contactsBiz.addContacts(contacts);
+        return "redirect:/crm/contactslist";
     }
-    @RequestMapping("/updateContacts")
-    public String updateContacts(){
-        return "sales/updateContacts";
+    /**
+     * 跳转到修改页面
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping("/updateContacts/{id}")
+    public String updateContacts(@PathVariable int id, Model model){
+        Contacts contacts = contactsBiz.contactsList(new Contacts(id)).get(0);
+        model.addAttribute("contacts", contacts);
+        return "sales/contacts/updateContacts";
     }
-    @RequestMapping("/viewContacts")
-    public String viewContacts(){
-        return "sales/viewContacts";
+    /**
+     * 修改成功
+     * @param model
+     * @return
+     */
+    @RequestMapping("/updateContactsSave")
+    public String updateContactsSave(Contacts contacts, Model model){
+        contactsBiz.updateContacts(contacts);
+        return "redirect:/crm/contactslist";
+    }
+    /**
+     * 查看
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping("/viewContacts/{id}")
+    public String viewContacts(@PathVariable int id, Model model){
+        Contacts contacts = contactsBiz.contactsList(new Contacts(id)).get(0);
+        model.addAttribute("contacts", contacts);
+        return "sales/contacts/viewContacts";
+    }
+    /**
+     * 删除
+     * @return
+     */
+    @RequestMapping("/deleteContacts/{id}")
+    public String deleteContacts(@PathVariable int id){
+        contactsBiz.deleteContacts(id);
+        return "redirect:/crm/contactslist";
     }
 }
