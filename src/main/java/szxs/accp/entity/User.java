@@ -19,7 +19,8 @@ public class User {
     private int roleId;
     private int deptId;
 
-
+    private Role role;//角色id
+    private Dept dept;//关联部门id
 
     public int getRoleId() {
         return roleId;
@@ -37,8 +38,7 @@ public class User {
         this.deptId = deptId;
     }
 
-    private Role role;//角色id
-    private Dept dept;//关联部门id
+
 
     public Integer getId() {
         return id;

@@ -37,7 +37,7 @@
 
                     <div class="x_content">
 
-                        <form class="form-horizontal form-label-left" action="/crm/addemployee" method="post" novalidate>
+                        <form id="f" class="form-horizontal form-label-left" action="/crm/addemployee" method="post" novalidate>
 
 
                             <div class="item form-group">
@@ -110,7 +110,7 @@
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <button id="send" type="submit" class="btn btn-success">保存</button>
+                                    <button  type="submit" class="btn btn-success">保存</button>
                                     <a herf="#" class="btn btn-primary" onclick="history.back(-1)">返回</a>
                                 </div>
                             </div>
@@ -139,17 +139,14 @@
     $('.multi.required').on('keyup blur', 'input', function() {
         validator.checkField.apply($(this).siblings().last()[0]);
     });
-
     $('form').submit(function(e) {
         e.preventDefault();
-        var submit = true;
-
+        var submit=true
         // evaluate the form using generic validaing
         if (!validator.checkAll($(this))) {
             submit = false;
         }
-
-        if (submit)
+        if (submit==true && $("#userCode").attr("validateStatus")=="true")
             this.submit();
 
         return false;

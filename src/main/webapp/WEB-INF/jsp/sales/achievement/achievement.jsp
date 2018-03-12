@@ -27,7 +27,7 @@
                         <form action="" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">姓名:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" placeholder="Search" name="userName" class="form-control input-md roleName">
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
 
@@ -38,6 +38,7 @@
                     <div class="x_content">
 
                         <strong class="h3">销售绩效信息列表</strong>
+                        <a href="/crm/addresult" class="btn btn-success" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -47,24 +48,26 @@
                                 <th>绩效等级</th>
                                 <th>最后修改时间</th>
                                 <th>操作人</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
 
                             <tbody>
-
+                            <c:forEach items="${achievementList}" var="achievement" varStatus="varStatus">
                             <tr>
-                                <td>Donna Snider</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
+                                <td>${varStatus.index+1}</td>
+                                <td>${achievement.userName}</td>
+                                <td>${achievement.dept.name}</td>
+                                <td>${achievement.grade}</td>
+                                <td>${achievement.lastUpdateTime}</td>
+                                <td>${achievement.createdBy}</td>
                                 <td>
-                                    <a href="/crm/addresult" class="btn btn-primary btn-xs">添加</a>
                                     <a href="/crm/updateresult" class="btn btn-warning btn-xs">修改</a>
                                     <a href="#" class="btn btn-danger btn-xs">删除</a>
                                     <a href="/crm/viewresult" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>

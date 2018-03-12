@@ -38,8 +38,8 @@
         <result property="lastLoginTime" column="lastLoginTime"/>
         <result property="createdBy" column="createdBy"/>
         <result property="isStart" column="isStart"/>
-        <result property="roleId" column="roleId"/>
         <result property="deptId" column="deptId"/>
+        <result property="roleId" column="roleId"/>
         <association property="role" javaType="Role">
             <id property="id" column="r_id"/>
             <result property="roleName" column="roleName"/>

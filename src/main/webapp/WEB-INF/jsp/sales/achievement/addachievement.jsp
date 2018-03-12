@@ -77,14 +77,10 @@
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">员工姓名 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">员工姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select name="deptId" class="form-control">
-
-                                            <option value=""></option>
-
-                                    </select>
+                                    <input id="userName" class="form-control col-md-7 col-xs-12"  name="userName" placeholder="" required="required" type="text">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -99,9 +95,9 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">所属部门</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <select name="deptId" class="form-control">
-
-                                            <option value=""></option>
-
+                                        <c:forEach items="${deptList}" var="dept">
+                                            <option value="${dept.id}">${dept.name}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                             </div>
