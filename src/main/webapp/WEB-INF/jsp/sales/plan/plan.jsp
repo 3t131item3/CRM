@@ -30,7 +30,7 @@
                     </div>
                     <div class="x_content">
                         <strong class="h3">销售计划信息列表</strong>
-                        <a href="/crm/addPlan"  class="btn btn-success btn-lg">添加</a>
+                        <a href="/crm/addPlan" class="btn btn-primary" style="margin-left: 940px">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>

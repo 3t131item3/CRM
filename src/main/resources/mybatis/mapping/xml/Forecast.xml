@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="szxs.accp.dao.ForecastDao">
+    <!--根据条件查询-->
+    <select id="forecastList" resultMap="Map">
+        SELECT f.*,d.`id` d_id,d.`name` FROM Forecast f,Dept d WHERE f.`deptId`=d.`id`
+            <if test="id!=null and id>0"> AND f.id=#{id}</if>
+            <if test="month!=null and month!=''"> AND  `month` LIKE concat('%',#{month},'%')</if>
+    </select>
+    <resultMap id="Map" type="Forecast">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="result" column="result"/>
+        <result property="month" column="month"/>
+        <result property="date" column="date"/>
+        <result property="scale" column="scale"/>
+        <result property="customerNum" column="customerNum"/>
+        <result property="type" column="type"/>
+        <result property="createdBy" column="createdBy"/>
+        <association property="dept" javaType="Dept">
+            <id property="id" column="d_id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+    <!--新增-->
+    <insert id="addForecast" >
+        INSERT INTO Forecast(`id`,`title`,`result`,`month`,`date`,`deptId`,`scale`,`customerNum`,`type`,createdBy)
+        VALUES(DEFAULT,#{title},#{title},#{month},DEFAULT,#{dept.id},#{scale},#{customerNum},#{type},#{createdBy})
+    </insert>
+</mapper>

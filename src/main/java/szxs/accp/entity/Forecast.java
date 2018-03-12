@@ -6,13 +6,32 @@ package szxs.accp.entity;
 public class Forecast {
     private Integer id;//主键id
     private String title; //标题
+    private String result; //结果
     private String month;//月份 来根据月份来查询
     private String date;//创建时间
     private Dept dept; //指定部门
-    private Integer scale; //规模人数
+    private Integer scale; //部门规模人数
     private Integer customerNum; //客户数量
     private String type; //类型 在预测那里加一个
     private String createdBy;//操作人
+
+    public Forecast() { }
+
+    public Forecast(Integer id) {
+        this.id = id;
+    }
+
+    public Forecast(String month) {
+        this.month = month;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
 
     public Integer getId() {
         return id;

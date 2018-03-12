@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>添加计划</title>
+    <title>添加预测</title>
     <style>
         form span{
             color:red;
@@ -61,49 +61,73 @@
                     </div>
                     <div class="x_content">
 
-                        <form class="form-horizontal form-label-left" action="/crm/addPlanSave" method="post" novalidate>
+                        <form class="form-horizontal form-label-left" action="/crm/addForecastSave" method="post" novalidate>
 
                             <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
                             </p>
                             <span class="section">Personal Info</span>
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">计划编码 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">预测结果标题 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="code" class="form-control col-md-7 col-xs-12"  name="code" placeholder="请输入计划编码" required="required" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title" placeholder="请输入计划编码" required="required" type="text">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">计划人姓名 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="month">目标预测时间 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="userName" name="userName" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  onclick="WdatePicker();" id="month" name="month" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="month">计划月份 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="deptId">指定预测部门 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="month" name="month"  required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12">
+                                    <select name="dept.id" id="deptId">
+                                    </select>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="planContent">计划内容 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="type">预测类型 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="planContent" name="planContent"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <select name="type" id="type">
+                                        <option value="整体预测">整体预测</option>
+                                        <option value="部门预测">部门预测</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="createdBy">创建人 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="scale">部门规模 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="scale" name="scale"  required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customerNum">客户数量 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="customerNum" name="customerNum"  required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="result">预测结果 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea class="form-control col-md-7 col-xs-12" name="result"id="result" style="height: 100px" required=""></textarea>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="createdBy">操作人 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" id="createdBy" name="createdBy"  required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
-
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
@@ -121,9 +145,5 @@
 <%@ include file="/common/foot.jsp"%>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath }/calendar/WdatePicker.js"></script>
-
-
-
-</body>
-</html>
+<script src="${pageContext.request.contextPath }/js/addforecast.js"></script>
 

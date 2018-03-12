@@ -11,7 +11,7 @@ import java.util.List;
 @Service("niticeBiz")
 public class NoticeBizImpl implements NoticeBiz{
     @Resource(name = "noticeDao")
-    NoticeDao noticeDao;
+    private NoticeDao noticeDao;
     public List<Notice> listNoticAll(String title) {
         return noticeDao.listNoticeAll(title);
     }
