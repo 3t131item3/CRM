@@ -5,24 +5,28 @@
 <mapper namespace="szxs.accp.dao.PlanDao">
     <!--根据条件查询-->
     <select id="planList" resultType="Plan">
-        select * from Plan where 1=1
-        <if test="id!=null and id>0">id=#{id}</if>
-        <if test="month!=null and month!=''">month LIKE concat('%',#{month},'%')</if>
+        select * from Plan
+        <where>
+        <if test="id!=null and id>0"> id=#{id}</if>
+        <if test="month!=null and month!=''"> `month` LIKE concat('%',#{month},'%')</if>
+        </where>
     </select>
 
     <!--新增-->
     <insert id="addPlan" >
-        INSERT INTO Plan(`id`,`code`,`name`,`month`,`status`,`planContent`,`lastUpdateTime`,createdBy,nextHanlder)
-        VALUES(DEFAULT,#{code},#{name},#{month},DEFAULT,#{planContent},DEFAULT,#{createdBy},#{nextHanlder})
+        INSERT INTO Plan(`id`,`code`,`userName`,`month`,`status`,`planContent`,`lastUpdateTime`,createdBy,nextHanlder)
+        VALUES(DEFAULT,#{code},#{userName},#{month},DEFAULT,#{planContent},DEFAULT,#{createdBy},#{nextHanlder})
     </insert>
     <!--修改-->
     <update id="updatePlan">
         update Plan
         <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
             <if test="code!=null and code!=''">code=#{code},</if>
-            <if test="name !=null and name!=''">name=#{name},</if>
+            <if test="userName !=null and userName!=''">userName=#{userName},</if>
+            <if test="status !=null and status!=''">status=#{status},</if>
             <if test="month !=null and month!=''">month=#{month},</if>
             <if test="planContent !=null and planContent!=''">planContent=#{planContent},</if>
+            <if test="nextHanlder !=null and nextHanlder!=''">nextHanlder=#{nextHanlder},</if>
         </trim>
     </update>
     <!--删除-->

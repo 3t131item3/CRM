@@ -23,14 +23,14 @@
                         <form action="/crm/searchPlanByMonth" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">月份:</strong>
-                                <input type="text"  name="month" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" value="${month}"  name="month" placeholder="Search" class="form-control input-md roleName">
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
                         </form>
                     </div>
                     <div class="x_content">
                         <strong class="h3">销售计划信息列表</strong>
-                        <a href="/crm/addPlan"class="btn btn-success btn-lg">添加</a>
+                        <a href="/crm/addPlan"  class="btn btn-success btn-lg">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -46,17 +46,24 @@
                             <tbody>
                           <c:forEach var="plan" items="${planList}" varStatus="status">
                             <tr>
-                                <td>${plan.name}</td>
+                                <td>${plan.userName}</td>
                                 <td>${plan.month}</td>
                                 <td>${plan.status}</td>
                                 <td>${plan.lastUpdateTime}</td>
                                 <td>${plan.createdBy}</td>
                                 <td>${plan.nextHanlder}</td>
                                 <td>
-                                    <a href="/crm/updatePlan" class="btn btn-warning btn-xs">修改</a>
-                                    <a href="/crm/deletePlan/${plan.id}" class="btn btn-danger btn-xs remove">删除</a>
-                                    <a href="/crm/commitPlan" class="btn btn-info btn-xs">提交</a>
-                                    <a href="/crm/viewPlan" class="btn btn-success btn-xs">查看</a>
+                                    <form action="/crm/commitPlan" method="post" class="navbar-form navbar" >
+                                        <a href="/crm/updatePlan/${plan.id}" class="btn btn-warning btn-xs">修改</a>
+                                        <a href="/crm/deletePlan/${plan.id}" class="btn btn-danger btn-xs remove">删除</a>
+                                        <c:if test="${plan.status=='新创建'}">
+                                            <input type="hidden" name="id" value="${plan.id}"/>
+                                            <input type="hidden" name="userName" value="${plan.userName}"/>
+                                            <input type="submit" value="提交"class="btn btn-info btn-xs">
+                                          <%--<a href="/crm/commitPlan/${plan.id}?userName=${plan.userName}"  class="btn btn-info btn-xs">提交</a>--%>
+                                        </c:if>
+                                        <a href="/crm/viewPlan/${plan.id}" class="btn btn-success btn-xs">查看</a>
+                                    </form>
                                 </td>
                             </tr>
                            </c:forEach>

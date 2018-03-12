@@ -33,6 +33,12 @@ public interface UserDao {
     User check(@Param("userCode") String userCode);
 
     /**
+     * 根据名字和当前部门查询出他上级销售经理的名字
+     * @param userName
+     * @return
+     */
+    User getUserByUserName(@Param("userName") String userName);
+    /**
      * 添加
      * @param user
      * @return

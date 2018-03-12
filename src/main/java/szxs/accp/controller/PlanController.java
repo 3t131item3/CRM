@@ -5,7 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import szxs.accp.biz.PlanBiz;
+import szxs.accp.biz.UserBiz;
 import szxs.accp.entity.Plan;
+import szxs.accp.entity.User;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -16,7 +18,8 @@ public class PlanController {
 
     @Resource
     private PlanBiz planBiz;
-
+    @Resource
+    private UserBiz userBiz;
     /**
      * 查询所有 x
      * @return
@@ -32,7 +35,8 @@ public class PlanController {
      */
     @RequestMapping("/searchPlanByMonth")
     public String searchPlanByMonth(String month,Model model){
-        model.addAttribute("planList", planBiz.planList(new Plan(month)));
+        model.addAttribute("planList",planBiz.planList(new Plan(month)));
+        model.addAttribute("month", month);
         return "sales/plan/plan";
     }
 
@@ -60,7 +64,7 @@ public class PlanController {
      * @param model
      * @return
      */
-    @RequestMapping("/updatePlan")
+    @RequestMapping("/updatePlan/{id}")
     public String updatePlan(@PathVariable int id, Model model){
         Plan plan = planBiz.planList(new Plan(id)).get(0);
         model.addAttribute("plan", plan);
@@ -85,7 +89,7 @@ public class PlanController {
      * @param model
      * @return
      */
-    @RequestMapping("/viewPlan")
+    @RequestMapping("/viewPlan/{id}")
     public String viewPlan(@PathVariable int id, Model model){
         Plan plan = planBiz.planList(new Plan(id)).get(0);
         model.addAttribute("plan", plan);
@@ -95,9 +99,25 @@ public class PlanController {
      * 删除
      * @return
      */
-    @RequestMapping("/deletePlan")
+    @RequestMapping("/deletePlan/{id}")
     public String deletePlan(@PathVariable int id, Model model){
         planBiz.deletePlan(id);
+        return "redirect:/crm/planList";
+    }
+
+    /**
+     * 点击提交
+     * @return
+     */
+    @RequestMapping("/commitPlan")
+    public String commitPlan(int id, String userName, Model model){
+        Plan p = planBiz.planList(new Plan(id)).get(0);
+        p.setStatus("已提交");
+        User userByUserName = userBiz.getUserByUserName(userName);
+        if(userByUserName!=null){
+            p.setNextHanlder(userByUserName.getUserName());
+        }
+        planBiz.updatePlan(p);
         return "redirect:/crm/planList";
     }
 }

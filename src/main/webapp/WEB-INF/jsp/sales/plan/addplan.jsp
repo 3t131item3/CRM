@@ -76,10 +76,10 @@
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">计划人姓名 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">计划人姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="userName" name="userName" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -90,13 +90,19 @@
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">计划内容 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="planContent">计划内容 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="" name=""  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="planContent" name="planContent"  required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
-
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="createdBy">创建人 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="createdBy" name="createdBy"  required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
 
                             <div class="ln_solid"></div>
                             <div class="form-group">

@@ -48,6 +48,10 @@ public class UserBizImpl implements UserBiz{
         return userDao.check(userCode);
     }
 
+    public User getUserByUserName(String userName) {
+        return userDao.getUserByUserName(userName);
+    }
+
     /**
      * 添加
      * @param user

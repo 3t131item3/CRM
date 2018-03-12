@@ -63,6 +63,11 @@
     <select id="check" resultType="User">
         select * from `user` where userCode=#{userCode}
     </select>
+    <!--根据名字和当前部门查询出他上级销售经理的名字-->
+    <select id="getUserByUserName" resultType="User">
+        SELECT * FROM `User` u  WHERE u.`deptId`=
+       (SELECT deptId FROM `User` u WHERE u.`userName`=#{userName}) AND u.roleId=3;
+    </select>
     <!--添加-->
     <insert id="add">
         insert into `user`(userCode,userName,userPassword,gender,phone,createdBy,isStart,lastLoginTime,deptId,roleId) VALUES (#{userCode},#{userName},#{userPassword},#{gender},#{phone},#{createdBy},#{isStart},NOW(),#{deptId},#{roleId})

@@ -6,31 +6,13 @@ package szxs.accp.entity;
 public class Plan {
     private Integer id;//主键id
     private String code;
-    private String name;
+    private String userName;
     private String month; //月份
     private String status; //状态
     private String planContent;// 计划内容
     private String lastUpdateTime;//最后修改时间
     private String createdBy;//操作人
     private String nextHanlder; //待处理人，关联部门 找和他相同部门的销售经理
-    private Dept dept;
-    private User user;
-
-    public Dept getDept() {
-        return dept;
-    }
-
-    public void setDept(Dept dept) {
-        this.dept = dept;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public Plan() { }
 
@@ -38,8 +20,9 @@ public class Plan {
         this.id = id;
     }
 
-    public Plan(String name) {
-        this.name = name;
+
+    public Plan(String month) {
+        this.month = month;
     }
 
     public Integer getId() {
@@ -58,12 +41,12 @@ public class Plan {
         this.code = code;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getMonth() {

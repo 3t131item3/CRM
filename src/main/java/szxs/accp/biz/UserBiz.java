@@ -33,7 +33,12 @@ public interface UserBiz {
      * @return
      */
     User check(String userCode);
-
+    /**
+     * 根据名字和当前部门查询出他上级销售经理的名字
+     * @param userName
+     * @return
+     */
+    User getUserByUserName( String userName);
     /**
      * 添加
      * @param user

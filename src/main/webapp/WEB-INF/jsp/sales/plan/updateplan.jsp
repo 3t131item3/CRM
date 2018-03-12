@@ -63,7 +63,7 @@
                     <div class="x_content">
 
                         <form class="form-horizontal form-label-left" action="/crm/updatePlanSave" method="post" novalidate>
-
+                            <input type="hidden" name="id" value="${plan.id}"/>
                             <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
                             </p>
                             <span class="section">Personal Info</span>
@@ -76,10 +76,10 @@
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">计划人姓名 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">计划人姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" type="text"name="name" value="${plan.name}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input id="userName" type="text"name="userName" value="${plan.userName}" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">

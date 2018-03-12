@@ -50,7 +50,7 @@
                     <div class="x_content" style="font-size: 20px;">
 
                         <p><strong>计划编码:</strong><span>${plan.code}</span></p>
-                        <p><strong>计划人姓名:</strong><span>${plan.name}</span></p>
+                        <p><strong>计划人姓名:</strong><span>${plan.userName}</span></p>
                         <p><strong>计划状态:</strong><span>${plan.status}</span></p>
                         <p><strong>计划月份:</strong><span>${plan.month}</span></p>
                         <%--<p><strong>所属部门:</strong><span></span></p>--%>
