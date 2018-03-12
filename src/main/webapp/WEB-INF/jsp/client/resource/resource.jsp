@@ -21,8 +21,8 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                    <div class="x_title">
-                        <form action="" method="post" class="navbar-form navbar" >
+                    <%--<div class="x_title">
+                        <form action="/crm/searchByName" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <select name="" >
                                     <option value="">客户姓名</option>
@@ -35,8 +35,16 @@
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
                         </form>
-                    </div>
-
+                    </div>--%>
+                        <div class="x_title">
+                            <form action="/crm/searchCustomerResourceByName" method="post" class="navbar-form navbar" >
+                                <div class="form-group f-group">
+                                    <strong class="h4">客户姓名:</strong>
+                                    <input type="text" value="${customerName}"  name="customerName" placeholder="Search" class="form-control input-md roleName">
+                                </div>
+                                <input type="submit" value="查询" class="btn btn-success">
+                            </form>
+                        </div>
                     <div class="x_content">
 
                         <strong class="h3">角色信息列表</strong>
@@ -44,33 +52,32 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th></th>
                                 <th>客户姓名</th>
                                 <th>性别</th>
                                 <th>类型</th>
                                 <th>状态</th>
-                                <th>分配状态</th>
                                 <th>录入时间</th>
                                 <th>录入人</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
-
+                         <c:forEach var="customerResource" items="${customerResourceList}" varStatus="status">
                             <tr>
-                                <td>Donna Snider</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
-                                <td>$112,000</td>
-                                <td>$112,000</td>
+                                <td>${customerResource.customerName}</td>
+                                <td>${customerResource.sex}</td>
+                                <td>${customerResource.type}</td>
+                                <td>${customerResource.status}</td>
+                                <td>${customerResource.creationTime}</td>
+                                <td>${customerResource.createdBy}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-xs">添加</a>
-                                    <a href="/modifyRole" class="btn btn-warning btn-xs">修改</a>
-                                    <a href="#" class="btn btn-success btn-xs">查看</a>
-                                    <a href="#" class="btn btn-success btn-xs">分配</a>
+                                    <a href="/crm/addCustomerResource" class="btn btn-primary btn-xs">添加</a>
+                                    <a href="/crm/updateCustomerResource/${customerResource.id}" class="btn btn-warning btn-xs">修改</a>
+                                    <a href="/crm/viewCustomerResource/${customerResource.id}" class="btn btn-success btn-xs">查看</a>
+                                  <%--  <a href="#" class="btn btn-success btn-xs">分配</a>--%>
                                 </td>
                             </tr>
+                         </c:forEach>
                             </tbody>
                         </table>
 
