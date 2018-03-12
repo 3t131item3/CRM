@@ -12,4 +12,10 @@ public interface ContactsBiz {
      * @return
      */
     List<Contacts>ContactsList(@Param("name")String name);
+    /**
+     * 添加联系人
+     * @param contacts
+     * @return
+     */
+   boolean ContactsAdd(Contacts contacts);
 }

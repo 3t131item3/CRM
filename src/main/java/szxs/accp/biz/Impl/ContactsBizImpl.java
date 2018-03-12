@@ -14,4 +14,8 @@ public class ContactsBizImpl implements ContactsBiz {
     public List<Contacts> ContactsList(String name) {
         return contactsDao.ContactsList(name);
     }
+
+    public boolean ContactsAdd(Contacts contacts) {
+        return contactsDao.ContactsAdd(contacts)>0;
+    }
 }

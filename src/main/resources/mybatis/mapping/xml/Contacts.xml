@@ -11,6 +11,8 @@
             </if>
         </where>
     </select>
-
+    <insert id="ContactsAdd">
+        INSERT INTO Contacts VALUE (DEFAULT,#{code},#{name},#{birthday},#{sex},#{phone},#{addressPhone},#{address},#{remark})
+    </insert>
 
 </mapper>

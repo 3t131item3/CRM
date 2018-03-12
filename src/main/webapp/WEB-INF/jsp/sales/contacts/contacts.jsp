@@ -62,7 +62,7 @@
                                 <td>${contacts.address}</td>
                                 <td>${contacts.remark}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">添加</a>
+                                    <a href="/crm/addContacts" class="btn btn-primary">添加</a>
                                     <a href="#" class="btn btn-warning">修改</a>
                                     <a href="#" class="btn btn-success">查看</a>
                                     <a href="#" class="btn btn-danger">删除</a>

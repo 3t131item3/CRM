@@ -13,4 +13,11 @@ public interface ContactsDao {
      */
     List<Contacts>ContactsList(@Param("name")String name);
 
+    /**
+     * 添加联系人
+     * @param contacts
+     * @return
+     */
+    int ContactsAdd(Contacts contacts);
+
 }
