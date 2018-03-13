@@ -29,12 +29,12 @@
                                 <strong class="h4">服务名称:</strong>
                                 <input type="text" placeholder="Search" class="form-control input-md roleName">
                                 <strong class="h4">类型</strong>
-                                <select name="" id="">
-                                    <option value="">1111</option>
+                                <select name="" class="form-control">
+                                    <option value=""></option>
                                 </select>
                                 <strong class="h4">状态</strong>
-                                <select name="" id="11">
-                                    <option value="">1111</option>
+                                <select name="" class="form-control">
+                                    <option value=""></option>
                                 </select>
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
@@ -69,8 +69,8 @@
                                 <td>$112,000</td>
                                 <td>$112,000</td>
                                 <td>
-                                    <a href="#" class="btn btn-info btn-xs">反馈</a>
-                                    <a href="#" class="btn btn-success btn-xs">查看</a>
+                                    <a href="/crm/back" class="btn btn-info btn-xs">反馈</a>
+                                    <a href="/crm/viewfeedback" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
                             </tbody>

@@ -4,9 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>添加组织结构</title>
-
-
+    <title>添加常见问题</title>
 
 
 </head>
@@ -15,7 +13,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h5>组织结构</h5>
+                <h4>服务管理&gt;&gt;服务创建&gt;&gt;添加常见问题</h4>
             </div>
 
 
@@ -30,42 +28,39 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                            <form action="/crm/addDept" method="post" class="form-horizontal form-label-left" novalidate>
+                            <form action="/crm/addproblems" method="post" class="form-horizontal form-label-left" novalidate>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >组织编码  <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >问题标题  <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input class="form-control col-md-7 col-xs-12"  name="deptCode"  required="required" type="text">
+                                    <input class="form-control col-md-7 col-xs-12"  name=""  required="required" type="text">
                                 </div>
                             </div>
 
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >组织全称 <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="name"  required="required" class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
+
+
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >操作人 <span class="required">*</span>
+                                <label  class="control-label col-md-3 col-sm-3 col-xs-12">问题类型 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="operator" class="form-control col-md-7 col-xs-12" />
+                                    <select name="" class="form-control">
+                                        <option value=""></option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >部门简介 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >答复要点 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="intro" class="form-control col-md-7 col-xs-12" required placeholder="总经理办公室负责公司重要政策和文件的制定和发布......"></textarea>
+                                    <textarea name="" class="form-control col-md-7 col-xs-12"  required placeholder="1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；"></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark" class="form-control col-md-7 col-xs-12" rows="3" required></textarea>
+                                    <textarea name="" class="form-control col-md-7 col-xs-12" required></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

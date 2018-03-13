@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>服务处理</title>
+    <title>服务分配</title>
 
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;服务处理</small></h3>
+                <h3>销售管理<small>&gt;&gt;服务分配</small></h3>
             </div>
 
 
@@ -29,12 +29,12 @@
                                 <strong class="h4">服务名称:</strong>
                                 <input type="text" placeholder="Search" class="form-control input-md roleName">
                                 <strong class="h4">类型</strong>
-                                <select name="" id="">
-                                    <option value="">1111</option>
+                                <select name="" class="form-control">
+                                    <option value=""></option>
                                 </select>
                                 <strong class="h4">状态</strong>
-                                <select name="" id="11">
-                                    <option value="">1111</option>
+                                <select name="" class="form-control">
+                                    <option value=""></option>
                                 </select>
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
@@ -44,6 +44,7 @@
                     </div>
 
                     <div class="x_content">
+
                         <strong class="h3">服务信息列表</strong>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
@@ -68,8 +69,8 @@
                                 <td>$112,000</td>
                                 <td>$112,000</td>
                                 <td>
-                                    <a href="#" class="btn btn-info btn-xs">处理</a>
-                                    <a href="#" class="btn btn-success btn-xs">查看</a>
+                                    <a href="/crm/allot" class="btn btn-info btn-xs">分配</a>
+                                    <a href="/crm/viewallot" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -77,9 +78,15 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
+<script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/pages.js"></script>
 </body>
 </html>
+

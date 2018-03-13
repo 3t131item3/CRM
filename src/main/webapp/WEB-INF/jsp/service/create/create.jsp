@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>服务处理</title>
+    <title>服务创建</title>
 
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;服务处理</small></h3>
+                <h3>销售管理<small>&gt;&gt;服务创建</small></h3>
             </div>
 
 
@@ -25,16 +25,16 @@
                 <div class="x_panel">
                     <div class="x_title">
                         <form action="" method="post" class="navbar-form navbar" >
-                            <div class="form-group f-group">
+                            <div class="form-group">
                                 <strong class="h4">服务名称:</strong>
                                 <input type="text" placeholder="Search" class="form-control input-md roleName">
                                 <strong class="h4">类型</strong>
-                                <select name="" id="">
-                                    <option value="">1111</option>
+                                <select name="" class="form-control">
+                                    <option value=""></option>
                                 </select>
                                 <strong class="h4">状态</strong>
-                                <select name="" id="11">
-                                    <option value="">1111</option>
+                                <select name="" class="form-control">
+                                    <option value=""></option>
                                 </select>
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
@@ -45,7 +45,8 @@
 
                     <div class="x_content">
 
-                        <strong class="h3">服务信息列表</strong>
+                        <strong class="h3">服务创建信息列表</strong>
+                        <a href="/crm/addcreate" class="btn btn-success" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -69,8 +70,11 @@
                                 <td>$112,000</td>
                                 <td>$112,000</td>
                                 <td>
-                                    <a href="#" class="btn btn-info btn-xs">处理</a>
-                                    <a href="#" class="btn btn-success btn-xs">查看</a>
+
+                                    <a href="/crm/updatecreate" class="btn btn-warning btn-xs">修改</a>
+                                    <a href="/crm/deletecreate" class="btn btn-danger btn-xs">删除</a>
+                                    <a href="#" class="btn btn-info btn-xs">提交</a>
+                                    <a href="/crm/viewcreate" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -89,4 +93,3 @@
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
 </body>
 </html>
-

@@ -4,21 +4,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>添加组织结构</title>
-
-
-
-
+    <title>修改服务</title>
 </head>
 <body>
 <div class="right_col" role="main">
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h5>组织结构</h5>
+                <h4>服务管理&gt;&gt;服务创建&gt;&gt;修改服务</h4>
             </div>
-
-
         </div>
         <div class="clearfix"></div>
 
@@ -30,42 +24,51 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                            <form action="/crm/addDept" method="post" class="form-horizontal form-label-left" novalidate>
+                            <form action="/crm/updatecreate" method="post" class="form-horizontal form-label-left" novalidate>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >组织编码  <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >服务名称  <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input class="form-control col-md-7 col-xs-12"  name="deptCode"  required="required" type="text">
+                                    <input  class="form-control col-md-7 col-xs-12"  name=""  required="required" type="text">
                                 </div>
                             </div>
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >组织全称 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >服务客户 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="name"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name=""  required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >操作人 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >联系电话 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="operator" class="form-control col-md-7 col-xs-12" />
+                                    <input type="tel" name="" class="form-control col-md-7 col-xs-12" />
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >部门简介 <span class="required">*</span>
+                                <label  class="control-label col-md-3 col-sm-3 col-xs-12">服务类型 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="intro" class="form-control col-md-7 col-xs-12" required placeholder="总经理办公室负责公司重要政策和文件的制定和发布......"></textarea>
+                                    <select name="" class="form-control">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >服务内容 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea name="" class="form-control col-md-7 col-xs-12"  required placeholder="四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。"></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark" class="form-control col-md-7 col-xs-12" rows="3" required></textarea>
+                                    <textarea name="" class="form-control col-md-7 col-xs-12" required></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

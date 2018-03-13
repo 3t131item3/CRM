@@ -29,8 +29,8 @@
                                 <strong class="h4">问题名称:</strong>
                                 <input type="text" placeholder="Search" class="form-control input-md roleName">
                                 <strong class="h4">类型</strong>
-                                <select name="" id="">
-                                    <option value="">1111</option>
+                                <select name="" class="form-control">
+                                    <option value=""></option>
                                 </select>
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
@@ -42,7 +42,7 @@
                     <div class="x_content">
 
                         <strong class="h3">服务信息列表</strong>
-
+                        <a href="/crm/addproblems" class="btn btn-primary" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -64,10 +64,9 @@
                                 <td>2011/01/25</td>
                                 <td>$112,000</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-xs">添加</a>
-                                    <a href="#" class="btn btn-warning btn-xs">修改</a>
+                                    <a href="/crm/updateproblems" class="btn btn-warning btn-xs">修改</a>
                                     <a href="#" class="btn btn-danger btn-xs">删除</a>
-                                    <a href="#" class="btn btn-success btn-xs">查看</a>
+                                    <a href="/crm/viewproblems" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
                             </tbody>
