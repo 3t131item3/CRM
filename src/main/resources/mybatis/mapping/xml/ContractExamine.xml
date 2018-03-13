@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="szxs.accp.dao.ContractExamineDao">
+    <!--根据条件查询相应内容-->
+    <select id="contractExamineList" resultType="ContractExamine">
+        select * from ContractExamine where 1=1
+        <if test="id!=null and id>0"> and id=#{id}</if>
+        <if test="contractName!=null and contractName!=''"> and `contractName` LIKE concat('%',#{contractName},'%')</if>
+        <if test="contractType!=null and contractType!=''"> and contractType=#{contractType}</if>
+        <if test="contractStatus!=null and contractStatus!=''"> and contractStatus=#{contractStatus}</if>
+    </select>
+</mapper>

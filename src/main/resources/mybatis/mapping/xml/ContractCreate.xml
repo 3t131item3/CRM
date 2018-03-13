@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="szxs.accp.dao.ContractCreateDao">
+
+    <!--根据条件查询相应内容-->
+    <select id="contractCreateList" resultType="ContractCreate">
+        select * from ContractCreate where 1=1
+        <if test="id!=null and id>0"> and id=#{id}</if>
+        <if test="contractName!=null and contractName!=''"> and `contractName` LIKE concat('%',#{contractName},'%')</if>
+        <if test="contractType!=null and contractType!=''"> and contractType=#{contractType}</if>
+        <if test="contractStatus!=null and contractStatus!=''"> and contractStatus=#{contractStatus}</if>
+    </select>
+    <!--新增-->
+    <insert id="addContractCreate">
+        INSERT INTO ContractCreate(`id`,`contractName`,`contractType`,`contractMoney`,`contractStatus`,`lastUpdateTime`,`nextHanlder`,`firstParty`,`secondParty`,firstBusinessNumber,secondBusinessNumber,ContractContent,remark)
+        VALUES(DEFAULT,#{contractName},#{contractType},#{contractMoney},DEFAULT,DEFAULT,'',#{firstParty},#{secondParty},#{firstBusinessNumber},#{secondBusinessNumber},#{ContractContent},#{remark})
+    </insert>
+    <!--修改-->
+    <update id="updateContractCreate">
+        update ContractCreate
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="contractName!=null and contractName!=''">contractName=#{contractName},</if>
+            <if test="contractType !=null and contractType!=''">contractType=#{contractType},</if>
+            <if test="contractMoney !=null and contractMoney!=''">contractMoney=#{contractMoney},</if>
+            <if test="firstParty !=null and firstParty!=''">firstParty=#{firstParty},</if>
+            <if test="secondParty !=null and secondParty!=''">secondParty=#{secondParty},</if>
+            <if test="firstBusinessNumber !=null and firstBusinessNumber!=''">firstBusinessNumber=#{firstBusinessNumber},</if>
+            <if test="secondBusinessNumber !=null and secondBusinessNumber!=''">secondBusinessNumber=#{secondBusinessNumber},</if>
+            <if test="ContractContent !=null and ContractContent!=''">ContractContent=#{ContractContent},</if>
+            <if test="remark !=null and remark!=''">remark=#{remark},</if>
+        </trim>
+    </update>
+</mapper>

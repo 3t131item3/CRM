@@ -97,9 +97,9 @@
                             </li>
                             <li><a><i class="fa fa-clone"></i>合同管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/create">合同创建</a></li>
-                                    <li><a href="/check">合同审核</a></li>
-                                    <li><a href="/manage">合同管理</a></li>
+                                    <li><a href="/crm/contractCreateList">合同创建</a></li>
+                                    <li><a href="/crm/contractExamineList">合同审核</a></li>
+                                    <li><a href="/crm/contractManageList">合同管理</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-clone"></i>统计分析 <span class="fa fa-chevron-down"></span></a>

@@ -56,7 +56,7 @@ VALUES(DEFAULT,'zhangsan','张三','202cb962ac59075b964b07152d234b70',0,'1345566
 (DEFAULT,'sanmao','王三毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,4,2),
 (DEFAULT,'simao','王四毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,4,2),
 (DEFAULT,'laowu','王老五','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'系统管理员',1,4,2),
-(DEFAULT,'xiaoli','小丽','202cb962ac59075b964b07152d234b70',1,'16455667788',NOW(),NOW(),'系统管理员',1,4,3);
+(DEFAULT,'xiaoli','小丽','202cb962ac59075b964b07152d234b70',1,'16455667788',NOW(),NOW(),'系统管理员',1,5,3);
 #公告管理,
 CREATE TABLE Notice(
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -114,7 +114,6 @@ VALUES(DEFAULT,'2013-10公司整体预测结果','xxxxxxxxxxxxxxxxxxxx','2013-10
 #销售绩效
 CREATE TABLE Achievement(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	userName VARCHAR(50) NOT NULL,
 	userId INT NOT NULL,
 	deptId INT NOT NULL,#部门id
 	grade INT NOT NULL DEFAULT 0,#等级  系统自动根据转账什么的来判断等级的
@@ -124,13 +123,13 @@ CREATE TABLE Achievement(
 )CHARSET=utf8;
 ALTER TABLE Achievement ADD CONSTRAINT `Achievement_deptId` FOREIGN KEY(`deptId`) REFERENCES Dept(`id`);
 ALTER TABLE Achievement ADD CONSTRAINT `Achievement_userId` FOREIGN KEY(`userId`) REFERENCES `User`(`id`);
-INSERT INTO Achievement(`id`,userName,`userId`,`deptId`,`grade`,`lastUpdateTime`,`createdBy`,`remark`)
-VALUES(DEFAULT,'李四',1,1,2,DEFAULT,'张三',''),
-(DEFAULT,'李四',2,1,0,DEFAULT,'张三',''),
-(DEFAULT,'李四',3,1,1,DEFAULT,'张三',''),
-(DEFAULT,'李四',4,1,DEFAULT,DEFAULT,'张三',''),
-(DEFAULT,'李四',5,2,3,DEFAULT,'张三',''),
-(DEFAULT,'李四',6,2,-1,DEFAULT,'张三','');
+INSERT INTO Achievement(`id`,`userId`,`deptId`,`grade`,`lastUpdateTime`,`createdBy`,`remark`)
+VALUES(DEFAULT,1,1,2,DEFAULT,'张三',''),
+(DEFAULT,2,1,0,DEFAULT,'张三',''),
+(DEFAULT,3,1,1,DEFAULT,'张三',''),
+(DEFAULT,4,1,DEFAULT,DEFAULT,'张三',''),
+(DEFAULT,5,2,3,DEFAULT,'张三',''),
+(DEFAULT,6,2,-1,DEFAULT,'张三','');
 
 
 #联系人管理
@@ -152,3 +151,162 @@ VALUES(DEFAULT,'2013112901','安和平','2013-12-12','男','13028803277','0660-6
 (DEFAULT,'2013112904','陈女士','2010-12-12','女','13028803272','0660-6763114','xxxx',''),
 (DEFAULT,'2013112905','仇鹏涛','2009-12-12','男','13028803271','0660-6763114','xxxx',''),
 (DEFAULT,'2013112906','安和平','2018-12-12','男','13028803276','0660-6763114','xxxx','');
+
+#客户发展计划和客户关怀不要了
+#客户资源管理 分配状态不要了
+CREATE TABLE CustomerResource(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	customerCode VARCHAR(50) NOT NULL,
+	customerName VARCHAR(50) NOT NULL,
+	sex VARCHAR(50) NOT NULL,
+	email VARCHAR(50),
+	address VARCHAR(200),
+	`type` VARCHAR(50) NOT NULL,
+	`status` VARCHAR(50) NOT NULL, #客户状态
+	creationTime TIMESTAMP DEFAULT NOW()NOT NULL,#注册时间
+	createdBy VARCHAR(50) NOT NULL,#录入人
+	phone VARCHAR(50),
+	officePhone VARCHAR(50),
+	addressPhone VARCHAR(50),#家庭电话
+	remark VARCHAR(200)
+)CHARSET=utf8;
+INSERT INTO CustomerResource(`id`,`customerCode`,`customerName`,`sex`,`email`,`address`,`type`,`status`,`creationTime`,createdBy,phone,officePhone,addressPhone,remark)
+VALUES(DEFAULT,'2013112901','安和平','男','1508549427@qq.com','xxxxxxxxx','普通客户','正常',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
+(DEFAULT,'2013112901','安和平2','男','1508549427@qq.com','xxxxxxxxx','普通客户','正常',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
+(DEFAULT,'2013112901','小花','女','1508549427@qq.com','xxxxxxxxx','VIP客户','正常',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
+(DEFAULT,'2013112901','安和平4','男','1508549427@qq.com','xxxxxxxxx','普通客户','正常',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
+(DEFAULT,'2013112901','安和平5','女','1508549427@qq.com','xxxxxxxxx','普通客户','已流失',DEFAULT,'张三','13028803278','0660-6763114','0660-6763114','xxxx'),
+(DEFAULT,'2013112901','安和平6','男','1508549427@qq.com','xxxxxxxxx','普通客户','正常',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx');
+#客户满意度管理
+CREATE TABLE CustomerSatisfaction(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	customerCode VARCHAR(50) NOT NULL,
+	customerName VARCHAR(50) NOT NULL,
+	sex VARCHAR(50) NOT NULL,
+	`type` VARCHAR(50) NOT NULL,#客户类型
+	 creationTime TIMESTAMP DEFAULT NOW()NOT NULL,#调查时间
+	  `status` VARCHAR(50) NOT NULL, #客户状态
+	 quality VARCHAR(50) NOT NULL, #质量满意度
+	 service VARCHAR(50) NOT NULL,#服务满意度
+	 cost VARCHAR(50) NOT NULL, #性价比满意度
+	 `all` VARCHAR(50) NOT NULL,#总满意度
+	 voltar VARCHAR(200)#客户反馈
+)CHARSET=utf8;
+INSERT INTO CustomerSatisfaction(`id`,`customerCode`,customerName,`sex`,`type`,`creationTime`,`status`,`quality`,service,cost,`all`,voltar)
+VALUES(DEFAULT,'2013112902','廖昌勇','男','普通客户',DEFAULT,'正常','90%','92%','88%','88%','xx'),
+(DEFAULT,'2013112903','王翔宇','男','VIP客户',DEFAULT,'正常','90%','92%','88%','88%','xx'),
+(DEFAULT,'2013112904','廖昌勇','男','普通客户',DEFAULT,'已流失','90%','92%','89%','88%','xx'),
+(DEFAULT,'2013112905','曾未来','女','普通客户',DEFAULT,'正常','96%','92%','88%','80%','xx'),
+(DEFAULT,'2013112906','吴向本','男','VIP客户',DEFAULT,'正常','95%','92%','88%','48%','xx');
+
+#这两个查看就随便给点信息
+#客户价值管理
+CREATE TABLE CustomerVaule(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	customerName VARCHAR(50) NOT NULL,
+	sex VARCHAR(50) NOT NULL,
+	`type` VARCHAR(50) NOT NULL,
+	 number INT DEFAULT 1 NOT NULL, #消费次数
+	 money FLOAT NOT NULL,
+	 createdBy VARCHAR(50) NOT NULL#操作人
+)CHARSET=utf8;
+INSERT INTO CustomerVaule(`id`,`customerName`,`sex`,`type`,`number`,`money`,`createdBy`)
+VALUES(DEFAULT,'廖昌勇','男','普通客户',2,1.5,'李四'),
+(DEFAULT,'王翔宇','男','VIP客户',6,1.5,'李四'),
+(DEFAULT,'Harry·Shaw','女','普通客户',2,5,'李四'),
+(DEFAULT,'曾未来','男','普通客户',1,1.5,'王二毛'),
+(DEFAULT,'廖昌勇','男','普通客户',1,1.6,'李四');
+#客户信誉度管理
+CREATE TABLE CustomerReputation(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	customerName VARCHAR(50) NOT NULL,
+	sex VARCHAR(50) NOT NULL,
+	`type` VARCHAR(50) NOT NULL,
+	 number INT DEFAULT 1 NOT NULL, #消费次数
+	 grade VARCHAR(50) NOT NULL
+)CHARSET=utf8;
+INSERT INTO CustomerReputation(`id`,`customerName`,`sex`,`type`,`number`,grade)
+VALUES(DEFAULT,'廖昌勇','男','普通客户',2,'A'),
+(DEFAULT,'王翔宇','男','VIP客户',6,'A'),
+(DEFAULT,'Harry·Shaw','女','普通客户',3,'A'),
+(DEFAULT,'曾未来','男','普通客户',1,'A'),
+(DEFAULT,'廖昌勇','男','普通客户',1,'B');
+
+#合同创建
+CREATE TABLE ContractCreate(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	userName VARCHAR(50) NOT NULL,
+	contractName VARCHAR(100) NOT NULL,
+	contractType VARCHAR(50) NOT NULL,
+	contractMoney FLOAT NOT NULL,
+	contractStatus VARCHAR(50) DEFAULT '已创建' NOT NULL,
+	lastUpdateTime TIMESTAMP DEFAULT NOW()NOT NULL,#最后修改时间
+	nextHanlder VARCHAR(50),#待处理人，关联部门 找和他相同部门的销售经理
+	firstParty VARCHAR(50), #甲方
+	secondParty VARCHAR(50), #乙方
+	firstBusinessNumber VARCHAR(100), #甲方营业许可证号
+	secondBusinessNumber VARCHAR(100), #乙方营业许可证号
+	ContractContent VARCHAR(500), #合同内容
+	remark VARCHAR(500)#备注
+)CHARSET=utf8;
+INSERT INTO ContractCreate(`id`,userName,`contractName`,`contractType`,`contractMoney`,`contractStatus`,`lastUpdateTime`,`nextHanlder`,`firstParty`,`secondParty`,firstBusinessNumber,secondBusinessNumber,ContractContent,remark)
+VALUES(DEFAULT,'王四毛','厦门福祥公司明洞设备销售合同','销售合同',117800.00,'待审核',DEFAULT,'','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
+(DEFAULT,'王四毛','山东临沂泰兴公司离心机销售合同','销售合同',117800.00,DEFAULT,DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
+(DEFAULT,'王四毛','浙江宏昂公司离心机销售合同','销售合同',117800.00,'已提交',DEFAULT,'李四','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
+(DEFAULT,'王四毛','四川传福集团设备使用培训合同','技术合同',117800.00,'已审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
+(DEFAULT,'王四毛','厦门福祥公司明洞设备销售合同','销售合同',117800.00,'待审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
+(DEFAULT,'王四毛','厦门福祥公司明洞设备运输附加合同','运输合同',117800.00,'已执行',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','');
+
+
+#合同审核
+CREATE TABLE ContractExamine(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	userName VARCHAR(50) NOT NULL,
+	contractName VARCHAR(100) NOT NULL,
+	contractType VARCHAR(50) NOT NULL,
+	contractMoney FLOAT NOT NULL,
+	contractStatus VARCHAR(50) DEFAULT '已创建' NOT NULL,
+	creationTime TIMESTAMP DEFAULT NOW()NOT NULL,#注册时间
+	nextHanlder VARCHAR(50),#待处理人，关联部门 找和他相同部门的销售经理
+	firstParty VARCHAR(50), #甲方
+	secondParty VARCHAR(50), #乙方
+	firstBusinessNumber VARCHAR(100), #甲方营业许可证号
+	secondBusinessNumber VARCHAR(100), #乙方营业许可证号
+	ContractContent VARCHAR(500), #合同内容
+	createdBy VARCHAR(50) NOT NULL,#操作人
+	examine VARCHAR(500)#审批意见
+)CHARSET=utf8;
+INSERT INTO ContractExamine(`id`,userName,`contractName`,`contractType`,`contractMoney`,`contractStatus`,`creationTime`,`nextHanlder`,`firstParty`,`secondParty`,firstBusinessNumber,secondBusinessNumber,ContractContent,createdBy,examine)
+VALUES(DEFAULT,'王四毛','山东临沂泰兴公司离心机销售合同','销售合同',117800.00,DEFAULT,DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','同意'),
+(DEFAULT,'王四毛','浙江宏昂公司离心机销售合同','销售合同',117800.00,'已提交',DEFAULT,'李四','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','同意'),
+(DEFAULT,'王四毛','四川传福集团设备使用培训合同','技术合同',117800.00,'已审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','同意'),
+(DEFAULT,'王四毛','厦门福祥公司明洞设备销售合同','销售合同',117800.00,'待审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','拒绝'),
+(DEFAULT,'王四毛','厦门福祥公司明洞设备运输附加合同','运输合同',117800.00,'已执行',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','拒绝');
+#合同管理
+CREATE TABLE ContractManage(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	userName VARCHAR(50) NOT NULL,
+	contractName VARCHAR(100) NOT NULL,
+	contractType VARCHAR(50) NOT NULL,
+	contractMoney FLOAT NOT NULL,
+	contractStatus VARCHAR(50) DEFAULT '已创建' NOT NULL,
+	creationTime TIMESTAMP DEFAULT NOW()NOT NULL,#注册时间
+	nextHanlder VARCHAR(50),#待处理人，关联部门 找和他相同部门的销售经理
+	firstParty VARCHAR(50), #甲方
+	secondParty VARCHAR(50), #乙方
+	firstBusinessNumber VARCHAR(100), #甲方营业许可证号
+	secondBusinessNumber VARCHAR(100), #乙方营业许可证号
+	ContractContent VARCHAR(500), #合同内容
+	remark VARCHAR(200),#备注
+	createdBy VARCHAR(50) NOT NULL,#操作人
+	cause VARCHAR(200) #原因
+)CHARSET=utf8;
+INSERT INTO ContractManage(`id`,userName,`contractName`,`contractType`,`contractMoney`,`contractStatus`,`creationTime`,`nextHanlder`,`firstParty`,`secondParty`,firstBusinessNumber,secondBusinessNumber,ContractContent,remark,createdBy,cause)
+VALUES(DEFAULT,'王四毛','山东临沂泰兴公司离心机销售合同','销售合同',117800.00,DEFAULT,DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','该合同于2013年11月30日与客户正式签订，开始执行合同。'),
+(DEFAULT,'王四毛','浙江宏昂公司离心机销售合同','销售合同',117800.00,'已提交',DEFAULT,'李四','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','由于客户方原因，原条款中第四项第2条约定内容发生改变，导致该合同没有办法继续执行，需做合同变更。'),
+(DEFAULT,'王四毛','四川传福集团设备使用培训合同','技术合同',117800.00,'已审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','由于我方货源问题，无法履行该合同的后续条款，因此经与客户方协商后，对该合同进行合同转让。'),
+(DEFAULT,'王四毛','厦门福祥公司明洞设备销售合同','销售合同',117800.00,'待审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','由于客户方原因造成合同实施条件不成立，经甲乙双方协商决定，解除该合同。'),
+(DEFAULT,'王四毛','厦门福祥公司明洞设备运输附加合同','运输合同',117800.00,'已执行',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','xx');
+
+
+
