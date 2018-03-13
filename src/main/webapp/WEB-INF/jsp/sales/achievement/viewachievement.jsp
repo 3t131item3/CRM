@@ -49,7 +49,7 @@
                     </div>
                     <div class="x_content" style="font-size: 20px;">
 
-                        <p><strong>绩效编码:</strong><span></span></p>
+                        <p><strong>绩效编码:</strong><span>${achievement.resultCode}</span></p>
                         <p><strong>员工姓名:</strong><span>${achievement.user.userName}</span></p>
                         <p><strong>所属部门:</strong><span>${achievement.dept.name}</span></p>
                         <p><strong>绩效等级:</strong><span>${achievement.grade}</span></p>

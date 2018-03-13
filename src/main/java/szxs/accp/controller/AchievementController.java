@@ -1,9 +1,11 @@
 package szxs.accp.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import szxs.accp.biz.AchievementBiz;
 import szxs.accp.biz.DeptBiz;
 import szxs.accp.biz.UserBiz;
@@ -12,7 +14,9 @@ import szxs.accp.entity.Dept;
 import szxs.accp.entity.User;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/crm")
@@ -69,5 +73,16 @@ public class AchievementController {
         Achievement achievement = achievementBiz.queryById(id);
         model.addAttribute("achievement",achievement);
         return "sales/achievement/viewachievement";
+    }
+    @RequestMapping("/deleteAchievement/{id}")
+    @ResponseBody
+    public String deleteAchievement(@PathVariable int id){
+        Map<String,String> map = new HashMap<String, String>();
+        if(achievementBiz.removeAchievement(id)){
+            map.put("delResult","true");
+        }else{
+            map.put("delResult","false");
+        }
+        return JSON.toJSONString(map);
     }
 }

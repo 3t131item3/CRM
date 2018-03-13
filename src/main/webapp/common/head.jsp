@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.min.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
     <style>
         .operation a{
             margin-right: 30px;
@@ -152,3 +153,4 @@
         </div>
         <input type="hidden" id="path" value="${pageContext.request.contextPath}">
         <!-- /top navigation -->
+

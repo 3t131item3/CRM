@@ -72,7 +72,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">绩效编码 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="" class="form-control col-md-7 col-xs-12"  name="" placeholder="" required="required" type="text">
+                                    <input id="" class="form-control col-md-7 col-xs-12"  name="resultCode" value="${achievement.resultCode}" placeholder="" required="required" type="text">
                                     <input type="hidden" name="id" value="${achievement.id}"/>
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
@@ -99,6 +99,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">所属部门</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" value="${achievement.dept.id}"/>
                                     <select name="dept.id" class="form-control">
                                         <c:forEach items="${deptList}" var="dept">
                                         <option <c:if test="${achievement.dept.id==dept.id}">selected="selected"</c:if> value="${dept.id}">${dept.name}</option>

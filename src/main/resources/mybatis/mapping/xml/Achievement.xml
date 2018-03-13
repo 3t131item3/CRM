@@ -5,7 +5,7 @@
 <mapper namespace="szxs.accp.dao.AchievementDao">
     <select id="queryAchievement" resultMap="AchievementMap">
         select a.*,u.id u_id,u.userName,d.id d_id,d.name from achievement a,`user`u,dept d
-        WHERE  a.userId=u.id and u.deptId=d.id
+        WHERE  a.userId=u.id and a.deptId=d.id
     </select>
     <select id="queryById" resultMap="AchievementMap">
         select a.*,u.id u_id,u.userName,d.id d_id,d.name from achievement a,`user` u,dept d
@@ -13,6 +13,7 @@
     </select>
     <resultMap id="AchievementMap" type="Achievement">
         <result property="id" column="id"/>
+        <result property="resultCode" column="resultCode"/>
         <result property="grade" column="grade"/>
         <result property="lastUpdateTime" column="lastUpdateTime"/>
         <result property="createdBy" column="createdBy"/>
@@ -27,11 +28,14 @@
         </association>
     </resultMap>
     <insert id="addAchievement">
-        insert into achievement VALUES (DEFAULT ,#{user.id},#{dept.id},#{grade},#{lastUpdateTime},#{createdBy},NULL )
+        insert into achievement VALUES (DEFAULT ,#{resultCode},#{user.id},#{dept.id},#{grade},#{lastUpdateTime},#{createdBy},NULL )
     </insert>
     <update id="modifyAchievement">
         UPDATE achievement
         <set>
+            <if test="resultCode!=null and resultCode!=''">
+                resultCode=#{resultCode},
+            </if>
 
             <if test="user.id>0">
                 userId=#{user.id},

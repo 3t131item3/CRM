@@ -73,7 +73,7 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="hidden" name="createdBy" value="${userSession.userName}"/>
-                                    <input id="" class="form-control col-md-7 col-xs-12"  name="" placeholder="" required="required" type="text">
+                                    <input id="" class="form-control col-md-7 col-xs-12"  name="resultCode" placeholder="" required="required" type="text">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
@@ -123,8 +123,7 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
-<script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/addemp.js"></script>
+
 
 
 </body>
