@@ -10,4 +10,9 @@ public interface ContractExamineBiz {
      * @return
      */
     List<ContractExamine> contractExamineList(ContractExamine contractExamine);
+    /**
+     * 审核
+     * @return
+     */
+    boolean updateContractExamine(ContractExamine contractExamine);
 }

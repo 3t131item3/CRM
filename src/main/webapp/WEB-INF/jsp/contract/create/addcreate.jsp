@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/head.jsp"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/green.css">
@@ -33,6 +32,13 @@
                 <div class="x_panel">
                     <div class="x_content">
                         <form class="form-horizontal form-label-left" action="/crm/addContractCreateSave" method="post">
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">姓名：<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="userName"  name="userName" value="${contractCreate.userName}" class="form-control col-md-7 col-xs-12" placeholder="请输入员工编码" required="required" type="text">
+                                </div>
+                            </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contractName">合同名称：<span class="required">*</span>
                                 </label>
@@ -90,7 +96,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ContractContent">合同内容：</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="ContractContent" name="ContractContent" value="${contractCreate.ContractContent}"required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="contractContent" name="contractContent" value="${contractCreate.contractContent}"required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -114,43 +120,4 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
-<script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/validator.js"></script>
-<script src="${pageContext.request.contextPath }/calendar/WdatePicker.js"></script>
-<!-- validator -->
-<script>
-    // initialize the validator function
-    validator.message.date = 'not a real date';
-
-    // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
-    $('form')
-        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
-        .on('change', 'select.required', validator.checkField)
-        .on('keypress', 'input[required][pattern]', validator.keypress);
-
-    $('.multi.required').on('keyup blur', 'input', function() {
-        validator.checkField.apply($(this).siblings().last()[0]);
-    });
-
-    $('form').submit(function(e) {
-        e.preventDefault();
-        var submit = true;
-
-        // evaluate the form using generic validaing
-        if (!validator.checkAll($(this))) {
-            submit = false;
-        }
-
-        if (submit)
-            this.submit();
-
-        return false;
-    });
-</script>
-<!-- /validator -->
-
-
-</body>
-</html>
-
 

@@ -2,6 +2,7 @@ package szxs.accp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import szxs.accp.biz.ContractCreateBiz;
 import szxs.accp.biz.ContractExamineBiz;
@@ -38,5 +39,40 @@ public class ContractExamineController {
         model.addAttribute("contractStatus",contractStatus);
         return "contract/check/check";
     }
+    /**
+     * 跳转到修改页面
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping("/updateContractExamine/{id}")
+    public String updateContractExamine(@PathVariable int id, Model model){
+        ContractExamine contractExamine = contractExamineBiz.contractExamineList(new ContractExamine(id)).get(0);
+        model.addAttribute("contractExamine", contractExamine);
+        return "contract/check/updatecheck";
+    }
 
+    /**
+     * 修改成功
+     * @return
+     */
+    @RequestMapping("/updateContractExamineSave")
+    public String updateContractExamineSave(ContractExamine contractExamine){
+        contractExamine.setContractStatus("已审核");
+        contractExamineBiz.updateContractExamine(contractExamine);
+        return "redirect:/crm/contractExamineList";
+    }
+
+    /**
+     * 查看
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping("/viewContractExamine/{id}")
+    public String viewContractExamine(@PathVariable int id, Model model){
+        ContractExamine contractExamine = contractExamineBiz.contractExamineList(new ContractExamine(id)).get(0);
+        model.addAttribute("contractExamine", contractExamine);
+        return "contract/check/viewcheck";
+    }
 }

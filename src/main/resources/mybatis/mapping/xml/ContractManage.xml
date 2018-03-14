@@ -10,4 +10,8 @@
         <if test="contractName!=null and contractName!=''"> and `contractName` LIKE concat('%',#{contractName},'%')</if>
         <if test="contractType!=null and contractType!=''"> and contractType=#{contractType}</if>
     </select>
+    <!--修改-->
+    <update id="updateContractManage">
+        update ContractManage set contractStatus=#{contractStatus} where id=#{id}
+    </update>
 </mapper>

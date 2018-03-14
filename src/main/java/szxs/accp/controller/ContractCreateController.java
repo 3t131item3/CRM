@@ -65,7 +65,7 @@ public class ContractCreateController {
      * @return
      */
     @RequestMapping("/updateContractCreate/{id}")
-    public String updatePlan(@PathVariable int id, Model model){
+    public String updateContractCreate(@PathVariable int id, Model model){
         ContractCreate contractCreate = contractCreateBiz.contractCreateList(new ContractCreate(id)).get(0);
         model.addAttribute("contractCreate", contractCreate);
         return "contract/create/updatecreate";
@@ -89,7 +89,7 @@ public class ContractCreateController {
      * @return
      */
     @RequestMapping("/viewContractCreate/{id}")
-    public String viewPlan(@PathVariable int id, Model model){
+    public String viewContractCreate(@PathVariable int id, Model model){
         ContractCreate contractCreate = contractCreateBiz.contractCreateList(new ContractCreate(id)).get(0);
         model.addAttribute("contractCreate", contractCreate);
         return "contract/create/viewcreate";
@@ -102,8 +102,8 @@ public class ContractCreateController {
     public String commitPlan(@PathVariable int id, @PathVariable String userName, Model model) throws UnsupportedEncodingException {
         String name = new String(userName.getBytes("iso8859-1"),"utf-8");
         ContractCreate c = contractCreateBiz.contractCreateList(new ContractCreate(id)).get(0);
-        c.setContractStatus("已提交");
-        User userByUserName = userBiz.getUserByUserName(userName);
+        c.setContractStatus("待审核");
+        User userByUserName = userBiz.getUserByUserName(name);
         if(userByUserName!=null){
             c.setNextHanlder(userByUserName.getUserName());
         }

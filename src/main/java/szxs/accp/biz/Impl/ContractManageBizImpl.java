@@ -16,4 +16,8 @@ public class ContractManageBizImpl implements ContractManageBiz {
     public List<ContractManage> contractManageList(ContractManage contractManage) {
         return contractManageDao.contractManageList(contractManage);
     }
+
+    public boolean updateContractManage(ContractManage contractManage) {
+        return contractManageDao.updateContractManage(contractManage)>0;
+    }
 }

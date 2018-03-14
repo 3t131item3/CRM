@@ -10,4 +10,9 @@ public interface ContractManageBiz {
      * @return
      */
     List<ContractManage> contractManageList(ContractManage contractManage);
+    /**
+     * 处理合同，管理合同
+     * @return
+     */
+    boolean updateContractManage(ContractManage contractManage);
 }

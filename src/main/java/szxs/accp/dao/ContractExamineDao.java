@@ -11,4 +11,9 @@ public interface ContractExamineDao {
      * @return
      */
     List<ContractExamine> contractExamineList(ContractExamine contractExamine);
+    /**
+     * 审核
+     * @return
+     */
+    int updateContractExamine(ContractExamine contractExamine);
 }

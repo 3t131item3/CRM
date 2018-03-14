@@ -14,8 +14,8 @@
     </select>
     <!--新增-->
     <insert id="addContractCreate">
-        INSERT INTO ContractCreate(`id`,`contractName`,`contractType`,`contractMoney`,`contractStatus`,`lastUpdateTime`,`nextHanlder`,`firstParty`,`secondParty`,firstBusinessNumber,secondBusinessNumber,ContractContent,remark)
-        VALUES(DEFAULT,#{contractName},#{contractType},#{contractMoney},DEFAULT,DEFAULT,'',#{firstParty},#{secondParty},#{firstBusinessNumber},#{secondBusinessNumber},#{ContractContent},#{remark})
+        INSERT INTO ContractCreate(`id`,userName,`contractName`,`contractType`,`contractMoney`,`contractStatus`,`lastUpdateTime`,`nextHanlder`,`firstParty`,`secondParty`,firstBusinessNumber,secondBusinessNumber,ContractContent,remark)
+        VALUES(DEFAULT,#{userName},#{contractName},#{contractType},#{contractMoney},DEFAULT,DEFAULT,'',#{firstParty},#{secondParty},#{firstBusinessNumber},#{secondBusinessNumber},#{ContractContent},#{remark})
     </insert>
     <!--修改-->
     <update id="updateContractCreate">
@@ -24,6 +24,8 @@
             <if test="contractName!=null and contractName!=''">contractName=#{contractName},</if>
             <if test="contractType !=null and contractType!=''">contractType=#{contractType},</if>
             <if test="contractMoney !=null and contractMoney!=''">contractMoney=#{contractMoney},</if>
+            <if test="contractStatus !=null and contractStatus!=''">contractStatus=#{contractStatus},</if>
+            <if test="nextHanlder !=null and nextHanlder!=''">nextHanlder=#{nextHanlder},</if>
             <if test="firstParty !=null and firstParty!=''">firstParty=#{firstParty},</if>
             <if test="secondParty !=null and secondParty!=''">secondParty=#{secondParty},</if>
             <if test="firstBusinessNumber !=null and firstBusinessNumber!=''">firstBusinessNumber=#{firstBusinessNumber},</if>

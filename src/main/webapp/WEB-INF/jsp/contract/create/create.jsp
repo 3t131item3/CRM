@@ -43,8 +43,7 @@
                                     <option value="已提交"<c:if test="${contractStatus=='已提交'}">selected="selected"</c:if>>已提交</option>
                                     <option value="待审核"<c:if test="${contractStatus=='待审核'}">selected="selected"</c:if>>待审核</option>
                                     <option value="已审核"<c:if test="${contractStatus=='已审核'}">selected="selected"</c:if>>已审核</option>
-                                    <option value="履行中"<c:if test="${contractStatus=='履行中'}">selected="selected"</c:if>>履行中</option>
-                                    <option value="已履行"<c:if test="${contractStatus=='已履行'}">selected="selected"</c:if>>已履行</option>
+                                    <option value="已执行"<c:if test="${contractStatus=='已履行'}">selected="selected"</c:if>>已履行</option>
                                     <option value="已变更"<c:if test="${contractStatus=='已变更'}">selected="selected"</c:if>>已变更</option>
                                     <option value="已解除"<c:if test="${contractStatus=='已解除'}">selected="selected"</c:if>>已解除</option>
                                     <option value="已转让"<c:if test="${contractStatus=='已转让'}">selected="selected"</c:if>>已转让</option>
@@ -59,7 +58,7 @@
                     </div>
                     <div class="x_content">
                         <strong class="h3">合同信息列表</strong>
-                        <a href="/crm/addContractCreate" class="btn btn-success btn-xs">创建</a>
+                        <a href="/crm/addContractCreate" class="btn btn-success"style="margin-left: 900px">创建</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -82,7 +81,7 @@
                                 <td>${contractCreate.lastUpdateTime}</td>
                                 <td>${contractCreate.nextHanlder}</td>
                                 <td>
-                                    <c:if test="${plan.status=='已创建'}">
+                                    <c:if test="${contractCreate.contractStatus=='已创建'}">
                                         <a href="/crm/updateContractCreate/${contractCreate.id}" class="btn btn-warning btn-xs">修改</a>
                                         <a href="/crm/commitContractCreate/${contractCreate.id}/${contractCreate.userName}" class="btn btn-primary btn-xs">提交</a>
                                     </c:if>

@@ -47,16 +47,17 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content" style="font-size: 20px;">
-                        <p><strong>合同名称:</strong><span>${contractCreate.contractName}</span></p>
-                        <p><strong>合同类型:</strong><span>${contractCreate.contractType}</span></p>
-                        <p><strong>合同金额:</strong><span>${contractCreate.contractMoney}元</span></p>
-                        <p><strong>创建时间:</strong><span>${contractCreate.lastUpdateTime}</span></p>
-                        <p><strong>待处理人:</strong><span>${contractCreate.nextHanlder}</span></p>
-                        <p><strong>甲方:</strong><span>${contractCreate.firstParty}</span></p>
-                        <p><strong>甲方企业经营许可证号:</strong><span>${contractCreate.firstBusinessNumber}</span></p>
-                        <p><strong>乙方:</strong><span>${contractCreate.secondParty}</span></p>
-                        <p><strong>乙方企业经营许可证号:</strong><span>${contractCreate.secondBusinessNumber}</span></p>
-                        <p><strong>合同内容:</strong><span>${contractCreate.contractContent}</span></p>
+                        <p><strong>合同名称:</strong><span>${contractManage.contractName}</span></p>
+                        <p><strong>合同类型:</strong><span>${contractManage.contractType}</span></p>
+                        <p><strong>合同金额:</strong><span>${contractManage.contractMoney}元</span></p>
+                        <p><strong>创建时间:</strong><span>${contractManage.creationTime}</span></p>
+                        <p><strong>操作人:</strong><span>${contractManage.createdBy}</span></p>
+                        <p><strong>待处理人:</strong><span>${contractManage.nextHanlder}</span></p>
+                        <p><strong>甲方:</strong><span>${contractManage.firstParty}</span></p>
+                        <p><strong>甲方企业经营许可证号:</strong><span>${contractManage.firstBusinessNumber}</span></p>
+                        <p><strong>乙方:</strong><span>${contractManage.secondParty}</span></p>
+                        <p><strong>乙方企业经营许可证号:</strong><span>${contractManage.secondBusinessNumber}</span></p>
+                        <p><strong>合同内容:</strong><span>${contractManage.contractContent}</span></p>
                     </div>
                     <div>
                         <a href="javascript:history.back(-1)" class="btn btn-primary btn-lg">返回</a>

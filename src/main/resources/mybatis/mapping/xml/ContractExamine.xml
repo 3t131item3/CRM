@@ -11,4 +11,11 @@
         <if test="contractType!=null and contractType!=''"> and contractType=#{contractType}</if>
         <if test="contractStatus!=null and contractStatus!=''"> and contractStatus=#{contractStatus}</if>
     </select>
+    <!--修改-->
+    <update id="updateContractExamine">
+        update ContractExamine set contractStatus=#{contractStatus} where id=#{id}
+        <!--<trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="contractStatus!=null and contractStatus!=''"> contractStatus=#{contractStatus}</if>
+        </trim>-->
+    </update>
 </mapper>

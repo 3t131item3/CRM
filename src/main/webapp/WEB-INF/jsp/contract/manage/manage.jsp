@@ -66,11 +66,11 @@
                                     <td>${contractManage.creationTime}</td>
                                     <td>${contractManage.nextHanlder}</td>
                                     <td>
-                                        <a href="/crm/viewContractManage/${contractManage.id}" class="btn btn-warning btn-xs">查看</a>
-                                        <a href="/crm/updateContractCreate/${contractManage.id}" class="btn btn-warning btn-xs">执行</a>
-                                        <a href="/crm/updateContractCreate/${contractManage.id}" class="btn btn-warning btn-xs">变更</a>
-                                        <a href="/crm/updateContractCreate/${contractManage.id}" class="btn btn-warning btn-xs">转让</a>
-                                        <a href="/crm/updateContractCreate/${contractManage.id}" class="btn btn-warning btn-xs">解除</a>
+                                        <a href="/crm/viewContractManage/${contractManage.id}" class="btn btn-success btn-xs">查看</a>
+                                        <a href="/crm/updateExecuteContractManage/${contractManage.id}" class="btn btn-primary btn-xs">执行</a>
+                                        <a href="/crm/updateChangeCreateManage/${contractManage.id}" class="btn btn-warning btn-xs">变更</a>
+                                        <a href="/crm/updateTransfereCreateManage/${contractManage.id}" class="btn btn-danger btn-xs">转让</a>
+                                        <a href="/crm/updateRelieveCreateManage/${contractManage.id}" class="btn btn-dark btn-xs">解除</a>
                                     </td>
                                 </tr>
                             </c:forEach>

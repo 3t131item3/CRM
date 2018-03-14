@@ -40,7 +40,6 @@
                                 <select name="contractStatus" id="contractStatus">
                                     <option value="">不限</option>
                                     <option value="已创建"<c:if test="${contractStatus=='已创建'}">selected="selected"</c:if>>已创建</option>
-                                    <option value="已提交"<c:if test="${contractStatus=='已提交'}">selected="selected"</c:if>>已提交</option>
                                     <option value="待审核"<c:if test="${contractStatus=='待审核'}">selected="selected"</c:if>>待审核</option>
                                     <option value="已审核"<c:if test="${contractStatus=='已审核'}">selected="selected"</c:if>>已审核</option>
                                     <option value="履行中"<c:if test="${contractStatus=='履行中'}">selected="selected"</c:if>>履行中</option>
@@ -74,6 +73,8 @@
                             </thead>
                             <tbody>
                             <c:forEach var="contractExamine" items="${contractExamineList}" varStatus="status">
+                                <%--这里只显示已经提交过来的待审核的数据，那些新创建的不显示--%>
+                                <c:if test="${contractExamine.contractStatus!='已创建'}">
                                 <tr>
                                     <td>${contractExamine.userName}</td>
                                     <td>${contractExamine.contractName}</td>
@@ -83,9 +84,12 @@
                                     <td>${contractExamine.nextHanlder}</td>
                                     <td>
                                         <a href="/crm/viewContractExamine/${contractExamine.id}" class="btn btn-success btn-xs">查看</a>
-                                        <a href="/crm/updateContractExamine/${contractExamine.id}" class="btn btn-success btn-xs">审核</a>
+                                        <c:if test="${contractExamine.contractStatus=='待审核'}">
+                                            <a href="/crm/updateContractExamine/${contractExamine.id}" class="btn btn-success btn-xs">审核</a>
+                                        </c:if>
                                     </td>
                                 </tr>
+                                </c:if>
                             </c:forEach>
                             </tbody>
                         </table>

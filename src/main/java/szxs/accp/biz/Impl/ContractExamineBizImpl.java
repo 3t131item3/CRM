@@ -16,4 +16,8 @@ public class ContractExamineBizImpl implements ContractExamineBiz {
     public List<ContractExamine> contractExamineList(ContractExamine contractExamine) {
         return contractExamineDao.contractExamineList(contractExamine);
     }
+
+    public boolean updateContractExamine(ContractExamine contractExamine) {
+        return contractExamineDao.updateContractExamine(contractExamine)>0;
+    }
 }
