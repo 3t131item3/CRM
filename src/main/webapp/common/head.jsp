@@ -89,7 +89,7 @@
                                 <ul class="nav child_menu">
                                     <li><a href="/crm/customerResourceList">客户资源管理</a></li>
                                     <li><a href="/crm/customerVauleList">客户价值管理</a></li>
-                                    <li><a href="/crm/satisfaction">客户满意度管理</a></li>
+                                    <li><a href="/crm/customerSatisfactionList">客户满意度管理</a></li>
                                     <li><a href="/crm/customerReputationList">客户信誉管理</a></li>
                                    <%-- <li><a href="/crm/develop">客户发展计划</a></li>
                                     <li><a href="/crm/concern">客户关怀</a></li>--%>
@@ -105,18 +105,18 @@
                                     <li><a href="/crm/problemsList">常见问题管理</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-bar-chart-o"></i> 订单管理 <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/wait">代下订单</a></li>
-                                    <li><a href="/query">订单查询</a></li>
-                                    <li><a href="/statistics">订单统计</a></li>
-                                </ul>
-                            </li>
                             <li><a><i class="fa fa-clone"></i>合同管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="/crm/contractCreateList">合同创建</a></li>
                                     <li><a href="/crm/contractExamineList">合同审核</a></li>
                                     <li><a href="/crm/contractManageList">合同管理</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-bar-chart-o"></i> 订单管理 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/wait">代下订单</a></li>
+                                    <li><a href="/query">订单查询</a></li>
+                                    <li><a href="/statistics">订单统计</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-clone"></i>统计分析 <span class="fa fa-chevron-down"></span></a>
@@ -129,8 +129,6 @@
                             </li>
                         </ul>
                     </div>
-
-
                 </div>
                 <!-- /sidebar menu -->
 

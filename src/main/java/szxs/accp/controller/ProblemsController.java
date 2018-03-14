@@ -31,7 +31,7 @@ public class ProblemsController {
      * @return
      */
     @RequestMapping("/searchProblemsByCondition")
-    public String searchServiceCreateByCondition(String problemsTitle,String serviceType,Model model){
+    public String searchProblemsByCondition(String problemsTitle,String serviceType,Model model){
         model.addAttribute("problemsList",problemsBiz.problemsList(new Problems(problemsTitle,serviceType)));
         model.addAttribute("problemsTitle",problemsTitle);
         model.addAttribute("serviceType",serviceType);
@@ -73,12 +73,14 @@ public class ProblemsController {
     @RequestMapping("/updateProblemsSave")
     public String updateProblemsSave(Problems problems){
         problemsBiz.updateProblems(problems);
-        return "redirect:/crm/problemsList";
+        return "redirect:/crm/probl" +
+                "emsList";
     }
     /**
      * 查看
      * @param id
      * @param model
+     *
      * @return
      */
     @RequestMapping("/viewProblems/{id}")

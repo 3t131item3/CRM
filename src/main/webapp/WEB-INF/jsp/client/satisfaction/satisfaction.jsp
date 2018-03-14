@@ -24,10 +24,10 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <form action="" method="post" class="navbar-form navbar" >
+                        <form action="/crm/searchCustomerSatisfactionByName" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">客户姓名:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" name="customerName"value="${customerName}" placeholder="Search" class="form-control input-md roleName">
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
 
@@ -38,43 +38,35 @@
                     <div class="x_content">
 
                         <strong class="h3">客户满意度信息列表</strong>
-                        <div class="navbar-right operation">
-                            <a href="#" class="btn btn-success">添加</a>
-                            <a href="#" class="btn btn-success">修改</a>
-                            <a href="#" class="btn btn-success">删除</a>
-                            <a href="#" class="btn btn-success">查看</a>
-
-                        </div>
-
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th></th>
                                 <th>客户姓名</th>
                                 <th>客户类型</th>
                                 <th>调查时间</th>
                                 <th>质量满意度</th>
                                 <th>服务满意度</th>
                                 <th>总体满意度</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
-
                             <tbody>
-
+                        <c:forEach var="customerSatisfaction" items="${customerSatisfactionList}" varStatus="status">
                             <tr>
-                                <td>Donna Snider</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
-                                <td>$112,000</td>
+                                <td>${customerSatisfaction.customerName}</td>
+                                <td>${customerSatisfaction.type}</td>
+                                <td>${customerSatisfaction.creationTime}</td>
+                                <td>${customerSatisfaction.quality}</td>
+                                <td>${customerSatisfaction.service}</td>
+                                <td>${customerSatisfaction.all}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-xs">添加</a>
+                                 <%--   <a href="#" class="btn btn-primary btn-xs">添加</a>
                                     <a href="#" class="btn btn-warning btn-xs">修改</a>
-                                    <a href="#" class="btn btn-danger btn-xs">删除</a>
-                                    <a href="#" class="btn btn-success btn-xs">查看</a>
+                                    <a href="#" class="btn btn-danger btn-xs">删除</a>--%>
+                                    <a href="/crm/viewCustomerSatisfaction/${customerSatisfaction.id}" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
+                        </c:forEach>
                             </tbody>
                         </table>
                     </div>

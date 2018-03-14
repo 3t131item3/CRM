@@ -21,13 +21,17 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <form action="" method="post" class="navbar-form navbar" >
+                        <form action="/crm/searchProblemsByCondition" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">问题名称:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" name="problemsTitle"value="${problemsTitle}" placeholder="Search" class="form-control input-md roleName">
                                 <strong class="h4">类型</strong>
-                                <select name="" class="form-control">
-                                    <option value=""></option>
+                                <select name="serviceType" class="form-control">
+                                    <option value="">不限</option>
+                                    <option value="投诉问题"<c:if test="${serviceType=='投诉问题'}">selected="selected"</c:if>>投诉问题</option>
+                                    <option value="售前问题"<c:if test="${serviceType=='售前问题'}">selected="selected"</c:if>>售前问题</option>
+                                    <option value="售后问题"<c:if test="${serviceType=='售后问题'}">selected="selected"</c:if>>售后问题</option>
+                                    <option value="咨询问题"<c:if test="${serviceType=='咨询问题'}">selected="selected"</c:if>>咨询问题</option>
                                 </select>
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
@@ -62,7 +66,7 @@
                                 <td>${problems.lastUpdateTime}</td>
                                 <td>
                                     <a href="/crm/updateProblems/${problems.id}" class="btn btn-warning btn-xs">修改</a>
-                                    <a href="/crm/deleteProblems/${problems.id}" class="btn btn-danger btn-xs remove">删除</a>
+                                    <a href="/crm/deleteProblems/${problems.id}" class="btn btn-danger btn-xs" id="remove">删除</a>
                                     <a href="/crm/viewProblems/${problems.id}" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
@@ -83,7 +87,7 @@
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".remove").click(function () {
+        $("#remove").click(function () {
             if(!confirm("確定要刪除嗎？")){
                 $(this).attr("href","/crm/problemsList");
             }

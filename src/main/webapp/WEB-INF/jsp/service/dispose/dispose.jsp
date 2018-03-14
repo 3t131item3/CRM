@@ -28,7 +28,7 @@
                                 <strong class="h4">服务名称:</strong>
                                 <input type="text" name="serviceName" value="${serviceName}" placeholder="Search" class="form-control input-md roleName">
                                 <strong class="h4">类型</strong>
-                                <select name="serviceType" id="serviceType">
+                                <select name="serviceType" id="serviceType" class="form-control">
                                     <option value="">不限</option>
                                     <option value="投诉服务"<c:if test="${serviceType=='投诉服务'}">selected="selected"</c:if>>投诉服务</option>
                                     <option value="售前服务"<c:if test="${serviceType=='售前服务'}">selected="selected"</c:if>>售前服务</option>
@@ -36,7 +36,7 @@
                                     <option value="咨询服务"<c:if test="${serviceType=='咨询服务'}">selected="selected"</c:if>>咨询服务</option>
                                 </select>
                                 <strong class="h4">状态</strong>
-                                <select name="serviceStatus" id="serviceStatus">
+                                <select name="serviceStatus" id="serviceStatus" class="form-control">
                                     <option value="">不限</option>
                                     <option value="新创建"<c:if test="${serviceStatus=='新创建'}">selected="selected"</c:if>>新创建</option>
                                     <option value="已提交"<c:if test="${serviceStatus=='已提交'}">selected="selected"</c:if>>已提交</option>

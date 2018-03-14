@@ -31,7 +31,7 @@ public class ServiceBackController {
      * 根据条件查询所有
      * @return
      */
-    @RequestMapping("/searchServiceCreateByCondition")
+    @RequestMapping("/searchServiceBackByCondition")
     public String searchServiceBackByCondition(String serviceName,String serviceType,String serviceStatus,Model model){
         model.addAttribute("serviceBackList",serviceBackBiz.serviceBackList(new ServiceBack(serviceName,serviceType,serviceStatus)));
         model.addAttribute("serviceName",serviceName);

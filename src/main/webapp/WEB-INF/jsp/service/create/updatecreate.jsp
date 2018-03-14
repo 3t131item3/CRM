@@ -52,7 +52,7 @@
                                 <label  class="control-label col-md-3 col-sm-3 col-xs-12">服务类型 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select name="serviceType" id="serviceType">
+                                    <select name="serviceType" id="serviceType"class="form-control">
                                         <option value="投诉服务"<c:if test="${serviceCreate.serviceType=='投诉服务'}">selected="selected"</c:if>>投诉服务</option>
                                         <option value="售前服务"<c:if test="${serviceCreate.serviceType=='售前服务'}">selected="selected"</c:if>>售前服务</option>
                                         <option value="售后服务"<c:if test="${serviceCreate.serviceType=='售后服务'}">selected="selected"</c:if>>售后服务</option>

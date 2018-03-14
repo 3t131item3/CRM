@@ -17,6 +17,17 @@ public class CustomerSatisfaction {
     private String all;//总满意度
     private String voltar;//客户反馈
 
+    public CustomerSatisfaction() {
+    }
+
+    public CustomerSatisfaction(int id) {
+        this.id = id;
+    }
+
+    public CustomerSatisfaction(String customerName) {
+        this.customerName = customerName;
+    }
+
     public int getId() {
         return id;
     }
