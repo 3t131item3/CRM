@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>服务创建</title>
+    <title>服务分配</title>
 
 </head>
 <body>
@@ -12,15 +12,19 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;服务创建</small></h3>
+                <h3>销售管理<small>&gt;&gt;服务分配</small></h3>
             </div>
+
+
         </div>
+
         <div class="clearfix"></div>
+
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <form action="/crm/searchServiceCreateByCondition" method="post" class="navbar-form navbar" >
+                        <form action="/crm/searchServiceAllotByCondition" method="post" class="navbar-form navbar" >
                             <div class="form-group">
                                 <strong class="h4">服务名称:</strong>
                                 <input type="text" name="serviceName" value="${serviceName}" placeholder="Search" class="form-control input-md roleName">
@@ -43,14 +47,12 @@
                                 </select>
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
-
                         </form>
-
                     </div>
 
                     <div class="x_content">
-                        <strong class="h3">服务创建信息列表</strong>
-                        <a href="/crm/addServiceCreate" class="btn btn-success" style="float:right">添加</a>
+
+                        <strong class="h3">服务信息列表</strong>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -64,29 +66,29 @@
                             </tr>
                             </thead>
                             <tbody>
-                        <c:forEach var="serviceCreate" items="${serviceCreateList}" varStatus="status">
-                            <tr>
-                                <td>${serviceCreate.serviceName}</td>
-                                <td>${serviceCreate.serviceType}</td>
-                                <td>${serviceCreate.serviceStatus}</td>
-                                <td>${serviceCreate.lastUpdateTime}</td>
-                                <td>${serviceCreate.createdBy}</td>
-                                <td>${serviceCreate.nextHanlder}</td>
-                                <td>
-                                    <c:if test="${serviceCreate.serviceStatus=='新创建'}">
-                                    <a href="/crm/updateServiceCreate/${serviceCreate.id}" class="btn btn-warning btn-xs">修改</a>
-                                    <a href="/crm/commitServiceCreate/${serviceCreate.id}/${serviceCreate.createdBy}" class="btn btn-info btn-xs">提交</a>
-                                    </c:if>
-                                    <a href="/crm/viewServiceCreate/${serviceCreate.id}" class="btn btn-success btn-xs">查看</a>
-                                    <a href="/crm/deleteServiceCreate/${serviceCreate.id}" class="btn btn-danger btn-xs remove">删除</a>
-                                </td>
-                            </tr>
-                        </c:forEach>
+                            <c:forEach var="serviceAllot" items="${serviceAllotList}" varStatus="status">
+                                <c:if test="${serviceAllot.serviceStatus!='新创建'}">
+                                <tr>
+                                    <td>${serviceAllot.serviceName}</td>
+                                    <td>${serviceAllot.serviceType}</td>
+                                    <td>${serviceAllot.serviceStatus}</td>
+                                    <td>${serviceAllot.lastUpdateTime}</td>
+                                    <td>${serviceAllot.createdBy}</td>
+                                    <td>${serviceAllot.nextHanlder}</td>
+                                    <td>
+                                        <a href="/crm/viewServiceAllot/${serviceAllot.id}" class="btn btn-success btn-xs">查看</a>
+                                        <a href="/crm/updateServiceAllot/${serviceAllot.id}" class="btn btn-danger btn-xs">分配</a>
+                                    </td>
+                                </tr>
+                                </c:if>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>
@@ -94,12 +96,6 @@
 <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".remove").click(function () {
-            if(!confirm("確定要刪除嗎？")){
-                $(this).attr("href","/crm/serviceCreateList");
-            }
-        })
-    });
-</script>
+</body>
+</html>
+

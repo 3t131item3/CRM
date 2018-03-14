@@ -5,8 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta chars
-          et="UTF-8">
+    <meta charset="UTF-8">
 
     <title>客户关系管理系统</title>
 
@@ -80,8 +79,8 @@
                             </li>
                             <li><a><i class="fa fa-table"></i> 服务管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/crm/create">服务创建</a></li>
-                                    <li><a href="/crm/distribute">服务分配</a></li>
+                                    <li><a href="/crm/serviceCreateList">服务创建</a></li>
+                                    <li><a href="/crm/serviceAllotList">服务分配</a></li>
                                     <li><a href="/crm/dispose">服务处理</a></li>
                                     <li><a href="/crm/feedback">服务反馈</a></li>
                                     <li><a href="/crm/pigeonhole">服务归档</a></li>

@@ -12,7 +12,7 @@ public class DistributeController {
      */
     @RequestMapping("/distribute")
     public String distribute(){
-        return "service/distribute/distribute";
+        return "service/distribute/serviceallot";
     }
 
     /**

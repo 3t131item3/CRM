@@ -21,21 +21,6 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                    <%--<div class="x_title">
-                        <form action="/crm/searchByName" method="post" class="navbar-form navbar" >
-                            <div class="form-group f-group">
-                                <select name="" >
-                                    <option value="">客户姓名</option>
-                                </select>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName">
-                                <strong class="h4">分配状态:</strong>
-                                <select name="" >
-                                    <option value="">不限</option>
-                                </select>
-                            </div>
-                            <input type="submit" value="查询" class="btn btn-success">
-                        </form>
-                    </div>--%>
                         <div class="x_title">
                             <form action="/crm/searchCustomerResourceByName" method="post" class="navbar-form navbar" >
                                 <div class="form-group f-group">

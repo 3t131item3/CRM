@@ -5,8 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <title>添加服务</title>
-
-
 </head>
 <body>
 <div class="right_col" role="main">
@@ -28,12 +26,12 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                            <form action="/crm/addcreate" method="post" class="form-horizontal form-label-left" novalidate>
+                            <form action="/crm/addServiceCreateSave" method="post" class="form-horizontal form-label-left" novalidate>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >服务名称  <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input class="form-control col-md-7 col-xs-12"  name=""  required="required" type="text">
+                                    <input class="form-control col-md-7 col-xs-12"  name="serviceName"  required="required" type="text">
                                 </div>
                             </div>
 
@@ -41,7 +39,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >服务客户 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name=""  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="customerName"  required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 
@@ -49,15 +47,18 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >联系电话 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" name="" class="form-control col-md-7 col-xs-12" />
+                                    <input type="tel" name="customerPhone" class="form-control col-md-7 col-xs-12" />
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label  class="control-label col-md-3 col-sm-3 col-xs-12">服务类型 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select name="" class="form-control">
-                                        <option value=""></option>
+                                    <select name="serviceType" id="serviceType">
+                                        <option value="投诉服务">投诉服务</option>
+                                        <option value="售前服务">售前服务</option>
+                                        <option value="售后服务">售后服务</option>
+                                        <option value="咨询服务">咨询服务</option>
                                     </select>
                                 </div>
                             </div>
@@ -65,14 +66,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >服务内容 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="" class="form-control col-md-7 col-xs-12"  required placeholder="四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。"></textarea>
+                                    <textarea name="serviceConcent" class="form-control col-md-7 col-xs-12"  required placeholder="四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。"></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="" class="form-control col-md-7 col-xs-12" required></textarea>
+                                    <textarea name="remark" class="form-control col-md-7 col-xs-12" required></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

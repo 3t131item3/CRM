@@ -13,33 +13,28 @@
             <div class="title_left">
                 <h4>服务管理&gt;&gt;服务分配</h4>
             </div>
-
-
         </div>
         <div class="clearfix"></div>
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                    <form action="" method="post">
+                    <form action="/crm/updateServiceAllotSave" method="post">
                     <div class="x_content" style="font-size: 20px;">
-
-                        <p><strong>服务名称:</strong><span></span></p>
-                        <p><strong>服务类型:</strong><span></span></p>
-                        <p><strong>服务状态:</strong><span></span></p>
-                        <p><strong>创建人:</strong><span></span></p>
-                        <p><strong>创建时间:</strong><span></span></p>
-                        <p><strong>待处理人:</strong><span></span></p>
-                        <p><strong>服务内容:</strong><span></span></p>
-
+                        <p><strong>服务名称:</strong><span>${serviceAllot.serviceName}</span></p>
+                        <p><strong>创建人:</strong><span>${serviceAllot.createdBy}</span></p>
+                        <p><strong>服务类型:</strong><span>${serviceAllot.serviceType}</span></p>
+                        <p><strong>创建时间:</strong><span>${serviceAllot.lastUpdateTime}</span></p>
+                        <p><strong>待处理人:</strong><span>${serviceAllot.nextHanlder}</span></p>
+                        <p><strong>服务状态:</strong><span>${serviceAllot.serviceStatus}</span></p>
+                        <p><strong>服务内容:</strong><span>${serviceAllot.serviceConcent}</span></p>
                     </div>
                     <div class="x_content">
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">分配给 <span class="required"></span></label>
                         <div class="col-md-3 col-sm-3 col-xs-12">
-                            <select name=""  class="form-control">
-                                <option value=""></option>
+                            <select name="nextAllot" id="user"  class="form-control">
                             </select>
                         </div>
                     </div>
@@ -54,5 +49,4 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
-</body>
-</html>
+<script src="${pageContext.request.contextPath}/js/addallot.js"></script>
