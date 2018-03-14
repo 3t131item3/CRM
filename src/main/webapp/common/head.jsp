@@ -23,6 +23,24 @@
             border-radius:10px;
             height:36px;
         }
+        .userInfo{
+            position: relative;
+            display: inline-block;
+            height: 50px;
+            line-height: 50px;
+            font-size: 24px;
+            left: 300px;
+        }
+        .exit{
+            float: right;
+            font-size: 24px;
+            color: #FF2F2F;
+            margin-right: 20px;
+        }
+        .exit:hover{
+            color:red;
+        }
+
     </style>
 </head>
 
@@ -41,8 +59,8 @@
                     <div class="menu_section">
 
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-cogs"></i> 系统设置 <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
+                            <li class="active"><a><i class="fa fa-cogs"></i> 系统设置 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: block">
                                     <c:if test="${userSession.id==1}">
                                         <li><a href="/crm/rolelist">角色管理</a></li>
                                         <li><a href="/crm/listDeptAll">组织结构</a></li>
@@ -139,13 +157,16 @@
         <div class="top_nav">
             <div class="nav_menu">
                 <nav>
+                    <p class="userInfo">欢迎:${userSession.userCode} 部门:${userSession.dept.name}  角色:${userSession.role.roleName}</p>
+                    <a class="exit" href="/crm/exit">[退出]</a>
                     <div class="nav toggle">
                         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                     </div>
-                    <div>
-                        <p style="text-align: center;position:relative;top:20px;font-size:24px;">欢迎:${userSession.userCode} 部门:${userSession.dept.name}  角色:${userSession.role.roleName}</p>
-                        <a href="/crm/exit" style="color:red;font-size:20px;position: relative;float:right;right: 100px;bottom:24px;">[退出]</a>
-                    </div>
+
+
+
+
+
 
                 </nav>
             </div>

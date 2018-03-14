@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service("serviceCreateBiz")
 public class ServiceCreateBizImpl implements ServiceCreateBiz {
-    @Resource(name = "userDao")
+    @Resource(name = "serviceCreateDao")
     private ServiceCreateDao serviceCreateDao;
 
     public List<ServiceCreate> serviceCreateList(ServiceCreate serviceCreate) {
