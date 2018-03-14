@@ -1,42 +1,101 @@
 package szxs.accp.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import szxs.accp.biz.ProblemsBiz;
+import szxs.accp.entity.Problems;
+import szxs.accp.entity.ServiceCreate;
+
+import javax.annotation.Resource;
+import java.io.UnsupportedEncodingException;
 
 @Controller
 @RequestMapping("/crm")
 public class ProblemsController {
+    @Resource
+    private ProblemsBiz problemsBiz;
+
     /**
-     * 常见问题管理
+     * 查询所有
      * @return
      */
-    @RequestMapping("/problems")
-    public String problems(){
+    @RequestMapping("/problemsList")
+    public String problemsList(Model model){
+        model.addAttribute("problemsList",problemsBiz.problemsList(null));
         return "service/problems/problems";
     }
-
     /**
-     * 调到添加页面
+     * 根据条件查询所有
      * @return
      */
-    @RequestMapping("/addproblems")
-    public String addproblem(){
+    @RequestMapping("/searchProblemsByCondition")
+    public String searchServiceCreateByCondition(String problemsTitle,String serviceType,Model model){
+        model.addAttribute("problemsList",problemsBiz.problemsList(new Problems(problemsTitle,serviceType)));
+        model.addAttribute("problemsTitle",problemsTitle);
+        model.addAttribute("serviceType",serviceType);
+        return "service/problems/problems";
+    }
+    /**
+     * 跳转到新增页面
+     * @return
+     */
+    @RequestMapping("/addProblems")
+    public String addProblems(){
         return "service/problems/addproblems";
     }
-
     /**
-     * 调到修改页面
+     * 新增保存
      * @return
      */
-    @RequestMapping("updateproblems")
-    public String updateproblem(){
+    @RequestMapping("/addProblemsSave")
+    public String addProblemsSave(Problems problems){
+        problemsBiz.addProblems(problems);
+        return "redirect:/crm/problemsList";
+    }
+    /**
+     * 跳转到修改页面
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping("/updateProblems/{id}")
+    public String updateProblems(@PathVariable int id, Model model){
+        Problems problems = problemsBiz.problemsList(new Problems(id)).get(0);
+        model.addAttribute("problems", problems);
         return "service/problems/updateproblems";
     }
-    @RequestMapping("viewproblems")
+    /**
+     * 修改成功
+     * @return
+     */
+    @RequestMapping("/updateProblemsSave")
+    public String updateProblemsSave(Problems problems){
+        problemsBiz.updateProblems(problems);
+        return "redirect:/crm/problemsList";
+    }
     /**
      * 查看
+     * @param id
+     * @param model
+     * @return
      */
-    public String viewproblem(){
+    @RequestMapping("/viewProblems/{id}")
+    public String viewProblems(@PathVariable int id, Model model){
+        Problems problems = problemsBiz.problemsList(new Problems(id)).get(0);
+        model.addAttribute("problems", problems);
         return "service/problems/viewproblems";
+    }
+    /**
+     * 刪除
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping("/deleteProblems/{id}")
+    public String deleteProblems(@PathVariable int id,Model model){
+        problemsBiz.deleteProblems(id);
+        return "redirect:/crm/problemsList";
     }
 }

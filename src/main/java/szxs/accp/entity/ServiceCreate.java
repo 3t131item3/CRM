@@ -1,5 +1,8 @@
 package szxs.accp.entity;
 
+/**
+ * 服务创建
+ */
 public class ServiceCreate {
     private int id ;
     private String serviceName;

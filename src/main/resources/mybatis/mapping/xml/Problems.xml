@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="szxs.accp.dao.ProblemsDao">
+    <!--根据条件查询相应内容-->
+    <select id="problemsList" resultType="Problems">
+        select * from Problems where 1=1
+        <if test="id!=null and id>0"> and id=#{id}</if>
+        <if test="problemsTitle!=null and problemsTitle!=''"> and `problemsTitle` LIKE concat('%',#{problemsTitle},'%')</if>
+        <if test="serviceType!=null and serviceType!=''"> and serviceType=#{serviceType}</if>
+    </select>
+    <!--新增-->
+    <insert id="addProblems">
+     INSERT INTO Problems(`id`,problemsTitle,`serviceType`,`createdBy`,`createTime`,`lastUpdateTime`,`responseContent`,`remark`)
+     VALUES(DEFAULT,#{problemsTitle},#{serviceType},#{createdBy},DEFAULT,DEFAULT,#{responseContent}',#{remark})
+    </insert>
+    <!--修改-->
+    <update id="updateProblems">
+        update Problems
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="problemsTitle!=null and problemsTitle!=''">problemsTitle=#{problemsTitle},</if>
+            <if test="serviceType !=null and serviceType!=''">serviceType=#{serviceType},</if>
+            <if test="responseContent !=null and responseContent!=''">responseContent=#{responseContent},</if>
+            <if test="remark !=null and remark!=''">remark=#{remark},</if>
+        </trim>
+    </update>
+    <!--删除-->
+    <delete id="deleteProblems">
+        delete from Problems where id=#{id}
+    </delete>
+</mapper>

@@ -21,17 +21,14 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-
                     <div class="x_content" style="font-size: 20px;">
-
-                        <p><strong>服务名称:</strong><span></span></p>
-                        <p><strong>服务类型:</strong><span></span></p>
-                        <p><strong>服务状态:</strong><span></span></p>
-                        <p><strong>创建人:</strong><span></span></p>
-                        <p><strong>创建时间:</strong><span></span></p>
-                        <p><strong>待处理人:</strong><span></span></p>
-                        <p><strong>服务内容:</strong><span></span></p>
-                        <p><strong>最后操作时间:</strong><span></span></p>
+                        <p><strong>服务名称:</strong><span>${serviceBack.serviceName}</span></p>
+                        <p><strong>服务类型:</strong><span>${serviceBack.serviceType}</span></p>
+                        <p><strong>服务状态:</strong><span>${serviceBack.serviceStatus}</span></p>
+                        <p><strong>创建人:</strong><span>${serviceBack.createdBy}</span></p>
+                        <p><strong>创建时间:</strong><span>${serviceBack.createTime}</span></p>
+                        <p><strong>待处理人:</strong><span>${serviceBack.nextHanlder}</span></p>
+                        <p><strong>服务内容:</strong><span>${serviceBack.serviceConcent}</span></p>
                     </div>
                     <div>
                         <a href="javascript:history.back(-1)" class="btn btn-primary btn-lg">返回</a>

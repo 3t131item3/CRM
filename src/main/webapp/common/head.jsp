@@ -81,10 +81,10 @@
                                 <ul class="nav child_menu">
                                     <li><a href="/crm/serviceCreateList">服务创建</a></li>
                                     <li><a href="/crm/serviceAllotList">服务分配</a></li>
-                                    <li><a href="/crm/dispose">服务处理</a></li>
-                                    <li><a href="/crm/feedback">服务反馈</a></li>
-                                    <li><a href="/crm/pigeonhole">服务归档</a></li>
-                                    <li><a href="/crm/problems">常见问题管理</a></li>
+                                    <li><a href="/crm/serviceDisposeList">服务处理</a></li>
+                                    <li><a href="/crm/serviceBackList">服务反馈</a></li>
+                                    <li><a href="/crm/servicePigeonholeList">服务归档</a></li>
+                                    <li><a href="/crm/problemsList">常见问题管理</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i> 订单管理 <span class="fa fa-chevron-down"></span></a>

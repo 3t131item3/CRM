@@ -15,8 +15,6 @@
             <div class="title_left">
                 <h4>服务管理&gt;&gt;服务创建&gt;&gt;添加常见问题</h4>
             </div>
-
-
         </div>
         <div class="clearfix"></div>
 
@@ -24,28 +22,26 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                            <form action="/crm/addproblems" method="post" class="form-horizontal form-label-left" novalidate>
+                            <form action="/crm/addProblemsSave" method="post" class="form-horizontal form-label-left" novalidate>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >问题标题  <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input class="form-control col-md-7 col-xs-12"  name=""  required="required" type="text">
+                                    <input class="form-control col-md-7 col-xs-12"  name="problemsTitle"  required="required" type="text">
                                 </div>
                             </div>
-
-
-
-
                             <div class="item form-group">
                                 <label  class="control-label col-md-3 col-sm-3 col-xs-12">问题类型 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select name="" class="form-control">
-                                        <option value=""></option>
+                                    <select name="serviceType" class="form-control">
+                                        <option value="售后问题">售后问题</option>
+                                        <option value="业务咨询">业务咨询</option>
+                                        <option value="投诉问题">投诉问题</option>
+                                        <option value="售前咨询">售前咨询</option>
                                     </select>
                                 </div>
                             </div>
@@ -53,14 +49,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >答复要点 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="" class="form-control col-md-7 col-xs-12"  required placeholder="1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；"></textarea>
+                                    <textarea name="responseContent" class="form-control col-md-7 col-xs-12"  required placeholder="1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；"></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="" class="form-control col-md-7 col-xs-12" required></textarea>
+                                    <textarea name="remark" class="form-control col-md-7 col-xs-12" required></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

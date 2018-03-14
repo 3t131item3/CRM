@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="szxs.accp.dao.ServiceDisposeDao">
+    <!--根据条件查询相应内容-->
+    <select id="serviceDisposeList" resultType="ServiceDispose">
+        select * from ServiceDispose where 1=1
+        <if test="id!=null and id>0"> and id=#{id}</if>
+        <if test="serviceName!=null and serviceName!=''"> and `serviceName` LIKE concat('%',#{serviceName},'%')</if>
+        <if test="serviceType!=null and serviceType!=''"> and serviceType=#{serviceType}</if>
+        <if test="serviceStatus!=null and serviceStatus!=''"> and serviceStatus=#{serviceStatus}</if>
+    </select>
+    <!--修改-->
+    <update id="updateServiceDispose">
+        update ServiceDispose
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="serviceStatus!=null and serviceStatus!=''">serviceStatus=#{serviceStatus},</if>
+            <if test="disposeResult !=null and disposeResult!=''">disposeResult=#{disposeResult},</if>
+            <if test="disposeRemark !=null and disposeRemark!=''">disposeRemark=#{disposeRemark},</if>
+        </trim>
+    </update>
+</mapper>

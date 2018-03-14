@@ -1,26 +1,27 @@
 package szxs.accp.entity;
 /**
- * 服务分配
+ * 服务反馈
  */
-public class ServiceAllot {
+public class ServiceBack {
     private int id ;
     private String serviceName;
     private String serviceType;
     private String serviceStatus;
-    private String lastUpdateTime;//最后修改时间
+    private String createTime;//最后修改时间
     private String createdBy ;//操作人
     private String nextHanlder;//待处理人，关联部门 找和他相同部门的销售经理
-    private String customerName ;//客户名字
     private String customerPhone ;
     private String serviceConcent;//
-    private String nextAllot ;//分配给哪些销售代表做
+    private String backResult;//处理结果
+    private String backRemark;
 
-    public ServiceAllot() {
-    }
-    public ServiceAllot(int id) {
+    public ServiceBack() { }
+
+    public ServiceBack(int id) {
         this.id = id;
     }
-    public ServiceAllot(String serviceName, String serviceType, String serviceStatus) {
+
+    public ServiceBack(String serviceName, String serviceType, String serviceStatus) {
         this.serviceName = serviceName;
         this.serviceType = serviceType;
         this.serviceStatus = serviceStatus;
@@ -58,12 +59,12 @@ public class ServiceAllot {
         this.serviceStatus = serviceStatus;
     }
 
-    public String getLastUpdateTime() {
-        return lastUpdateTime;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setLastUpdateTime(String lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     public String getCreatedBy() {
@@ -82,14 +83,6 @@ public class ServiceAllot {
         this.nextHanlder = nextHanlder;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
     public String getCustomerPhone() {
         return customerPhone;
     }
@@ -105,11 +98,20 @@ public class ServiceAllot {
     public void setServiceConcent(String serviceConcent) {
         this.serviceConcent = serviceConcent;
     }
-    public String getNextAllot() {
-        return nextAllot;
+
+    public String getBackResult() {
+        return backResult;
     }
 
-    public void setNextAllot(String nextAllot) {
-        this.nextAllot = nextAllot;
+    public void setBackResult(String backResult) {
+        this.backResult = backResult;
+    }
+
+    public String getBackRemark() {
+        return backRemark;
+    }
+
+    public void setBackRemark(String backRemark) {
+        this.backRemark = backRemark;
     }
 }

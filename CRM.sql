@@ -246,18 +246,16 @@ CREATE TABLE ContractCreate(
 	secondParty VARCHAR(50), #乙方
 	firstBusinessNumber VARCHAR(100), #甲方营业许可证号
 	secondBusinessNumber VARCHAR(100), #乙方营业许可证号
-	ContractContent VARCHAR(500), #合同内容
-	remark VARCHAR(500)#备注
+	ContractContent VARCHAR(300), #合同内容
+	remark VARCHAR(200)#备注
 )CHARSET=utf8;
 INSERT INTO ContractCreate(`id`,userName,`contractName`,`contractType`,`contractMoney`,`contractStatus`,`lastUpdateTime`,`nextHanlder`,`firstParty`,`secondParty`,firstBusinessNumber,secondBusinessNumber,ContractContent,remark)
-VALUES(DEFAULT,'王四毛','厦门福祥公司明洞设备销售合同','销售合同',117800.00,'待审核',DEFAULT,'','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
-(DEFAULT,'王四毛','山东临沂泰兴公司离心机销售合同','销售合同',117800.00,DEFAULT,DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
-(DEFAULT,'王四毛','浙江宏昂公司离心机销售合同','销售合同',117800.00,'已提交',DEFAULT,'李四','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
+VALUES(DEFAULT,'王四毛','厦门福祥公司明洞设备销售合同','销售合同',117800.00,'待审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
+(DEFAULT,'王四毛','山东临沂泰兴公司离心机销售合同','销售合同',117800.00,DEFAULT,DEFAULT,'','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
+(DEFAULT,'王四毛','浙江宏昂公司离心机销售合同','销售合同',117800.00,'待审核',DEFAULT,'李四','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
 (DEFAULT,'王四毛','四川传福集团设备使用培训合同','技术合同',117800.00,'已审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
 (DEFAULT,'王四毛','厦门福祥公司明洞设备销售合同','销售合同',117800.00,'待审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ',''),
 (DEFAULT,'王四毛','厦门福祥公司明洞设备运输附加合同','运输合同',117800.00,'已执行',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','');
-
-
 #合同审核
 CREATE TABLE ContractExamine(
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -272,16 +270,18 @@ CREATE TABLE ContractExamine(
 	secondParty VARCHAR(50), #乙方
 	firstBusinessNumber VARCHAR(100), #甲方营业许可证号
 	secondBusinessNumber VARCHAR(100), #乙方营业许可证号
-	ContractContent VARCHAR(500), #合同内容
+	ContractContent VARCHAR(200), #合同内容
 	createdBy VARCHAR(50) NOT NULL,#操作人
-	examine VARCHAR(500)#审批意见
+	examine VARCHAR(200)#审批意见
 )CHARSET=utf8;
 INSERT INTO ContractExamine(`id`,userName,`contractName`,`contractType`,`contractMoney`,`contractStatus`,`creationTime`,`nextHanlder`,`firstParty`,`secondParty`,firstBusinessNumber,secondBusinessNumber,ContractContent,createdBy,examine)
 VALUES(DEFAULT,'王四毛','山东临沂泰兴公司离心机销售合同','销售合同',117800.00,DEFAULT,DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','同意'),
-(DEFAULT,'王四毛','浙江宏昂公司离心机销售合同','销售合同',117800.00,'已提交',DEFAULT,'李四','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','同意'),
+(DEFAULT,'王四毛','浙江宏昂公司离心机销售合同','销售合同',117800.00,'待审核',DEFAULT,'李四','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','同意'),
 (DEFAULT,'王四毛','四川传福集团设备使用培训合同','技术合同',117800.00,'已审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','同意'),
 (DEFAULT,'王四毛','厦门福祥公司明洞设备销售合同','销售合同',117800.00,'待审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','拒绝'),
 (DEFAULT,'王四毛','厦门福祥公司明洞设备运输附加合同','运输合同',117800.00,'已执行',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','拒绝');
+UPDATE ContractExamine SET userName='xx' WHERE id=1
+SELECT * FROM ContractExamine
 #合同管理
 CREATE TABLE ContractManage(
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -296,17 +296,152 @@ CREATE TABLE ContractManage(
 	secondParty VARCHAR(50), #乙方
 	firstBusinessNumber VARCHAR(100), #甲方营业许可证号
 	secondBusinessNumber VARCHAR(100), #乙方营业许可证号
-	ContractContent VARCHAR(500), #合同内容
+	ContractContent VARCHAR(300), #合同内容
 	remark VARCHAR(200),#备注
 	createdBy VARCHAR(50) NOT NULL,#操作人
 	cause VARCHAR(200) #原因
 )CHARSET=utf8;
 INSERT INTO ContractManage(`id`,userName,`contractName`,`contractType`,`contractMoney`,`contractStatus`,`creationTime`,`nextHanlder`,`firstParty`,`secondParty`,firstBusinessNumber,secondBusinessNumber,ContractContent,remark,createdBy,cause)
 VALUES(DEFAULT,'王四毛','山东临沂泰兴公司离心机销售合同','销售合同',117800.00,DEFAULT,DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','该合同于2013年11月30日与客户正式签订，开始执行合同。'),
-(DEFAULT,'王四毛','浙江宏昂公司离心机销售合同','销售合同',117800.00,'已提交',DEFAULT,'李四','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','由于客户方原因，原条款中第四项第2条约定内容发生改变，导致该合同没有办法继续执行，需做合同变更。'),
+(DEFAULT,'王四毛','浙江宏昂公司离心机销售合同','销售合同',117800.00,'待审核',DEFAULT,'李四','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','由于客户方原因，原条款中第四项第2条约定内容发生改变，导致该合同没有办法继续执行，需做合同变更。'),
 (DEFAULT,'王四毛','四川传福集团设备使用培训合同','技术合同',117800.00,'已审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','由于我方货源问题，无法履行该合同的后续条款，因此经与客户方协商后，对该合同进行合同转让。'),
 (DEFAULT,'王四毛','厦门福祥公司明洞设备销售合同','销售合同',117800.00,'待审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','由于客户方原因造成合同实施条件不成立，经甲乙双方协商决定，解除该合同。'),
 (DEFAULT,'王四毛','厦门福祥公司明洞设备运输附加合同','运输合同',117800.00,'已执行',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','xx','王四毛','xx');
 
+#服务创建 销售代表创建，销售经理对已提交的服务进行分配
+CREATE TABLE ServiceCreate(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	serviceName VARCHAR(50) NOT NULL,
+	serviceType VARCHAR(100) NOT NULL,
+	serviceStatus VARCHAR(50) DEFAULT '新创建' NOT NULL,
+	lastUpdateTime TIMESTAMP DEFAULT NOW()NOT NULL,#最后修改时间
+	createdBy VARCHAR(50) NOT NULL,#操作人
+	nextHanlder VARCHAR(50),#待处理人，关联部门 找和他相同部门的销售经理
+	customerName VARCHAR(50) NOT NULL, #客户名字
+	customerPhone VARCHAR(50) NOT NULL,
+	serviceConcent VARCHAR(200) NOT NULL,
+	remark VARCHAR(200)#备注
+)CHARSET=utf8;
+INSERT INTO ServiceCreate(`id`,serviceName,`serviceType`,`serviceStatus`,`lastUpdateTime`,`createdBy`,`nextHanlder`,`customerName`,`customerPhone`,`serviceConcent`,remark)
+VALUES(DEFAULT,'四川客户离心器售后服务','售后服务','新创建',DEFAULT,'王二毛','王五','李曦','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
+(DEFAULT,'山东客户离心器安装服务','售前服务','已提交',DEFAULT,'王三毛','王怡','李曦2','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
+(DEFAULT,'云南客户设备故障投诉服务','投诉服务','新创建',DEFAULT,'王四毛','王五','李曦3','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
+(DEFAULT,'北京客户明洞设备安装服务','售后服务','已分配',DEFAULT,'王二毛','李彪','李曦4','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
+(DEFAULT,'北京客户设备升级咨询服务','售前服务','已反馈',DEFAULT,'王二毛','王五','李曦5','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
+(DEFAULT,'北京客户设备降级咨询服务','咨询服务','已处理',DEFAULT,'王五毛','张静','李曦6','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx');
+#服务分配
+#销售经理对状态为“已提交”的服务单据进行分配，指定销售代表处理该单据。除了“新创建”以外的其他状态可以被查看。
+CREATE TABLE ServiceAllot(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	serviceName VARCHAR(50) NOT NULL,
+	serviceType VARCHAR(100) NOT NULL,
+	serviceStatus VARCHAR(50) DEFAULT '新创建' NOT NULL,
+	lastUpdateTime TIMESTAMP DEFAULT NOW()NOT NULL,#最后修改时间
+	createdBy VARCHAR(50) NOT NULL,#操作人
+	nextHanlder VARCHAR(50),#待处理人，关联部门 找和他相同部门的销售经理
+	customerName VARCHAR(50) NOT NULL, #客户名字
+	customerPhone VARCHAR(50) NOT NULL,
+	serviceConcent VARCHAR(200) NOT NULL,
+	nextAllot VARCHAR(50)#分配给哪些销售代表做
+)CHARSET=utf8;
+INSERT INTO ServiceAllot(`id`,serviceName,`serviceType`,`serviceStatus`,`lastUpdateTime`,`createdBy`,`nextHanlder`,`customerName`,`customerPhone`,`serviceConcent`,nextAllot)
+VALUES(DEFAULT,'四川客户离心器售后服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛'),
+(DEFAULT,'山东客户离心器安装服务','售前服务','已分配',DEFAULT,'王三毛','王怡','李曦2','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛'),
+(DEFAULT,'云南客户设备故障投诉服务','投诉服务','已反馈',DEFAULT,'王四毛','王五','李曦3','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王四毛'),
+(DEFAULT,'北京客户明洞设备安装服务','售后服务','已分配',DEFAULT,'王二毛','李彪','李曦4','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛'),
+(DEFAULT,'北京客户设备升级咨询服务','售前服务','已反馈',DEFAULT,'王二毛','王五','李曦5','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛'),
+(DEFAULT,'北京客户设备降级咨询服务','咨询服务','已处理',DEFAULT,'王五毛','张静','李曦6','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛');
+#服务处理
+#状态全都是已分配的，然后去处理
+CREATE TABLE ServiceDispose(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	serviceName VARCHAR(50) NOT NULL,
+	serviceType VARCHAR(100) NOT NULL,
+	serviceStatus VARCHAR(50) DEFAULT '新创建' NOT NULL,
+	createTime TIMESTAMP DEFAULT NOW() NOT NULL,#最后修改时间
+	createdBy VARCHAR(50) NOT NULL,#操作人
+	nextHanlder VARCHAR(50),#待处理人，关联部门 找和他相同部门的销售经理
+	customerPhone VARCHAR(50) NOT NULL,
+	serviceConcent VARCHAR(200) NOT NULL,
+	disposeResult VARCHAR(50),#处理结果
+	disposeRemark VARCHAR(200)
+)CHARSET=utf8;
+INSERT INTO ServiceDispose(`id`,serviceName,`serviceType`,`serviceStatus`,`createTime`,`createdBy`,`nextHanlder`,`customerPhone`,`serviceConcent`,disposeResult,disposeRemark)
+VALUES(DEFAULT,'四川客户离心器售后服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已处理','已联系售后人员准备上门安装，去之前会再次联系客户。'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已处理','已联系售后人员准备上门安装，去之前会再次联系客户。'),
+(DEFAULT,'山东客户离心器安装服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已处理','已联系售后人员准备上门安装，去之前会再次联系客户。'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已处理','已联系售后人员准备上门安装，去之前会再次联系客户。'),
+(DEFAULT,'云南客户设备故障投诉服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已处理','已联系售后人员准备上门安装，去之前会再次联系客户。'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已处理','已联系售后人员准备上门安装，去之前会再次联系客户。'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已处理','已联系售后人员准备上门安装，去之前会再次联系客户。');
 
+#服务反馈
+#状态全都是已处理的，然后去看是否有反馈
+CREATE TABLE ServiceBack(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	serviceName VARCHAR(50) NOT NULL,
+	serviceType VARCHAR(100) NOT NULL,
+	serviceStatus VARCHAR(50) DEFAULT '新创建' NOT NULL,
+	createTime TIMESTAMP DEFAULT NOW() NOT NULL,#最后修改时间
+	createdBy VARCHAR(50) NOT NULL,#操作人
+	nextHanlder VARCHAR(50),#待处理人，关联部门 找和他相同部门的销售经理
+	customerPhone VARCHAR(50) NOT NULL,
+	serviceConcent VARCHAR(200) NOT NULL,
+	backResult VARCHAR(50),#处理结果
+	backRemark VARCHAR(200)
+)CHARSET=utf8;
+INSERT INTO ServiceBack(`id`,serviceName,`serviceType`,`serviceStatus`,`createTime`,`createdBy`,`nextHanlder`,`customerPhone`,`serviceConcent`,backResult,backRemark)
+VALUES(DEFAULT,'四川客户离心器售后服务','售后服务','已处理',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已反馈','已向客户反馈。'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已处理',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','未反馈','未向客户反馈。'),
+(DEFAULT,'山东客户离心器安装服务','售后服务','已处理',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已反馈','已向客户反馈。'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已处理',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已反馈','已向客户反馈。'),
+(DEFAULT,'云南客户设备故障投诉服务','售后服务','已处理',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','未反馈','未向客户反馈。'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已处理',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已反馈','已向客户反馈。'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已处理',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','未反馈','未向客户反馈。');
+
+#服务归档
+#状态全都是已反馈的，然后修改这个为归档就行
+CREATE TABLE ServicePigeonhole(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	serviceName VARCHAR(50) NOT NULL,
+	serviceType VARCHAR(100) NOT NULL,
+	serviceStatus VARCHAR(50) DEFAULT '新创建' NOT NULL,
+	createTime TIMESTAMP DEFAULT NOW() NOT NULL,#最后修改时间
+	createdBy VARCHAR(50) NOT NULL,#操作人
+	nextHanlder VARCHAR(50),#待处理人，关联部门 找和他相同部门的销售经理
+	customerPhone VARCHAR(50) NOT NULL,
+	serviceConcent VARCHAR(200) NOT NULL,
+	backResult VARCHAR(50),#处理结果
+	backRemark VARCHAR(200),
+	isPigeonhole VARCHAR(50)#是否归档
+)CHARSET=utf8;
+INSERT INTO ServicePigeonhole(`id`,serviceName,`serviceType`,`serviceStatus`,`createTime`,`createdBy`,`nextHanlder`,`customerPhone`,`serviceConcent`,backResult,backRemark,isPigeonhole)
+VALUES(DEFAULT,'四川客户离心器售后服务','售后服务','已反馈',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已反馈','已向客户反馈。','已归档'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已反馈',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','未反馈','未向客户反馈。','未归档'),
+(DEFAULT,'山东客户离心器安装服务','售后服务','已反馈',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已反馈','已向客户反馈。','已归档'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已反馈',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已反馈','已向客户反馈。','已归档'),
+(DEFAULT,'云南客户设备故障投诉服务','售后服务','已反馈',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','未反馈','未向客户反馈。','未归档'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已反馈',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已反馈','已向客户反馈。','未归档'),
+(DEFAULT,'四川客户离心器售后服务','售后服务','已反馈',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','未反馈','未向客户反馈。','未归档');
+
+#常见问题管理 销售代表记录
+CREATE TABLE Problems(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	problemsTitle VARCHAR(50) NOT NULL, #问题名称
+	serviceType VARCHAR(100) NOT NULL,
+	createdBy VARCHAR(50) NOT NULL,#操作人
+	createTime TIMESTAMP DEFAULT NOW() NOT NULL,#最后修改时间
+	lastUpdateTime TIMESTAMP DEFAULT NOW()NOT NULL,#最后修改时间
+	responseContent VARCHAR(200),#答复内容
+	remark VARCHAR(50)#备注
+)CHARSET=utf8;
+
+INSERT INTO Problems(`id`,problemsTitle,`serviceType`,`createdBy`,`createTime`,`lastUpdateTime`,`responseContent`,`remark`)
+VALUES(DEFAULT,'离心器初速过慢什么问题','售后服务','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+(DEFAULT,'安装离心器需要哪些条件','售后服务','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+(DEFAULT,'ERS-2型冲击器总是需要二次启动','投诉问题','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+(DEFAULT,'明洞设备安装后多久可以投入生产','售后服务','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+(DEFAULT,'ERS-2型冲击器售价多少','售后服务','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+(DEFAULT,'史蒂夫-霍金为啥死的','业务咨询','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+(DEFAULT,'史蒂夫-霍金为为啥这么可爱','业务咨询','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；','');
 

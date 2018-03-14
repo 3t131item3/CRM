@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="szxs.accp.dao.ServicePigeonholeDao">
+    <!--根据条件查询相应内容-->
+    <select id="servicePigeonholeList" resultType="ServicePigeonhole">
+        select * from ServicePigeonhole where 1=1
+        <if test="id!=null and id>0"> and id=#{id}</if>
+        <if test="serviceName!=null and serviceName!=''"> and `serviceName` LIKE concat('%',#{serviceName},'%')</if>
+        <if test="serviceType!=null and serviceType!=''"> and serviceType=#{serviceType}</if>
+        <if test="serviceStatus!=null and serviceStatus!=''"> and serviceStatus=#{serviceStatus}</if>
+    </select>
+    <!--修改-->
+    <update id="updateServicePigeonhole">
+        update ServicePigeonhole set serviceStatus=#{serviceStatus} where id=#{id}
+    </update>
+</mapper>

@@ -21,17 +21,15 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                    <form action="" method="post">
+                    <form action="/crm/updateServiceDisposeSave" method="post">
                         <div class="x_content" style="font-size: 20px;">
-
-                            <p><strong>服务名称:</strong><span></span></p>
-                            <p><strong>服务状态:</strong><span></span></p>
-                            <p><strong>创建人:</strong><span></span></p>
-                            <p><strong>服务类型:</strong><span></span></p>
-                            <p><strong>创建时间:</strong><span></span></p>
-                            <p><strong>待处理人:</strong><span></span></p>
-                            <p><strong>服务内容:</strong><span></span></p>
-
+                            <p><strong>服务名称:</strong><span>${serviceDispose.serviceName}</span></p>
+                            <p><strong>服务类型:</strong><span>${serviceDispose.serviceType}</span></p>
+                            <p><strong>服务状态:</strong><span>${serviceDispose.serviceStatus}</span></p>
+                            <p><strong>创建人:</strong><span>${serviceDispose.createdBy}</span></p>
+                            <p><strong>创建时间:</strong><span>${serviceDispose.createTime}</span></p>
+                            <p><strong>待处理人:</strong><span>${serviceDispose.nextHanlder}</span></p>
+                            <p><strong>服务内容:</strong><span>${serviceDispose.serviceConcent}</span></p>
                         </div>
                         操作
                         <div class="x_content">
@@ -39,19 +37,20 @@
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">处理结果 <span class="required"></span></label>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <select name=""  class="form-control">
-                                    <option value=""></option>
+                                <select name="disposeResult"  class="form-control">
+                                    <option value="已处理"<c:if test="${serviceDispose.disposeResult=='已处理'}">selected="selected"</c:if>>已处理</option>
+                                    <option value="未处理"<c:if test="${serviceDispose.disposeResult=='未处理'}">selected="selected"</c:if>>未处理</option>
                                 </select>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label">处理说明 <span class="required"></span></label>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <textarea name="" class="form-control col-md-7 col-xs-12" required placeholder="已联系售后人员准备上门安装，去之前会再次联系客户"></textarea>
+                                <textarea name="disposeRemark" class="form-control col-md-7 col-xs-12" required placeholder="已联系售后人员准备上门安装，去之前会再次联系客户">${serviceDispose.disposeRemark}</textarea>
                             </div>
                         </div>
                         <div>
-                            <input type="submit" value="分配" class="btn btn-default btn-lg">
+                            <input type="submit" value="保存" class="btn btn-default btn-lg">
                             <a href="javascript:history.back(-1)" class="btn btn-primary btn-lg">返回</a>
                         </div>
                     </form>

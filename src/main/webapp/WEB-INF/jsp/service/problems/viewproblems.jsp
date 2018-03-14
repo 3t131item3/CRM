@@ -23,14 +23,13 @@
                 <div class="x_panel">
 
                     <div class="x_content" style="font-size: 20px;">
-                        <p><strong>问题标题:</strong><span></span></p>
-                        <p><strong>问题类型:</strong><span></span></p>
-                        <p><strong>答复要点:</strong><span></span></p>
-                        <p><strong>创建人:</strong><span></span></p>
-                        <p><strong>最后操作时间:</strong><span></span></p>
-                        <p><strong>最后更新时间:</strong><span></span></p>
-                        <p><strong>备注信息:</strong><span></span></p>
-
+                        <p><strong>问题标题:</strong><span>${problems.problemsTitle}</span></p>
+                        <p><strong>问题类型:</strong><span>${problems.serviceType}</span></p>
+                        <p><strong>答复要点:</strong><span>${problems.responseContent}</span></p>
+                        <p><strong>创建人:</strong><span>${problems.createdBy}</span></p>
+                        <p><strong>最后操作时间:</strong>${problems.createTime}<span></span></p>
+                        <p><strong>最后更新时间:</strong>${problems.lastUpdateTime}<span></span></p>
+                        <p><strong>备注信息:</strong><span>${problems.remark}</span></p>
                     </div>
                     <div>
                         <a href="javascript:history.back(-1)" class="btn btn-primary btn-lg">返回</a>
