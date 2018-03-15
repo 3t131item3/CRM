@@ -58,9 +58,9 @@
                                 <td>${contacts.address}</td>
                                 <td>${contacts.remark}</td>
                                 <td>
-                                    <a href="/crm/updateContacts/${contacts.id}" class="btn btn-warning">修改</a>
-                                    <a href="/crm/viewContacts/${contacts.id}" class="btn btn-success">查看</a>
-                                    <a href="/crm/deleteContacts/${contacts.id}" class="btn btn-danger remove">删除</a>
+                                    <a href="/crm/updateContacts/${contacts.id}" class="btn btn-warning btn-xs">修改</a>
+                                    <a href="/crm/viewContacts/${contacts.id}" class="btn btn-success btn-xs">查看</a>
+                                    <a href="/crm/deleteContacts/${contacts.id}" class="btn btn-danger btn-xs removes">删除</a>
                                 </td>
                             </tr>
                            </c:forEach>
@@ -80,7 +80,7 @@
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".remove").click(function () {
+        $(".removes").click(function () {
             if(!confirm("確定要刪除嗎？")){
                 $(this).attr("href","/crm/contactslist");
             }

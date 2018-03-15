@@ -15,7 +15,6 @@ public class User {
     private String creationTime;//注册时间
     private String lastLoginTime;//最后登录时间 这个就变为最后修改时间了
     private String createdBy;//创建者
-    private Integer isStart;//是否启用1--启用,0--不启用
     private int roleId;
     private int deptId;
 
@@ -117,14 +116,6 @@ public class User {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
-    }
-
-    public Integer getIsStart() {
-        return isStart;
-    }
-
-    public void setIsStart(Integer isStart) {
-        this.isStart = isStart;
     }
 
     public Role getRole() {

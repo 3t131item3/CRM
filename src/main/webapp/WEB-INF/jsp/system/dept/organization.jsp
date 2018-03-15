@@ -29,11 +29,10 @@
                     <div class="x_title">
                         <form action="/crm/listDeptAll"  method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
-                                <strong class="h4">名称:</strong>
+                                <strong class="h4">组织名称:</strong>
                                 <input type="text" placeholder="Search" class="form-control input-md roleName" name="deptName" maxlength="30" >
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
-
                         </form>
 
                     </div>
@@ -41,7 +40,7 @@
                     <div class="x_content">
 
                         <strong class="h3">结构组织信息列表</strong>
-
+                        <a href="/crm/addorganization" class="btn btn-primary" style="float: right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -52,17 +51,14 @@
                                 <th>操作</th>
                             </tr>
                             </thead>
-
                             <tbody>
                             <c:forEach items="${deptList}" var="dept">
-
                             <tr>
                                 <td>${dept.name}</td>
                                 <td>${dept.lastUpdateTime}</td>
                                 <td>${dept.operator}</td>
                                 <td>${dept.remark}</td>
                                 <td>
-                                    <a href="/crm/addorganization" class="btn btn-primary btn-xs">添加</a>
                                     <a href="/crm/modifyDept/${dept.id}" class="btn btn-info btn-xs">修改</a>
                                     <a href= "/crm/removeDept/${dept.id}"  class="btn btn-danger btn-xs removes">删除</a>
                                 </td>

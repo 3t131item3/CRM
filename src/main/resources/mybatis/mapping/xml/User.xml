@@ -7,11 +7,11 @@
     <select id="login" resultMap="Map">
         SELECT u.*,r.id r_id,r.roleName,d.id d_id,d.name FROM `user` u,Role r,Dept d
         <where>
-            <if test="userName!=null and userName!=''">
-                AND u.userName=#{userName}
+            <if test="userCode!=null and userCode!=''">
+                AND u.userCode=#{userCode}
             </if>
             <if test="userPassword!=null and userPassword!=''">
-                AND u.userCode=#{userCode}
+                AND u.userPassword=#{userPassword}
             </if>
             <if test="id>0">
                 AND u.id=#{id}
@@ -70,7 +70,7 @@
     </select>
     <!--添加-->
     <insert id="add">
-        insert into `user`(userCode,userName,userPassword,gender,phone,createdBy,isStart,lastLoginTime,deptId,roleId) VALUES (#{userCode},#{userName},#{userPassword},#{gender},#{phone},#{createdBy},#{isStart},NOW(),#{deptId},#{roleId})
+        insert into `user`(userCode,userName,userPassword,gender,phone,createdBy,lastLoginTime,deptId,roleId) VALUES (#{userCode},#{userName},#{userPassword},#{gender},#{phone},#{createdBy},#{isStart},NOW(),#{deptId},#{roleId})
     </insert>
     <!--修改-->
     <update id="modify">
@@ -81,7 +81,6 @@
             <if test="userPassword!=null and userPassword!=''">userPassword=#{userPassword},</if>
             <if test="phone!=null and phone!=''">phone=#{phone},</if>
             <if test="gender!=null and gender>=0">gender=#{gender}, </if>
-            <if test="isStart!=null and isStart>=0">isStart=#{isStart},</if>
             <if test="deptId!=null and deptId>0">deptId=#{deptId}, </if>
             <if test="roleId!=null and roleId>0">roleId=#{roleId}, </if>
         </trim>

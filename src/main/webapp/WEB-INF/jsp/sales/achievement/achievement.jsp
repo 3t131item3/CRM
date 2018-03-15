@@ -63,8 +63,8 @@
                                 <td>${achievement.createdBy}</td>
                                 <td>
                                     <a href="/crm/updateresult/${achievement.id}" class="btn btn-warning btn-xs">修改</a>
-                                    <a href="javascript:;" class="btn btn-danger btn-xs deleteUser" achievementId=${achievement.id} userName=${achievement.user.userName}>删除</a>
                                     <a href="/crm/viewresult/${achievement.id}" class="btn btn-success btn-xs">查看</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs deleteUser" achievementId=${achievement.id} userName=${achievement.user.userName}>删除</a>
                                 </td>
                             </tr>
                             </c:forEach>

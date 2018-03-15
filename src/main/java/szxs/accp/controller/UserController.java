@@ -38,7 +38,7 @@ public class UserController {
      */
     @RequestMapping("/login")
     public String login() {
-        return "login";
+        return "/login.jsp";
     }
     /**
      * 登录功能
@@ -54,7 +54,7 @@ public class UserController {
             model.addAttribute("error","用户名或密码错误");
             model.addAttribute("userName",u.getUserName());
             model.addAttribute("userPassword",u.getUserPassword());
-            return "login";
+            return "/login.jsp";
         }
     }
 
@@ -78,7 +78,7 @@ public class UserController {
     public String exit(HttpServletRequest request,HttpServletResponse response)throws Exception {
         request.getSession().invalidate(); //关闭当前sssion
         //response.sendRedirect("/login");
-        return "login";
+        return "/login.jsp";
     }
 
     /**

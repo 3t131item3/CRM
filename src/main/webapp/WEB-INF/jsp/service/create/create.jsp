@@ -78,7 +78,7 @@
                                     <a href="/crm/commitServiceCreate/${serviceCreate.id}/${serviceCreate.createdBy}" class="btn btn-info btn-xs">提交</a>
                                     </c:if>
                                     <a href="/crm/viewServiceCreate/${serviceCreate.id}" class="btn btn-success btn-xs">查看</a>
-                                    <a href="/crm/deleteServiceCreate/${serviceCreate.id}" class="btn btn-danger btn-xs remove">删除</a>
+                                    <a href="/crm/deleteServiceCreate/${serviceCreate.id}" class="btn btn-danger btn-xs removes">删除</a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -96,7 +96,7 @@
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".remove").click(function () {
+        $(".removes").click(function () {
             if(!confirm("確定要刪除嗎？")){
                 $(this).attr("href","/crm/serviceCreateList");
             }

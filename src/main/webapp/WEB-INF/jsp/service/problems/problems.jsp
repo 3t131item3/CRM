@@ -64,8 +64,8 @@
                                 <td>${problems.lastUpdateTime}</td>
                                 <td>
                                     <a href="/crm/updateProblems/${problems.id}" class="btn btn-warning btn-xs">修改</a>
-                                    <a href="/crm/deleteProblems/${problems.id}" class="btn btn-danger btn-xs removes">删除</a>
                                     <a href="/crm/viewProblems/${problems.id}" class="btn btn-success btn-xs">查看</a>
+                                    <a href="/crm/deleteProblems/${problems.id}" class="btn btn-danger btn-xs removes">删除</a>
                                 </td>
                             </tr>
                         </c:forEach>

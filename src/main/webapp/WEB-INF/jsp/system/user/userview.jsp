@@ -28,7 +28,6 @@
                         <p><strong>用户姓名:</strong><span>${user.userName}</span></p>
                         <p><strong>手机号:</strong><span>${user.phone}</span></p>
                         <p><strong>性别:</strong><span><c:if test="${user.gender==0}">男</c:if><c:if test="${user.gender==1}">女</c:if> </span></p>
-                        <p><strong>状态:</strong><span><c:if test="${user.isStart==0}">禁用</c:if><c:if test="${user.isStart==1}">启用</c:if> </span></p>
                         <p><strong>所属部门:</strong><span>${user.dept.name}</span></p>
                         <p><strong>角色:</strong><span>${user.role.roleName}</span></p>
 

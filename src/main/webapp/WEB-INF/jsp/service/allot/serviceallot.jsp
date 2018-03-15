@@ -78,7 +78,7 @@
                                     <td>
                                         <a href="/crm/viewServiceAllot/${serviceAllot.id}" class="btn btn-success btn-xs">查看</a>
                                 <c:if test="${serviceAllot.serviceStatus=='已提交'}">
-                                        <a href="/crm/updateAllot/${serviceAllot.id}" class="btn btn-danger btn-xs">分配</a>
+                                        <a href="/crm/updateAllot/${serviceAllot.id}" class="btn btn-info btn-xs">分配</a>
                                 </c:if>
                                     </td>
                                 </tr>

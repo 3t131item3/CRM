@@ -67,4 +67,5 @@ public class MyInfoController {
             model.addAttribute("success","修改成功！");
             return "system/myinfo/modifypwd";
     }
+
 }

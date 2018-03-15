@@ -17,28 +17,18 @@
             margin-right: 30px;
             margin-bottom:20px;
         }
-        .roleName{
-            border-radius:10px;
-            height:36px;
-        }
         .userInfo{
-            position: relative;
             display: inline-block;
-            height: 50px;
-            line-height: 50px;
+            position: absolute;
             font-size: 24px;
-            left: 300px;
+            top: 12px;
+            left: 400px;
         }
-        .exit{
-            float: right;
-            font-size: 24px;
-            color: #FF2F2F;
-            margin-right: 20px;
+        .code{
+            font-size: 18px;
+            font-weight: bold;
+            color: #9d9d9d;
         }
-        .exit:hover{
-            color:red;
-        }
-
     </style>
 </head>
 
@@ -49,6 +39,9 @@
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
                 </div>
+
+
+
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
@@ -146,7 +139,7 @@
             </div>
         </div>
 
-        <!-- top navigation -->
+      <%--  <!-- top navigation -->
         <div class="top_nav">
             <div class="nav_menu">
                 <nav>
@@ -155,15 +148,41 @@
                     <div class="nav toggle">
                         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                     </div>
+                </nav>
+            </div>
+        </div>--%>
 
-
-
-
-
-
+        <!-- top 右上角工具栏 -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <span class="userInfo">欢迎:&nbsp;<span style="color: #00aeef;font-weight: bold">${userSession.userName}</span> &nbsp;部门:&nbsp;${userSession.dept.name}&nbsp; 角色:&nbsp;${userSession.role.roleName}</span>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="code">&nbsp;设置&nbsp;</span>
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="/crm/modifyMyInfoPwd">修改密码</a></li>
+                                <li><a href="/crm/exit"><i class="fa fa-sign-out pull-right"></i>退出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </li>
+                    </ul>
                 </nav>
             </div>
         </div>
-        <input type="hidden" id="path" value="${pageContext.request.contextPath}">
         <!-- /top navigation -->
 
+
+
+
+
+
+        <input type="hidden" id="path" value="${pageContext.request.contextPath}">
+        <!-- /top navigation -->

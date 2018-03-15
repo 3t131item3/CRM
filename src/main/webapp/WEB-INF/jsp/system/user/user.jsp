@@ -38,7 +38,6 @@
                                 <th>性别</th>
                                 <th>所在部门</th>
                                 <th>角色</th>
-                                <th>状态</th>
                                 <th>最后修改时间</th>
                                 <th>操作人</th>
                                 <th>操作</th>
@@ -46,21 +45,19 @@
                             </thead>
                             <tbody>
                             <c:forEach items="${user}" var="emp" varStatus="status" >
-
                                 <tr>
                                     <td>${status.index+1}</td>
                                     <td>${emp.userName}</td>
                                     <td> <c:if test="${emp.gender==0}">男</c:if> <c:if test="${emp.gender==1}">女</c:if></td>
                                     <td>${emp.dept.name}</td>
                                     <td>${emp.role.roleName}</td>
-                                    <td><c:if test="${emp.isStart==0}">不启用</c:if> <c:if test="${emp.isStart==1}">启用</c:if></td>
                                     <td>${emp.lastLoginTime}</td>
                                     <td>${userSession.userName}</td>
                                     <td>
                                         <a href="/crm/update/${emp.id}" class="btn btn-info btn-xs">修改</a>
                                             <%--<a href="/modifyRole" class="btn btn-success btn-xs">启用/禁用</a>--%>
-                                        <a href="javascript:;" userid=${emp.id} username=${emp.userName} class="btn btn-success btn-xs deleteUser">删除</a>
                                         <a href="/crm/userview/${emp.id}" class="btn btn-success btn-xs">查看</a>
+                                        <a href="javascript:;" userid=${emp.id} username=${emp.userName} class="btn btn-danger btn-xs deleteUser">删除</a>
                                             <%--<a href="#" class="btn btn-primary btn-xs">授权</a>--%>
                                     </td>
                                 </tr>
@@ -77,4 +74,5 @@
 <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
+<script src="${pageContext.request.contextPath}/js/userlist.js"></script>
 

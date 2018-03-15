@@ -29,6 +29,7 @@ public class NoticeController {
     @RequestMapping("/listNoticeAll")
     public String listNoticeAll(String title,Model model){
         model.addAttribute("noticeList",noticeBiz.listNoticAll(title));
+        model.addAttribute("title",title);
         return "system/notice/notice";
     }
     /**

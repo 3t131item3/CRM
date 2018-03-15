@@ -47,9 +47,10 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">公告类型</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <select name="type" class="form-control" >
-                                    <c:forEach items="${list}" var="notice">
-                                    <option value="${notice.id}">${notice.type}</option>
-                                    </c:forEach>
+                                        <option value="全体公告">全体公告</option>
+                                        <option value="部门公告">部门公告</option>
+                                        <option value="行政公告">行政公告</option>
+                                        <option value="通知">通知</option>
                                     </select>
                                 </div>
                             </div>

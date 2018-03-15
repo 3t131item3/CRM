@@ -33,7 +33,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="noticeCode">公告编码 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="noticeCode" class="form-control col-md-7 col-xs-12"  name="noticeCode" value="${notice.noticeCode} placeholder="请输入编码" required="required" type="text">
+                                    <input id="noticeCode" class="form-control col-md-7 col-xs-12"  name="noticeCode" value="${notice.noticeCode}" placeholder="请输入编码" required="required" type="text">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
@@ -48,9 +48,10 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">公告类型</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <select name="type" class="form-control" >
-                                        <c:forEach items="${list1}" var="notice">
-                                            <option value="${notice.id}">${notice.type}</option>
-                                        </c:forEach>
+                                        <option value="全体公告"<c:if test="${notice.type=='全体公告'}">selected="selected"</c:if>>全体公告</option>
+                                        <option value="部门公告"<c:if test="${notice.type=='部门公告'}">selected="selected"</c:if>>部门公告</option>
+                                        <option value="行政公告"<c:if test="${notice.type=='行政公告'}">selected="selected"</c:if>>行政公告</option>
+                                        <option value="通知"<c:if test="${notice.type=='通知'}">selected="selected"</c:if>>通知</option>
                                     </select>
                                 </div>
                             </div>
