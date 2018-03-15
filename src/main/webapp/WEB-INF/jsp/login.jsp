@@ -16,11 +16,11 @@
         <h1 style="text-align: center">客户关系管理系统</h1>
         <div class="input-group input-group-lg">
             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-            <input type="text" class="form-control" id="userName" placeholder="请输入用户名" required="" name="userName" value="张三"/>
+            <input type="text" class="form-control" id="userName" placeholder="请输入用户名" required="" name="userName" value="张三" maxlength="20"/>
         </div>
         <div class="input-group input-group-lg">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input type="password" class="form-control" id="passWord" placeholder="请输入密码" required="请输入" name="userPassword"  value="123"/>
+            <input type="password" class="form-control" id="passWord" placeholder="请输入密码" required="请输入" name="userPassword"  value="123" maxlength="20"/>
         </div>
         <div class="login">
             <input type="submit" value="登录" class="btn btn-primary btn-lg"/>

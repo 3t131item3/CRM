@@ -30,7 +30,7 @@
                         <form action="/crm/listDeptAll"  method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">名称:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName" name="deptName" >
+                                <input type="text" placeholder="Search" class="form-control input-md roleName" name="deptName" maxlength="30" >
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
 

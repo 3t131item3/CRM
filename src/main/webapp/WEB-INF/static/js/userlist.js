@@ -21,7 +21,7 @@ function deleteUser(obj){
 		},
 		error:function(data){
 			//alert("对不起，删除失败");
-			changeDLGContent("对不起，删除失败");
+			changeDLGContent("对不起，删除失败,请先删除用户【"+obj.attr("username")+"】的绩效");
 		}
 	});
 }

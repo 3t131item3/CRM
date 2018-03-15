@@ -12,6 +12,8 @@ import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/crm")
@@ -57,6 +59,8 @@ public class DeptController {
      */
     @RequestMapping("/addDept")
     public String addDept(Model model,Dept dept){
+        String  uuid = UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,8);
+        dept.setDeptCode(uuid);
         dept.setLastUpdateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         if (deptBiz.add(dept)){
             return "redirect:/crm/listDeptAll";

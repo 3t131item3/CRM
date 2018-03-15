@@ -21,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 public class UserController {
@@ -106,6 +107,8 @@ public class UserController {
      */
     @RequestMapping(value = "/crm/addemployee")
     public String addemployee(User user,Dept dept,Role role,Model model){
+        String  uuid = UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,8);
+        user.setUserCode(uuid);
         if(userBiz.add(user)){
             return "redirect:/crm/listEmpAll";
         }else{
