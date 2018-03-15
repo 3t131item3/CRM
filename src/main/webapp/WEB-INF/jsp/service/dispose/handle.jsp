@@ -22,6 +22,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <form action="/crm/updateServiceDisposeSave" method="post">
+                        <input type="hidden" name="id" value="${serviceDispose.id}"/>
                         <div class="x_content" style="font-size: 20px;">
                             <p><strong>服务名称:</strong><span>${serviceDispose.serviceName}</span></p>
                             <p><strong>服务类型:</strong><span>${serviceDispose.serviceType}</span></p>

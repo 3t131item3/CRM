@@ -33,7 +33,7 @@
 
                     <div class="x_content">
                         <strong class="h3">销售预测信息列表</strong>
-                        <a href="/crm/addForecast" class="btn btn-primary" style="margin-left: 940px">预测</a>
+                        <a href="/crm/addForecast" class="btn btn-primary" style="float:right">预测</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>

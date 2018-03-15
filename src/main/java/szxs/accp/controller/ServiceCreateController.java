@@ -78,7 +78,7 @@ public class ServiceCreateController {
      */
     @RequestMapping("/updateServiceCreateSave")
     public String updateServiceCreateSave(ServiceCreate serviceCreate){
-        serviceCreateBiz.updateServiceCreate(serviceCreate);
+        boolean b = serviceCreateBiz.updateServiceCreate(serviceCreate);
         return "redirect:/crm/serviceCreateList";
     }
 
@@ -98,8 +98,8 @@ public class ServiceCreateController {
      * 点击提交
      * @return
      */
-    @RequestMapping("/viewServiceCreate/{id}/{createdBy}")
-    public String viewServiceCreate(@PathVariable int id, @PathVariable String createdBy, Model model) throws UnsupportedEncodingException {
+    @RequestMapping("/commitServiceCreate/{id}/{createdBy}")
+    public String commitServiceCreate(@PathVariable int id, @PathVariable String createdBy, Model model) throws UnsupportedEncodingException {
         String name = new String(createdBy.getBytes("iso8859-1"),"utf-8");
         ServiceCreate s = serviceCreateBiz.serviceCreateList(new ServiceCreate(id)).get(0);
         s.setServiceStatus("已提交");

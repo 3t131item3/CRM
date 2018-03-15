@@ -29,7 +29,7 @@
                                 <strong class="h4">合同名称:</strong>
                                 <input type="text" name="contractName" value="${contractName}" placeholder="Search" class="form-control input-md roleName">
                                 <strong class="h4">类型</strong>
-                                <select name="contractType" id="contractType">
+                                <select name="contractType" id="contractType"class="form-control">
                                     <option value="">不限</option>
                                     <option value="销售合同"<c:if test="${contractType=='销售合同'}">selected="selected"</c:if>>销售合同</option>
                                     <option value="委托合同"<c:if test="${contractType=='委托合同'}">selected="selected"</c:if>>委托合同</option>
@@ -37,7 +37,7 @@
                                     <option value="运输合同"<c:if test="${contractType=='运输合同'}">selected="selected"</c:if>>运输合同</option>
                                 </select>
                                 <strong class="h4">状态</strong>
-                                <select name="contractStatus" id="contractStatus">
+                                <select name="contractStatus" id="contractStatus"class="form-control">
                                     <option value="">不限</option>
                                     <option value="已创建"<c:if test="${contractStatus=='已创建'}">selected="selected"</c:if>>已创建</option>
                                     <option value="已提交"<c:if test="${contractStatus=='已提交'}">selected="selected"</c:if>>已提交</option>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="x_content">
                         <strong class="h3">合同信息列表</strong>
-                        <a href="/crm/addContractCreate" class="btn btn-success"style="margin-left: 900px">创建</a>
+                        <a href="/crm/addContractCreate" class="btn btn-success"style="float:right">创建</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>

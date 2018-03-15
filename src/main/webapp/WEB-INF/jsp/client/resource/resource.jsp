@@ -32,7 +32,7 @@
                         </div>
                     <div class="x_content">
                         <strong class="h3">客户资源列表</strong>
-                        <a href="/crm/addCustomerResource" class="btn btn-primary" style="margin-left: 900px">添加</a>
+                        <a href="/crm/addCustomerResource" class="btn btn-primary" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>

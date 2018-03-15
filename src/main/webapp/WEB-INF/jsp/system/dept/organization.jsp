@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>角色管理</title>
+    <title>组织管理</title>
 
 </head>
 <body>
@@ -64,7 +64,7 @@
                                 <td>
                                     <a href="/crm/addorganization" class="btn btn-primary btn-xs">添加</a>
                                     <a href="/crm/modifyDept/${dept.id}" class="btn btn-info btn-xs">修改</a>
-                                    <a href= "/crm/removeDept/${dept.id}" onclick="return confirm('确定要删除吗？')" class="btn btn-danger btn-xs remove">删除</a>
+                                    <a href= "/crm/removeDept/${dept.id}"  class="btn btn-danger btn-xs removes">删除</a>
                                 </td>
                             </tr>
                             </c:forEach>
@@ -78,5 +78,12 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
-</body>
-</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".removes").click(function () {
+            if(!confirm("確定要刪除嗎？您的部门可能还被其他部门所引用！")){
+                $(this).attr("href","/crm/listDeptAll");
+            }
+        })
+    });
+</script>

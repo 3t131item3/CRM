@@ -26,6 +26,8 @@
             <if test="customerPhone !=null and customerPhone!=''">customerPhone=#{customerPhone},</if>
             <if test="serviceConcent !=null and serviceConcent!=''">serviceConcent=#{serviceConcent},</if>
             <if test="remark !=null and remark!=''">remark=#{remark},</if>
+            <if test="nextHanlder !=null and nextHanlder!=''">nextHanlder=#{nextHanlder},</if>
+            <if test="serviceStatus!=null and serviceStatus!=''">serviceStatus=#{serviceStatus},</if>
         </trim>
     </update>
     <!--删除-->

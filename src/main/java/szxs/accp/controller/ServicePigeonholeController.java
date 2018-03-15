@@ -42,8 +42,8 @@ public class ServicePigeonholeController {
      * 修改成功
      * @return
      */
-    @RequestMapping("/updateServiceCreateSave/{id}")
-    public String updateServiceCreateSave(@PathVariable int id){
+    @RequestMapping("/updatePigeonholeSave/{id}")
+    public String updatePigeonholeSave(@PathVariable int id){
         ServicePigeonhole servicePigeonhole = servicePigeonholeBiz.servicePigeonholeList(new ServicePigeonhole(id)).get(0);
         servicePigeonhole.setServiceStatus("已归档");
         servicePigeonholeBiz.updateServicePigeonhole(servicePigeonhole);

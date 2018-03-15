@@ -26,6 +26,13 @@
                     </div>
                     <div class="x_content">
                             <form action="/crm/addProblemsSave" method="post" class="form-horizontal form-label-left" novalidate>
+                                <div class="item form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >创建人  <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input class="form-control col-md-7 col-xs-12"  name="createdBy"  required="required" type="text">
+                                    </div>
+                                </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >问题标题  <span class="required">*</span>
                                 </label>
@@ -49,7 +56,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >答复要点 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="responseContent" class="form-control col-md-7 col-xs-12"  required placeholder="1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；"></textarea>
+                                    <textarea name="responseContent" class="form-control col-md-7 col-xs-12"  required placeholder=""></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">

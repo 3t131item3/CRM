@@ -65,10 +65,10 @@
                                     <td>${userSession.userName}</td>
                                     <td>
                                         <a href="/crm/update/${emp.id}" class="btn btn-info btn-xs">修改</a>
-                                        <a href="/modifyRole" class="btn btn-success btn-xs">启用/禁用</a>
+                                        <%--<a href="/modifyRole" class="btn btn-success btn-xs">启用/禁用</a>--%>
                                         <a href="javascript:;" userid=${emp.id} username=${emp.userName} class="btn btn-success btn-xs deleteUser">删除</a>
                                         <a href="/crm/userview/${emp.id}" class="btn btn-success btn-xs">查看</a>
-                                        <a href="#" class="btn btn-primary btn-xs">授权</a>
+                                        <%--<a href="#" class="btn btn-primary btn-xs">授权</a>--%>
                                     </td>
                                 </tr>
                             </c:forEach>

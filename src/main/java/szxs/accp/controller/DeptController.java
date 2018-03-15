@@ -72,13 +72,8 @@ public class DeptController {
      */
     @RequestMapping("/removeDept/{id}")
     public String delDept(@PathVariable int id,Model model){
-        try{
             deptBiz.remove(id);
-            return "redirect:/crm/listDeptAll";
-
-        }catch (Exception e){
-            return "/erro";
-        }
+        return "system/dept/organization";
     }
     /**
      * 跳转到部门修改页面

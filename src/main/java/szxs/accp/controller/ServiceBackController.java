@@ -58,6 +58,7 @@ public class ServiceBackController {
      */
     @RequestMapping("/updateServiceBackSave")
     public String updateServiceBackSave(ServiceBack serviceBack){
+        serviceBack.setServiceStatus(serviceBack.getBackResult());
         serviceBackBiz.updateServiceBack(serviceBack);
         return "redirect:/crm/serviceBackList";
     }

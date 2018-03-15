@@ -69,7 +69,7 @@
                             <tbody>
                     <c:forEach var="serviceDispose" items="${serviceDisposeList}" varStatus="status">
                         <%--只处理已分配的--%>
-                        <c:if test="${serviceDispose.serviceStatus=='已分配'}">
+                        <c:if test="${serviceDispose.serviceStatus=='已分配'||serviceDispose.serviceStatus=='未处理'}">
                             <tr>
                                 <td>${serviceDispose.serviceName}</td>
                                 <td>${serviceDispose.serviceType}</td>
@@ -78,7 +78,9 @@
                                 <td>${serviceDispose.createdBy}</td>
                                 <td>${serviceDispose.nextHanlder}</td>
                                 <td>
+                        <c:if test="${serviceDispose.serviceStatus!='已处理'}">
                                     <a href="/crm/updateServiceDispose/${serviceDispose.id}" class="btn btn-info btn-xs">处理</a>
+                        </c:if>
                                     <a href="/crm/viewServiceDispose/${serviceDispose.id}" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>

@@ -37,7 +37,7 @@
 
                     <div class="x_content">
                         <strong class="h3">联系人列表</strong>
-                        <a href="/crm/addContacts" class="btn btn-primary" style="margin-left: 900px">添加</a>
+                        <a href="/crm/addContacts" class="btn btn-primary" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>

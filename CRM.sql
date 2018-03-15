@@ -323,12 +323,13 @@ CREATE TABLE ServiceCreate(
 	remark VARCHAR(200)#备注
 )CHARSET=utf8;
 INSERT INTO ServiceCreate(`id`,serviceName,`serviceType`,`serviceStatus`,`lastUpdateTime`,`createdBy`,`nextHanlder`,`customerName`,`customerPhone`,`serviceConcent`,remark)
-VALUES(DEFAULT,'四川客户离心器售后服务','售后服务','新创建',DEFAULT,'王二毛','王五','李曦','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
+VALUES(DEFAULT,'四川客户离心器售后服务','售后服务','新创建',DEFAULT,'王二毛','','李曦','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
 (DEFAULT,'山东客户离心器安装服务','售前服务','已提交',DEFAULT,'王三毛','王怡','李曦2','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
-(DEFAULT,'云南客户设备故障投诉服务','投诉服务','新创建',DEFAULT,'王四毛','王五','李曦3','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
+(DEFAULT,'云南客户设备故障投诉服务','投诉服务','新创建',DEFAULT,'王四毛','','李曦3','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
 (DEFAULT,'北京客户明洞设备安装服务','售后服务','已分配',DEFAULT,'王二毛','李彪','李曦4','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
 (DEFAULT,'北京客户设备升级咨询服务','售前服务','已反馈',DEFAULT,'王二毛','王五','李曦5','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx'),
 (DEFAULT,'北京客户设备降级咨询服务','咨询服务','已处理',DEFAULT,'王五毛','张静','李曦6','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','xxxxx');
+
 #服务分配
 #销售经理对状态为“已提交”的服务单据进行分配，指定销售代表处理该单据。除了“新创建”以外的其他状态可以被查看。
 CREATE TABLE ServiceAllot(
@@ -345,12 +346,13 @@ CREATE TABLE ServiceAllot(
 	nextAllot VARCHAR(50)#分配给哪些销售代表做
 )CHARSET=utf8;
 INSERT INTO ServiceAllot(`id`,serviceName,`serviceType`,`serviceStatus`,`lastUpdateTime`,`createdBy`,`nextHanlder`,`customerName`,`customerPhone`,`serviceConcent`,nextAllot)
-VALUES(DEFAULT,'四川客户离心器售后服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛'),
+VALUES(DEFAULT,'四川客户离心器售后服务','售后服务','已提交',DEFAULT,'王二毛','王五','李曦','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛'),
 (DEFAULT,'山东客户离心器安装服务','售前服务','已分配',DEFAULT,'王三毛','王怡','李曦2','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛'),
-(DEFAULT,'云南客户设备故障投诉服务','投诉服务','已反馈',DEFAULT,'王四毛','王五','李曦3','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王四毛'),
+(DEFAULT,'云南客户设备故障投诉服务','投诉服务','已提交',DEFAULT,'王四毛','王五','李曦3','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王四毛'),
 (DEFAULT,'北京客户明洞设备安装服务','售后服务','已分配',DEFAULT,'王二毛','李彪','李曦4','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛'),
 (DEFAULT,'北京客户设备升级咨询服务','售前服务','已反馈',DEFAULT,'王二毛','王五','李曦5','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛'),
 (DEFAULT,'北京客户设备降级咨询服务','咨询服务','已处理',DEFAULT,'王五毛','张静','李曦6','13815368899','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','王三毛');
+
 #服务处理
 #状态全都是已分配的，然后去处理
 CREATE TABLE ServiceDispose(
@@ -374,7 +376,7 @@ VALUES(DEFAULT,'四川客户离心器售后服务','售后服务','已分配',DE
 (DEFAULT,'云南客户设备故障投诉服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已处理','已联系售后人员准备上门安装，去之前会再次联系客户。'),
 (DEFAULT,'四川客户离心器售后服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已处理','已联系售后人员准备上门安装，去之前会再次联系客户。'),
 (DEFAULT,'四川客户离心器售后服务','售后服务','已分配',DEFAULT,'王二毛','王五','李曦','四川绵阳的李曦来电反映一年前购买的离心器有故障，需解决。','已处理','已联系售后人员准备上门安装，去之前会再次联系客户。');
-
+SELECT *FROM ServiceDispose
 #服务反馈
 #状态全都是已处理的，然后去看是否有反馈
 CREATE TABLE ServiceBack(
@@ -387,7 +389,7 @@ CREATE TABLE ServiceBack(
 	nextHanlder VARCHAR(50),#待处理人，关联部门 找和他相同部门的销售经理
 	customerPhone VARCHAR(50) NOT NULL,
 	serviceConcent VARCHAR(200) NOT NULL,
-	backResult VARCHAR(50),#处理结果
+	backResult VARCHAR(50),#反馈结果
 	backRemark VARCHAR(200)
 )CHARSET=utf8;
 INSERT INTO ServiceBack(`id`,serviceName,`serviceType`,`serviceStatus`,`createTime`,`createdBy`,`nextHanlder`,`customerPhone`,`serviceConcent`,backResult,backRemark)
@@ -437,11 +439,10 @@ CREATE TABLE Problems(
 )CHARSET=utf8;
 
 INSERT INTO Problems(`id`,problemsTitle,`serviceType`,`createdBy`,`createTime`,`lastUpdateTime`,`responseContent`,`remark`)
-VALUES(DEFAULT,'离心器初速过慢什么问题','售后服务','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
-(DEFAULT,'安装离心器需要哪些条件','售后服务','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+VALUES(DEFAULT,'离心器初速过慢什么问题','售后问题','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+(DEFAULT,'安装离心器需要哪些条件','售后问题','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
 (DEFAULT,'ERS-2型冲击器总是需要二次启动','投诉问题','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
-(DEFAULT,'明洞设备安装后多久可以投入生产','售后服务','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
-(DEFAULT,'ERS-2型冲击器售价多少','售后服务','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
-(DEFAULT,'史蒂夫-霍金为啥死的','业务咨询','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
-(DEFAULT,'史蒂夫-霍金为为啥这么可爱','业务咨询','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；','');
-
+(DEFAULT,'明洞设备安装后多久可以投入生产','售后问题','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+(DEFAULT,'ERS-2型冲击器售价多少','售后问题','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+(DEFAULT,'史蒂夫-霍金为啥死的','业务问题','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
+(DEFAULT,'史蒂夫-霍金为为啥这么可爱','业务问题','王二毛',DEFAULT,DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；','');

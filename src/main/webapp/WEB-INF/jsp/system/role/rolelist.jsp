@@ -48,8 +48,8 @@
                                 <td>${role.createdBy}</td>
                                 <td>
                                     <a href="/crm/modify/${role.id}" class="btn btn-info btn-xs">修改</a>
-                                    <a href="/crm/delete/${role.id}" class="btn btn-danger btn-xs remove">删除</a>
-                                    <a href="#" class="btn btn-primary btn-xs">授权</a>
+                                    <a href="/crm/delete/${role.id}" class="btn btn-danger btn-xs removes">删除</a>
+                                    <%--<a href="#" class="btn btn-primary btn-xs">授权</a>--%>
                                 </td>
                             </tr>
                           </c:forEach>
@@ -67,7 +67,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".remove").click(function () {
+        $(".removes").click(function () {
             if(!confirm("確定要刪除嗎？")){
                 $(this).attr("href","/crm/rolelist");
             }

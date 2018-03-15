@@ -64,11 +64,11 @@ public class ServiceAllotControler {
      * @param model
      * @return
      */
-    @RequestMapping("/updateServiceAllot/{id}")
-    public String updateServiceAllot(@PathVariable int id, Model model){
+    @RequestMapping("/updateAllot/{id}")
+    public String updateAllot(@PathVariable int id, Model model){
         ServiceAllot serviceAllot = serviceAllotBiz.serviceAllotList(new ServiceAllot(id)).get(0);
         model.addAttribute("serviceAllot", serviceAllot);
-        return "service/create/updatecreate";
+        return "service/allot/allot";
     }
 
     /**
@@ -77,6 +77,7 @@ public class ServiceAllotControler {
      */
     @RequestMapping("/updateServiceAllotSave")
     public String updateServiceAllotSave(ServiceAllot serviceAllot){
+        serviceAllot.setServiceStatus("已分配");
         serviceAllotBiz.updateServiceAllot(serviceAllot);
         return "redirect:/crm/serviceAllotList";
     }

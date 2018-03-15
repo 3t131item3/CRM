@@ -43,7 +43,7 @@
                     <div class="x_content">
 
                         <strong class="h3">服务信息列表</strong>
-                        <a href="/crm/addProblems" class="btn btn-primary" style="float:right">添加</a>
+                        <%--<a href="/crm/addProblems" class="btn btn-primary" style="float:right">添加</a>--%>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -66,7 +66,7 @@
                                 <td>${problems.lastUpdateTime}</td>
                                 <td>
                                     <a href="/crm/updateProblems/${problems.id}" class="btn btn-warning btn-xs">修改</a>
-                                    <a href="/crm/deleteProblems/${problems.id}" class="btn btn-danger btn-xs" id="remove">删除</a>
+                                    <a href="/crm/deleteProblems/${problems.id}" class="btn btn-danger btn-xs removes">删除</a>
                                     <a href="/crm/viewProblems/${problems.id}" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
@@ -87,7 +87,7 @@
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#remove").click(function () {
+        $(".removes").click(function () {
             if(!confirm("確定要刪除嗎？")){
                 $(this).attr("href","/crm/problemsList");
             }

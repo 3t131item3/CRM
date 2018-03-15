@@ -23,6 +23,7 @@
                 <div class="x_panel">
                     <form action="/crm/updateServiceBackSave" method="post">
                         <div class="x_content" style="font-size: 20px;">
+                            <input type="hidden" name="id" value="${serviceBack.id}"/>
                             <p><strong>服务名称:</strong><span>${serviceBack.serviceName}</span></p>
                             <p><strong>服务类型:</strong><span>${serviceBack.serviceType}</span></p>
                             <p><strong>服务状态:</strong><span>${serviceBack.serviceStatus}</span></p>

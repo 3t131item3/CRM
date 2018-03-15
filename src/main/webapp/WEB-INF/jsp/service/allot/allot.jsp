@@ -20,6 +20,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <form action="/crm/updateServiceAllotSave" method="post">
+                        <input type="hidden" name="id"value="${serviceAllot.id}"/>
                     <div class="x_content" style="font-size: 20px;">
                         <p><strong>服务名称:</strong><span>${serviceAllot.serviceName}</span></p>
                         <p><strong>创建人:</strong><span>${serviceAllot.createdBy}</span></p>

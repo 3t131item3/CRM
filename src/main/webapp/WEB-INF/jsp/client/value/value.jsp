@@ -29,7 +29,7 @@
                                 <strong class="h4">客户姓名:</strong>
                                 <input type="text" name="customerName"value="${customerName}" placeholder="Search" class="form-control input-md roleName">
                                 <strong class="h4">类型:</strong>
-                                <select id="type" name="type">
+                                <select id="type" name="type"class="form-control">
                                     <option value="">请选择</option>
                                     <option value="普通客户">普通客户</option>
                                     <option value="银卡客户">银卡客户</option>

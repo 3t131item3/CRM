@@ -56,6 +56,7 @@ public class ServiceDisposeController {
      */
     @RequestMapping("/updateServiceDisposeSave")
     public String updateServiceDisposeSave(ServiceDispose serviceDispose){
+      serviceDispose.setServiceStatus(serviceDispose.getDisposeResult());
         serviceDisposeBiz.updateServiceDispose(serviceDispose);
         return "redirect:/crm/serviceDisposeList";
     }

@@ -10,9 +10,10 @@ $(function(){
                 $("#user").html("");//通过标签选择器，得到select标签，适用于页面里只有一个select
                 var options = "";
                 for(var i = 0; i < data.length; i++){
-                    //alert(data[i].id);
-                    //alert(data[i].proName);
-                    options += "<option value=\""+data[i].userName+"\">"+data[i].userName+"</option>";
+                    // 只分配给销售代表
+               if(data[i].role.id==4){
+                   options += "<option value=\""+data[i].userName+"\">"+data[i].userName+"</option>";
+               }
                 }
                 $("#user").html(options);
             }

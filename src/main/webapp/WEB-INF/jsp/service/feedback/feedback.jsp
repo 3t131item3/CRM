@@ -67,8 +67,8 @@
                             </thead>
                             <tbody>
                     <c:forEach var="serviceBack" items="${serviceBackList}" varStatus="status">
-                        <%--只处理已处理的--%>
-                        <c:if test="${serviceBack.serviceStatus=='已处理'}">
+                        <%--只处理已处理和未反馈的--%>
+                        <c:if test="${serviceBack.serviceStatus=='已处理'||serviceBack.serviceStatus=='未反馈'}">
                              <tr>
                                  <td>${serviceBack.serviceName}</td>
                                  <td>${serviceBack.serviceType}</td>
