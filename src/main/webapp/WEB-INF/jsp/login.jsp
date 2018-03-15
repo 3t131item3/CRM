@@ -16,7 +16,7 @@
         <h1 style="text-align: center">客户关系管理系统</h1>
         <div class="input-group input-group-lg">
             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-            <input type="text" class="form-control" id="userName" placeholder="请输入用户名" required="" name="userName" value="张三"/>
+            <input type="text" class="form-control" id="userCode" placeholder="请输入用户编码" required="" name="userCode" value="尚鸿运"/>
         </div>
         <div class="input-group input-group-lg">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
@@ -30,9 +30,9 @@
     </div>
 </form>
 <script>
-    document.getElementById("userName").oninvalid=function(){
+    document.getElementById("userCode").oninvalid=function(){
         if(this.validity.valueMissing){
-            this.setCustomValidity("用户名不能为空");
+            this.setCustomValidity("用户编码不能为空");
         }else{
             this.setCustomValidity("");
         }

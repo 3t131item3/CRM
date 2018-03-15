@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/common/head.jsp"%>
-
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>角色管理</title>
-
+    <title>员工管理</title>
 </head>
 <body>
 <div class="right_col" role="main">
@@ -15,12 +13,8 @@
             <div class="title_left">
                 <h3>系统管理<small>&gt;&gt;员工管理</small></h3>
             </div>
-
-
         </div>
-
         <div class="clearfix"></div>
-
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -50,7 +44,6 @@
                                 <th>操作</th>
                             </tr>
                             </thead>
-
                             <tbody>
                             <c:forEach items="${user}" var="emp" varStatus="status" >
 
@@ -65,24 +58,23 @@
                                     <td>${userSession.userName}</td>
                                     <td>
                                         <a href="/crm/update/${emp.id}" class="btn btn-info btn-xs">修改</a>
-                                        <%--<a href="/modifyRole" class="btn btn-success btn-xs">启用/禁用</a>--%>
+                                            <%--<a href="/modifyRole" class="btn btn-success btn-xs">启用/禁用</a>--%>
                                         <a href="javascript:;" userid=${emp.id} username=${emp.userName} class="btn btn-success btn-xs deleteUser">删除</a>
                                         <a href="/crm/userview/${emp.id}" class="btn btn-success btn-xs">查看</a>
-                                        <%--<a href="#" class="btn btn-primary btn-xs">授权</a>--%>
+                                            <%--<a href="#" class="btn btn-primary btn-xs">授权</a>--%>
                                     </td>
                                 </tr>
                             </c:forEach>
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <%@ include file="/common/foot.jsp"%>
-<script src="${pageContext.request.contextPath}/js/userlist.js"></script>
-</body>
-</html>
+<script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/pages.js"></script>
+

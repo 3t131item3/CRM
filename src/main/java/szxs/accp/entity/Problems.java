@@ -7,7 +7,6 @@ public class Problems {
     private String problemsTitle;//问题名称
     private String serviceType ;//
     private String createdBy;//操作人
-    private String createTime ;//创建时间
     private String lastUpdateTime ;//最后修改时间
     private String responseContent;//答复内容
     private String remark ;//备注
@@ -53,14 +52,6 @@ public class Problems {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
-    }
-
-    public String getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
     }
 
     public String getLastUpdateTime() {

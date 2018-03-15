@@ -65,17 +65,6 @@ public class DeptController {
         }
     }
     /**
-     * 删除部门信息
-     * @param id
-     * @param model
-     * @return
-     */
-    @RequestMapping("/removeDept/{id}")
-    public String delDept(@PathVariable int id,Model model){
-            deptBiz.remove(id);
-        return "system/dept/organization";
-    }
-    /**
      * 跳转到部门修改页面
      * @param id
      * @param model
@@ -106,5 +95,15 @@ public class DeptController {
         }
 
     }
-
+    /**
+     * 删除部门信息
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping("/removeDept/{id}")
+    public String delDept(@PathVariable int id,Model model){
+        deptBiz.remove(id);
+        return "redirect:/crm/listDeptAll";
+    }
 }

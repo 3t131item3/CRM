@@ -11,7 +11,7 @@
                 AND u.userName=#{userName}
             </if>
             <if test="userPassword!=null and userPassword!=''">
-                AND u.userPassword=#{userPassword}
+                AND u.userCode=#{userCode}
             </if>
             <if test="id>0">
                 AND u.id=#{id}

@@ -8,8 +8,8 @@ package szxs.accp.entity;
 public class User {
     private Integer id;   //用户id
     private String userName;//用户名
-    private String userPassword;//密码
     private String userCode;//用户编码
+    private String userPassword;//密码
     private Integer gender; //性别
     private String phone; //电话 加个手机号码
     private String creationTime;//注册时间
