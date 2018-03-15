@@ -67,7 +67,7 @@ public class UserController {
     @RequestMapping(value="/crm/listEmpAll")
     public String listEmpAll(String userName,Model model){
         model.addAttribute("user",userBiz.listAll(userName));
-        return "system/user/employee";
+        return "system/user/user";
     }
 
     /**

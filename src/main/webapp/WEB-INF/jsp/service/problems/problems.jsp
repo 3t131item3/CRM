@@ -43,7 +43,7 @@
                     <div class="x_content">
 
                         <strong class="h3">服务信息列表</strong>
-                        <%--<a href="/crm/addProblems" class="btn btn-primary" style="float:right">添加</a>--%>
+                        <a href="/crm/addProblems" class="btn btn-primary" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -51,7 +51,6 @@
                                 <th>类型</th>
                                 <th>创建人</th>
                                 <th>最后操作时间</th>
-                                <th>最后更新时间</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -62,7 +61,6 @@
                                 <td>${problems.problemsTitle}</td>
                                 <td>${problems.serviceType}</td>
                                 <td>${problems.createdBy}</td>
-                                <td>${problems.createTime}</td>
                                 <td>${problems.lastUpdateTime}</td>
                                 <td>
                                     <a href="/crm/updateProblems/${problems.id}" class="btn btn-warning btn-xs">修改</a>

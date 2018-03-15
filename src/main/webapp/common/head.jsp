@@ -6,9 +6,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-
     <title>客户关系管理系统</title>
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css"/>
@@ -50,10 +48,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-
                 </div>
-
-
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
@@ -155,7 +150,7 @@
         <div class="top_nav">
             <div class="nav_menu">
                 <nav>
-                    <p class="userInfo">欢迎:${userSession.userCode} 部门:${userSession.dept.name}  角色:${userSession.role.roleName}</p>
+                    <p class="userInfo">欢迎:${userSession.userName} 部门:${userSession.dept.name}  角色:${userSession.role.roleName}</p>
                     <a class="exit" href="/crm/exit">[退出]</a>
                     <div class="nav toggle">
                         <a id="menu_toggle"><i class="fa fa-bars"></i></a>

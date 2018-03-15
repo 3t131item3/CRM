@@ -12,8 +12,8 @@
     </select>
     <!--新增-->
     <insert id="addProblems">
-     INSERT INTO Problems(`id`,problemsTitle,`serviceType`,`createdBy`,`createTime`,`lastUpdateTime`,`responseContent`,`remark`)
-     VALUES(DEFAULT,#{problemsTitle},#{serviceType},#{createdBy},DEFAULT,DEFAULT,#{responseContent}',#{remark})
+     INSERT INTO Problems(`id`,problemsTitle,`serviceType`,`createdBy`,`lastUpdateTime`,`responseContent`,`remark`)
+     VALUES(DEFAULT,#{problemsTitle},#{serviceType},#{createdBy},DEFAULT,#{responseContent},#{remark})
     </insert>
     <!--修改-->
     <update id="updateProblems">
