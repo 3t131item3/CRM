@@ -71,7 +71,7 @@ public class UserController {
     }
 
     /**
-     * 退出系统
+     * 退出系统 x
      * @return
      */
     @RequestMapping(value="/crm/exit")
