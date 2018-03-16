@@ -1,23 +1,23 @@
 /*点击删除按钮后弹出的层*/
-/*.zhezhao {
-    display: none;          !* 修改这里可以让遮罩层消失*!
+.zhezhao {
+    display: none;          /* 修改这里可以让遮罩层消失*/
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000;
+    background: #888888;
     opacity: 0.7;
     filter: alpha(opacity=70);
     overflow: hidden;
-}*/
+}
 .remove{
     display: none;       /* 修改这里可以让删除框消失*/
     width: 400px;
     height: 190px;
     position: absolute;
-    top: 200px;
-    left:500px;
+    top: 240px;
+    left:640px;
     background: #fff;
     border-radius: 4px;
 }
@@ -30,7 +30,7 @@
     font-size: 14px;
     line-height: 30px;
     margin: 4px 8px;
-    border-bottom: 1px solid #169F85;
+    border-bottom: 1px solid #1b6d85;
 }
 .removeMain{
     margin-top: 38px;

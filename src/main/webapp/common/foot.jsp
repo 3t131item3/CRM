@@ -15,7 +15,7 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+       CRM客户关系管理系统；感谢您的使用！<a href="https://colorlib.com">Colorlib</a>
     </div>
     <div class="clearfix"></div>
 </footer>

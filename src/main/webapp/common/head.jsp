@@ -22,7 +22,7 @@
             position: absolute;
             font-size: 24px;
             top: 12px;
-            left: 400px;
+            left: 500px;
         }
         .code{
             font-size: 18px;
@@ -139,18 +139,6 @@
             </div>
         </div>
 
-      <%--  <!-- top navigation -->
-        <div class="top_nav">
-            <div class="nav_menu">
-                <nav>
-                    <p class="userInfo">欢迎:${userSession.userName} 部门:${userSession.dept.name}  角色:${userSession.role.roleName}</p>
-                    <a class="exit" href="/crm/exit">[退出]</a>
-                    <div class="nav toggle">
-                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                    </div>
-                </nav>
-            </div>
-        </div>--%>
 
         <!-- top 右上角工具栏 -->
         <div class="top_nav">

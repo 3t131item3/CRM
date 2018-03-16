@@ -21,7 +21,7 @@
                         <form action="/crm/rolelist" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">角色名称:</strong>
-                                <input type="text" name="roleName" value="${roleName}" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" name="roleName" value="${roleName}" placeholder="Search" class="form-control input-md roleName" maxlength="30" >
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
                         </form>
@@ -32,6 +32,8 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
+                                <th>角色编号</th>
                                 <th>角色名称</th>
                                 <th>所属部门</th>
                                 <th>最后修改时间</th>
@@ -42,6 +44,8 @@
                         <tbody>
                           <c:forEach var="role" items="${roleList}" varStatus="status">
                             <tr>
+                                <td>${status.count}</td>
+                                <td>${role.roleCode}</td>
                                 <td>${role.roleName}</td>
                                 <td>${role.dept.name}</td>
                                 <td>${role.lastUpdateTime}</td>

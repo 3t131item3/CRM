@@ -67,7 +67,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机号 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" id="phone" name="phone"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="tel" id="phone" name="phone"   required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -76,14 +76,6 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="radio" id="genderM" name="gender" class="flat" value="0"  checked > 男
                                     <input type="radio" id="genderF" name="gender" class="flat" value="1"  > 女
-                                </div>
-                            </div>
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isStartz">状态 <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="radio" id="isStartz" name="isStart" class="flat" value="1"  checked > 正常
-                                    <input type="radio" id="isStartj" name="isStart" class="flat" value="0"  > 禁用
                                 </div>
                             </div>
                             <div class="form-group">

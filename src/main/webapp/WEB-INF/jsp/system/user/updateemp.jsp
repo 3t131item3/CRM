@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>添加员工信息</title>
+    <title>修改员工信息</title>
     <style>
         form span{
             color:red;
@@ -57,14 +57,6 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="radio" id="genderM" name="gender" class="flat" value="0"  <c:if test="${user.gender==0}">checked</c:if> > 男
                                     <input type="radio" id="genderF" name="gender" class="flat" value="1"  <c:if test="${user.gender==1}">checked</c:if>> 女
-                                </div>
-                            </div>
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isStartz">是否禁用 <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="radio" id="isStartz" name="isStart" class="flat" value="1" <c:if test="${user.isStart==1}">checked</c:if> > 正常
-                                    <input type="radio" id="isStartj" name="isStart" class="flat" value="0" <c:if test="${user.isStart==0}">checked</c:if> > 禁用
                                 </div>
                             </div>
                             <div class="form-group">
