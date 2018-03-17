@@ -24,17 +24,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Form Validation</h3>
-            </div>
-            <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">Go!</button>
-                          </span>
-                    </div>
-                </div>
+                <h4>销售管理&gt;&gt;销售预测&gt;&gt;添加销售预测</h4>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -43,35 +33,18 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Form validation <small>sub title</small></h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
 
                         <form class="form-horizontal form-label-left" action="/crm/addForecastSave" method="post" novalidate>
-
-                            <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
-                            </p>
-                            <span class="section">Personal Info</span>
-
+                            <%--创建人默认当前session的名字--%>
+                            <input type="hidden" name="createdBy" value="${userSession.userName}"/>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">预测结果标题 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title" placeholder="请输入计划编码" required="required" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title" placeholder="请输入计划标题" required="required" type="text">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
@@ -86,7 +59,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="deptId">指定预测部门 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select name="dept.id" id="deptId">
+                                    <select name="dept.id" id="deptId"class="form-control">
                                     </select>
                                 </div>
                             </div>
@@ -94,7 +67,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="type">预测类型 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select name="type" id="type">
+                                    <select name="type" id="type"class="form-control">
                                         <option value="整体预测">整体预测</option>
                                         <option value="部门预测">部门预测</option>
                                     </select>
@@ -121,13 +94,6 @@
                                     <textarea class="form-control col-md-7 col-xs-12" name="result"id="result" style="height: 100px" required=""></textarea>
                                 </div>
                             </div>
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="createdBy">操作人 <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="createdBy" name="createdBy"  required="required" class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
@@ -146,4 +112,35 @@
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath }/calendar/WdatePicker.js"></script>
 <script src="${pageContext.request.contextPath }/js/addforecast.js"></script>
+<script src="${pageContext.request.contextPath}/js/validator.js"></script>
+<script>
+    // initialize the validator function
+    validator.message.date = 'not a real date';
 
+    // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+    $('form')
+        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+        .on('change', 'select.required', validator.checkField)
+        .on('keypress', 'input[required][pattern]', validator.keypress);
+
+    $('.multi.required').on('keyup blur', 'input', function() {
+        validator.checkField.apply($(this).siblings().last()[0]);
+    });
+
+    $('form').submit(function(e) {
+        e.preventDefault();
+        var submit = true;
+
+        // evaluate the form using generic validaing
+        if (!validator.checkAll($(this))) {
+            submit = false;
+        }
+
+        if (submit)
+            this.submit();
+
+        return false;
+    });
+</script>
+</body>
+</html>

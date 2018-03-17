@@ -17,8 +17,6 @@
             <div class="title_left">
                 <h3>系统管理<small>&gt;&gt;组织结构</small></h3>
             </div>
-
-
         </div>
 
         <div class="clearfix"></div>
@@ -44,7 +42,9 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th>名称</th>
+                                <th>序号</th>
+                                <th>组织编码</th>
+                                <th>组织名称</th>
                                 <th>最后修改时间</th>
                                 <th>操作人</th>
                                 <th>备注说明</th>
@@ -52,9 +52,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${deptList}" var="dept">
+                            <c:forEach varStatus="status" items="${deptList}" var="dept">
                             <tr>
-                                <td>${dept.name}</td>
+                                <td>${status.count}</td>
+                                <td>${dept.deptCode}</td>
+                                <td><c:out value="${dept.name}" escapeXml="true"/></td>
                                 <td>${dept.lastUpdateTime}</td>
                                 <td>${dept.operator}</td>
                                 <td>${dept.remark}</td>

@@ -14,8 +14,6 @@
             <div class="title_left">
                 <h3>销售管理<small>&gt;&gt;联系人管理</small></h3>
             </div>
-
-
         </div>
 
         <div class="clearfix"></div>
@@ -41,6 +39,8 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
+                                <th>编码</th>
                                 <th>联系人</th>
                                 <th>性别</th>
                                 <th>联系电话</th>
@@ -50,13 +50,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                           <c:forEach items="${contactslist}" var="contacts">
+                           <c:forEach items="${contactslist}" varStatus="status" var="contacts">
                             <tr>
-                                <td>${contacts.name}</td>
+                                <td>${status.count}</td>
+                                <td>${contacts.code}</td>
+                                <td><c:out value="${contacts.name}"/></td>
                                 <td>${contacts.sex}</td>
-                                <td>${contacts.phone}</td>
-                                <td>${contacts.address}</td>
-                                <td>${contacts.remark}</td>
+                                <td><c:out value="${contacts.phone}"/></td>
+                                <td><c:out value="${contacts.address}"/></td>
+                                <td><c:out value="${contacts.remark}"/></td>
                                 <td>
                                     <a href="/crm/updateContacts/${contacts.id}" class="btn btn-warning btn-xs">修改</a>
                                     <a href="/crm/viewContacts/${contacts.id}" class="btn btn-success btn-xs">查看</a>

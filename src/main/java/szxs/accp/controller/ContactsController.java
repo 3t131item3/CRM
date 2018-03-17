@@ -9,6 +9,7 @@ import szxs.accp.entity.Contacts;
 import szxs.accp.entity.Plan;
 
 import javax.annotation.Resource;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/crm")
@@ -46,6 +47,8 @@ public class ContactsController {
      */
     @RequestMapping("/addContactsSave")
     public String addContactsSave(Model model, Contacts contacts){
+        String code="crm-"+ UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,4);
+        contacts.setCode(code);
         contactsBiz.addContacts(contacts);
         return "redirect:/crm/contactslist";
     }

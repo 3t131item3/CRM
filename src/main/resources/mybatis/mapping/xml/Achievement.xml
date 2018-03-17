@@ -28,15 +28,11 @@
         </association>
     </resultMap>
     <insert id="addAchievement">
-        insert into achievement VALUES (DEFAULT ,#{resultCode},#{user.id},#{dept.id},#{grade},#{lastUpdateTime},#{createdBy},NULL )
+        insert into achievement VALUES (DEFAULT ,#{user.id},#{dept.id},DEFAULT,#{lastUpdateTime},#{createdBy},NULL )
     </insert>
     <update id="modifyAchievement">
         UPDATE achievement
         <set>
-            <if test="resultCode!=null and resultCode!=''">
-                resultCode=#{resultCode},
-            </if>
-
             <if test="user.id>0">
                 userId=#{user.id},
             </if>

@@ -37,6 +37,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>预测结果</th>
                                 <th>预测月份</th>
                                 <th>类型</th>
@@ -48,8 +49,9 @@
                             <tbody>
                             <c:forEach var="forecast" items="${forecastList}" varStatus="status">
                                 <tr>
-                                <td>${forecast.title}</td>
-                                <td>${forecast.month}</td>
+                                <td>${status.count}</td>
+                                <td><c:out value="${forecast.title}" escapeXml="true"/></td>
+                                <td><c:out value="${forecast.month}" escapeXml="true"/></td>
                                 <td>${forecast.type}</td>
                                 <td>${forecast.date}</td>
                                 <td>${forecast.createdBy}</td>

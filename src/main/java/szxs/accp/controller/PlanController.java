@@ -12,6 +12,7 @@ import szxs.accp.entity.User;
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/crm")
@@ -56,6 +57,8 @@ public class PlanController {
      */
     @RequestMapping("/addPlanSave")
     public String addPlanSave(Plan plan){
+        String code="crm-"+ UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,4);
+        plan.setCode(code);
         planBiz.addPlan(plan);
         return "redirect:/crm/planList";
     }

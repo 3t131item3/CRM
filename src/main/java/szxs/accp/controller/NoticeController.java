@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/crm")
@@ -44,7 +45,8 @@ public class NoticeController {
 
     @RequestMapping("/addNoticeSave")
     public String addNoticeSave(Notice notice,Model model){
-
+        String code="crm-"+ UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,4);
+        notice.setNoticeCode(code);
         if (noticeBiz.addNotice(notice)){
             return "redirect:/crm/listNoticeAll";
 

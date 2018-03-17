@@ -42,7 +42,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th></th>
+                                <th>序号</th>
                                 <th>姓名</th>
                                 <th>部门</th>
                                 <th>绩效等级</th>
@@ -55,10 +55,10 @@
                             <tbody>
                             <c:forEach items="${achievementList}" var="achievement" varStatus="varStatus">
                             <tr>
-                                <td>${varStatus.index+1}</td>
+                                <td>${varStatus.count}</td>
                                 <td>${achievement.user.userName}</td>
                                 <td>${achievement.dept.name}</td>
-                                <td>${achievement.grade}</td>
+                                <td><c:out value="${achievement.grade}" escapeXml="true"/></td>
                                 <td>${achievement.lastUpdateTime}</td>
                                 <td>${achievement.createdBy}</td>
                                 <td>

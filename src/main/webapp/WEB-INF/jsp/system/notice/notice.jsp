@@ -37,21 +37,25 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th width="20%">标题</th>
-                                <th width="16%">发布时间</th>
-                                <th width="8%">发布人</th>
-                                <th width="30%">内容</th>
-                                <th width="16%">操作</th>
+                                <th width="5%">序号</th>
+                                <th width="8%">公告编码</th>
+                                <th>标题</th>
+                                <th>发布时间</th>
+                                <th width="7%">发布人</th>
+                                <th>内容</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
 
                             <tbody>
-                            <c:forEach items="${noticeList}" var="notice">
+                            <c:forEach items="${noticeList}" varStatus="status" var="notice">
                                 <tr>
-                                    <td>${notice.title}</td>
+                                    <td>${status.count}</td>
+                                    <td>${notice.noticeCode}</td>
+                                    <td><c:out value="${notice.title}" escapeXml="true"/></td>
                                     <td>${notice.issueTime}</td>
                                     <td>${notice.issueBy}</td>
-                                    <td>${notice.content}</td>
+                                    <td><c:out value="${notice.content}" escapeXml="true"/></td>
                                     <td>
 
                                         <a href="/crm/modifyNotice/${notice.id}" class="btn btn-info btn-xs">修改</a>

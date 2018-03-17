@@ -34,6 +34,8 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
+                                <th>编码</th>
                                 <th>姓名</th>
                                 <th>月份</th>
                                 <th>状态</th>
@@ -46,8 +48,10 @@
                             <tbody>
                           <c:forEach var="plan" items="${planList}" varStatus="status">
                             <tr>
-                                <td>${plan.userName}</td>
-                                <td>${plan.month}</td>
+                                <td>${status.count}</td>
+                                <td>${plan.code}</td>
+                                <td><c:out value="${plan.userName}" escapeXml="true"/></td>
+                                <td><c:out value="${plan.month}" escapeXml="true"/></td>
                                 <td>${plan.status}</td>
                                 <td>${plan.lastUpdateTime}</td>
                                 <td>${plan.createdBy}</td>

@@ -38,7 +38,7 @@ public class UserController {
      */
     @RequestMapping("/login")
     public String login() {
-        return "/login.jsp";
+        return "login";
     }
     /**
      * 登录功能
@@ -54,7 +54,7 @@ public class UserController {
             model.addAttribute("error","用户名或密码错误");
             model.addAttribute("userName",u.getUserName());
             model.addAttribute("userPassword",u.getUserPassword());
-            return "/login.jsp";
+            return "login";
         }
     }
 
@@ -78,7 +78,7 @@ public class UserController {
     public String exit(HttpServletRequest request,HttpServletResponse response)throws Exception {
         request.getSession().invalidate(); //关闭当前sssion
         //response.sendRedirect("/login");
-        return "/login.jsp";
+        return "redirect:/crm/login";
     }
 
     /**
@@ -107,8 +107,8 @@ public class UserController {
      */
     @RequestMapping(value = "/crm/addemployee")
     public String addemployee(User user,Dept dept,Role role,Model model){
-        String  uuid = UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,8);
-        user.setUserCode(uuid);
+        String code="crm-"+UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,4);
+        user.setUserCode(code);
         if(userBiz.add(user)){
             return "redirect:/crm/listEmpAll";
         }else{

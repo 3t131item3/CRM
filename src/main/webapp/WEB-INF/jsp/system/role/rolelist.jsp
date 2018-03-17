@@ -46,7 +46,7 @@
                             <tr>
                                 <td>${status.count}</td>
                                 <td>${role.roleCode}</td>
-                                <td>${role.roleName}</td>
+                                <td><c:out value="${role.roleName}" escapeXml="true"/></td>
                                 <td>${role.dept.name}</td>
                                 <td>${role.lastUpdateTime}</td>
                                 <td>${role.createdBy}</td>

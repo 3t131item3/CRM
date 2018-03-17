@@ -7,7 +7,11 @@
 <head>
     <meta charset="UTF-8">
     <title>修改公告信息</title>
-
+    <style>
+        form span{
+            color:red;
+        }
+    </style>
 </head>
 <body>
 <div class="right_col" role="main">
@@ -30,10 +34,10 @@
                         <form class="form-horizontal form-label-left" action="/crm/modifynotice"  method="post" novalidate>
                             <input type="hidden" name="id" value="${notice.id}"/>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="noticeCode">公告编码 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="noticeCode">公告编码: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="noticeCode" class="form-control col-md-7 col-xs-12"  name="noticeCode" value="${notice.noticeCode}" placeholder="请输入编码" required="required" type="text">
+                                    <input id="noticeCode" readonly class="form-control col-md-7 col-xs-12"  name="noticeCode" value="${notice.noticeCode}" placeholder="请输入编码" required="required" type="text">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
@@ -53,13 +57,6 @@
                                         <option value="行政公告"<c:if test="${notice.type=='行政公告'}">selected="selected"</c:if>>行政公告</option>
                                         <option value="通知"<c:if test="${notice.type=='通知'}">selected="selected"</c:if>>通知</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="issueBy">发布人 <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="issueBy" class="form-control col-md-7 col-xs-12" value="${notice.issueBy}"  name="issueBy" placeholder="请输入发布人姓名" required="required" type="text">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -88,7 +85,37 @@
 
 <%@ include file="/common/foot.jsp"%>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/addemp.js"></script>
+<script src="${pageContext.request.contextPath}/js/validator.js"></script>
+<script>
+    // initialize the validator function
+    validator.message.date = 'not a real date';
+
+    // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+    $('form')
+        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+        .on('change', 'select.required', validator.checkField)
+        .on('keypress', 'input[required][pattern]', validator.keypress);
+
+    $('.multi.required').on('keyup blur', 'input', function() {
+        validator.checkField.apply($(this).siblings().last()[0]);
+    });
+
+    $('form').submit(function(e) {
+        e.preventDefault();
+        var submit = true;
+
+        // evaluate the form using generic validaing
+        if (!validator.checkAll($(this))) {
+            submit = false;
+        }
+
+        if (submit)
+            this.submit();
+
+        return false;
+    });
+</script>
 </body>
 </html>
+
 

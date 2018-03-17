@@ -59,8 +59,8 @@ public class DeptController {
      */
     @RequestMapping("/addDept")
     public String addDept(Model model,Dept dept){
-        String  uuid = UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,6);
-        dept.setDeptCode(uuid);
+        String code="crm-"+UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,4);
+        dept.setDeptCode(code);
         dept.setLastUpdateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         if (deptBiz.add(dept)){
             return "redirect:/crm/listDeptAll";
