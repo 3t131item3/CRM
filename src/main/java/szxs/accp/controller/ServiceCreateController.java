@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import szxs.accp.biz.ServiceAllotBiz;
 import szxs.accp.biz.ServiceCreateBiz;
 import szxs.accp.biz.UserBiz;
@@ -13,6 +14,7 @@ import szxs.accp.entity.User;
 
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/crm")
@@ -117,8 +119,12 @@ public class ServiceCreateController {
      * @return
      */
     @RequestMapping("/deleteServiceCreate/{id}")
+    @ResponseBody
     public String deleteServiceCreate(@PathVariable int id,Model model){
-        serviceCreateBiz.deleteServiceCreate(id);
-        return "redirect:/crm/serviceCreateList";
+        if(serviceCreateBiz.deleteServiceCreate(id)){
+            return "{\"delResult\":\"true\"}";
+        }else {
+            return "{\"delResult\":\"false\"}";
+        }
     }
 }

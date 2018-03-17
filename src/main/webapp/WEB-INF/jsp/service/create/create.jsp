@@ -12,7 +12,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;服务创建</small></h3>
+                <h3>服务管理<small>&gt;&gt;服务创建</small></h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -54,6 +54,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>服务名称</th>
                                 <th>类型</th>
                                 <th>状态</th>
@@ -66,7 +67,8 @@
                             <tbody>
                         <c:forEach var="serviceCreate" items="${serviceCreateList}" varStatus="status">
                             <tr>
-                                <td>${serviceCreate.serviceName}</td>
+                                <td>${status.count}</td>
+                                <td><c:out value="${serviceCreate.serviceName}"/></td>
                                 <td>${serviceCreate.serviceType}</td>
                                 <td>${serviceCreate.serviceStatus}</td>
                                 <td>${serviceCreate.lastUpdateTime}</td>
@@ -78,7 +80,7 @@
                                     <a href="/crm/commitServiceCreate/${serviceCreate.id}/${serviceCreate.createdBy}" class="btn btn-info btn-xs">提交</a>
                                     </c:if>
                                     <a href="/crm/viewServiceCreate/${serviceCreate.id}" class="btn btn-success btn-xs">查看</a>
-                                    <a href="/crm/deleteServiceCreate/${serviceCreate.id}" class="btn btn-danger btn-xs removes">删除</a>
+                                    <a href="javascript:;"serviceCreateId="${serviceCreate.id}"serviceCreateName="${serviceCreate.serviceName}" class="btn btn-danger btn-xs deleteServiceCreate">删除</a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -94,12 +96,5 @@
 <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".removes").click(function () {
-            if(!confirm("確定要刪除嗎？")){
-                $(this).attr("href","/crm/serviceCreateList");
-            }
-        })
-    });
-</script>
+<script src="${pageContext.request.contextPath}/js/deleteservicecreate.js"></script>
+

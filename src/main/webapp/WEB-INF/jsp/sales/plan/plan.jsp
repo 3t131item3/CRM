@@ -50,7 +50,7 @@
                             <tr>
                                 <td>${status.count}</td>
                                 <td>${plan.code}</td>
-                                <td><c:out value="${plan.userName}" escapeXml="true"/></td>
+                                <td><c:out value="${plan.userName}"/></td>
                                 <td><c:out value="${plan.month}" escapeXml="true"/></td>
                                 <td>${plan.status}</td>
                                 <td>${plan.lastUpdateTime}</td>
@@ -62,7 +62,7 @@
                                         <a href="/crm/commitPlan/${plan.id}/${plan.userName}" class="btn btn-info btn-xs">提交</a>
                                     </c:if>
                                     <a href="/crm/viewPlan/${plan.id}" class="btn btn-success btn-xs">查看</a>
-                                    <a href="/crm/deletePlan/${plan.id}" class="btn btn-danger btn-xs removes">删除</a>
+                                    <a href="javascript:;" planId="${plan.id}" planName="${plan.userName}" class="btn btn-danger btn-xs deletePlan">删除</a>
                                 </td>
                             </tr>
                            </c:forEach>
@@ -78,12 +78,5 @@
 <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".removes").click(function () {
-            if(!confirm("確定要刪除嗎？")){
-                $(this).attr("href","/crm/planList");
-            }
-        })
-    });
-</script>
+<script src="${pageContext.request.contextPath}/js/deleteplans.js"></script>
+

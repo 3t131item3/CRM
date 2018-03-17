@@ -23,13 +23,13 @@
                 <div class="x_panel">
 
                     <div class="x_content" style="font-size: 20px;">
-                        <p><strong>服务名称:</strong><span>${serviceCreate.serviceName}</span></p>
-                        <p><strong>服务客户:</strong><span>${serviceCreate.customerName}</span></p>
-                        <p><strong>联系电话:</strong><span>${serviceCreate.customerPhone}</span></p>
-                        <p><strong>服务类型:</strong><span>${serviceCreate.serviceType}</span></p>
-                        <p><strong>服务内容:</strong><span>${serviceCreate.serviceConcent}</span></p>
+                        <p><strong>服务名称:</strong><span><c:out value="${serviceCreate.serviceName}"/></span></p>
+                        <p><strong>服务客户:</strong><span><c:out value="${serviceCreate.customerName}"/></span></p>
+                        <p><strong>联系电话:</strong><span><c:out value="${serviceCreate.customerPhone}"/></span></p>
+                        <p><strong>服务类型:</strong><span><c:out value="${serviceCreate.serviceType}"/></span></p>
+                        <p><strong>服务内容:</strong><span><c:out value="${serviceCreate.serviceConcent}"/></span></p>
                        <%-- <p><strong>所属部门:</strong><span>${serviceCreate.serviceName}</span></p>--%>
-                        <p><strong>备注信息:</strong><span>${serviceCreate.remark}</span></p>
+                        <p><strong>备注信息:</strong><span><c:out value="${serviceCreate.remark}"/></span></p>
                     </div>
                     <div>
                         <a href="javascript:history.back(-1)" class="btn btn-primary btn-lg">返回</a>

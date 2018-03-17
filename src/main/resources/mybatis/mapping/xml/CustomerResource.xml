@@ -8,6 +8,7 @@
         select * from CustomerResource where 1=1
             <if test="id!=null and id>0"> and id=#{id}</if>
             <if test="customerName!=null and customerName!=''"> and `customerName` LIKE concat('%',#{customerName},'%')</if>
+            <if test="status!=null and status!=''"> and `status`=#{status}</if>
     </select>
     <!--新增-->
     <insert id="addCustomerResource" >

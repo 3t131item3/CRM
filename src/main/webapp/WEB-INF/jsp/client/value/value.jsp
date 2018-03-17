@@ -49,6 +49,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>客户姓名</th>
                                 <th>性别</th>
                                 <th>客户类型</th>
@@ -61,6 +62,7 @@
                             <tbody>
                          <c:forEach var="customerVaule" items="${customerVauleList}" varStatus="status">
                             <tr>
+                                <td>${status.count}</td>
                                 <td>${customerVaule.customerName}</td>
                                 <td>${customerVaule.sex}</td>
                                 <td>${customerVaule.type}</td>

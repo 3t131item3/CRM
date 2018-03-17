@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import szxs.accp.biz.DeptBiz;
 import szxs.accp.biz.RoleBiz;
 import szxs.accp.entity.Role;
@@ -102,9 +103,13 @@ public class RoleController {
      * @return
      */
     @RequestMapping("/delete/{id}")
+    @ResponseBody
     public String delete(@PathVariable int id,Model model){
-        roleBiz.delete(id);
-        return "redirect:/crm/rolelist";
+        if(roleBiz.delete(id)){
+            return "{\"delResult\":\"true\"}";
+        }else {
+            return "{\"delResult\":\"false\"}";
+        }
     }
 
 }

@@ -12,7 +12,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;常见问题管理</small></h3>
+                <h3>服务管理<small>&gt;&gt;常见问题管理</small></h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -47,6 +47,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>问题名称</th>
                                 <th>类型</th>
                                 <th>创建人</th>
@@ -58,14 +59,15 @@
                             <tbody>
                         <c:forEach var="problems" items="${problemsList}" varStatus="status">
                             <tr>
-                                <td>${problems.problemsTitle}</td>
+                                <td>${status.count}</td>
+                                <td><c:out value="${problems.problemsTitle}"/></td>
                                 <td>${problems.serviceType}</td>
                                 <td>${problems.createdBy}</td>
                                 <td>${problems.lastUpdateTime}</td>
                                 <td>
                                     <a href="/crm/updateProblems/${problems.id}" class="btn btn-warning btn-xs">修改</a>
                                     <a href="/crm/viewProblems/${problems.id}" class="btn btn-success btn-xs">查看</a>
-                                    <a href="/crm/deleteProblems/${problems.id}" class="btn btn-danger btn-xs removes">删除</a>
+                                    <a href="javascript:;"problemsId="${problems.id}"  class="btn btn-danger btn-xs deleteProblems">删除</a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -83,12 +85,5 @@
 <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".removes").click(function () {
-            if(!confirm("確定要刪除嗎？")){
-                $(this).attr("href","/crm/problemsList");
-            }
-        })
-    });
-</script>
+<script src="${pageContext.request.contextPath}/js/deleteproblems.js"></script>
+

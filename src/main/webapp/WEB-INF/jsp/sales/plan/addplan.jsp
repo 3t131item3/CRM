@@ -11,11 +11,6 @@
         form span{
             color:red;
         }
-        #msg{
-            position: absolute;
-            bottom: 6px;
-            border:none;
-        }
     </style>
 
 </head>

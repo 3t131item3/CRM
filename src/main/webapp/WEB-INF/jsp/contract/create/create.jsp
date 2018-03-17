@@ -62,6 +62,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>姓名</th>
                                 <th>合同名称</th>
                                 <th>合同类型</th>
@@ -74,8 +75,9 @@
                             <tbody>
                          <c:forEach var="contractCreate" items="${contractCreateList}" varStatus="status">
                             <tr>
-                                <td>${contractCreate.userName}</td>
-                                <td>${contractCreate.contractName}</td>
+                                <td>${status.count}</td>
+                                <td><c:out value="${contractCreate.userName}"/></td>
+                                <td><c:out value="${contractCreate.contractName}"/></td>
                                 <td>${contractCreate.contractType}</td>
                                 <td>${contractCreate.contractStatus}</td>
                                 <td>${contractCreate.lastUpdateTime}</td>

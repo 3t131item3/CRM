@@ -25,8 +25,9 @@ public class CustomerResource {
         this.id = id;
     }
 
-    public CustomerResource(String customerName) {
+    public CustomerResource(String customerName, String status) {
         this.customerName = customerName;
+        this.status = status;
     }
 
     public int getId() {

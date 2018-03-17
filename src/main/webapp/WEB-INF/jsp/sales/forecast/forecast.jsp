@@ -50,8 +50,8 @@
                             <c:forEach var="forecast" items="${forecastList}" varStatus="status">
                                 <tr>
                                 <td>${status.count}</td>
-                                <td><c:out value="${forecast.title}" escapeXml="true"/></td>
-                                <td><c:out value="${forecast.month}" escapeXml="true"/></td>
+                                <td><c:out value="${forecast.title}"/></td>
+                                <td><c:out value="${forecast.month}" /></td>
                                 <td>${forecast.type}</td>
                                 <td>${forecast.date}</td>
                                 <td>${forecast.createdBy}</td>

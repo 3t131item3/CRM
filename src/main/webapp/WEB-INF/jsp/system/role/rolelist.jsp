@@ -52,8 +52,8 @@
                                 <td>${role.createdBy}</td>
                                 <td>
                                     <a href="/crm/modify/${role.id}" class="btn btn-info btn-xs">修改</a>
-                                    <a href="/crm/delete/${role.id}" class="btn btn-danger btn-xs removes">删除</a>
-                                    <%--<a href="#" class="btn btn-primary btn-xs">授权</a>--%>
+                                    <a href="javascript:;" roleId="${role.id}" roleName="${role.roleName}" class="btn btn-danger btn-xs deleteRole">删除</a>
+                                <%--<a href="#" class="btn btn-primary btn-xs">授权</a>--%>
                                 </td>
                             </tr>
                           </c:forEach>
@@ -67,9 +67,10 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
+<script src="${pageContext.request.contextPath}/js/deleterole.js"></script>
 
 
-<script type="text/javascript">
+<%--<script type="text/javascript">
     $(document).ready(function () {
         $(".removes").click(function () {
             if(!confirm("確定要刪除嗎？")){
@@ -77,4 +78,4 @@
             }
         })
     });
-</script>
+</script>--%>

@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/head.jsp"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/green.css">
@@ -34,13 +33,13 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_content">
-                        <form class="form-horizontal form-label-left" action="/crm/updateCustomerResourceSave" method="post">
+                        <form class="form-horizontal form-label-left" action="/crm/updateaddCustomerResourceSave" method="post">
                             <input name="id" value="${customerResource.id}" class="form-control col-md-7 col-xs-12"required="required" type="hidden">
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customerCode">客户编码: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="customerCode"  name="customerCode" value="${customerResource.customerCode}" class="form-control col-md-7 col-xs-12" placeholder="请输入员工编码" required="required" type="text">
+                                    <input id="customerCode" readonly  name="customerCode" value="${customerResource.customerCode}" class="form-control col-md-7 col-xs-12" placeholder="请输入员工编码" required="required" type="text">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
@@ -82,14 +81,11 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status">状态 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select id="status" name="status" class="form-control">
-                                        <option value="正常"<c:if test="${customerResource.status=='正常'}">selected="selected"</c:if>>正常</option>
-                                        <option value="已流失"<c:if test="${customerResource.status=='已流失'}">selected="selected"</c:if>>已流失</option>
-                                    </select>
+                                    <input type="text" readonly name="status" value="${customerResource.status}" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">手机:</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">手机:<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text"  name="phone" value="${customerResource.phone}" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
@@ -121,7 +117,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12">录入人</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text"  name="createdBy"value="${customerResource.createdBy}" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input readonly type="text"  name="createdBy"value="${userSession.userName}" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -145,10 +141,9 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
+<script src="${pageContext.request.contextPath}/calendar/WdatePicker.js"></script>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/validator.js"></script>
-<script src="${pageContext.request.contextPath }/calendar/WdatePicker.js"></script>
-<!-- validator -->
 <script>
     // initialize the validator function
     validator.message.date = 'not a real date';
@@ -178,10 +173,6 @@
         return false;
     });
 </script>
-<!-- /validator -->
-
-
 </body>
 </html>
-
 

@@ -12,7 +12,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;服务反馈</small></h3>
+                <h3>服务管理<small>&gt;&gt;服务反馈</small></h3>
             </div>
 
 
@@ -56,6 +56,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>服务名称</th>
                                 <th>类型</th>
                                 <th>状态</th>
@@ -70,6 +71,7 @@
                         <%--只处理已处理和未反馈的--%>
                         <c:if test="${serviceBack.serviceStatus=='已处理'||serviceBack.serviceStatus=='未反馈'}">
                              <tr>
+                                 <td>${status.count}</td>
                                  <td>${serviceBack.serviceName}</td>
                                  <td>${serviceBack.serviceType}</td>
                                  <td>${serviceBack.serviceStatus}</td>

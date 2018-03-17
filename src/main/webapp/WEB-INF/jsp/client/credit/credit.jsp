@@ -42,6 +42,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>客户姓名</th>
                                 <th>性别</th>
                                 <th>客户类型</th>
@@ -54,6 +55,7 @@
                             <tbody>
                         <c:forEach var="customerReputation" items="${customerReputationList}" varStatus="status">
                             <tr>
+                                <td>${status.count}</td>
                                 <td>${customerReputation.customerName}</td>
                                 <td>${customerReputation.sex}</td>
                                 <td>${customerReputation.type}</td>

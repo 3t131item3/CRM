@@ -26,6 +26,12 @@
                                 <div class="form-group f-group">
                                     <strong class="h4">客户姓名:</strong>
                                     <input type="text" value="${customerName}"  name="customerName" placeholder="Search" class="form-control input-md roleName">
+                                    <strong class="h4">分配状态</strong>
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="">不限</option>
+                                        <option value="未分配"<c:if test="${status=='未分配'}">selected="selected"</c:if>>未分配</option>
+                                        <option value="已分配"<c:if test="${status=='已分配'}">selected="selected"</c:if>>已分配</option>
+                                    </select>
                                 </div>
                                 <input type="submit" value="查询" class="btn btn-success">
                             </form>
@@ -36,10 +42,13 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
+                                <th>客户编码</th>
                                 <th>客户姓名</th>
                                 <th>性别</th>
                                 <th>类型</th>
                                 <th>状态</th>
+                                <th>手机号</th>
                                 <th>录入时间</th>
                                 <th>录入人</th>
                                 <th>操作</th>
@@ -48,16 +57,21 @@
                             <tbody>
                          <c:forEach var="customerResource" items="${customerResourceList}" varStatus="status">
                             <tr>
-                                <td>${customerResource.customerName}</td>
+                                <td>${status.count}</td>
+                                <td>${customerResource.customerCode}</td>
+                                <td><c:out value="${customerResource.customerName}"/></td>
                                 <td>${customerResource.sex}</td>
                                 <td>${customerResource.type}</td>
                                 <td>${customerResource.status}</td>
+                                <td><c:out value="${customerResource.phone}"/></td>
                                 <td>${customerResource.creationTime}</td>
                                 <td>${customerResource.createdBy}</td>
                                 <td>
                                     <a href="/crm/updateCustomerResource/${customerResource.id}" class="btn btn-warning btn-xs">修改</a>
                                     <a href="/crm/viewCustomerResource/${customerResource.id}" class="btn btn-success btn-xs">查看</a>
-                                  <%--  <a href="#" class="btn btn-success btn-xs">分配</a>--%>
+                                    <c:if test="${customerResource.status=='未分配'}">
+                                        <a href="/crm/commitCustomerResource/${customerResource.id}" class="btn btn-success btn-xs">分配</a>
+                                    </c:if>
                                 </td>
                             </tr>
                          </c:forEach>

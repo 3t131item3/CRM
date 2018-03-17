@@ -25,8 +25,6 @@
             <div class="title_left">
                 <h4>客户管理&gt;&gt;客户资源管理&gt;&gt;新增资源</h4>
             </div>
-
-
         </div>
         <div class="clearfix"></div>
 
@@ -35,14 +33,8 @@
                 <div class="x_panel">
                     <div class="x_content">
                         <form class="form-horizontal form-label-left" action="/crm/addCustomerResourceSave" method="post">
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customerCode">客户编码: <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="customerCode"  name="customerCode" value="${customerResource.customerCode}" class="form-control col-md-7 col-xs-12" placeholder="请输入员工编码" required="required" type="text">
-                                    <span id="msg" class=" col-md-5 col-xs-12"></span>
-                                </div>
-                            </div>
+                            <%--创建人默认当前session的名字--%>
+                            <input type="hidden" name="createdBy" value="${userSession.userName}"/>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customerName">客户姓名: <span class="required">*</span>
                                 </label>
@@ -54,15 +46,15 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="genderM">性别: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="radio" id="genderM" name="sex" class="flat" value="男"  <c:if test="${customerResource.sex=='男'}">checked</c:if> > 男
-                                    <input type="radio" id="genderF" name="sex" class="flat" value="女"  <c:if test="${customerResource.sex=='女'}">checked</c:if>> 女
+                                    <input type="radio" id="genderM" name="sex" class="flat" value="男" checked > 男
+                                    <input type="radio" id="genderF" name="sex" class="flat" value="女" > 女
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="creationTime">生日: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="creationTime" name="creationTime"value="${customerResource.creationTime}" onclick="WdatePicker();" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="creationTime" name="creationTime"value="${customerResource.creationTime}" onclick="WdatePicker();" required class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -77,20 +69,10 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status">状态 <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select id="status" name="status" class="form-control">
-                                        <option value="正常"<c:if test="${customerResource.status=='正常'}">selected="selected"</c:if>>正常</option>
-                                        <option value="已流失"<c:if test="${customerResource.status=='已流失'}">selected="selected"</c:if>>已流失</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">手机:</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机:<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="phone" value="${customerResource.phone}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="phone" name="phone" value="${customerResource.phone}" required class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -118,15 +100,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">录入人</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text"  name="createdBy" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">备注信息</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark" value="${customerResource.remark}"class="form-control col-md-7 col-xs-12" required></textarea>
+                                    <textarea name="remark" value="${customerResource.remark}"class="form-control col-md-7 col-xs-12"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
@@ -144,10 +120,9 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
+<script src="${pageContext.request.contextPath}/calendar/WdatePicker.js"></script>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/validator.js"></script>
-<script src="${pageContext.request.contextPath }/calendar/WdatePicker.js"></script>
-<!-- validator -->
 <script>
     // initialize the validator function
     validator.message.date = 'not a real date';
@@ -177,10 +152,6 @@
         return false;
     });
 </script>
-<!-- /validator -->
-
-
 </body>
 </html>
-
 

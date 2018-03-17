@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import szxs.accp.biz.PlanBiz;
 import szxs.accp.biz.UserBiz;
 import szxs.accp.entity.Plan;
@@ -104,9 +105,13 @@ public class PlanController {
      * @return
      */
     @RequestMapping("/deletePlan/{id}")
+    @ResponseBody
     public String deletePlan(@PathVariable int id, Model model){
-        planBiz.deletePlan(id);
-        return "redirect:/crm/planList";
+        if(planBiz.deletePlan(id)){
+            return "{\"delResult\":\"true\"}";
+        }else {
+            return "{\"delResult\":\"false\"}";
+        }
     }
 
     /**

@@ -36,16 +36,6 @@
                     <div class="x_content">
 
                         <form id="f" class="form-horizontal form-label-left" action="/crm/addemployee" method="post" novalidate>
-
-
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userCode">员工编码 <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="userCode" class="form-control col-md-7 col-xs-12"  name="userCode" placeholder="请输入员工编码" required="required" type="text">
-                                    <span id="msg" class=" col-md-5 col-xs-12"></span>
-                                </div>
-                            </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">员工姓名 <span class="required">*</span>
                                 </label>

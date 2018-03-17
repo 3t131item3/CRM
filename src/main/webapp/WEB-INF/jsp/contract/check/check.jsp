@@ -62,6 +62,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>姓名</th>
                                 <th>合同名称</th>
                                 <th>合同类型</th>
@@ -76,8 +77,9 @@
                                 <%--这里只显示已经提交过来的待审核的数据，那些新创建的不显示--%>
                                 <c:if test="${contractExamine.contractStatus!='已创建'}">
                                 <tr>
-                                    <td>${contractExamine.userName}</td>
-                                    <td>${contractExamine.contractName}</td>
+                                    <td>${status.count}</td>
+                                    <td><c:out value="${contractExamine.userName}"/></td>
+                                    <td><c:out value="${contractExamine.contractName}"/></td>
                                     <td>${contractExamine.contractType}</td>
                                     <td>${contractExamine.contractStatus}</td>
                                     <td>${contractExamine.creationTime}</td>

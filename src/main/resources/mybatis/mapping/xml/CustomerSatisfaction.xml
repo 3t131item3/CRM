@@ -9,5 +9,28 @@
         <if test="id!=null and id>0"> and id=#{id}</if>
         <if test="customerName!=null and customerName!=''"> and `customerName` LIKE concat('%',#{customerName},'%')</if>
     </select>
+    <!--新增-->
+    <insert id="addCustomerSatisfaction" >
+        INSERT INTO CustomerSatisfaction(`id`,`customerCode`,customerName,`sex`,`type`,`creationTime`,`status`,`quality`,service,cost,`all`,voltar)
+        VALUES(DEFAULT,#{customerCode},#{customerName},#{sex},#{type},DEFAULT,#{status},#{quality},#{service},#{cost},#{all},#{voltar})
 
+    </insert>
+    <!--修改-->
+    <update id="updateCustomerSatisfaction">
+        update CustomerSatisfaction
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="customerName !=null and customerName!=''">customerName=#{customerName},</if>
+            <if test="sex !=null and sex!=''">sex=#{sex},</if>
+            <if test="type !=null and type!=''">`type`=#{type},</if>
+            <if test="status !=null and status!=''">status=#{status},</if>
+            <if test="quality !=null and quality!=''">quality=#{quality},</if>
+            <if test="service !=null and service!=''">service=#{service},</if>
+            <if test="cost !=null and cost!=''">cost=#{cost},</if>
+            <if test="all !=null and all!=''">`all`=#{all},</if>
+            <if test="voltar !=null and voltar!=''">voltar=#{voltar},</if>
+        </trim>
+    </update>
+    <delete id="deleteCustomerSatisfaction">
+        DELETE FROM CustomerSatisfaction WHERE id=#{id}
+    </delete>
 </mapper>

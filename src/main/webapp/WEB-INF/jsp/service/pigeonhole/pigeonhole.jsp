@@ -12,7 +12,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;服务归档</small></h3>
+                <h3>服务管理<small>&gt;&gt;服务归档</small></h3>
             </div>
 
 
@@ -57,6 +57,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>服务名称</th>
                                 <th>类型</th>
                                 <th>状态</th>
@@ -71,6 +72,7 @@
                             <%--只处理已反馈的--%>
                             <c:if test="${servicePigeonhole.serviceStatus=='已反馈'}">
                             <tr>
+                                <td>${status.count}</td>
                                 <td>${servicePigeonhole.serviceName}</td>
                                 <td>${servicePigeonhole.serviceType}</td>
                                 <td>${servicePigeonhole.serviceStatus}</td>

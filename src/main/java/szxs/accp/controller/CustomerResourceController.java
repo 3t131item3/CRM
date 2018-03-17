@@ -9,6 +9,7 @@ import szxs.accp.entity.CustomerResource;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/crm")
@@ -30,9 +31,10 @@ public class CustomerResourceController {
      * @return
      */
     @RequestMapping("/searchCustomerResourceByName")
-    public String searchCustomerResourceByName(String customerName,Model model){
-        model.addAttribute("customerResourceList",customerResourceBiz.customerResourceList(new CustomerResource(customerName)));
+    public String searchCustomerResourceByName(String customerName,String status,Model model){
+        model.addAttribute("customerResourceList",customerResourceBiz.customerResourceList(new CustomerResource(customerName,status)));
         model.addAttribute("customerName", customerName);
+        model.addAttribute("status", status);
         return "client/resource/resource";
     }
 
@@ -50,6 +52,9 @@ public class CustomerResourceController {
      */
     @RequestMapping("/addCustomerResourceSave")
     public String addCustomerResourceSave(CustomerResource customerResource){
+        String code="crm-"+ UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,4);
+        customerResource.setCustomerCode(code);
+        customerResource.setStatus("未分配");
         customerResourceBiz.addCustomerResource(customerResource);
         return "redirect:/crm/customerResourceList";
     }
@@ -76,7 +81,18 @@ public class CustomerResourceController {
         customerResourceBiz.updateCustomerResource(customerResource);
         return "redirect:/crm/customerResourceList";
     }
-
+    /**
+     * 分配
+     * @param model
+     * @return
+     */
+    @RequestMapping("/commitCustomerResource/{id}")
+    public String commitCustomerResource(@PathVariable int id, Model model){
+        CustomerResource customerResource = customerResourceBiz.customerResourceList(new CustomerResource(id)).get(0);
+        customerResource.setStatus("已分配");
+        customerResourceBiz.updateCustomerResource(customerResource);
+        return "redirect:/crm/customerResourceList";
+    }
     /**
      * 查看
      * @param id

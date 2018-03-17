@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import szxs.accp.biz.DeptBiz;
 import szxs.accp.entity.Dept;
 
@@ -106,8 +107,12 @@ public class DeptController {
      * @return
      */
     @RequestMapping("/removeDept/{id}")
+    @ResponseBody
     public String delDept(@PathVariable int id,Model model){
-        deptBiz.remove(id);
-        return "redirect:/crm/listDeptAll";
+        if(deptBiz.remove(id)){
+            return "{\"delResult\":\"true\"}";
+        }else {
+            return "{\"delResult\":\"false\"}";
+        }
     }
 }

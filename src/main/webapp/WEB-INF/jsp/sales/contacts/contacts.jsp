@@ -62,7 +62,7 @@
                                 <td>
                                     <a href="/crm/updateContacts/${contacts.id}" class="btn btn-warning btn-xs">修改</a>
                                     <a href="/crm/viewContacts/${contacts.id}" class="btn btn-success btn-xs">查看</a>
-                                    <a href="/crm/deleteContacts/${contacts.id}" class="btn btn-danger btn-xs removes">删除</a>
+                                    <a href="javascript:;" contactsId="${contacts.id}"contactsName="${contacts.name}" class="btn btn-danger btn-xs deleteContacts">删除</a>
                                 </td>
                             </tr>
                            </c:forEach>
@@ -79,8 +79,8 @@
 <%@ include file="/common/foot.jsp"%>
 <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/pages.js"></script>
-<script type="text/javascript">
+<script src="${pageContext.request.contextPath}/js/contacts.js"></script>
+<%--<script type="text/javascript">
     $(document).ready(function () {
         $(".removes").click(function () {
             if(!confirm("確定要刪除嗎？")){
@@ -88,4 +88,4 @@
             }
         })
     });
-</script>
+</script>--%>

@@ -15,4 +15,16 @@ public class CustomerSatisfactionBizImpl implements CustomerSatisfactionBiz {
     public List<CustomerSatisfaction> customerSatisfactionList(CustomerSatisfaction customerSatisfaction) {
         return customerSatisfactionDao.customerSatisfactionList(customerSatisfaction);
     }
+
+    public boolean addCustomerSatisfaction(CustomerSatisfaction customerSatisfaction) {
+        return customerSatisfactionDao.addCustomerSatisfaction(customerSatisfaction)>0;
+    }
+
+    public boolean updateCustomerSatisfaction(CustomerSatisfaction customerSatisfaction) {
+        return customerSatisfactionDao.updateCustomerSatisfaction(customerSatisfaction)>0;
+    }
+
+    public boolean deleteCustomerSatisfaction(int id) {
+        return customerSatisfactionDao.deleteCustomerSatisfaction(id)>0;
+    }
 }

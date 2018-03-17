@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import szxs.accp.biz.ProblemsBiz;
 import szxs.accp.entity.Problems;
 import szxs.accp.entity.ServiceCreate;
@@ -96,8 +97,12 @@ public class ProblemsController {
      * @return
      */
     @RequestMapping("/deleteProblems/{id}")
+    @ResponseBody
     public String deleteProblems(@PathVariable int id,Model model){
-        problemsBiz.deleteProblems(id);
-        return "redirect:/crm/problemsList";
+        if(problemsBiz.deleteProblems(id)){
+            return "{\"delResult\":\"true\"}";
+        }else {
+            return "{\"delResult\":\"false\"}";
+        }
     }
 }

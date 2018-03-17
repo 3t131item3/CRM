@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import szxs.accp.biz.ContactsBiz;
 import szxs.accp.entity.Contacts;
 import szxs.accp.entity.Plan;
@@ -90,9 +91,13 @@ public class ContactsController {
      * 删除
      * @return
      */
+    @ResponseBody
     @RequestMapping("/deleteContacts/{id}")
     public String deleteContacts(@PathVariable int id){
-        contactsBiz.deleteContacts(id);
-        return "redirect:/crm/contactslist";
+        if(contactsBiz.deleteContacts(id)){
+            return "{\"delResult\":\"true\"}";
+        }else {
+            return "{\"delResult\":\"false\"}";
+        }
     }
 }

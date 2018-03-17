@@ -11,7 +11,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;服务处理</small></h3>
+                <h3>服务管理<small>&gt;&gt;服务处理</small></h3>
             </div>
 
 
@@ -56,6 +56,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>服务名称</th>
                                 <th>类型</th>
                                 <th>状态</th>
@@ -71,6 +72,7 @@
                         <%--只处理已分配的--%>
                         <c:if test="${serviceDispose.serviceStatus=='已分配'||serviceDispose.serviceStatus=='未处理'}">
                             <tr>
+                                <td>${status.count}</td>
                                 <td>${serviceDispose.serviceName}</td>
                                 <td>${serviceDispose.serviceType}</td>
                                 <td>${serviceDispose.serviceStatus}</td>
