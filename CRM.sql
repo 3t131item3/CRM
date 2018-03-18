@@ -46,54 +46,53 @@ CREATE TABLE `User`(
 	creationTime TIMESTAMP DEFAULT NOW()NOT NULL,#注册时间
 	lastLoginTime DATETIME NOT NULL, #最后登录时间 这个就变为最后修改时间了
 	createdBy VARCHAR(50) NOT NULL, #创建者
-	isStart INT NOT NULL, #是否启用1--启用,0--不启用
 	roleId INT NOT NULL, #关联角色id
 	deptId INT NOT NULL#关联部门id
 )CHARSET=utf8;
 ALTER TABLE `User` ADD CONSTRAINT `user_roleId` FOREIGN KEY(`roleId`) REFERENCES Role(`id`);
 ALTER TABLE `User` ADD CONSTRAINT `user_deptId` FOREIGN KEY(`deptId`) REFERENCES Dept(`id`);
-INSERT INTO `User`(`id`,`userCode`,`userName`,`userPassword`,`gender`,`phone`,`creationTime`,`lastLoginTime`,`createdBy`,`isStart`,`roleId`,`deptId`)
-VALUES(DEFAULT,'shanghongyun','尚鸿运','202cb962ac59075b964b07152d234b70',0,'13455667788',NOW(),NOW(),'尚鸿运',1,1,1),
-(DEFAULT,'lisi','韩露','202cb962ac59075b964b07152d234b70',1,'15455667788',NOW(),NOW(),'尚鸿运',1,2,2),
-(DEFAULT,'jianghonglin','蒋红林','202cb962ac59075b964b07152d234b70',0,'18455667788',NOW(),NOW(),'尚鸿运',1,3,2),
+INSERT INTO `User`(`id`,`userCode`,`userName`,`userPassword`,`gender`,`phone`,`creationTime`,`lastLoginTime`,`createdBy`,`roleId`,`deptId`)
+VALUES(DEFAULT,'shanghongyun','尚鸿运','202cb962ac59075b964b07152d234b70',0,'13455667788',NOW(),NOW(),'尚鸿运',1,1),
+(DEFAULT,'hanlu','韩露','202cb962ac59075b964b07152d234b70',1,'15455667788',NOW(),NOW(),'尚鸿运',2,2),
+(DEFAULT,'jianghonglin','蒋红林','202cb962ac59075b964b07152d234b70',0,'18455667788',NOW(),NOW(),'尚鸿运',3,2),
  #以下是销售代表
-(DEFAULT,'ermao','王二毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'sanmao','王三毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,3),
-(DEFAULT,'simao','王四毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'laowu','王五毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaoliang','小亮','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaokang','小康','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaoming','小明','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaoxi','小溪','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaohong','小红','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaoji','小鸡','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaoqian','小钱','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaozhang','小张','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaolin','小琳','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaowen','小文','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaoli','小李','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaoji','小记','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaomao','小毛','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaojing','小京','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaoji','小即','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaokao','小考','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaojie','小杰','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaofa','小发','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaofa','小伐','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaofan','小饭','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,4),
-(DEFAULT,'xiaogao','小高','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaofu','小福','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaofei','小飞','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaogui','小规','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaofan','小翻','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaokai','小开','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaohuan','小换','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,4),
-(DEFAULT,'xiaoou','小喔','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaoqin','小亲','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaolian','小恋','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaoliu','小流','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,2),
-(DEFAULT,'xiaopao','小跑','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',1,4,3),
-(DEFAULT,'xiaoshunzi','小顺子','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',1,4,3);
+(DEFAULT,'ermao','王二毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'sanmao','王三毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'simao','王四毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'laowu','王五毛','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaoliang','小亮','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaokang','小康','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaoming','小明','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaoxi','小溪','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaohong','小红','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaoji','小鸡','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaoqian','小钱','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaozhang','小张','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaolin','小琳','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaowen','小文','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaoli','小李','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaoji','小记','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaomao','小毛','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaojing','小京','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaoji','小即','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaokao','小考','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaojie','小杰','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaofa','小发','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaofa','小伐','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaofan','小饭','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaogao','小高','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaofu','小福','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaofei','小飞','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaogui','小规','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,3),
+(DEFAULT,'xiaofan','小翻','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaokai','小开','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaohuan','小换','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,4),
+(DEFAULT,'xiaoou','小喔','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaoqin','小亲','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaolian','小恋','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaoliu','小流','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,2),
+(DEFAULT,'xiaopao','小跑','202cb962ac59075b964b07152d234b70',0,'17455667788',NOW(),NOW(),'尚鸿运',4,3),
+(DEFAULT,'xiaoshunzi','小顺子','202cb962ac59075b964b07152d234b70',1,'17455667788',NOW(),NOW(),'尚鸿运',4,3);
 #公告管理,
 CREATE TABLE Notice(
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -149,7 +148,7 @@ VALUES(DEFAULT,'2013-10公司整体预测结果','xxxxxxxxxxxxxxxxxxxx','2013-10
 (DEFAULT,'2013-10公司整体预测结果','xxxxxxxxxxxxxxxxxxxx','2013-10',DEFAULT,2,56,568,'部门预测','王二毛'),
 (DEFAULT,'2013-09公司整体预测结果','xxxxxxxxxxxxxxxxxxxx','2013-09',DEFAULT,1,50,56,'整体预测','王二毛'),
 (DEFAULT,'2013-09公司整体预测结果','xxxxxxxxxxxxxxxxxxxx','2013-09',DEFAULT,3,56,800,'部门预测','王二毛');
-#销售绩效
+#销售绩效 关联了员工和部门
 CREATE TABLE Achievement(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	userId INT NOT NULL,
@@ -203,18 +202,19 @@ CREATE TABLE CustomerResource(
 	`status` VARCHAR(50) NOT NULL, #客户状态
 	creationTime TIMESTAMP DEFAULT NOW()NOT NULL,#注册时间
 	createdBy VARCHAR(50) NOT NULL,#录入人
-	phone VARCHAR(50),
+	phone VARCHAR(50) NOT NULL,
 	officePhone VARCHAR(50),
 	addressPhone VARCHAR(50),#家庭电话
 	remark VARCHAR(200)
 )CHARSET=utf8;
 INSERT INTO CustomerResource(`id`,`customerCode`,`customerName`,`sex`,`email`,`address`,`type`,`status`,`creationTime`,createdBy,phone,officePhone,addressPhone,remark)
-VALUES(DEFAULT,'2013112901','安和平','男','1508549427@qq.com','xxxxxxxxx','普通客户','正常',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
-(DEFAULT,'2013112901','安和平2','男','1508549427@qq.com','xxxxxxxxx','普通客户','正常',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
-(DEFAULT,'2013112901','小花','女','1508549427@qq.com','xxxxxxxxx','VIP客户','正常',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
-(DEFAULT,'2013112901','安和平4','男','1508549427@qq.com','xxxxxxxxx','普通客户','正常',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
-(DEFAULT,'2013112901','安和平5','女','1508549427@qq.com','xxxxxxxxx','普通客户','已流失',DEFAULT,'张三','13028803278','0660-6763114','0660-6763114','xxxx'),
-(DEFAULT,'2013112901','安和平6','男','1508549427@qq.com','xxxxxxxxx','普通客户','正常',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx');
+VALUES(DEFAULT,'2013112901','安和平','男','1508549427@qq.com','xxxxxxxxx','普通客户','未分配',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
+(DEFAULT,'2013112901','安和平2','男','1508549427@qq.com','xxxxxxxxx','普通客户','未分配',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
+(DEFAULT,'2013112901','小花','女','1508549427@qq.com','xxxxxxxxx','VIP客户','未分配',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
+(DEFAULT,'2013112901','安和平4','男','1508549427@qq.com','xxxxxxxxx','普通客户','已分配',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx'),
+(DEFAULT,'2013112901','安和平5','女','1508549427@qq.com','xxxxxxxxx','普通客户','已分配',DEFAULT,'张三','13028803278','0660-6763114','0660-6763114','xxxx'),
+(DEFAULT,'2013112901','安和平6','男','1508549427@qq.com','xxxxxxxxx','普通客户','已分配',DEFAULT,'张三','13028803277','0660-6763114','0660-6763114','xxxx');
+
 #客户满意度管理
 CREATE TABLE CustomerSatisfaction(
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -318,8 +318,6 @@ VALUES(DEFAULT,'王四毛','山东临沂泰兴公司离心机销售合同','销�
 (DEFAULT,'王四毛','四川传福集团设备使用培训合同','技术合同',117800.00,'已审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','同意'),
 (DEFAULT,'王四毛','厦门福祥公司明洞设备销售合同','销售合同',117800.00,'待审核',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','拒绝'),
 (DEFAULT,'王四毛','厦门福祥公司明洞设备运输附加合同','运输合同',117800.00,'已执行',DEFAULT,'王五','山东临沂泰兴公司','北京急速科技','鲁No.0569','京B2-20050088','经山东临沂泰兴公司（以下称买受方）与北京急速科技有限公司（以下称出卖方）友好协商，特订立以下条款：...................     ','王四毛','拒绝');
-UPDATE ContractExamine SET userName='xx' WHERE id=1
-SELECT * FROM ContractExamine
 #合同管理
 CREATE TABLE ContractManage(
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -482,3 +480,6 @@ VALUES(DEFAULT,'离心器初速过慢什么问题','售后问题','王二毛',DE
 (DEFAULT,'ERS-2型冲击器售价多少','售后问题','王二毛',DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
 (DEFAULT,'史蒂夫-霍金为啥死的','业务问题','王二毛',DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；',''),
 (DEFAULT,'史蒂夫-霍金为为啥这么可爱','业务问题','王二毛',DEFAULT,'1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；','');
+
+
+
