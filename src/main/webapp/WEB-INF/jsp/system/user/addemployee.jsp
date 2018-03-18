@@ -106,18 +106,7 @@
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/addemp.js"></script>
 <script src="${pageContext.request.contextPath}/js/validator.js"></script>
-<script>
-    var phone=$("#phone");
-   function checkMobile(str) {
-       var reg=/^1[3|4|5|8][0-9]\d{8}$/;
-       if(!reg.test(str)){
-           validateTip(phone.next(),{"color":"red"},"请输入正确的手机号",false);
-       }
-   }
-   phone.on("blur",function () {
-       checkMobile(phone.val());
-   })
-</script>
+
 <!-- validator -->
 <script>
     // initialize the validator function

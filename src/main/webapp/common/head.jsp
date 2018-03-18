@@ -109,7 +109,7 @@
                             </li>
                             <li><a><i class="fa fa-clone"></i>统计分析 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/constitute">客户构成统计</a></li>
+                                    <li><a href="/crm/xxx">客户构成统计</a></li>
                                     <li><a href="/flee">客户流失统计</a></li>
                                     <li><a href="/devote">客户贡献统计</a></li>
                                     <li><a href="/serve">客户服务统计</a></li>
