@@ -27,7 +27,7 @@
                         <form action="/crm/searchContractExamineByCondition" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">合同名称:</strong>
-                                <input type="text" name="contractName" value="${contractName}" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" name="contractName" value="${contractName}" placeholder="Search" class="form-control input-md roleName"maxlength="30">
                                 <strong class="h4">类型</strong>
                                 <select name="contractType" id="contractType"class="form-control">
                                     <option value="">不限</option>

@@ -41,35 +41,35 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">计划编码 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="code" readonly class="form-control col-md-7 col-xs-12"  name="code" value="${plan.code}" placeholder="请输入计划编码" required="required" type="text">
+                                    <input id="code" readonly class="form-control col-md-7 col-xs-12"  name="code" value="${plan.code}" placeholder="请输入计划编码" required="required" type="text"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">计划人姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="userName" type="text"name="userName" value="${plan.userName}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input id="userName" type="text"name="userName" value="${plan.userName}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status">计划状态 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="status" type="text" name="status" value="${plan.status}" required readonly class="form-control col-md-7 col-xs-12">
+                                    <input id="status" type="text" name="status" value="${plan.status}" required readonly class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="month">计划月份 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="month" type="text" value="${plan.month}" name="month"  required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12">
+                                    <input id="month" type="text" value="${plan.month}" name="month"  required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="planContent">计划内容 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="planContent" type="text" value="${plan.planContent}" name="planContent"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input id="planContent" type="text" value="${plan.planContent}" name="planContent"  required="required" class="form-control col-md-7 col-xs-12"maxlength="200">
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

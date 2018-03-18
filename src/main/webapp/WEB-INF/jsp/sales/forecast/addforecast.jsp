@@ -44,7 +44,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">预测结果标题 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title" placeholder="请输入计划标题" required="required" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12"maxlength="50"  name="title" placeholder="请输入计划标题" required="required" type="text">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="month">目标预测时间 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  onclick="WdatePicker();" id="month" name="month" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  onclick="WdatePicker();" id="month" name="month" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -77,21 +77,21 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="scale">部门规模 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="scale" name="scale"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="scale" name="scale"  required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customerNum">客户数量 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="customerNum" name="customerNum"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="customerNum" name="customerNum"  required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="result">预测结果 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea class="form-control col-md-7 col-xs-12" name="result"id="result" style="height: 100px" required=""></textarea>
+                                    <textarea class="form-control col-md-7 col-xs-12" name="result"id="result" style="height: 100px" required=""maxlength="30"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

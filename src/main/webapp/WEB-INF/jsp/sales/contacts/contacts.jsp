@@ -25,7 +25,7 @@
                         <form action="/crm/contactslist" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">联系人:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md" name="name">
+                                <input type="text" placeholder="Search" class="form-control input-md" name="name"maxlength="30">
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
 

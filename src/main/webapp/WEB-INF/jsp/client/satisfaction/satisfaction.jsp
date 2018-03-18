@@ -27,7 +27,7 @@
                         <form action="/crm/searchCustomerSatisfactionByName" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">客户姓名:</strong>
-                                <input type="text" name="customerName"value="${customerName}" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" name="customerName"value="${customerName}" placeholder="Search" class="form-control input-md roleName"maxlength="30">
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
                         </form>

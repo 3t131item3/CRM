@@ -47,7 +47,7 @@
                         <div class="item form-group">
                             <label class="control-label">处理说明 <span class="required"></span></label>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <textarea name="disposeRemark" class="form-control col-md-7 col-xs-12" required placeholder="已联系售后人员准备上门安装，去之前会再次联系客户">${serviceDispose.disposeRemark}</textarea>
+                                <textarea name="disposeRemark" maxlength="200"class="form-control col-md-7 col-xs-12" required placeholder="已联系售后人员准备上门安装，去之前会再次联系客户">${serviceDispose.disposeRemark}</textarea>
                             </div>
                         </div>
                         <div>

@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>添加员工信息</title>
+    <title>修改密码</title>
     <style>
         form span{
             color:red;
@@ -63,21 +63,21 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rePwd">原始密码: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="rePwd" class="form-control col-md-7 col-xs-12"name="rePwd" required="required" type="password">
+                                    <input id="rePwd" class="form-control col-md-7 col-xs-12"name="rePwd" required="required" type="password" maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="newPwd">新密码: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="password" id="newPwd" name="newPwd"required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="password" id="newPwd" name="newPwd"required="required" class="form-control col-md-7 col-xs-12" maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="newPwds">确认密码: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="password" id="newPwds" name="newPwds" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="password" id="newPwds" name="newPwds" required="required" class="form-control col-md-7 col-xs-12" maxlength="30">
                                 </div>
                             </div>
                             <div class="error">${error}</div>

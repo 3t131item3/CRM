@@ -26,7 +26,7 @@
                         <form action="/crm/searchServiceDisposeByCondition" method="post" class="navbar-form navbar" >
                             <div class="form-group">
                                 <strong class="h4">服务名称:</strong>
-                                <input type="text" name="serviceName" value="${serviceName}" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" name="serviceName" value="${serviceName}" placeholder="Search" class="form-control input-md roleName"maxlength="30">
                                 <strong class="h4">类型</strong>
                                 <select name="serviceType" id="serviceType" class="form-control">
                                     <option value="">不限</option>

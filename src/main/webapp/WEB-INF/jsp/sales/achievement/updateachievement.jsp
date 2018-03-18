@@ -55,7 +55,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">绩效等级 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="number" id="number" name="grade" value="${achievement.grade}" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
+                                    <input type="number" id="number" name="grade" value="${achievement.grade}" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
 

@@ -36,7 +36,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >问题标题  <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input class="form-control col-md-7 col-xs-12"  name="problemsTitle"  required="required" type="text">
+                                    <input class="form-control col-md-7 col-xs-12" maxlength="30" name="problemsTitle"  required="required" type="text">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -55,14 +55,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >答复要点 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="responseContent" class="form-control col-md-7 col-xs-12"  required placeholder=""></textarea>
+                                    <textarea name="responseContent"maxlength="100" class="form-control col-md-7 col-xs-12"  required placeholder=""></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark" class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="remark" maxlength="200"class="form-control col-md-7 col-xs-12"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

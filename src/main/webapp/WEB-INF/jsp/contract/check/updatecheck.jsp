@@ -37,7 +37,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contractName">合同名称：<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="contractName"  name="contractName" value="${contractExamine.contractName}" readonly class="form-control col-md-7 col-xs-12" placeholder="请输入员工编码" required="required" type="text">
+                                    <input id="contractName"  name="contractName" value="${contractExamine.contractName}" readonly class="form-control col-md-7 col-xs-12" placeholder="请输入员工编码" required="required" type="text"maxlength="30">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
@@ -57,42 +57,38 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contractMoney">合同金额： <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="contractMoney" name="contractMoney"value="${contractExamine.contractMoney}"readonly required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="contractMoney" name="contractMoney"value="${contractExamine.contractMoney}"readonly required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstParty">甲方： <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="firstParty" name="firstParty"value="${contractExamine.firstParty}" readonly required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="firstParty" name="firstParty"value="${contractExamine.firstParty}" readonly required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="secondParty">乙方： <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="secondParty" name="secondParty"value="${contractExamine.secondParty}"readonly required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="secondParty" name="secondParty"value="${contractExamine.secondParty}"readonly required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstBusinessNumber">甲方企业经营许可证号： <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="firstBusinessNumber" name="firstBusinessNumber "readonly value="${contractExamine.firstBusinessNumber}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="firstBusinessNumber" name="firstBusinessNumber "readonly value="${contractExamine.firstBusinessNumber}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="secondBusinessNumber">乙方企业经营许可证号：</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"id="secondBusinessNumber"  name="secondBusinessNumber" readonly value="${contractExamine.secondBusinessNumber}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"id="secondBusinessNumber"  name="secondBusinessNumber" readonly value="${contractExamine.secondBusinessNumber}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="createdBy">创建人：</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"id="createdBy"  name="createdBy" readonly value="${contractExamine.createdBy}" required="required" class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
+                            <%--创建人默认当前session的名字--%>
+                            <input type="hidden" name="createdBy" value="${userSession.userName}"/>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="creationTime">创建时间：</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -108,14 +104,14 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contractContent">合同内容：</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea class="form-control col-md-7 col-xs-12" name="contractContent"id="contractContent" readonly style="height: 100px" required="">${contractExamine.contractContent}</textarea>
+                                    <textarea class="form-control col-md-7 col-xs-12"maxlength="200" name="contractContent"id="contractContent" readonly style="height: 100px" required="">${contractExamine.contractContent}</textarea>
                                 </div>
                             </div>
                             <br>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12"for="examine">审批意见：</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea class="form-control col-md-7 col-xs-12" name="examine"id="examine" style="height: 100px" required="">${contractExamine.examine}</textarea>
+                                    <textarea class="form-control col-md-7 col-xs-12" maxlength="200"name="examine"id="examine" style="height: 100px" required="">${contractExamine.examine}</textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

@@ -36,21 +36,21 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">计划人姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="userName" name="userName" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="userName" name="userName" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="month">计划月份 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="month" name="month"  required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="month" name="month"  required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="planContent">计划内容 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="planContent" name="planContent"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="planContent" name="planContent"  required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
 

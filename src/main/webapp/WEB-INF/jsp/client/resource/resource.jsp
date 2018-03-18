@@ -25,7 +25,7 @@
                             <form action="/crm/searchCustomerResourceByName" method="post" class="navbar-form navbar" >
                                 <div class="form-group f-group">
                                     <strong class="h4">客户姓名:</strong>
-                                    <input type="text" value="${customerName}"  name="customerName" placeholder="Search" class="form-control input-md roleName">
+                                    <input type="text" value="${customerName}"  name="customerName" placeholder="Search" class="form-control input-md roleName"maxlength="30">
                                     <strong class="h4">分配状态</strong>
                                     <select name="status" id="status" class="form-control">
                                         <option value="">不限</option>

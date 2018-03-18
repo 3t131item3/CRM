@@ -32,18 +32,13 @@
                     </div>
                     <div class="x_content">
                             <form action="/crm/addServiceCreateSave" method="post" class="form-horizontal form-label-left" novalidate>
-                                <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >创建人 <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text"  name="createdBy"  required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                </div>
+                                <%--创建人默认当前session的名字--%>
+                                <input type="hidden" name="createdBy" value="${userSession.userName}"/>
                                 <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >服务名称  <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input class="form-control col-md-7 col-xs-12"  name="serviceName"  required="required" type="text">
+                                    <input class="form-control col-md-7 col-xs-12" maxlength="30"  name="serviceName"  required="required" type="text">
                                 </div>
                             </div>
 
@@ -51,7 +46,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >服务客户 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="customerName"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="customerName" maxlength="30" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 
@@ -59,7 +54,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >联系电话 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" required name="customerPhone" class="form-control col-md-7 col-xs-12" />
+                                    <input type="tel" required name="customerPhone"maxlength="30" class="form-control col-md-7 col-xs-12" />
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -78,14 +73,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >服务内容 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="serviceConcent" class="form-control col-md-7 col-xs-12"  required ></textarea>
+                                    <textarea name="serviceConcent" maxlength="200"class="form-control col-md-7 col-xs-12"  required ></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark" class="form-control col-md-7 col-xs-12" required></textarea>
+                                    <textarea name="remark"maxlength="200" class="form-control col-md-7 col-xs-12" required></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

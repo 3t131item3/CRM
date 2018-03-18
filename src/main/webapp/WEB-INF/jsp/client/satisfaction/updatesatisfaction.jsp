@@ -36,14 +36,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >客户编码:<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input readonly class="form-control col-md-7 col-xs-12"  name="customerCode"value="${customerSatisfaction.customerCode}"  required="required" type="text">
+                                    <input readonly class="form-control col-md-7 col-xs-12"  name="customerCode"value="${customerSatisfaction.customerCode}"  required="required" type="text"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >客户姓名:<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="customerName" value="${customerSatisfaction.customerName}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="customerName" value="${customerSatisfaction.customerName}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -81,35 +81,35 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >质量满意度: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="quality" value="${customerSatisfaction.quality}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="quality" value="${customerSatisfaction.quality}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >服务满意度: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="service" value="${customerSatisfaction.service}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="service" value="${customerSatisfaction.service}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >性价比满意度: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="cost" value="${customerSatisfaction.cost}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="cost" value="${customerSatisfaction.cost}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >总体满意度: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="all" value="${customerSatisfaction.all}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="all" value="${customerSatisfaction.all}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >客户反馈:
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="voltar" class="form-control col-md-7 col-xs-12" >${customerSatisfaction.voltar}</textarea>
+                                    <textarea name="voltar"maxlength="200" class="form-control col-md-7 col-xs-12" >${customerSatisfaction.voltar}</textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

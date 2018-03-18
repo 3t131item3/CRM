@@ -41,14 +41,14 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="userCode" class="form-control col-md-7 col-xs-12" value="${user.userCode}" name="userCode" readonly required="required" type="text">
-                                    <input  class="form-control col-md-7 col-xs-12" value="${user.id}" name="id"  required="required" type="hidden">
+                                    <input  maxlength="30" class="form-control col-md-7 col-xs-12" value="${user.id}" name="id"  required="required" type="hidden">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">员工姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="userName" name="userName" value="${user.userName}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  maxlength="30" id="userName" name="userName" value="${user.userName}" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">

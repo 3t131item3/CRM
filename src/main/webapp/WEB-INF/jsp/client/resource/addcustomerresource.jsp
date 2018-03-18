@@ -39,7 +39,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customerName">客户姓名: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="customerName" name="customerName"value="${customerResource.customerName}"required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="customerName" name="customerName"value="${customerResource.customerName}"required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -54,7 +54,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="creationTime">生日: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="creationTime" name="creationTime"value="${customerResource.creationTime}" onclick="WdatePicker();" required class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="creationTime" name="creationTime"value="${customerResource.creationTime}" onclick="WdatePicker();" required maxlength="30"class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -72,37 +72,37 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机:<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="phone" name="phone" value="${customerResource.phone}" required class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="phone" name="phone" value="${customerResource.phone}" required class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">办公电话</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="officePhone" value="${customerResource.officePhone}"required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="officePhone" value="${customerResource.officePhone}"required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">电子邮箱</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="email"  value="${customerResource.email}"required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="email"  value="${customerResource.email}"required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">家庭电话</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="addressPhone"  value="${customerResource.addressPhone}"required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="addressPhone"  value="${customerResource.addressPhone}"required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">联系地址</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="address" value="${customerResource.address}"required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="address" value="${customerResource.address}"required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">备注信息</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark" value="${customerResource.remark}"class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="remark" maxlength="200"value="${customerResource.remark}"class="form-control col-md-7 col-xs-12"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

@@ -40,7 +40,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">员工姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="userName" name="userName" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  maxlength="30" id="userName" name="userName" required="required" class="form-control col-md-7 col-xs-12">
                                     <input type="hidden"  name="createdBy" value="${userSession.createdBy}" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
@@ -48,14 +48,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userPassword">密码 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="password" id="userPassword" name="userPassword"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="password"   maxlength="30" id="userPassword" name="userPassword"  required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机号 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" id="phone" name="phone"   required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="tel" id="phone" name="phone"  maxlength="30"  required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">

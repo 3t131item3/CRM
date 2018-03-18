@@ -36,14 +36,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">姓名：<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="userName"  name="userName" value="${contractCreate.userName}" class="form-control col-md-7 col-xs-12"  required="required" type="text">
+                                    <input id="userName"  name="userName" value="${contractCreate.userName}" class="form-control col-md-7 col-xs-12"  required="required" type="text"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contractName">合同名称：<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="contractName"  name="contractName" value="${contractCreate.contractName}" class="form-control col-md-7 col-xs-12"  required="required" type="text">
+                                    <input id="contractName"  name="contractName" value="${contractCreate.contractName}" class="form-control col-md-7 col-xs-12"  required="required" type="text"maxlength="30">
                                     <span id="msg" class=" col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
@@ -63,46 +63,46 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contractMoney">合同金额： <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="contractMoney" name="contractMoney"value="${contractCreate.contractMoney}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="contractMoney" name="contractMoney"value="${contractCreate.contractMoney}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstParty">甲方： <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="firstParty" name="firstParty"value="${contractCreate.firstParty}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="firstParty" name="firstParty"value="${contractCreate.firstParty}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="secondParty">乙方： <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="secondParty" name="secondParty"value="${contractCreate.secondParty}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="secondParty" name="secondParty"value="${contractCreate.secondParty}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstBusinessNumber">甲方企业经营许可证号： <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="firstBusinessNumber" name="firstBusinessNumber"value="${contractCreate.firstBusinessNumber}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="firstBusinessNumber" name="firstBusinessNumber"value="${contractCreate.firstBusinessNumber}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="secondBusinessNumber">乙方企业经营许可证号： <span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"id="secondBusinessNumber"  name="secondBusinessNumber" value="${contractCreate.secondBusinessNumber}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"id="secondBusinessNumber"  name="secondBusinessNumber" value="${contractCreate.secondBusinessNumber}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ContractContent">合同内容： <span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="contractContent" name="contractContent" value="${contractCreate.contractContent}"required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="contractContent" name="contractContent" value="${contractCreate.contractContent}"required="required" class="form-control col-md-7 col-xs-12"maxlength="200">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12"for="remark">备注信息：</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea class="form-control col-md-7 col-xs-12" name="remark"id="remark" style="height: 100px" required=""></textarea>
+                                    <textarea class="form-control col-md-7 col-xs-12"maxlength="200" name="remark"id="remark" style="height: 100px" required=""></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

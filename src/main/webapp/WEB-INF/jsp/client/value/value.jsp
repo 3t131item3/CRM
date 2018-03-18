@@ -27,7 +27,7 @@
                         <form action="/crm/searchValueByNameAndType" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">客户姓名:</strong>
-                                <input type="text" name="customerName"value="${customerName}" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" name="customerName"value="${customerName}" placeholder="Search" class="form-control input-md roleName"maxlength="30">
                                 <strong class="h4">类型:</strong>
                                 <select id="type" name="type"class="form-control">
                                     <option value="">请选择</option>

@@ -24,7 +24,7 @@
                         <form action="/crm/searchProblemsByCondition" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">问题名称:</strong>
-                                <input type="text" name="problemsTitle"value="${problemsTitle}" placeholder="Search" class="form-control input-md roleName">
+                                <input type="text" name="problemsTitle"value="${problemsTitle}" placeholder="Search" maxlength="30"class="form-control input-md roleName">
                                 <strong class="h4">类型</strong>
                                 <select name="serviceType" class="form-control">
                                     <option value="">不限</option>

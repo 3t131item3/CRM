@@ -47,14 +47,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >部门简介 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="intro" class="form-control col-md-7 col-xs-12" required ></textarea>
+                                    <textarea  maxlength="100" name="intro" class="form-control col-md-7 col-xs-12" required ></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark" class="form-control col-md-7 col-xs-12" rows="3" required></textarea>
+                                    <textarea name="remark" maxlength="100"class="form-control col-md-7 col-xs-12" rows="3" required></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

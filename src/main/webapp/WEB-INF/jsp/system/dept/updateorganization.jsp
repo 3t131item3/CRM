@@ -48,23 +48,23 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >组织全称 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="name" value="${dept.name}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text"  name="name" maxlength="30" value="${dept.name}" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 
                             <input type="hidden" name="operator" value="${userSession.userName}" class="form-control col-md-7 col-xs-12" />
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" placeholder="总经理办公室负责公司重要政策和文件的制定和发布......">部门简介 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" placeholder="">部门简介 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="intro" class="form-control col-md-7 col-xs-12" required>${dept.intro}</textarea>
+                                    <textarea name="intro"maxlength="100" class="form-control col-md-7 col-xs-12" required>${dept.intro}</textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark"  class="form-control col-md-7 col-xs-12" required>${dept.remark}</textarea>
+                                    <textarea name="remark" maxlength="200" class="form-control col-md-7 col-xs-12" required>${dept.remark}</textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

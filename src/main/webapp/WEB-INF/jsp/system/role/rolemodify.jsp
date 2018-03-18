@@ -44,7 +44,7 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roleName">角色名称 <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" autofocus class="form-control col-md-7 col-xs-12" name="roleName" value="${role.roleName}" id="roleName" placeholder="请输入角色名称" required=""/>
+                                        <input type="text" autofocus class="form-control col-md-7 col-xs-12"  maxlength="30" name="roleName" value="${role.roleName}" id="roleName" placeholder="请输入角色名称" required=""/>
                                     </div>
                                 </div>
                                 <div class="item form-group">
@@ -62,7 +62,7 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="remark">备注信息
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea  class="form-control col-md-7 col-xs-12"id="remark"  name="remark" style="height: 100px">${role.remark}</textarea>
+                                        <textarea  maxlength="100" class="form-control col-md-7 col-xs-12"id="remark"  name="remark" style="height: 100px">${role.remark}</textarea>
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>

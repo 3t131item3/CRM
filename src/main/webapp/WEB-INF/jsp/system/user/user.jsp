@@ -22,7 +22,7 @@
                         <form action="/crm/listAll" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
                                 <strong class="h4">员工姓名:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName" name="userName">
+                                <input type="text"  maxlength="30" placeholder="Search" class="form-control input-md roleName" name="userName">
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
                         </form>

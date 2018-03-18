@@ -35,7 +35,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >问题标题  <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input class="form-control col-md-7 col-xs-12"  name="problemsTitle" value="${problems.problemsTitle}"  required="required" type="text">
+                                    <input class="form-control col-md-7 col-xs-12" maxlength="100" name="problemsTitle" value="${problems.problemsTitle}"  required="required" type="text">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -54,14 +54,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >答复要点 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="responseContent" value="${problems.responseContent}" class="form-control col-md-7 col-xs-12"  required placeholder="1、首先检查电机碳刷与换向片之间是否有污物；2、检查碳刷与换向片之间是否空隙较大，弹簧的弹力是否减小；"></textarea>
+                                    <textarea name="responseContent" maxlength="200"value="${problems.responseContent}" class="form-control col-md-7 col-xs-12"  required placeholder=""></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark" class="form-control col-md-7 col-xs-12">${problems.remark}</textarea>
+                                    <textarea name="remark" maxlength="200" class="form-control col-md-7 col-xs-12">${problems.remark}</textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

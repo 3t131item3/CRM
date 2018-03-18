@@ -42,7 +42,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">联系人姓名 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -57,35 +57,35 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthday">生日 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="birthday" name="birthday"  required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="birthday" name="birthday"  required="required"  onclick="WdatePicker();" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="phone" name="phone" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="phone" name="phone" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="addressPhone">家庭电话 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="addressPhone" name="addressPhone" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="addressPhone" name="addressPhone" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">联系地址 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="address" name="address"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="address" name="address"  required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="remark">备注信息 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="remark" name="remark"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="remark" name="remark"  required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
 
