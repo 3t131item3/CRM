@@ -37,13 +37,13 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th width="5%">序号</th>
+                                <th width="6%">序号</th>
                                 <th width="8%">公告编码</th>
                                 <th>标题</th>
                                 <th>发布时间</th>
                                 <th width="7%">发布人</th>
                                 <th>内容</th>
-                                <th>操作</th>
+                                <th width="16%">操作</th>
                             </tr>
                             </thead>
 

@@ -21,10 +21,10 @@
     background: #fff;
     border-radius: 4px;
 }
-/*.removerChid{*/
-    /*margin: 4px;*/
-    /*border: 1px solid #ccc;*/
-/*}*/
+.removerChid{
+    margin: 4px;
+    border: 1px solid #ccc;
+}
 .removerChid h2{
     padding-left: 8px;
     font-size: 14px;

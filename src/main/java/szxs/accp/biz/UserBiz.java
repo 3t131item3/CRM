@@ -29,10 +29,10 @@ public interface UserBiz {
 
     /**
      *
-     * @param userCode 验证userCode是否存在
+     * @param phone 验证phone是否存在
      * @return
      */
-    User check(String userCode);
+    User check(String phone);
     /**
      * 根据名字和当前部门查询出他上级销售经理的名字
      * @param userName

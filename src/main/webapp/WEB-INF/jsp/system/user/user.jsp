@@ -57,7 +57,7 @@
                                         <a href="/crm/update/${emp.id}" class="btn btn-info btn-xs">修改</a>
                                             <%--<a href="/modifyRole" class="btn btn-success btn-xs">启用/禁用</a>--%>
                                         <a href="/crm/userview/${emp.id}" class="btn btn-success btn-xs">查看</a>
-                                        <a href="javascript:;" userid=${emp.id} username=${emp.userName} class="btn btn-danger btn-xs deleteUser">删除</a>
+                                        <a href="javascript:;" userid=${emp.id} username=${emp.userName} class="btn btn-danger btn-xs" id="deleteUser">删除</a>
                                             <%--<a href="#" class="btn btn-primary btn-xs">授权</a>--%>
                                     </td>
                                 </tr>
@@ -71,8 +71,6 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
-<script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/pages.js"></script>
 <script src="${pageContext.request.contextPath}/js/userlist.js"></script>
 

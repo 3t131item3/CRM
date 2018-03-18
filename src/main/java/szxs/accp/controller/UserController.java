@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.util.HtmlUtils;
 import szxs.accp.biz.DeptBiz;
 import szxs.accp.biz.RoleBiz;
 import szxs.accp.biz.UserBiz;
@@ -109,6 +110,7 @@ public class UserController {
     public String addemployee(User user,Dept dept,Role role,Model model){
         String code="crm-"+UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,4);
         user.setUserCode(code);
+        user.setUserName(HtmlUtils.htmlEscape(user.getUserName()));
         if(userBiz.add(user)){
             return "redirect:/crm/listEmpAll";
         }else{
@@ -178,17 +180,28 @@ public class UserController {
 
     /**
      *
-     * @param userCode 验证userCode是否存在
+     * @param phone 验证手机号是否存在
      * @return
      */
-    @RequestMapping("/exists/{userCode}")
+    @RequestMapping("/exists/{phone}")
     @ResponseBody
-    public String exists(@PathVariable String userCode){
+    public String exists(@PathVariable String phone){
         Map<String,String> map = new HashMap<String, String>();
-        if(userBiz.check(userCode)!=null){
-            map.put("userCode","exist");
+        //判断手机号是否存在
+        if(userBiz.check(phone)!=null){
+            map.put("phone","exist");
         }else{
-            map.put("userCode","no");
+            if(phone.length()!=11){
+                map.put("phone","length");
+            }else{
+                //判断手机号是否是13或15或17或18开头
+                if(phone.startsWith("13")||phone.startsWith("15")||phone.startsWith("17")||phone.startsWith("18")){
+                    map.put("phone","yes");
+                }else{
+                    map.put("phone", "no");
+                }
+
+            }
         }
         return JSON.toJSONString(map);
     }

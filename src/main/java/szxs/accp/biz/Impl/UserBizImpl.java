@@ -41,12 +41,13 @@ public class UserBizImpl implements UserBiz{
 
     /**
      *
-     * @param userCode 验证userCode是否存在
+     * @param phone 验证phone是否存在
      * @return
      */
-    public User check(String userCode) {
-        return userDao.check(userCode);
+    public User check(String phone) {
+        return userDao.check(phone);
     }
+
 
     public User getUserByUserName(String userName) {
         return userDao.getUserByUserName(userName);

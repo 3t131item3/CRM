@@ -56,12 +56,12 @@
             <if test="userName!=null and userName!=''">
                 userName like concat('%',#{userName},'%')
             </if>
-            AND u.deptId=d.id and u.roleId=r.id
+            AND u.deptId=d.id and u.roleId=r.id order by creationTime DESC
         </where>
     </select>
-    <!--查询userCode是否存在-->
+    <!--查询phone是否存在-->
     <select id="check" resultType="User">
-        select * from `user` where userCode=#{userCode}
+        select * from `user` where phone=#{phone}
     </select>
     <!--根据名字和当前部门查询出他上级销售经理的名字-->
     <select id="getUserByUserName" resultType="User">

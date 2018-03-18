@@ -27,10 +27,10 @@ public interface UserDao {
 
     /**
      *
-     * @param userCode 根据userCode查找
+     * @param phone 根据phone查找
      * @return
      */
-    User check(@Param("userCode") String userCode);
+    User check(@Param("phone") String phone);
 
     /**
      * 根据名字和当前部门查询出他上级销售经理的名字

@@ -55,7 +55,8 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机号 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" id="phone" name="phone"  maxlength="30"  required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="tel" id="phone" name="phone"  maxlength="30"  required="required"  class="form-control col-md-7 col-xs-7">
+                                    <span id="msg" class="col-md-3 col-xs-3"></span>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -105,6 +106,19 @@
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/addemp.js"></script>
 <script src="${pageContext.request.contextPath}/js/validator.js"></script>
+<script>
+    var phone=$("#phone");
+   function checkMobile(str) {
+       var reg=/^1[3|4|5|8][0-9]\d{8}$/;
+       if(!reg.test(str)){
+           validateTip(phone.next(),{"color":"red"},"请输入正确的手机号",false);
+       }
+   }
+
+   phone.on("blur",function () {
+       checkMobile(phone.val());
+   })
+</script>
 <!-- validator -->
 <script>
     // initialize the validator function
@@ -126,7 +140,8 @@
         if (!validator.checkAll($(this))) {
             submit = false;
         }
-        if (submit==true && $("#userCode").attr("validateStatus")=="true")
+
+        if (submit && $("#phone").attr("validateStatus")=="true")
             this.submit();
 
         return false;
