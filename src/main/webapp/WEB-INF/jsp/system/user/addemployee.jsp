@@ -55,7 +55,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机号 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" id="phone" name="phone"  maxlength="30"  required="required"  class="form-control col-md-7 col-xs-7">
+                                    <input type="text" id="phone" name="phone"  maxlength="30"    class="form-control col-md-7 col-xs-7">
                                     <span id="msg" class="col-md-3 col-xs-3"></span>
                                 </div>
                             </div>
@@ -114,7 +114,6 @@
            validateTip(phone.next(),{"color":"red"},"请输入正确的手机号",false);
        }
    }
-
    phone.on("blur",function () {
        checkMobile(phone.val());
    })

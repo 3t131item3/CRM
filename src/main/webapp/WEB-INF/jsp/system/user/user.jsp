@@ -47,10 +47,10 @@
                             <c:forEach items="${user}" var="emp" varStatus="status" >
                                 <tr>
                                     <td>${status.index+1}</td>
-                                    <td>${emp.userName}</td>
+                                    <td><c:out value="${emp.userName}"/></td>
                                     <td> <c:if test="${emp.gender==0}">男</c:if> <c:if test="${emp.gender==1}">女</c:if></td>
-                                    <td>${emp.dept.name}</td>
-                                    <td>${emp.role.roleName}</td>
+                                    <td><c:out value="${emp.dept.name}"/></td>
+                                    <td><c:out value="${emp.role.roleName}"/></td>
                                     <td>${emp.lastLoginTime}</td>
                                     <td>${userSession.userName}</td>
                                     <td>
