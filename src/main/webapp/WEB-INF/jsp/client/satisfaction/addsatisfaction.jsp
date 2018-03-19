@@ -34,7 +34,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >客户姓名:<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="customerName" value="${customerSatisfaction.customerName}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
+                                    <input type="text"  name="customerName" value="${customerSatisfaction.customerName}" required class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -85,7 +85,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >性价比满意度: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="cost" value="${customerSatisfaction.cost}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
+                                    <input type="text"  name="cost" value="${customerSatisfaction.cost}" required class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -117,11 +117,13 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
-<script src="${pageContext.request.contextPath}/js/validator.js"></script>
+<script src="${pageContext.request.contextPath}/calendar/WdatePicker.js"></script>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/addemp.js"></script>
-<!-- validator -->
+<script src="${pageContext.request.contextPath}/js/validator.js"></script>
 <script>
+
+
+
     // initialize the validator function
     validator.message.date = 'not a real date';
 
@@ -134,20 +136,22 @@
     $('.multi.required').on('keyup blur', 'input', function() {
         validator.checkField.apply($(this).siblings().last()[0]);
     });
-    /*$('form').submit(function(e) {
+
+    $('form').submit(function(e) {
         e.preventDefault();
-        var submit=true
+        var submit = true;
+
         // evaluate the form using generic validaing
         if (!validator.checkAll($(this))) {
             submit = false;
         }
-        if (submit==true && $("#userCode").attr("validateStatus")=="true")
+
+        if (submit)
             this.submit();
+
         return false;
-    });*/
+    });
 </script>
-<!-- /validator -->
-
-
 </body>
 </html>
+

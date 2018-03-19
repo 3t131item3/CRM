@@ -47,8 +47,8 @@
                     <div class="menu_section">
 
                         <ul class="nav side-menu">
-                            <li class="active"><a><i class="fa fa-cogs"></i> 系统设置 <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu" style="display: block">
+                            <li><a><i class="fa fa-cogs"></i> 系统设置 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
                                     <c:if test="${userSession.id==1}">
                                         <li><a href="/crm/rolelist">角色管理</a></li>
                                         <li><a href="/crm/listDeptAll">组织结构</a></li>
@@ -63,7 +63,7 @@
                             <li><a><i class="fa fa-edit"></i> 销售管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="/crm/planList">销售计划</a></li>
-                                    <c:if test="${userSession.roleId!=4 and userSession.roleId!=5}">
+                                    <c:if test="${userSession.roleId!=4}">
                                       <li><a href="/crm/forecastList">销售预测</a></li>
                                       <li><a href="/crm/achievement">销售绩效</a></li>
                                     </c:if>
@@ -76,8 +76,10 @@
                             <li><a><i class="fa fa-user"></i> 客户管理<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="/crm/customerResourceList">客户资源管理</a></li>
+                                    <c:if test="${userSession.roleId!=2}">
                                     <li><a href="/crm/customerVauleList">客户价值管理</a></li>
                                     <li><a href="/crm/customerSatisfactionList">客户满意度管理</a></li>
+                                    </c:if>
                                     <li><a href="/crm/customerReputationList">客户信誉管理</a></li>
                                    <%-- <li><a href="/crm/develop">客户发展计划</a></li>
                                     <li><a href="/crm/concern">客户关怀</a></li>--%>
@@ -102,17 +104,17 @@
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i> 订单管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/wait">代下订单</a></li>
+                                   <%-- <li><a href="/wait">代下订单</a></li>
                                     <li><a href="/query">订单查询</a></li>
-                                    <li><a href="/statistics">订单统计</a></li>
+                                    <li><a href="/statistics">订单统计</a></li>--%>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-clone"></i>统计分析 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/crm/xxx">客户构成统计</a></li>
-                                    <li><a href="/flee">客户流失统计</a></li>
+                                    <li><a href="/crm/constituteList">客户构成统计</a></li>
+                                   <%-- <li><a href="/flee">客户流失统计</a></li>
                                     <li><a href="/devote">客户贡献统计</a></li>
-                                    <li><a href="/serve">客户服务统计</a></li>
+                                    <li><a href="/serve">客户服务统计</a></li>--%>
                                 </ul>
                             </li>
                         </ul>

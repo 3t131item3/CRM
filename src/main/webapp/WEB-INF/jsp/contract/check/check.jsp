@@ -87,7 +87,7 @@
                                     <td>
                                         <a href="/crm/viewContractExamine/${contractExamine.id}" class="btn btn-success btn-xs">查看</a>
                                         <c:if test="${contractExamine.contractStatus=='待审核'}">
-                                            <a href="/crm/updateContractExamine/${contractExamine.id}" class="btn  btn-warning btn-xs">审核</a>
+                                            <a href="/crm/updateContractExamine/${contractExamine.id}/${contractExamine.userName}" class="btn  btn-warning btn-xs">审核</a>
                                         </c:if>
                                     </td>
                                 </tr>

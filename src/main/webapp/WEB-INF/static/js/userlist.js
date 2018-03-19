@@ -65,7 +65,7 @@ $(function(){
 	$('#yes').click(function () {
 		deleteUser(userObj);
 	});
-	$("#deleteUser").on("click",function(){
+	$(".deleteUser").on("click",function(){
 		userObj = $(this);
 		changeDLGContent("你确定要删除用户【"+userObj.attr("username")+"】吗？");
 		openYesOrNoDLG();

@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>客户构成统计</title>
+    <title>客户贡献统计</title>
 
 </head>
 <body>
@@ -12,46 +12,38 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>销售管理<small>&gt;&gt;客户构成统计</small></h3>
+                <h3>销售管理<small>&gt;&gt;客户贡献统计</small></h3>
             </div>
-
-
         </div>
-
         <div class="clearfix"></div>
-
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
                         <form action="" method="post" class="navbar-form navbar" >
                             <div class="form-group f-group">
-                                <strong class="h4">月份:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName">
+                                <strong class="h4">查询时间:</strong>
+                                <input type="text" class="form-control input-md roleName">-
+                                <strong class="h4">截至时间:</strong>
+                                <input type="text"  class="form-control input-md roleName">
                             </div>
                             <input type="submit" value="查询" class="btn btn-success">
-
                         </form>
-
                     </div>
-
                     <div class="x_content">
 
-                        <strong class="h3">客户构成统计信息列表</strong>
-
+                        <strong class="h3">客户贡献统计信息列表</strong>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
                                 <th></th>
-                                <th>客户数量</th>
+                                <th>贡献业绩(万元)</th>
                                 <th>月份</th>
                                 <th>同比</th>
                                 <th>环比</th>
                             </tr>
                             </thead>
-
                             <tbody>
-
                             <tr>
                                 <td>Donna Snider</td>
                                 <td>27</td>

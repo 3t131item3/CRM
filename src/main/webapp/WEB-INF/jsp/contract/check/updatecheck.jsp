@@ -111,7 +111,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12"for="examine">审批意见：</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea class="form-control col-md-7 col-xs-12" maxlength="200"name="examine"id="examine" style="height: 100px" required="">${contractExamine.examine}</textarea>
+                                    <textarea class="form-control col-md-7 col-xs-12" maxlength="200"name="examine"id="examine" style="height: 100px" required></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
@@ -145,7 +145,7 @@
         validator.checkField.apply($(this).siblings().last()[0]);
     });
 
-    $('form').submit(function(e) {
+    /*$('form').submit(function(e) {
         e.preventDefault();
         var submit = true;
 
@@ -158,7 +158,7 @@
             this.submit();
 
         return false;
-    });
+    });*/
 </script>
 </body>
 </html>

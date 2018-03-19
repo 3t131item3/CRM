@@ -21,6 +21,7 @@
     <update id="updateContractCreate">
         update ContractCreate
         <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="contractName!=null and contractName!=''"> and `contractName` LIKE concat('%',#{contractName},'%')</if>
             <if test="contractName!=null and contractName!=''">contractName=#{contractName},</if>
             <if test="contractType !=null and contractType!=''">contractType=#{contractType},</if>
             <if test="contractMoney !=null and contractMoney!=''">contractMoney=#{contractMoney},</if>

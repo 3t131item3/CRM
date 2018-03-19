@@ -34,6 +34,7 @@
                             <thead>
                             <tr>
                                 <th>序号</th>
+                                <th>员工编号</th>
                                 <th>员工姓名</th>
                                 <th>性别</th>
                                 <th>所在部门</th>
@@ -47,6 +48,7 @@
                             <c:forEach items="${user}" var="emp" varStatus="status" >
                                 <tr>
                                     <td>${status.index+1}</td>
+                                    <td>${emp.userCode}</td>
                                     <td><c:out value="${emp.userName}"/></td>
                                     <td> <c:if test="${emp.gender==0}">男</c:if> <c:if test="${emp.gender==1}">女</c:if></td>
                                     <td><c:out value="${emp.dept.name}"/></td>
@@ -57,7 +59,7 @@
                                         <a href="/crm/update/${emp.id}" class="btn btn-info btn-xs">修改</a>
                                             <%--<a href="/modifyRole" class="btn btn-success btn-xs">启用/禁用</a>--%>
                                         <a href="/crm/userview/${emp.id}" class="btn btn-success btn-xs">查看</a>
-                                        <a href="javascript:;" userid=${emp.id} username=${emp.userName} class="btn btn-danger btn-xs" id="deleteUser">删除</a>
+                                        <a href="javascript:;" userid=${emp.id} username=${emp.userName} class="btn btn-danger btn-xs deleteUser">删除</a>
                                             <%--<a href="#" class="btn btn-primary btn-xs">授权</a>--%>
                                     </td>
                                 </tr>

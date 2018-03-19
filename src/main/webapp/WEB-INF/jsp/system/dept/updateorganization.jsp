@@ -64,7 +64,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark" maxlength="200" class="form-control col-md-7 col-xs-12" required>${dept.remark}</textarea>
+                                    <textarea name="remark" maxlength="200" class="form-control col-md-7 col-xs-12" >${dept.remark}</textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

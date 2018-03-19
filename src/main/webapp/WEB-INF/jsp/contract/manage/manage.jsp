@@ -69,10 +69,18 @@
                                     <td>${contractManage.nextHanlder}</td>
                                     <td>
                                         <a href="/crm/viewContractManage/${contractManage.id}" class="btn btn-success btn-xs">查看</a>
+                                        <c:if test="${contractManage.contractStatus!='已解除'}">
+                                        <c:if test="${contractManage.contractStatus!='已转让'}">
+                                        <c:if test="${contractManage.contractStatus!='已变更'}">
+                                        <c:if test="${contractManage.contractStatus!='已执行'}">
                                         <a href="/crm/updateExecuteContractManage/${contractManage.id}" class="btn btn-primary btn-xs">执行</a>
+                                        </c:if>
                                         <a href="/crm/updateChangeCreateManage/${contractManage.id}" class="btn btn-warning btn-xs">变更</a>
+                                        </c:if>
                                         <a href="/crm/updateTransfereCreateManage/${contractManage.id}" class="btn btn-danger btn-xs">转让</a>
+                                        </c:if>
                                         <a href="/crm/updateRelieveCreateManage/${contractManage.id}" class="btn btn-dark btn-xs">解除</a>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </c:forEach>

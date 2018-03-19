@@ -70,7 +70,7 @@
                             <tbody>
                     <c:forEach var="serviceDispose" items="${serviceDisposeList}" varStatus="status">
                         <%--只处理已分配的--%>
-                        <c:if test="${serviceDispose.serviceStatus=='已分配'||serviceDispose.serviceStatus=='未处理'}">
+                        <%--<c:if test="${serviceDispose.serviceStatus=='已分配'||serviceDispose.serviceStatus=='未处理'}">--%>
                             <tr>
                                 <td>${status.count}</td>
                                 <td>${serviceDispose.serviceName}</td>
@@ -86,7 +86,7 @@
                                     <a href="/crm/viewServiceDispose/${serviceDispose.id}" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
-                        </c:if>
+                        <%--</c:if>--%>
                     </c:forEach>
                             </tbody>
                         </table>
@@ -97,5 +97,8 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
+<script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/pages.js"></script>
 </body>
 </html>

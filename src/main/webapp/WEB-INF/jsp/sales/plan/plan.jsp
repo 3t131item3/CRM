@@ -57,12 +57,16 @@
                                 <td>${plan.createdBy}</td>
                                 <td>${plan.nextHanlder}</td>
                                 <td>
+                                    <c:if test="${plan.status=='新创建'}">
                                     <a href="/crm/updatePlan/${plan.id}" class="btn btn-warning btn-xs">修改</a>
+                                    </c:if>
                                     <c:if test="${plan.status=='新创建'}">
                                         <a href="/crm/commitPlan/${plan.id}/${plan.userName}" class="btn btn-info btn-xs">提交</a>
                                     </c:if>
                                     <a href="/crm/viewPlan/${plan.id}" class="btn btn-success btn-xs">查看</a>
+                                    <c:if test="${plan.status=='新创建'}">
                                     <a href="javascript:;" planId="${plan.id}" planName="${plan.userName}" class="btn btn-danger btn-xs deletePlan">删除</a>
+                                    </c:if>
                                 </td>
                             </tr>
                            </c:forEach>

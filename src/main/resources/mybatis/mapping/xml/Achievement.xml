@@ -28,7 +28,7 @@
         </association>
     </resultMap>
     <insert id="addAchievement">
-        insert into achievement VALUES (DEFAULT ,#{user.id},#{dept.id},DEFAULT,#{lastUpdateTime},#{createdBy},NULL )
+        insert into achievement VALUES (DEFAULT ,#{user.id},#{dept.id},#{grade},#{lastUpdateTime},#{createdBy},NULL )
     </insert>
     <update id="modifyAchievement">
         UPDATE achievement

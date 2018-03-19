@@ -70,7 +70,7 @@
                             <tbody>
                         <c:forEach var="servicePigeonhole" items="${servicePigeonholeList}" varStatus="status">
                             <%--只处理已反馈的--%>
-                            <c:if test="${servicePigeonhole.serviceStatus=='已反馈'}">
+                            <%--<c:if test="${servicePigeonhole.serviceStatus=='已反馈'}">--%>
                             <tr>
                                 <td>${status.count}</td>
                                 <td>${servicePigeonhole.serviceName}</td>
@@ -80,11 +80,13 @@
                                 <td>${servicePigeonhole.createdBy}</td>
                                 <td>${servicePigeonhole.nextHanlder}</td>
                                 <td>
+                                    <c:if test="${servicePigeonhole.serviceStatus!='已归档'}">
                                     <a href="/crm/updatePigeonholeSave/${servicePigeonhole.id}" class="btn btn-info btn-xs">归档</a>
+                                    </c:if>
                                     <a href="/crm/viewPigeonhole/${servicePigeonhole.id}" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
-                            </c:if>
+                            <%--</c:if>--%>
                         </c:forEach>
                             </tbody>
                         </table>

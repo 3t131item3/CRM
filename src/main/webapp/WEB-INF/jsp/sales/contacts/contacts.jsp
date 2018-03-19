@@ -79,13 +79,5 @@
 <%@ include file="/common/foot.jsp"%>
 <script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/pages.js"></script>
 <script src="${pageContext.request.contextPath}/js/contacts.js"></script>
-<%--<script type="text/javascript">
-    $(document).ready(function () {
-        $(".removes").click(function () {
-            if(!confirm("確定要刪除嗎？")){
-                $(this).attr("href","/crm/contactslist");
-            }
-        })
-    });
-</script>--%>

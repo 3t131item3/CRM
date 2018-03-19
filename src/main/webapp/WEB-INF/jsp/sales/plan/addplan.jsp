@@ -74,6 +74,9 @@
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/validator.js"></script>
 <script>
+
+
+
     // initialize the validator function
     validator.message.date = 'not a real date';
 

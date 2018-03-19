@@ -88,5 +88,8 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
+<script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/pages.js"></script>
 </body>
 </html>

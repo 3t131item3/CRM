@@ -37,7 +37,6 @@
         <result property="creationTime" column="creationTime"/>
         <result property="lastLoginTime" column="lastLoginTime"/>
         <result property="createdBy" column="createdBy"/>
-        <result property="isStart" column="isStart"/>
         <result property="deptId" column="deptId"/>
         <result property="roleId" column="roleId"/>
         <association property="role" javaType="Role">

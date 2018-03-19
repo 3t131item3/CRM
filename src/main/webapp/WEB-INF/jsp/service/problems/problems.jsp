@@ -47,8 +47,8 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th>序号</th>
-                                <th>问题名称</th>
+                                <th width="5%">序号</th>
+                                <th >问题名称</th>
                                 <th>类型</th>
                                 <th>创建人</th>
                                 <th>最后操作时间</th>

@@ -61,10 +61,11 @@
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机号 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" id="phone" name="phone" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
+                                    <span id="msg" class="col-md-3 col-xs-3"></span>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -82,10 +83,10 @@
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="remark">备注信息 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="remark">备注信息
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="remark" name="remark"  required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
+                                    <textarea name="remark"maxlength="200"id="remark" class="form-control col-md-7 col-xs-12"></textarea>
                                 </div>
                             </div>
 
@@ -107,6 +108,8 @@
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath }/calendar/WdatePicker.js"></script>
 <script src="${pageContext.request.contextPath}/js/validator.js"></script>
+<script src="${pageContext.request.contextPath}/js/addemp.js"></script>
+<!-- validator -->
 <script>
     // initialize the validator function
     validator.message.date = 'not a real date';
@@ -120,22 +123,24 @@
     $('.multi.required').on('keyup blur', 'input', function() {
         validator.checkField.apply($(this).siblings().last()[0]);
     });
-
     $('form').submit(function(e) {
         e.preventDefault();
-        var submit = true;
-
+        var submit=true
         // evaluate the form using generic validaing
         if (!validator.checkAll($(this))) {
             submit = false;
         }
 
-        if (submit)
+        if (submit && $("#phone").attr("validateStatus")=="true")
             this.submit();
 
         return false;
     });
 </script>
+<!-- /validator -->
+
+
 </body>
 </html>
+
 

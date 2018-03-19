@@ -60,10 +60,10 @@
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contractMoney">合同金额： <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contractMoney">合同金额 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="contractMoney" name="contractMoney"value="${contractCreate.contractMoney}" required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
+                                    <input type="number"  id="contractMoney" name="contractMoney"value="${contractCreate.contractMoney}" required="required" data-validate-minmax="10000,100000000" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -102,7 +102,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12"for="remark">备注信息：</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea class="form-control col-md-7 col-xs-12"maxlength="200" name="remark"id="remark" style="height: 100px" required=""></textarea>
+                                    <textarea class="form-control col-md-7 col-xs-12"maxlength="200" name="remark"id="remark" style="height: 100px"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

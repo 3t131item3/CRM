@@ -69,7 +69,7 @@
                             <tbody>
                     <c:forEach var="serviceBack" items="${serviceBackList}" varStatus="status">
                         <%--只处理已处理和未反馈的--%>
-                        <c:if test="${serviceBack.serviceStatus=='已处理'||serviceBack.serviceStatus=='未反馈'}">
+                        <%--<c:if test="${serviceBack.serviceStatus=='已处理'||serviceBack.serviceStatus=='未反馈'}">--%>
                              <tr>
                                  <td>${status.count}</td>
                                  <td>${serviceBack.serviceName}</td>
@@ -79,11 +79,13 @@
                                  <td>${serviceBack.createdBy}</td>
                                  <td>${serviceBack.nextHanlder}</td>
                                 <td>
+                                    <c:if test="${serviceBack.serviceStatus!='已反馈'}">
                                     <a href="/crm/updateServiceBack/${serviceBack.id}" class="btn btn-info btn-xs">反馈</a>
+                                    </c:if>
                                     <a href="/crm/viewServiceBack/${serviceBack.id}" class="btn btn-success btn-xs">查看</a>
                                 </td>
                             </tr>
-                        </c:if>
+                        <%--</c:if>--%>
                     </c:forEach>
                             </tbody>
                         </table>
@@ -97,5 +99,8 @@
     </div>
 </div>
 <%@ include file="/common/foot.jsp"%>
+<script src="${pageContext.request.contextPath}/js/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/dataTables.bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/pages.js"></script>
 </body>
 </html>

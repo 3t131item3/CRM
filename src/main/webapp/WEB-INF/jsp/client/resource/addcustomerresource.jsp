@@ -70,31 +70,32 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机:<span class="required">*</span></label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">手机号:<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" id="phone" name="phone" value="${customerResource.phone}" required class="form-control col-md-7 col-xs-12"maxlength="30">
+                                    <span id="msg" class="col-md-3 col-xs-3"></span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">办公电话</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">办公电话<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text"  name="officePhone" value="${customerResource.officePhone}"required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">电子邮箱</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">电子邮箱<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text"  name="email"  value="${customerResource.email}"required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">家庭电话</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">家庭电话<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text"  name="addressPhone"  value="${customerResource.addressPhone}"required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
+                                    <input type="text"  name="addressPhone"  value="${customerResource.addressPhone}" required class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">联系地址</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">联系地址<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text"  name="address" value="${customerResource.address}"required="required" class="form-control col-md-7 col-xs-12"maxlength="30">
                                 </div>
@@ -121,8 +122,11 @@
 </div>
 <%@ include file="/common/foot.jsp"%>
 <script src="${pageContext.request.contextPath}/calendar/WdatePicker.js"></script>
+<script src="${pageContext.request.contextPath}/js/addemp.js"></script>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/validator.js"></script>
+
+<!-- validator -->
 <script>
     // initialize the validator function
     validator.message.date = 'not a real date';
@@ -136,22 +140,23 @@
     $('.multi.required').on('keyup blur', 'input', function() {
         validator.checkField.apply($(this).siblings().last()[0]);
     });
-
     $('form').submit(function(e) {
         e.preventDefault();
-        var submit = true;
-
+        var submit=true
         // evaluate the form using generic validaing
         if (!validator.checkAll($(this))) {
             submit = false;
         }
 
-        if (submit)
+        if (submit && $("#phone").attr("validateStatus")=="true")
             this.submit();
 
         return false;
     });
 </script>
+<!-- /validator -->
+
+
 </body>
 </html>
 

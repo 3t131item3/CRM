@@ -54,7 +54,8 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" >联系电话 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" required name="customerPhone"maxlength="30" class="form-control col-md-7 col-xs-12" />
+                                    <input type="text" id="phone"  required name="customerPhone"maxlength="30" class="form-control col-md-7 col-xs-12" />
+                                    <span id="msg" class="col-md-3 col-xs-3"></span>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -77,10 +78,10 @@
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注信息
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="remark"maxlength="200" class="form-control col-md-7 col-xs-12" required></textarea>
+                                    <textarea name="remark"maxlength="200" class="form-control col-md-7 col-xs-12"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
@@ -99,7 +100,10 @@
 </div>
 <%@ include file="/common/foot.jsp"%>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/addemp.js"></script>
 <script src="${pageContext.request.contextPath}/js/validator.js"></script>
+
+<!-- validator -->
 <script>
     // initialize the validator function
     validator.message.date = 'not a real date';
@@ -113,22 +117,22 @@
     $('.multi.required').on('keyup blur', 'input', function() {
         validator.checkField.apply($(this).siblings().last()[0]);
     });
-
     $('form').submit(function(e) {
         e.preventDefault();
-        var submit = true;
-
+        var submit=true
         // evaluate the form using generic validaing
         if (!validator.checkAll($(this))) {
             submit = false;
         }
 
-        if (submit)
+        if (submit && $("#phone").attr("validateStatus")=="true")
             this.submit();
 
         return false;
     });
 </script>
+<!-- /validator -->
+
+
 </body>
 </html>
-
