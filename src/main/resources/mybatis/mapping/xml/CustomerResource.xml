@@ -4,16 +4,48 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="szxs.accp.dao.CustomerResourceDao">
     <!--根据条件查询-->
-    <select id="customerResourceList" resultType="CustomerResource">
-        select * from CustomerResource where 1=1
-            <if test="id!=null and id>0"> and id=#{id}</if>
-            <if test="customerName!=null and customerName!=''"> and `customerName` LIKE concat('%',#{customerName},'%')</if>
-            <if test="status!=null and status!=''"> and `status`=#{status}</if>
+    <select id="customerResourceAllList" resultType="CustomerResource">
+        SELECT * FROM CustomerResource ORDER BY creationTime DESC
     </select>
+    <!--根据条件查询-->
+    <select id="customerResourceList" resultMap="Map">
+        SELECT *,cus.`id` cus_id, ch.`id` ch_id FROM CustomerResource cus,Chance ch WHERE cus.`ChanceId`=ch.`id`
+            <if test="id!=null and id>0"> and cus.`id`=#{id}</if>
+            <if test="customerName!=null and customerName!=''"> and `customerName` LIKE concat('%',#{customerName},'%')</if>
+            <if test="allotStatus!=null and allotStatus!=''"> and `allotStatus`=#{allotStatus}</if>
+          ORDER BY cus.creationTime DESC
+    </select>
+    <resultMap id="Map" type="CustomerResource">
+       <id  property="id" column="cus_id"/>
+       <result property="customerCode" column="customerCode"/>
+       <result property="customerName" column="customerName"/>
+       <result property="sex" column="sex"/>
+       <result property="email" column="email"/>
+       <result property="address" column="address"/>
+       <result property="type" column="type"/>
+       <result property="customerStatus" column="customerStatus"/>
+       <result property="allotStatus" column="allotStatus"/>
+       <result property="creationTime" column="creationTime"/>
+       <result property="createdBy" column="createdBy"/>
+       <result property="phone" column="phone"/>
+       <result property="officePhone" column="officePhone"/>
+       <result property="addressPhone" column="addressPhone"/>
+       <result property="remark" column="remark"/>
+        <association property="chance" javaType="Chance">
+            <id  property="id" column="ch_id"/>
+            <result property="chanceName" column="chanceName"/>
+            <result property="chanceType" column="chanceType"/>
+            <result property="chanceSource" column="chanceSource"/>
+            <result property="createdBy" column="createdBy"/>
+            <result property="creationTime" column="creationTime"/>
+            <result property="chanceContent" column="chanceContent"/>
+            <result property="allotUserName" column="allotUserName"/>
+        </association>
+    </resultMap>
     <!--新增-->
     <insert id="addCustomerResource" >
-        INSERT INTO CustomerResource(`id`,`customerCode`,`customerName`,`sex`,`email`,`address`,`type`,`status`,`creationTime`,createdBy,phone,officePhone,addressPhone,remark)
-         VALUES(DEFAULT,#{customerCode},#{customerName},#{sex},#{email},#{address},#{type},#{status},DEFAULT,#{createdBy},#{phone},#{officePhone},#{addressPhone},#{remark})
+      INSERT INTO CustomerResource(`id`,`customerCode`,`customerName`,`sex`,`email`,`address`,`type`,`customerStatus`,allotStatus,`creationTime`,createdBy,phone,officePhone,addressPhone,remark,ChanceId)
+         VALUES(DEFAULT,#{customerCode},#{customerName},#{sex},#{email},#{address},#{type},DEFAULT,DEFAULT,DEFAULT,#{createdBy},#{phone},#{officePhone},#{addressPhone},#{remark},#{chance.id})
     </insert>
     <!--修改-->
     <update id="updateCustomerResource">
@@ -25,7 +57,8 @@
             <if test="email !=null and email!=''">email=#{email},</if>
             <if test="address !=null and address!=''">address=#{address},</if>
             <if test="type !=null and type!=''">type=#{type},</if>
-            <if test="status !=null and status!=''">status=#{status},</if>
+            <if test="customerStatus !=null and customerStatus!=''">customerStatus=#{customerStatus},</if>
+            <if test="allotStatus !=null and allotStatus!=''">allotStatus=#{allotStatus},</if>
             <if test="createdBy !=null and createdBy!=''">createdBy=#{createdBy},</if>
             <if test="phone !=null and phone!=''">phone=#{phone},</if>
             <if test="officePhone !=null and officePhone!=''">officePhone=#{officePhone},</if>

@@ -87,17 +87,25 @@
                             </li>
                             <li><a><i class="fa fa-table"></i> 服务管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
+                                    <c:if test="${userSession.roleId!=2}">
                                     <li><a href="/crm/serviceCreateList">服务创建</a></li>
+                                    </c:if>
+                                    <c:if test="${userSession.roleId==1 or userSession.roleId==3}">
                                     <li><a href="/crm/serviceAllotList">服务分配</a></li>
+                                    </c:if>
+                                    <c:if test="${userSession.roleId!=2 and userSession.roleId!=3}">
                                     <li><a href="/crm/serviceDisposeList">服务处理</a></li>
                                     <li><a href="/crm/serviceBackList">服务反馈</a></li>
+                                    </c:if>
                                     <li><a href="/crm/servicePigeonholeList">服务归档</a></li>
                                     <li><a href="/crm/problemsList">常见问题管理</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-clone"></i>合同管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
+                                    <c:if test="${userSession.roleId!=2 and userSession.roleId!=3}">
                                     <li><a href="/crm/contractCreateList">合同创建</a></li>
+                                    </c:if>
                                     <li><a href="/crm/contractExamineList">合同审核</a></li>
                                     <li><a href="/crm/contractManageList">合同管理</a></li>
                                 </ul>

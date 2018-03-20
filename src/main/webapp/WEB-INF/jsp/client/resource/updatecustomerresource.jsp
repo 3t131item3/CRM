@@ -33,7 +33,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_content">
-                        <form class="form-horizontal form-label-left" action="/crm/updateaddCustomerResourceSave" method="post">
+                        <form class="form-horizontal form-label-left" action="/crm/updateCustomerResourceSave" method="post">
                             <input name="id" value="${customerResource.id}" class="form-control col-md-7 col-xs-12"required="required" type="hidden">
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customerCode">客户编码: <span class="required">*</span>
@@ -78,10 +78,13 @@
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status">状态 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customerStatus">客户状态 <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" readonly name="status" id="status" value="${customerResource.status}" required="required" class="form-control col-md-7 col-xs-12" maxlength="30">
+                                    <select id="customerStatus" name="type"  class="form-control">
+                                        <option value="正常"<c:if test="${customerResource.customerStatus=='正常'}">selected="selected"</c:if>>正常</option>
+                                        <option value="已流失"<c:if test="${customerResource.customerStatus=='已流失'}">selected="selected"</c:if>>已流失</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">

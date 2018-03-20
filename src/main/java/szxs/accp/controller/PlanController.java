@@ -123,11 +123,40 @@ public class PlanController {
         String name = new String(userName.getBytes("iso8859-1"),"utf-8");
         Plan p = planBiz.planList(new Plan(id)).get(0);
         p.setStatus("已提交");
-        User userByUserName = userBiz.getUserByUserName(name);
-        if(userByUserName!=null){
-            p.setNextHanlder(userByUserName.getUserName());
+        if(p.getCreatedBy().equals("蒋红林")&&p.getUserName().equals("蒋红林")){
+            p.setNextHanlder("韩露");
+        }else {
+            User userByUserName = userBiz.getUserByUserName(name);
+            if(userByUserName!=null){
+                p.setNextHanlder(userByUserName.getUserName());
+            }
         }
+
         planBiz.updatePlan(p);
+        return "redirect:/crm/planList";
+    }
+    /**
+     * 点击审核，跳到审核页面
+     * @return
+     */
+    @RequestMapping("/checkPlan/{id}")
+    public String checkPlan(@PathVariable int id, Model model) {
+        Plan plan = planBiz.planList(new Plan(id)).get(0);
+        model.addAttribute("plan", plan);
+        return "sales/plan/checkplan";
+    }
+    /**
+     * 点击审核
+     * @return
+     */
+    @RequestMapping("/checkPlanSave")
+    public String checkPlanSave(Plan plan,Model model) {
+        if(plan.getStatus().equals("打回")){
+            plan.setStatus("已打回");
+        } if(plan.getStatus().equals("同意")){
+            plan.setStatus("已同意");
+        }
+        planBiz.updatePlan(plan);
         return "redirect:/crm/planList";
     }
 }

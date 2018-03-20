@@ -28,7 +28,9 @@
                         <p><strong>性别:</strong><span>${customerResource.sex}</span></p>
                         <p><strong>生日:</strong><span>${customerResource.creationTime}</span></p>
                         <p><strong>类型:</strong><span>${customerResource.type}</span></p>
-                        <p><strong>状态:</strong><span>${customerResource.status}</span></p>
+                        <p><strong>客户状态:</strong><span>${customerResource.customerStatus}</span></p>
+                        <p><strong>分配状态:</strong><span>${customerResource.allotStatus}</span></p>
+                        <p><strong>分配人:</strong><span>${customerResource.chance.allotUserName}</span></p>
                         <p><strong>手机:</strong><span>${customerResource.phone}</span></p>
                         <p><strong>办公电话:</strong><span>${customerResource.officePhone}</span></p>
                         <p><strong>电子邮箱:</strong><span>${customerResource.email}</span></p>

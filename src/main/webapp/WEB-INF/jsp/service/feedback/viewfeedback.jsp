@@ -29,6 +29,9 @@
                         <p><strong>创建时间:</strong><span>${serviceBack.createTime}</span></p>
                         <p><strong>待处理人:</strong><span>${serviceBack.nextHanlder}</span></p>
                         <p><strong>服务内容:</strong><span>${serviceBack.serviceConcent}</span></p>
+                        <c:if test="${serviceBack.serviceStatus=='已反馈'}">
+                        <p><strong>反馈说明:</strong><span>${serviceBack.backRemark}</span></p>
+                        </c:if>
                     </div>
                     <div>
                         <a href="javascript:history.back(-1)" class="btn btn-primary btn-lg">返回</a>

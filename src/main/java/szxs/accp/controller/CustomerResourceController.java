@@ -4,7 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import szxs.accp.biz.ChanceBiz;
 import szxs.accp.biz.CustomerResourceBiz;
+import szxs.accp.dao.ChanceDao;
 import szxs.accp.entity.CustomerResource;
 
 import javax.annotation.Resource;
@@ -16,14 +18,15 @@ import java.util.UUID;
 public class CustomerResourceController {
     @Resource
     private CustomerResourceBiz customerResourceBiz;
-
+    @Resource
+    private ChanceBiz chanceBiz ;
     /**
      * 查询所有
      * @return
      */
     @RequestMapping("/customerResourceList")
     public String customerResourceList(Model model){
-        model.addAttribute("customerResourceList", customerResourceBiz.customerResourceList(null));
+        model.addAttribute("customerResourceList", customerResourceBiz.customerResourceAllList());
         return "client/resource/resource";
     }
     /**
@@ -54,7 +57,7 @@ public class CustomerResourceController {
     public String addCustomerResourceSave(CustomerResource customerResource){
         String code="crm-"+ UUID.randomUUID().toString().replaceAll("\\d","").replaceAll("-","").substring(0,4);
         customerResource.setCustomerCode(code);
-        customerResource.setStatus("未分配");
+        customerResource.setAllotStatus("未分配");
         customerResourceBiz.addCustomerResource(customerResource);
         return "redirect:/crm/customerResourceList";
     }
@@ -82,15 +85,26 @@ public class CustomerResourceController {
         return "redirect:/crm/customerResourceList";
     }
     /**
-     * 分配
+     * 跳转到分配页面
      * @param model
      * @return
      */
     @RequestMapping("/commitCustomerResource/{id}")
     public String commitCustomerResource(@PathVariable int id, Model model){
         CustomerResource customerResource = customerResourceBiz.customerResourceList(new CustomerResource(id)).get(0);
-        customerResource.setStatus("已分配");
+        model.addAttribute("customerResource", customerResource);
+        return "client/resource/resourceallot";
+    }
+    /**
+     * 分配保存
+     * @param model
+     * @return
+     */
+    @RequestMapping("/commitCustomerResourceSave")
+    public String commitCustomerResourceSave(CustomerResource customerResource, Model model){
+        customerResource.setAllotStatus("已分配");
         customerResourceBiz.updateCustomerResource(customerResource);
+        chanceBiz.updateChance(customerResource.getChance().getId(),customerResource.getChance().getAllotUserName());
         return "redirect:/crm/customerResourceList";
     }
     /**

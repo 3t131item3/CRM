@@ -31,6 +31,9 @@
                         <p><strong>创建时间:</strong><span>${serviceDispose.createTime}</span></p>
                         <p><strong>待处理人:</strong><span>${serviceDispose.nextHanlder}</span></p>
                         <p><strong>服务内容:</strong><span>${serviceDispose.serviceConcent}</span></p>
+                    <c:if test="${serviceDispose.serviceStatus=='已处理'}">
+                        <p><strong>处理说明:</strong><span>${serviceDispose.disposeRemark}</span></p>
+                    </c:if>
                     </div>
                     <div>
                         <a href="javascript:history.back(-1)" class="btn btn-primary btn-lg">返回</a>

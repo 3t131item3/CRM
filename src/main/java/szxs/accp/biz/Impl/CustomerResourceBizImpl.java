@@ -13,6 +13,10 @@ public class CustomerResourceBizImpl implements CustomerResourceBiz {
     @Resource(name = "customerResourceDao")
     private CustomerResourceDao customerResourceDao;
 
+    public List<CustomerResource> customerResourceAllList() {
+        return customerResourceDao.customerResourceAllList();
+    }
+
     public List<CustomerResource> customerResourceList(CustomerResource customerResource) {
         return customerResourceDao.customerResourceList(customerResource);
     }

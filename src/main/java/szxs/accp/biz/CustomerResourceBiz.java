@@ -9,6 +9,11 @@ public interface CustomerResourceBiz {
      * 根据条件查询相应内容
      * @return
      */
+    List<CustomerResource> customerResourceAllList();
+    /**
+     * 根据条件查询相应内容
+     * @return
+     */
     List<CustomerResource> customerResourceList(CustomerResource customerResource);
 
     /**

@@ -25,14 +25,6 @@
             margin-left:270px;
             margin-top: 8px;
         }
-      /*  .idFather{
-            position: relative;
-        }
-        #userId{
-            position: absolute;
-            left: 260px;
-            top: 8px;
-        }*/
     </style>
 
 </head>

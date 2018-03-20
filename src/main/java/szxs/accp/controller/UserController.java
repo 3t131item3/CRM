@@ -44,6 +44,13 @@ public class UserController {
     /**
      * 登录功能
      */
+    @RequestMapping("crm/welcome")
+    public String welcome() {
+        return "welcome";
+    }
+    /**
+     * 登录功能
+     */
     @RequestMapping("/loginsave")
     public String login(User u,Model model,HttpSession session){
         u.setUserPassword(Md5.md5Password(u.getUserPassword()));

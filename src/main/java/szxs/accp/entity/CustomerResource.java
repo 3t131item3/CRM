@@ -11,23 +11,40 @@ public class CustomerResource {
     private String email;
     private String address ;
     private String type;
-    private String status;//客户状态
+    private String customerStatus;//客户状态
+    private String allotStatus;
     private String creationTime;//注册时间
     private String createdBy ;//录入人
     private String phone ;
     private String officePhone ;
     private String addressPhone ;//家庭电话
     private String remark ;
-
+    private Chance chance;
     public CustomerResource() { }
 
     public CustomerResource(int id) {
         this.id = id;
     }
 
-    public CustomerResource(String customerName, String status) {
+    public CustomerResource(String customerName, String allotStatus) {
         this.customerName = customerName;
-        this.status = status;
+        this.allotStatus = allotStatus;
+    }
+
+    public String getCustomerStatus() {
+        return customerStatus;
+    }
+
+    public void setCustomerStatus(String customerStatus) {
+        this.customerStatus = customerStatus;
+    }
+
+    public String getAllotStatus() {
+        return allotStatus;
+    }
+
+    public void setAllotStatus(String allotStatus) {
+        this.allotStatus = allotStatus;
     }
 
     public int getId() {
@@ -86,13 +103,6 @@ public class CustomerResource {
         this.type = type;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public String getCreationTime() {
         return creationTime;
@@ -140,5 +150,13 @@ public class CustomerResource {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public Chance getChance() {
+        return chance;
+    }
+
+    public void setChance(Chance chance) {
+        this.chance = chance;
     }
 }

@@ -47,7 +47,8 @@
                                 <th>客户姓名</th>
                                 <th>性别</th>
                                 <th>类型</th>
-                                <th>状态</th>
+                                <th>客户状态</th>
+                                <th>分配状态</th>
                                 <th>手机号</th>
                                 <th>录入时间</th>
                                 <th>录入人</th>
@@ -62,15 +63,18 @@
                                 <td><c:out value="${customerResource.customerName}"/></td>
                                 <td>${customerResource.sex}</td>
                                 <td>${customerResource.type}</td>
-                                <td>${customerResource.status}</td>
+                                <td>${customerResource.customerStatus}</td>
+                                <td>${customerResource.allotStatus}</td>
                                 <td><c:out value="${customerResource.phone}"/></td>
                                 <td>${customerResource.creationTime}</td>
                                 <td>${customerResource.createdBy}</td>
                                 <td>
                                     <a href="/crm/updateCustomerResource/${customerResource.id}" class="btn btn-warning btn-xs">修改</a>
                                     <a href="/crm/viewCustomerResource/${customerResource.id}" class="btn btn-success btn-xs">查看</a>
-                                    <c:if test="${customerResource.status=='未分配'}">
+                                    <c:if test="${userSession.roleId==1 or userSession.roleId==2 or userSession.roleId==3}">
+                                    <c:if test="${customerResource.allotStatus=='未分配'}">
                                         <a href="/crm/commitCustomerResource/${customerResource.id}" class="btn btn-success btn-xs">分配</a>
+                                    </c:if>
                                     </c:if>
                                 </td>
                             </tr>

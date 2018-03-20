@@ -22,18 +22,13 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <form action="/crm/listNoticeAll"  method="post" class="navbar-form navbar" >
-                            <div class="form-group f-group">
-                                <strong class="h4">公告名称:</strong>
-                                <input type="text" placeholder="Search" class="form-control input-md roleName" name="title" value="${title}" maxlength="30" >
-                            </div>
-                            <input type="submit" value="查询" class="btn btn-success">
-                        </form>
+
                     </div>
                     <div class="x_content">
-                        <strong class="h3">公告信息列表</strong>
+                        <strong class="h3" style="color: #761c19;display: inline-block;margin-top: -10px">公告信息列表</strong>
+                        <c:if test="${userSession.id==2 or userSession.id==3}">
                         <a href="/crm/addNotice" class="btn btn-success" style="float:right">添加</a>
-
+                        </c:if>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -58,9 +53,11 @@
                                     <td><c:out value="${notice.content}" escapeXml="true"/></td>
                                     <td>
 
-                                        <a href="/crm/modifyNotice/${notice.id}" class="btn btn-info btn-xs">修改</a>
-                                        <a href="/crm/noticeview/${notice.id}" class="btn btn-primary btn-xs">查看</a>
-                                        <a href="javascript:;" id=${notice.id} username=${notice.title} class="btn btn-danger btn-xs deleteUser">删除</a>
+                                            <a href="/crm/noticeview/${notice.id}" class="btn btn-primary btn-xs">查看</a>
+                                        <c:if test="${userSession.id==2 or userSession.id==3}">
+                                             <a href="/crm/modifyNotice/${notice.id}" class="btn btn-info btn-xs">修改</a>
+                                             <a href="javascript:;" id=${notice.id} username=${notice.title} class="btn btn-danger btn-xs deleteUser">删除</a>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </c:forEach>

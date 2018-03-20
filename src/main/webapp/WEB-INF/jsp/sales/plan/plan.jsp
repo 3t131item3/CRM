@@ -20,16 +20,9 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <form action="/crm/searchPlanByMonth" method="post" class="navbar-form navbar" >
-                            <div class="form-group f-group">
-                                <strong class="h4">月份:</strong>
-                                <input type="text" value="${month}"  name="month" placeholder="Search" class="form-control input-md roleName"maxlength="30">
-                            </div>
-                            <input type="submit" value="查询" class="btn btn-success">
-                        </form>
                     </div>
                     <div class="x_content">
-                        <strong class="h3">销售计划信息列表</strong>
+                        <strong class="h3" style="color: #761c19">销售计划信息列表</strong>
                         <a href="/crm/addPlan" class="btn btn-primary" style="float:right">添加</a>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
@@ -66,6 +59,13 @@
                                     <a href="/crm/viewPlan/${plan.id}" class="btn btn-success btn-xs">查看</a>
                                     <c:if test="${plan.status=='新创建'}">
                                     <a href="javascript:;" planId="${plan.id}" planName="${plan.userName}" class="btn btn-danger btn-xs deletePlan">删除</a>
+                                    </c:if>
+                                    <c:if test="${userSession.id==1 or userSession.id==2 or userSession.id==3 }">
+                                    <c:if test="${plan.status=='已提交' and plan.nextHanlder!=null}">
+                                        <%--<c:if test="${userSession.id!=3 and plan.nextHanlder!='韩露'}">--%>
+                                        <a href="/crm/checkPlan/${plan.id}" class="btn btn-danger btn-xs">审核</a>
+                                        <%--</c:if>--%>
+                                    </c:if>
                                     </c:if>
                                 </td>
                             </tr>
