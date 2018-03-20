@@ -56,7 +56,7 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" id="phone" name="phone"  maxlength="30"    class="form-control col-md-7 col-xs-7">
-                                    <span id="msg" class="col-md-3 col-xs-3"></span>
+                                    <span id="msg" class="col-md-6 col-xs-6">手机号必须以13、15、17、18开头</span>
                                 </div>
                             </div>
                             <div class="item form-group">

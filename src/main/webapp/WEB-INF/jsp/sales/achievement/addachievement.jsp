@@ -57,6 +57,7 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="number" id="number" name="grade" required="required" data-validate-minmax="-10,100" class="form-control col-md-7 col-xs-12"maxlength="30">
+                                    <span id="msg" class="col-md-5 col-xs-12"></span>
                                 </div>
                             </div>
 
@@ -91,6 +92,28 @@
 <script src="${pageContext.request.contextPath}/js/addemp.js"></script>
 <script src="${pageContext.request.contextPath}/js/validator.js"></script>
 <script>
+    var number =null;
+    $(function(){
+        number=$("#number");
+        $("#number").on("blur",function(){
+            $.ajax({
+                type:"get",
+                url:path+"/crm/result/"+number.val(),
+                data:{number:number.val()},
+                dataType:"json",
+                success:function(data){
+                    if (data.number=="true"){
+                        validateTip(number.next(),{"color":"green"}," ",true);
+                    }else{
+                        validateTip(number.next(),{"color":"red"},"绩效不能是负数",false);
+                    }
+                }
+            })
+        })
+    })
+
+</script>
+<script>
 
 
 
@@ -115,8 +138,9 @@
         if (!validator.checkAll($(this))) {
             submit = false;
         }
-
-        if (submit)
+alert(submit);
+        alert($("#number").attr("validateStatus")=="true");
+        if (submit && $("#number").attr("validateStatus")=="true")
             this.submit();
 
         return false;

@@ -19,13 +19,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <form action="/crm/listAll" method="post" class="navbar-form navbar" >
-                            <div class="form-group f-group">
-                                <strong class="h4">员工姓名:</strong>
-                                <input type="text"  maxlength="30" placeholder="Search" class="form-control input-md roleName" name="userName">
-                            </div>
-                            <input type="submit" value="查询" class="btn btn-success">
-                        </form>
+
                     </div>
                     <div class="x_content">
                         <strong class="h3">员工信息列表</strong>
